@@ -359,7 +359,7 @@
         }
         .product-btn:hover { background-color: #333; }
 
-        /* --- 估價系統 --- */
+        /* --- 估價與其他共用樣式 --- */
         .wizard-container {
             max-width: 600px;
             margin: 0 auto 60px;
@@ -408,6 +408,21 @@
         .bottom-cta { background-color: black; color: white; padding: 60px 20px; }
         .cta-buttons { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         footer { background-color: #111; color: #666; padding: 20px; text-align: center; font-size: 0.9em; }
+
+        /* Google Review Button */
+        .google-review-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #4285F4;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
+        .google-review-btn:hover { background-color: #357ae8; transform: translateY(-2px); }
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2em; }
@@ -510,11 +525,16 @@
 
         <section id="faq" class="section bg-light">
             <h2 class="section-title">客戶真實好評 & 常見問題</h2>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
                 <div class="review-box">"半夜兩點被反鎖在外面，還好小李師傅接電話超快，真的不到20分鐘就到了！"<div style="margin-top: 15px; font-weight: bold; text-align: right;">- 板橋 陳先生</div></div>
                 <div class="review-box">"安裝指紋鎖非常細心，還教我們老人家怎麼設定，施工完地板也清得很乾淨！"<div style="margin-top: 15px; font-weight: bold; text-align: right;">- 中和 林小姐</div></div>
             </div>
-            <div class="faq-list">
+            
+            <a href="https://maps.app.goo.gl/UEi7xqQkTYTouMM87" target="_blank" class="google-review-btn">
+                <i class="fab fa-google"></i> 前往 Google Maps 查看更多五星好評
+            </a>
+
+            <div class="faq-list" style="margin-top: 50px;">
                 <div class="faq-item"><div class="faq-q">Q: 請問開鎖或換鎖大概多少錢？</div><div class="faq-a">我們會依據鎖的種類報價。請放心，我們堅持「現場確認後先報價，您同意才動工」。</div></div>
                 <div class="faq-item"><div class="faq-q">Q: 請問半夜有服務嗎？</div><div class="faq-a">有的！我們提供 24 小時緊急救援服務，雙北地區隨時待命。</div></div>
             </div>
@@ -597,7 +617,7 @@
     <div id="electronic-page" class="sub-page">
         <div class="page-header">
             <a class="back-btn" onclick="window.location.hash=''">🔙 返回首頁</a>
-            <h2>耶魯 Yale 熱門電子鎖款式</h2>
+            <h2>熱門智慧電子鎖款式</h2>
             <p>嚴選國際大廠，含安裝、教學及原廠保固</p>
         </div>
         <div class="product-grid" id="electronic-list"></div>
@@ -682,10 +702,10 @@
             'ydm7116a': {
                 id: 'ydm7116a',
                 title: 'Yale YDM7116A 把手式',
-                img: 'https://placehold.co/400x300?text=Yale+YDM7116A', // 暫用 placeholder
+                img: 'https://placehold.co/400x300?text=Yale+YDM7116A',
                 tag: 'Yale 經典款',
-                listPrice: 20000, // 假設原價
-                offerPrice: '請洽詢', // 未提供具體價格
+                listPrice: 20000, 
+                offerPrice: '請洽詢',
                 desc: '經典把手設計，長輩使用最習慣。黑色/玫瑰金可選，功能穩定耐用。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙', '語音導覽設定，操作簡單', '強制上鎖與入侵警報功能']
             },
@@ -708,6 +728,89 @@
                 offerPrice: '請洽詢',
                 desc: '簡約黑色推拉式設計，美觀大方。多種開啟方式，滿足全家需求。',
                 features: ['指紋 / 密碼 / 鑰匙 / 卡片', '熱感應觸控面板，不留指紋', '入侵/破壞警報功能']
+            },
+            // --- Philips ---
+            'philips-9300': {
+                id: 'philips-9300',
+                title: 'Philips 9300 (平行輸入)',
+                img: 'https://placehold.co/400x300?text=Philips+9300',
+                tag: 'Philips 頂級款',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '全自動推拉式，支援物聯網連線。頂級工藝設計，尊榮享受。',
+                features: ['指紋 / 密碼 / 卡片 / 鑰匙 / App', '全自動鎖體', '室內感應開門']
+            },
+            'philips-790fvp': {
+                id: 'philips-790fvp',
+                title: 'Philips 790FVP (平行輸入)',
+                img: 'https://placehold.co/400x300?text=Philips+790FVP',
+                tag: 'Philips 視訊款',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '內建電子貓眼與視訊通話功能，隨時掌握門外動態。',
+                features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話', '大螢幕貓眼']
+            },
+            // --- Waferlock ---
+            'wafer-l600': {
+                id: 'wafer-l600',
+                title: '維夫拉克 Waferlock L600',
+                img: 'https://placehold.co/400x300?text=Waferlock+L600',
+                tag: 'Waferlock 四合一',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '台灣電子鎖第一品牌，適合台灣氣候與門扇。三合一/四合一功能齊全。',
+                features: ['指紋 / 密碼 / 卡片 / 鑰匙', 'IP54 防塵防水', '中文語音提示']
+            },
+            'wafer-l900': {
+                id: 'wafer-l900',
+                title: '維夫拉克 Waferlock L900',
+                img: 'https://placehold.co/400x300?text=Waferlock+L900',
+                tag: 'Waferlock 推拉款',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '時尚推拉設計，開門更直覺。',
+                features: ['指紋 / 密碼 / 卡片 / 鑰匙', '推拉式把手', '防高壓電擊']
+            },
+            'wafer-l396': {
+                id: 'wafer-l396',
+                title: '維夫拉克 Waferlock L396',
+                img: 'https://placehold.co/400x300?text=Waferlock+L396',
+                tag: 'Waferlock 輔助鎖',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '二合一/三合一輔助鎖，輕巧便利。',
+                features: ['密碼 / 卡片 / 鑰匙 (選配)', '適合辦公室/租屋']
+            },
+            'wafer-l376': {
+                id: 'wafer-l376',
+                title: '維夫拉克 Waferlock L376',
+                img: 'https://placehold.co/400x300?text=Waferlock+L376',
+                tag: 'Waferlock 玻璃門',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '專為玻璃門設計，免鑽孔安裝。',
+                features: ['密碼 / 卡片 / 遙控(選配)', '玻璃門專用']
+            },
+            // --- CP值款 ---
+            'cp-r1': {
+                id: 'cp-r1',
+                title: '高CP值款 R1',
+                img: 'https://placehold.co/400x300?text=R1+電子鎖',
+                tag: '小資首選',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '功能實用，價格親民，房東與租屋族的最愛。',
+                features: ['指紋 / 密碼 / 鑰匙', '基本防盜功能', '高性價比']
+            },
+            'cp-r9': {
+                id: 'cp-r9',
+                title: '高CP值款 R9 (人臉辨識)',
+                img: 'https://placehold.co/400x300?text=R9+人臉鎖',
+                tag: '人臉入門款',
+                listPrice: null,
+                offerPrice: '請洽詢',
+                desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。',
+                features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別', '大螢幕貓眼']
             }
         };
 
@@ -789,7 +892,7 @@
             const currentUrl = window.location.href;
 
             container.innerHTML = `
-                <div class="page-header"><a class="back-btn" onclick="window.location.hash='electronic-page'">🔙 返回列表</a></div>
+                <div class="page-header"><a class="back-btn" onclick="returnToElectronicList()">🔙 返回列表</a></div>
                 <div class="detail-container">
                     <div class="detail-header">
                         <div class="detail-img-box">
@@ -834,6 +937,7 @@
             hideAllPages();
             resetWizard();
             document.getElementById('home-view').style.display = 'block';
+            history.pushState("", document.title, window.location.pathname); // 清除 hash
             window.scrollTo(0, 0);
         }
 
@@ -889,6 +993,12 @@
         function shareToLine(title, url) {
             const shareUrl = `https://line.me/R/msg/text/?${encodeURIComponent(title + " 推薦給你：\n" + url)}`;
             window.open(shareUrl, '_blank');
+        }
+
+        // 新增：強制返回電子鎖列表功能
+        function returnToElectronicList() {
+            // 切換 Hash 到列表頁
+            window.location.hash = 'electronic-page';
         }
 
         // --- 估價系統 (Wizard) 邏輯 ---
