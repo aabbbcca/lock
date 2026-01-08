@@ -668,7 +668,7 @@
             'byyou-pro': {
                 id: 'byyou-pro',
                 title: 'Yale ByYou Pro 指紋卡片',
-                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou.png',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou.PNG',
                 tag: 'Yale 時尚款',
                 listPrice: 30000,
                 offerPrice: 25399,
@@ -784,7 +784,7 @@
             const currentUrl = window.location.href;
 
             container.innerHTML = `
-                <div class="page-header"><a class="back-btn" onclick="window.history.back()">🔙 返回列表</a></div>
+                <div class="page-header"><a class="back-btn" onclick="returnToElectronicList()">🔙 返回列表</a></div>
                 <div class="detail-container">
                     <div class="detail-header">
                         <div class="detail-img-box">
@@ -881,6 +881,12 @@
             window.open(shareUrl, '_blank');
         }
 
+        // 新增：強制返回電子鎖列表功能
+        function returnToElectronicList() {
+            showPage('electronic-page');
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
+
         // --- 估價系統 (Wizard) 略 (保持之前代碼) ---
         // ... (此處保留原有的估價邏輯代碼，selectType, generateStep2Options, calculatePrice 等) ...
         // 為了節省篇幅，這部分邏輯與上一個版本相同，已整合在完整 HTML 中
@@ -941,6 +947,7 @@
         }
 
         function prevStep(current) {
+            // 簡單的返回邏輯
             nextStep(current - 1);
         }
         
