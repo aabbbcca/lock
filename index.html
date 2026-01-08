@@ -84,23 +84,23 @@
         .bg-light { background-color: var(--bg-light); }
         .section-title { font-size: 2em; margin-bottom: 40px; font-weight: bold; }
         
-        /* --- Hero 區塊 (更新背景圖設定) --- */
+        /* --- Hero 區塊 --- */
         .hero {
-            /* 這裡設定背景圖片，請將 url 換成您的照片網址 
-            https://raw.githubusercontent.com/帳號/專案/master/檔案.png
-            https://raw.githubusercontent.com/aabbbcca/lock/main/2.png */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/aabbbcca/lock/main/2.png');
-            background-size: cover;
-            background-position: center;
-            background-color: #333; /* 圖片載入前的底色 */
+            /* 背景圖片設定：建議使用 16:9 或寬版照片 */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x600?text=請放您的形象照');
+            background-size: cover; 
+            background-position: center top; /* 重點通常在上面 (臉部)，避免被切頭 */
+            background-color: #333;
             color: white;
-            padding: 100px 20px; /* 增加高度讓照片更明顯 */
-            text-align: left;
+            padding: 100px 20px 60px;
+            text-align: center; /* 改為置中看起來更平衡 */
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
-        .hero-content { max-width: 1000px; width: 100%; }
+        .hero-content { max-width: 1000px; width: 100%; margin-bottom: 30px; }
         .hero h1 { font-size: 3em; margin-bottom: 10px; line-height: 1.2; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
         .hero h1 span { color: var(--primary-yellow); }
         .hero-sub { color: #f0f0f0; margin-bottom: 30px; font-size: 1.1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
@@ -114,8 +114,23 @@
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
             transition: transform 0.2s;
+            margin-bottom: 40px;
         }
         .hero-btn:hover { transform: scale(1.05); }
+
+        /* 向下箭頭動畫 */
+        .scroll-down-arrow {
+            color: white;
+            font-size: 2em;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
 
         /* --- 首頁服務卡片 --- */
         .services-grid {
@@ -143,10 +158,12 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         
+        /* 修改這裡：使用 contain 讓照片完整顯示 */
         .real-img {
             width: 100%;
             height: 250px; 
-            object-fit: cover; 
+            object-fit: contain; /* 確保整張照片都看得到，不會被裁切 */
+            background-color: #f8f8f8; /* 照片旁邊的留白補上淺灰色，比較好看 */
             display: block;
         }
         
@@ -380,7 +397,7 @@
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2em; }
-            .hero { text-align: center; }
+            .hero { text-align: center; padding-top: 120px; }
             .hero-btn { width: 100%; box-sizing: border-box; }
             .option-grid { grid-template-columns: 1fr; }
             /* 手機版隱藏導覽列文字，但保留右上角按鈕 */
@@ -403,11 +420,10 @@
             <a onclick="showPage('electronic-page')">電子鎖安裝</a>
             <a onclick="showPage('traditional-page')">傳統鎖更換</a>
             <a onclick="showPage('unlock-page')">開鎖服務</a>
-            <a onclick="showPage('examples-page')">安裝實例</a> <!-- 新增 -->
+            <a onclick="showPage('examples-page')">安裝實例</a>
             <a onclick="showHomeScroll('faq')">常見問題</a>
         </nav>
         <div class="header-actions">
-            <!-- 新增 LINE 按鈕 -->
             <a href="https://line.me/ti/p/_w85tXo5KV" target="_blank" class="cta-btn line-btn">
                 <i class="fab fa-line"></i> LINE
             </a>
@@ -424,29 +440,33 @@
             <div class="hero-content">
                 <h1>台北新北首選！<br><span>24小時</span> 開鎖、換鎖、電子鎖</h1>
                 <p class="hero-sub">服務範圍：永和、中和、新店、文山、板橋及雙北全區<br>價格透明 | 完整售後 | 快速到府 | 專業技術</p>
-                <a href="tel:0903109970" class="hero-btn"><i class="fas fa-phone-alt"></i> 點擊撥打 0903-109-970</a>
-                <p style="margin-top:15px; font-size:0.9em; color:#f0f0f0;">解決您的 換鎖、開鎖、門鎖 問題</p>
+                <!-- 更新按鈕文字為 取得報價 -->
+                <a href="tel:0903109970" class="hero-btn"><i class="fas fa-phone-alt"></i> 點擊撥打 (取得報價)</a>
+                <p style="margin-top:10px; font-size:0.9em; color:#f0f0f0;">解決您的 換鎖、開鎖、門鎖 問題</p>
+            </div>
+            <!-- 向下箭頭 -->
+            <div class="scroll-down-arrow" onclick="showHomeScroll('services')">
+                <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
         <!-- 服務項目 -->
         <section id="services" class="section bg-light">
-            <h2 class="section-title">我們的服務項目</h2>
+            <h2 class="section-title">服務項目</h2>
             <div class="services-grid">
                 
                 <div class="service-card" onclick="showPage('electronic-page')">
-                    <!-- 改成圖片標籤：請更換 src 網址 -->
-                    <img src="https://placehold.co/400x300?text=電子鎖示意圖" class="real-img" alt="電子鎖安裝">
+                    <!-- 圖片改為 contain 完整顯示 -->
+                    <img src="https://placehold.co/400x300?text=電子鎖安裝" class="real-img" alt="電子鎖安裝">
                     <div class="card-body">
                         <h3>智慧電子鎖安裝</h3>
-                        <p style="color: #666; font-size: 0.9em;">指紋、密碼、人臉辨識。點擊查看 Philips、Samsung 各大品牌型號與價格。</p>
+                        <p style="color: #666; font-size: 0.9em;">卡片、密碼、指紋、人臉辨識、藍芽、遠端、掌靜脈、機械鑰匙。<br>philips、YALE各大品牌型號與價格。</p>
                         <span style="color: #007bff; font-size: 0.9em; font-weight: bold;">查看價目表 &rarr;</span>
                     </div>
                 </div>
                 
                 <div class="service-card" onclick="showPage('traditional-page')">
-                     <!-- 改成圖片標籤：請更換 src 網址 -->
-                    <img src="https://placehold.co/400x300?text=傳統鎖示意圖" class="real-img" alt="傳統鎖更換">
+                    <img src="https://placehold.co/400x300?text=傳統鎖更換" class="real-img" alt="傳統鎖更換">
                     <div class="card-body">
                         <h3>傳統門鎖更換</h3>
                         <p style="color: #666; font-size: 0.9em;">三段鎖、輔助鎖、水平把手。點擊查看傳統機械鎖款式與價格。</p>
@@ -454,14 +474,13 @@
                     </div>
                 </div>
                 
-                <!-- 3. 開鎖服務 (點擊進入估價頁) -->
+                <!-- 3. 開鎖服務 -->
                 <div id="unlock-service" class="service-card emergency-card" onclick="showPage('unlock-page')">
                     <div class="emergency-badge">緊急</div>
-                     <!-- 改成圖片標籤：請更換 src 網址 -->
-                    <img src="https://placehold.co/400x300?text=緊急開鎖&bg=e74c3c&color=fff" class="real-img" alt="24H緊急開鎖">
+                    <img src="https://placehold.co/400x300?text=24H緊急開鎖&bg=e74c3c&color=fff" class="real-img" alt="24H緊急開鎖">
                     <div class="card-body">
                         <h3>24H 緊急開鎖</h3>
-                        <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、反鎖屋內。點擊進入 <b>線上自動估價</b>。</p>
+                        <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、機車鑰匙遺失。<br>點擊進入 <b>線上自動估價</b>。</p>
                         <span style="color: #e74c3c; font-size: 0.9em; font-weight: bold;">立即估價 &rarr;</span>
                     </div>
                 </div>
@@ -498,7 +517,7 @@
             </div>
         </section>
 
-        <!-- 首頁底部 CTA (依照需求恢復) -->
+        <!-- 首頁底部 CTA -->
         <section class="bottom-cta section">
             <h2>還在猶豫門鎖問題？現在就諮詢！</h2>
             <div class="cta-buttons">
@@ -508,7 +527,7 @@
         </section>
     </main>
 
-    <!-- ================== 開鎖服務估價頁 (New Unlock Wizard) ================== -->
+    <!-- ================== 開鎖服務估價頁 (Updated) ================== -->
     <div id="unlock-page" class="sub-page">
         <div class="page-header">
             <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
@@ -517,7 +536,7 @@
         </div>
 
         <div class="wizard-container">
-            <!-- 步驟 1: 選擇類型 (新增其他選項) -->
+            <!-- 步驟 1: 選擇類型 -->
             <div id="step-1" class="step-container active">
                 <div class="wizard-title">請問您需要開啟的是？</div>
                 <div class="option-grid">
@@ -528,7 +547,7 @@
                 </div>
             </div>
 
-            <!-- 步驟 2: 細節 (動態) -->
+            <!-- 步驟 2: 細節 -->
             <div id="step-2" class="step-container">
                 <div class="wizard-title">請問更詳細的資訊？</div>
                 <div id="dynamic-options" class="option-grid">
@@ -545,9 +564,8 @@
                 </div>
 
                 <div class="control-btns">
-                    <!-- 修正 BUG：上一步應回到步驟 1，參數設為 2 (返回前一步) -->
+                    <!-- 修正 BUG：上一步回到步驟 1 -->
                     <button class="btn-prev" onclick="prevStep(2)">上一步</button>
-                    <!-- 選擇後自動跳下一步，這裡不需要下一步按鈕 -->
                 </div>
             </div>
 
@@ -555,6 +573,23 @@
             <div id="step-3" class="step-container">
                 <div class="wizard-title">最後，請問地點環境？</div>
                 
+                <!-- 新增地址輸入 -->
+                <div class="input-group">
+                    <label>您的地址 (用於計算距離)</label>
+                    <input type="text" id="address-input" placeholder="例如：新北市永和區中正路100號">
+                </div>
+
+                <div class="input-group">
+                    <label>距離小李開鎖 (公里)</label>
+                    <div style="display:flex; gap:10px;">
+                        <input type="number" id="distance-input" placeholder="請看地圖填入數字" step="0.1" onchange="calculatePrice()">
+                        <button onclick="openGoogleMaps()" style="background:#4285F4; color:white; border:none; border-radius:5px; padding:0 15px; cursor:pointer; font-size:0.9em; flex-shrink:0;">
+                            <i class="fas fa-map-marker-alt"></i> 開啟地圖查看公里數
+                        </button>
+                    </div>
+                    <div class="helper-text">系統會幫您自動導航，請填入地圖顯示的公里數。<br>3公里內不加價，超過每公里 +100元。</div>
+                </div>
+
                 <div class="input-group">
                     <label>現在時段 (系統自動判斷)</label>
                     <select id="time-select" onchange="calculatePrice()">
@@ -568,21 +603,10 @@
                 <div class="input-group">
                     <label>樓層情況</label>
                     <select id="floor-select" onchange="calculatePrice()">
-                        <option value="0">有電梯 / 1-4樓 (不加價)</option>
+                        <option value="0">有電梯 / 無電梯1-4樓 (不加價)</option>
                         <option value="100">公寓爬樓梯 5樓 (+$100)</option>
                         <option value="200">公寓爬樓梯 6樓 (+$200)</option>
                     </select>
-                </div>
-
-                <div class="input-group">
-                    <label>距離小李開鎖 (公里)</label>
-                    <div style="display:flex; gap:10px;">
-                        <input type="number" id="distance-input" placeholder="例如: 3.5" step="0.1" onchange="calculatePrice()">
-                        <button onclick="openGoogleMaps()" style="background:#4285F4; color:white; border:none; border-radius:5px; padding:0 15px; cursor:pointer;">
-                            <i class="fas fa-map-marker-alt"></i> 開啟地圖測距
-                        </button>
-                    </div>
-                    <div class="helper-text">3公里內不加價，超過每公里 +100元</div>
                 </div>
 
                 <div class="price-result">
@@ -592,7 +616,6 @@
                 </div>
 
                 <div class="control-btns">
-                    <!-- 修正 BUG：上一步應回到步驟 2，參數設為 3 -->
                     <button class="btn-prev" onclick="prevStep(3)">上一步</button>
                     <button class="btn-next" onclick="finishWizard()">確認呼叫</button>
                 </div>
@@ -618,7 +641,6 @@
             </div>
         </div>
 
-        <!-- 底部 CTA (Restore) -->
         <section class="bottom-cta section">
             <h2>需要人工報價？</h2>
             <div class="cta-buttons">
@@ -637,7 +659,6 @@
         </div>
         
         <div class="product-grid">
-            <!-- 產品 1 -->
             <div class="product-card">
                 <div class="product-img-container">
                     <span class="brand-tag">Philips 飛利浦</span>
@@ -655,8 +676,7 @@
                     <a href="tel:0903109970" class="product-btn">電話詢問優惠價</a>
                 </div>
             </div>
-
-            <!-- 產品 2 -->
+            <!-- 其他電子鎖卡片省略，程式碼會包含完整的 -->
             <div class="product-card">
                 <div class="product-img-container">
                     <span class="brand-tag">Samsung 三星</span>
@@ -674,8 +694,6 @@
                     <a href="tel:0903109970" class="product-btn">電話詢問優惠價</a>
                 </div>
             </div>
-
-            <!-- 產品 3 -->
             <div class="product-card">
                 <div class="product-img-container">
                     <span class="brand-tag">Yale 耶魯</span>
@@ -693,8 +711,6 @@
                     <a href="tel:0903109970" class="product-btn">電話詢問優惠價</a>
                 </div>
             </div>
-            
-            <!-- 產品 4 -->
             <div class="product-card">
                  <div class="product-img-container">
                     <span class="brand-tag">超值首選</span>
@@ -713,7 +729,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="bottom-cta section">
             <h2>找不到喜歡的型號？</h2>
             <div class="cta-buttons">
@@ -723,143 +738,45 @@
         </div>
     </div>
 
-    <!-- ================== 傳統鎖產品頁 ================== -->
+    <!-- ================== 傳統鎖產品頁 (保持不變，僅微調圖片 CSS) ================== -->
     <div id="traditional-page" class="sub-page">
         <div class="page-header">
             <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
             <h2>精選傳統機械門鎖</h2>
             <p>堅固耐用、經濟實惠，各式房門、大門鎖具更換</p>
         </div>
-
         <div class="product-grid">
-            <!-- 產品 1: 三段/四段鎖 (更新標籤) -->
+            <!-- 產品卡片與之前相同，僅 CSS class "real-img" 生效 -->
             <div class="product-card">
-                <div class="product-img-container">
-                    <span class="brand-tag">最高cp值</span>
-                     <!-- 改成圖片標籤：請更換 src 網址 -->
-                    <img src="https://placehold.co/400x300?text=三段鎖" class="real-img" alt="三段鎖/四段鎖">
-                </div>
-                <div class="product-body">
-                    <div class="product-title">三段鎖 / 四段鎖</div>
-                    <div class="product-desc">台灣製造，結構厚實。公寓大門最常見的選擇，CP值高。</div>
-                    <ul class="product-features">
-                        <li style="color:#e74c3c; font-weight:bold;">電白三段鎖：NT$ 2,000</li>
-                        <li style="color:#e74c3c; font-weight:bold;">不鏽鋼三段鎖：NT$ 2,500~2,700</li>
-                        <li style="color:#e74c3c; font-weight:bold;">不鏽鋼四段鎖：NT$ 3,000</li>
-                        <li>附 3 支原廠鑰匙</li>
-                    </ul>
-                    <a href="tel:0903109970" class="product-btn">預約安裝</a>
-                </div>
+                <div class="product-img-container"><span class="brand-tag">最高cp值</span><img src="https://placehold.co/400x300?text=三段鎖" class="real-img" alt="三段鎖/四段鎖"></div>
+                <div class="product-body"><div class="product-title">三段鎖 / 四段鎖</div><div class="product-desc">台灣製造，結構厚實。公寓大門最常見的選擇，CP值高。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">電白三段鎖：NT$ 2,000</li><li style="color:#e74c3c; font-weight:bold;">不鏽鋼三段鎖：NT$ 2,500~2,700</li><li style="color:#e74c3c; font-weight:bold;">不鏽鋼四段鎖：NT$ 3,000</li><li>附 3 支原廠鑰匙</li></ul><a href="tel:0903109970" class="product-btn">預約安裝</a></div>
             </div>
-
-            <!-- 產品 2: 葉片五段鎖 (更新標籤) -->
             <div class="product-card">
-                 <div class="product-img-container">
-                    <span class="brand-tag">防盜首選</span>
-                     <!-- 改成圖片標籤：請更換 src 網址 -->
-                    <img src="https://placehold.co/400x300?text=葉片鎖" class="real-img" alt="葉片五段鎖">
-                </div>
-                <div class="product-body">
-                    <div class="product-title">葉片五段鎖 (防盜升級)</div>
-                    <div class="product-desc">葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。</div>
-                    <ul class="product-features">
-                        <li style="color:#e74c3c; font-weight:bold;">小安住：NT$ 3,800</li>
-                        <li style="color:#e74c3c; font-weight:bold;">大安住：NT$ 4,500</li>
-                        <li>結構精密，難以被技術開啟</li>
-                        <li>附原廠伸縮鑰匙</li>
-                    </ul>
-                    <a href="tel:0903109970" class="product-btn">預約安裝</a>
-                </div>
+                 <div class="product-img-container"><span class="brand-tag">防盜首選</span><img src="https://placehold.co/400x300?text=葉片鎖" class="real-img" alt="葉片五段鎖"></div>
+                <div class="product-body"><div class="product-title">葉片五段鎖 (防盜升級)</div><div class="product-desc">葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">小安住：NT$ 3,800</li><li style="color:#e74c3c; font-weight:bold;">大安住：NT$ 4,500</li><li>結構精密，難以被技術開啟</li><li>附原廠伸縮鑰匙</li></ul><a href="tel:0903109970" class="product-btn">預約安裝</a></div>
             </div>
-
-            <!-- 產品 3: 輔助鎖 (更新描述) -->
             <div class="product-card">
-                 <div class="product-img-container">
-                    <span class="brand-tag">輔助鎖</span>
-                     <!-- 改成圖片標籤：請更換 src 網址 -->
-                    <img src="https://placehold.co/400x300?text=輔助鎖" class="real-img" alt="輔助鎖">
-                </div>
-                <div class="product-body">
-                    <div class="product-title">輔助鎖</div>
-                    <div class="product-desc">安裝於門手把上方，增加一道防線。體積小、價格便宜、基本防盜。</div>
-                    <ul class="product-features">
-                        <li style="color:#e74c3c; font-weight:bold;">價格：NT$ 1,000 ~ 1,500</li>
-                        <li>機械結構簡單耐用</li>
-                        <li>多種顏色可選</li>
-                    </ul>
-                    <a href="tel:0903109970" class="product-btn">預約安裝</a>
-                </div>
+                 <div class="product-img-container"><span class="brand-tag">輔助鎖</span><img src="https://placehold.co/400x300?text=輔助鎖" class="real-img" alt="輔助鎖"></div>
+                <div class="product-body"><div class="product-title">輔助鎖</div><div class="product-desc">安裝於門手把上方，增加一道防線。體積小、價格便宜、基本防盜。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">價格：NT$ 1,000 ~ 1,500</li><li>機械結構簡單耐用</li><li>多種顏色可選</li></ul><a href="tel:0903109970" class="product-btn">預約安裝</a></div>
             </div>
-
-            <!-- 產品 4: 房門鎖 -->
             <div class="product-card">
-                 <div class="product-img-container">
-                    <span class="brand-tag">一般房門</span>
-                     <!-- 改成圖片標籤：請更換 src 網址 -->
-                    <img src="https://placehold.co/400x300?text=喇叭鎖" class="real-img" alt="房門鎖系列">
-                </div>
-                <div class="product-body">
-                    <div class="product-title">房門鎖 (喇叭/水平)</div>
-                    <div class="product-desc">適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。</div>
-                    <ul class="product-features">
-                        <li style="color:#e74c3c; font-weight:bold;">喇叭鎖：NT$ 700</li>
-                        <li style="color:#e74c3c; font-weight:bold;">水平把手鎖：NT$ 1,000</li>
-                        <li>安裝快速，使用方便</li>
-                        <li>可選購無鑰匙款式 (浴廁用)</li>
-                    </ul>
-                    <a href="tel:0903109970" class="product-btn">預約安裝</a>
-                </div>
+                 <div class="product-img-container"><span class="brand-tag">一般房門</span><img src="https://placehold.co/400x300?text=喇叭鎖" class="real-img" alt="房門鎖系列"></div>
+                <div class="product-body"><div class="product-title">房門鎖 (喇叭/水平)</div><div class="product-desc">適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">喇叭鎖：NT$ 700</li><li style="color:#e74c3c; font-weight:bold;">水平把手鎖：NT$ 1,000</li><li>安裝快速，使用方便</li><li>可選購無鑰匙款式 (浴廁用)</li></ul><a href="tel:0903109970" class="product-btn">預約安裝</a></div>
             </div>
         </div>
-        
-        <div class="bottom-cta section">
-            <h2>門鎖壞了？鑰匙卡住？</h2>
-            <div class="cta-buttons">
-                <a href="https://line.me/ti/p/_w85tXo5KV" class="btn-line"><i class="fab fa-line"></i> LINE 拍照報價</a>
-                <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 緊急維修</a>
-            </div>
-        </div>
+        <div class="bottom-cta section"><h2>門鎖壞了？鑰匙卡住？</h2><div class="cta-buttons"><a href="https://line.me/ti/p/_w85tXo5KV" class="btn-line"><i class="fab fa-line"></i> LINE 拍照報價</a><a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 緊急維修</a></div></div>
     </div>
 
-    <!-- ================== 安裝實例頁面 (新增) ================== -->
+    <!-- ================== 安裝實例頁面 ================== -->
     <div id="examples-page" class="sub-page">
-        <div class="page-header">
-            <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
-            <h2>安裝實例</h2>
-            <p>專業施工，品質保證</p>
-        </div>
-
+        <div class="page-header"><a class="back-btn" onclick="showHome()">🔙 返回首頁</a><h2>安裝實例</h2><p>專業施工，品質保證</p></div>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <!-- 改成圖片標籤：請更換 src 網址 -->
-                <img src="https://placehold.co/400x300?text=電子鎖施工圖1" class="real-img" alt="Philips 電子鎖安裝">
-                <div class="gallery-caption">Philips 電子鎖安裝 - 板橋陳宅</div>
-            </div>
-            <div class="gallery-item">
-                 <!-- 改成圖片標籤：請更換 src 網址 -->
-                <img src="https://placehold.co/400x300?text=傳統鎖施工圖1" class="real-img" alt="不鏽鋼三段鎖更換">
-                <div class="gallery-caption">不鏽鋼三段鎖更換 - 中和林宅</div>
-            </div>
-            <div class="gallery-item">
-                 <!-- 改成圖片標籤：請更換 src 網址 -->
-                <img src="https://placehold.co/400x300?text=電子鎖施工圖2" class="real-img" alt="Samsung 電子鎖安裝">
-                <div class="gallery-caption">Samsung 電子鎖安裝 - 新店王宅</div>
-            </div>
-            <div class="gallery-item">
-                 <!-- 改成圖片標籤：請更換 src 網址 -->
-                <img src="https://placehold.co/400x300?text=開鎖圖" class="real-img" alt="夜間緊急開鎖">
-                <div class="gallery-caption">夜間緊急開鎖救援 - 永和</div>
-            </div>
-            <div class="gallery-item">
-                 <!-- 改成圖片標籤：請更換 src 網址 -->
-                <img src="https://placehold.co/400x300?text=門鎖維修" class="real-img" alt="老舊門鎖維修">
-                <div class="gallery-caption">老舊門鎖維修更換</div>
-            </div>
-            <div class="gallery-item">
-                 <!-- 改成圖片標籤：請更換 src 網址 -->
-                <img src="https://placehold.co/400x300?text=輔助鎖安裝" class="real-img" alt="加裝輔助鎖">
-                <div class="gallery-caption">加裝輔助鎖提升安全</div>
-            </div>
+            <div class="gallery-item"><img src="https://placehold.co/400x300?text=電子鎖施工圖1" class="real-img" alt="Philips 電子鎖安裝"><div class="gallery-caption">Philips 電子鎖安裝 - 板橋陳宅</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/400x300?text=傳統鎖施工圖1" class="real-img" alt="不鏽鋼三段鎖更換"><div class="gallery-caption">不鏽鋼三段鎖更換 - 中和林宅</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/400x300?text=電子鎖施工圖2" class="real-img" alt="Samsung 電子鎖安裝"><div class="gallery-caption">Samsung 電子鎖安裝 - 新店王宅</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/400x300?text=開鎖圖" class="real-img" alt="夜間緊急開鎖"><div class="gallery-caption">夜間緊急開鎖救援 - 永和</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/400x300?text=門鎖維修" class="real-img" alt="老舊門鎖維修"><div class="gallery-caption">老舊門鎖維修更換</div></div>
+            <div class="gallery-item"><img src="https://placehold.co/400x300?text=輔助鎖安裝" class="real-img" alt="加裝輔助鎖"><div class="gallery-caption">加裝輔助鎖提升安全</div></div>
         </div>
     </div>
 
@@ -906,159 +823,16 @@
         
         let currentWizardStep = 1;
         let estimateData = {
-            type: '',       // electronic, traditional, scooter, other
-            subtype: '',    // brand name or lock type
-            locked: false,  // true if deadbolt locked (traditional only)
+            type: '',       
+            subtype: '',    
+            locked: false,  
             time: 'day',
             floorPrice: 0,
             distance: 0
         };
 
-        // 自動設定當前時段
         window.onload = function() {
             const hour = new Date().getHours();
             let timeVal = 'day';
             if (hour >= 21 && hour < 23) timeVal = 'evening';
-            else if (hour >= 23) timeVal = 'late';
-            else if (hour < 8) timeVal = 'midnight';
-            
-            const timeSelect = document.getElementById('time-select');
-            if (timeSelect) timeSelect.value = timeVal;
-        };
-
-        function selectType(type) {
-            estimateData.type = type;
-            estimateData.subtype = ''; 
-            estimateData.locked = false; // reset
-            generateStep2Options(type);
-            nextStep(2);
-        }
-
-        function generateStep2Options(type) {
-            const container = document.getElementById('dynamic-options');
-            const lockToggle = document.getElementById('lock-status-toggle');
-            container.innerHTML = '';
-            lockToggle.style.display = 'none'; // 預設隱藏
-
-            let options = [];
-            
-            if (type === 'electronic') {
-                options = ['加安 (FAULTLESS)', '維夫拉克 (WAFERLOCK)', '三星 (SAMSUNG)', '東隆 (EZSET)', '耶魯 (YALE)'];
-            } else if (type === 'traditional') {
-                options = ['三段鎖', '四段鎖', '葉片五段鎖', '輔助鎖', '喇叭鎖', '水平鎖'];
-                lockToggle.style.display = 'block'; // 傳統鎖顯示狀態切換
-                setLockStatus('closed'); // 重置為只是關上
-            } else if (type === 'scooter') {
-                options = ['山葉 YAMAHA', '三陽 SYM', '光陽 KYMCO', '睿能 gogoro'];
-            } else if (type === 'other') {
-                options = ['汽車開鎖', '保險箱', '信箱/抽屜', '其他疑問'];
-            }
-
-            options.forEach(opt => {
-                let div = document.createElement('div');
-                div.className = 'option-btn';
-                div.innerText = opt;
-                div.onclick = function() {
-                    // 移除其他選中狀態
-                    Array.from(container.children).forEach(c => c.classList.remove('selected'));
-                    div.classList.add('selected');
-                    estimateData.subtype = opt;
-                    // 自動跳轉
-                    setTimeout(() => nextStep(3), 300);
-                };
-                container.appendChild(div);
-            });
-        }
-
-        function setLockStatus(status) {
-            estimateData.locked = (status === 'locked');
-            document.getElementById('status-closed').className = status === 'closed' ? 'toggle-btn active' : 'toggle-btn';
-            document.getElementById('status-locked').className = status === 'locked' ? 'toggle-btn active' : 'toggle-btn';
-        }
-
-        function nextStep(step) {
-            document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
-            document.getElementById('step-' + step).classList.add('active');
-            currentWizardStep = step;
-            if (step === 3) calculatePrice(); // 進入步驟3時先算一次
-        }
-
-        function prevStep(current) {
-            // 返回上一步：傳入當前步驟，函式內部會導向 current - 1
-            nextStep(current - 1);
-        }
-        
-        function finishWizard() {
-            nextStep(4);
-            document.getElementById('result-price-display').innerText = document.getElementById('final-price-display').innerText;
-        }
-
-        function openGoogleMaps() {
-            // 開啟 Google Maps 路線規劃，目的地設為一個中心點或小李開鎖 (這裡用 generic search)
-            window.open('https://www.google.com/maps/dir/?api=1&destination=小李開鎖', '_blank');
-        }
-
-        function calculatePrice() {
-            // 1. 取得輸入值
-            const timeVal = document.getElementById('time-select').value;
-            const floorCost = parseInt(document.getElementById('floor-select').value) || 0;
-            const dist = parseFloat(document.getElementById('distance-input').value) || 0;
-
-            // 2. 基礎時段費用 (出勤費)
-            let basePrice = 300; // day 09-21
-            if (timeVal === 'evening') basePrice = 500; // 21-23
-            else if (timeVal === 'late') basePrice = 700; // 23-24
-            else if (timeVal === 'midnight') basePrice = 1000; // 00-08
-
-            // 3. 鎖種與狀態加成
-            let typeCost = 0;
-            let conditionCost = 0;
-
-            if (estimateData.type === 'electronic') {
-                // 電子鎖基本時間 600 (若基礎是300，則+300)
-                typeCost = 300; 
-            } else if (estimateData.type === 'traditional') {
-                // 葉片鎖特殊處理
-                if (estimateData.subtype.includes('葉片')) {
-                    // 葉片正常時間基本 500 (若基礎是300，則+200)
-                    typeCost = 200;
-                }
-                
-                // 鎖段加成 (只有傳統鎖有)
-                if (estimateData.locked) {
-                    // 有鎖段
-                    if (timeVal === 'day') {
-                        conditionCost = 300; // 正常時間一段+300
-                    } else {
-                        conditionCost = 500; // 加成時間+500
-                    }
-                }
-            } else if (estimateData.type === 'other') {
-                // 其他類型，這裡可以給個提示或保留基費
-            }
-            
-            // 4. 距離加成 (3公里內不加價，超過每一公里+100)
-            let distCost = 0;
-            if (dist > 3) {
-                distCost = Math.ceil(dist - 3) * 100;
-            }
-
-            // 5. 總計
-            let total = basePrice + typeCost + conditionCost + floorCost + distCost;
-
-            // 顯示
-            document.getElementById('final-price-display').innerText = "NT$ " + total;
-            
-            // 顯示明細
-            let details = [];
-            if (typeCost > 0) details.push("特殊鎖種加成");
-            if (conditionCost > 0) details.push("反鎖解鎖費");
-            if (floorCost > 0) details.push("樓層費");
-            if (distCost > 0) details.push("遠距離車馬費");
-            if (estimateData.type === 'other') details.push("現場報價");
-            
-            document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準開鎖服務費";
-        }
-    </script>
-</body>
-</html>
+            else if (hour >= 2
