@@ -97,16 +97,13 @@
         
         /* --- Hero 區塊 --- */
         .hero {
-            /* 背景設定：兩層 */
-            /* 第一層：漸層遮罩 (cover)，確保文字清晰 */
-            /* 第二層：人物照片 (contain)，確保上下完整顯示，左右留黑 */
-            background-color: #000; /* 背景底色全黑 */
+            background-color: #000; 
             background-image: 
                 linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
                 url('https://raw.githubusercontent.com/aabbbcca/lock/main/images/2.png');
-            background-size: cover, contain; /* 漸層填滿，照片完整顯示 */
+            background-size: cover, contain; 
             background-repeat: no-repeat, no-repeat;
-            background-position: center, center; /* 兩者都置中 */
+            background-position: center, center;
             
             color: white;
             padding: 120px 20px 80px;
@@ -116,7 +113,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            min-height: 500px; /* 增加最小高度，讓直式照片在電腦版能顯示大一點 */
+            min-height: 500px; 
         }
         .hero-content { max-width: 1000px; width: 100%; margin-bottom: 30px; z-index: 2; }
         .hero h1 { font-size: 3em; margin-bottom: 10px; line-height: 1.2; text-shadow: 2px 2px 8px rgba(0,0,0,0.9); }
@@ -133,7 +130,7 @@
             box-shadow: 0 4px 15px rgba(255, 193, 7, 0.6);
             transition: transform 0.2s;
             margin-bottom: 40px;
-            border: 2px solid white; /* 增加邊框讓按鈕更明顯 */
+            border: 2px solid white;
         }
         .hero-btn:hover { transform: scale(1.05); }
 
@@ -193,7 +190,7 @@
         .real-img {
             width: 100%;
             height: 250px; 
-            object-fit: contain; /* 確保整張照片都看得到，不會被裁切 */
+            object-fit: contain; 
             background-color: #f8f8f8;
             display: block;
         }
@@ -262,7 +259,7 @@
         .product-img-container {
             position: relative;
             height: 250px;
-            background-color: #fff; /* 改為白色背景讓產品更清楚 */
+            background-color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -300,6 +297,7 @@
             border-radius: 5px;
             font-weight: bold;
             display: block;
+            cursor: pointer;
         }
         .product-btn:hover { background-color: #333; }
         
@@ -676,7 +674,7 @@
                 </div>
 
                 <div class="cta-buttons">
-                    <a id="btn-wizard-line" href="#" target="_blank" class="btn-line" style="width:100%; text-align:center; margin-bottom:10px;"><i class="fab fa-line"></i> 傳送位置給師傅 (LINE)</a>
+                    <a id="btn-wizard-line" href="#" class="btn-line" style="width:100%; text-align:center; margin-bottom:10px;"><i class="fab fa-line"></i> 傳送位置給師傅 (LINE)</a>
                     <a href="tel:0903109970" class="btn-phone" style="width:100%; text-align:center; background:var(--primary-yellow); color:black;"><i class="fas fa-phone-alt"></i> 撥打電話</a>
                 </div>
                 <br>
@@ -721,7 +719,7 @@
                         <li>3D 人臉識別，靠近自動喚醒</li>
                         <li>歐規大鎖匣，結構堅固</li>
                     </ul>
-                    <a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20Yale%20Luna%20Pro+%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
+                    <a onclick="copyAndGoLine('你好，我想詢問 Yale Luna Pro+ 的優惠價格與安裝細節')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
                 </div>
             </div>
 
@@ -739,7 +737,7 @@
                         <li>內建藍芽模組，手機就是鑰匙</li>
                         <li>時尚外型，搭配現代裝潢</li>
                     </ul>
-                    <a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20Yale%20ByYou%20Pro%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
+                    <a onclick="copyAndGoLine('你好，我想詢問 Yale ByYou Pro 的優惠價格與安裝細節')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
                 </div>
             </div>
 
@@ -757,7 +755,7 @@
                         <li>語音導覽設定，操作簡單</li>
                         <li>強制上鎖與入侵警報功能</li>
                     </ul>
-                    <a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20Yale%20YDM7116A%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
+                    <a onclick="copyAndGoLine('你好，我想詢問 Yale YDM7116A 的優惠價格與安裝細節')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
                 </div>
             </div>
             
@@ -775,7 +773,7 @@
                         <li>無把手設計，安裝靈活</li>
                         <li>適合辦公室或租屋處加裝</li>
                     </ul>
-                    <a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20Yale%20YDR453A%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
+                    <a onclick="copyAndGoLine('你好，我想詢問 Yale YDR453A 的優惠價格與安裝細節')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a>
                 </div>
             </div>
         </div>
@@ -800,19 +798,19 @@
             <!-- 產品卡片 -->
             <div class="product-card">
                 <div class="product-img-container"><span class="brand-tag">最高cp值</span><img src="https://placehold.co/400x300?text=三段鎖" class="real-img" alt="三段鎖/四段鎖"></div>
-                <div class="product-body"><div class="product-title">三段鎖 / 四段鎖</div><div class="product-desc">台灣製造，結構厚實。公寓大門最常見的選擇，CP值高。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">電白三段鎖：NT$ 2,000</li><li style="color:#e74c3c; font-weight:bold;">不鏽鋼三段鎖：NT$ 2,500~2,700</li><li style="color:#e74c3c; font-weight:bold;">不鏽鋼四段鎖：NT$ 3,000</li><li>附 3 支原廠鑰匙</li></ul><a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20%E4%B8%89%E6%AE%B5%E9%8E%96%2F%E5%9B%9B%E6%AE%B5%E9%8E%96%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
+                <div class="product-body"><div class="product-title">三段鎖 / 四段鎖</div><div class="product-desc">台灣製造，結構厚實。公寓大門最常見的選擇，CP值高。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">電白三段鎖：NT$ 2,000</li><li style="color:#e74c3c; font-weight:bold;">不鏽鋼三段鎖：NT$ 2,500~2,700</li><li style="color:#e74c3c; font-weight:bold;">不鏽鋼四段鎖：NT$ 3,000</li><li>附 3 支原廠鑰匙</li></ul><a onclick="copyAndGoLine('你好，我想詢問 三段鎖/四段鎖 的優惠價格')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
             </div>
             <div class="product-card">
                  <div class="product-img-container"><span class="brand-tag">防盜首選</span><img src="https://placehold.co/400x300?text=葉片鎖" class="real-img" alt="葉片五段鎖"></div>
-                <div class="product-body"><div class="product-title">葉片五段鎖 (防盜升級)</div><div class="product-desc">葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">小安住：NT$ 3,800</li><li style="color:#e74c3c; font-weight:bold;">大安住：NT$ 4,500</li><li>結構精密，難以被技術開啟</li><li>附原廠伸縮鑰匙</li></ul><a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20%E8%91%89%E7%89%87%E4%BA%94%E6%AE%B5%E9%8E%96%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
+                <div class="product-body"><div class="product-title">葉片五段鎖 (防盜升級)</div><div class="product-desc">葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">小安住：NT$ 3,800</li><li style="color:#e74c3c; font-weight:bold;">大安住：NT$ 4,500</li><li>結構精密，難以被技術開啟</li><li>附原廠伸縮鑰匙</li></ul><a onclick="copyAndGoLine('你好，我想詢問 葉片五段鎖 的優惠價格')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
             </div>
             <div class="product-card">
                  <div class="product-img-container"><span class="brand-tag">輔助鎖</span><img src="https://placehold.co/400x300?text=輔助鎖" class="real-img" alt="輔助鎖"></div>
-                <div class="product-body"><div class="product-title">輔助鎖</div><div class="product-desc">安裝於門手把上方，增加一道防線。體積小、價格便宜、基本防盜。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">價格：NT$ 1,000 ~ 1,500</li><li>機械結構簡單耐用</li><li>多種顏色可選</li></ul><a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20%E8%BC%94%E5%8A%A9%E9%8E%96%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
+                <div class="product-body"><div class="product-title">輔助鎖</div><div class="product-desc">安裝於門手把上方，增加一道防線。體積小、價格便宜、基本防盜。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">價格：NT$ 1,000 ~ 1,500</li><li>機械結構簡單耐用</li><li>多種顏色可選</li></ul><a onclick="copyAndGoLine('你好，我想詢問 輔助鎖 的優惠價格')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
             </div>
             <div class="product-card">
                  <div class="product-img-container"><span class="brand-tag">一般房門</span><img src="https://placehold.co/400x300?text=喇叭鎖" class="real-img" alt="房門鎖系列"></div>
-                <div class="product-body"><div class="product-title">房門鎖 (喇叭/水平)</div><div class="product-desc">適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">喇叭鎖：NT$ 700</li><li style="color:#e74c3c; font-weight:bold;">水平把手鎖：NT$ 1,000</li><li>安裝快速，使用方便</li><li>可選購無鑰匙款式 (浴廁用)</li></ul><a href="https://line.me/R/msg/text/?%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20%E6%88%BF%E9%96%80%E9%8E%96%20%E7%9A%84%E5%84%AA%E6%83%A0%E5%83%B9%E6%A0%BC" target="_blank" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
+                <div class="product-body"><div class="product-title">房門鎖 (喇叭/水平)</div><div class="product-desc">適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。</div><ul class="product-features"><li style="color:#e74c3c; font-weight:bold;">喇叭鎖：NT$ 700</li><li style="color:#e74c3c; font-weight:bold;">水平把手鎖：NT$ 1,000</li><li>安裝快速，使用方便</li><li>可選購無鑰匙款式 (浴廁用)</li></ul><a onclick="copyAndGoLine('你好，我想詢問 房門鎖(喇叭/水平) 的優惠價格')" class="product-btn" style="background-color: #00c300; color: white;">加LINE詢問優惠價</a></div>
             </div>
         </div>
         <div class="bottom-cta section"><h2>門鎖壞了？鑰匙卡住？</h2><div class="cta-buttons"><a href="https://line.me/ti/p/_w85tXo5KV" class="btn-line"><i class="fab fa-line"></i> LINE 拍照報價</a><a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 緊急維修</a></div></div>
@@ -875,6 +873,29 @@
             }, 100);
         }
 
+        // --- 核心功能：複製文字並跳轉 LINE ---
+        function copyAndGoLine(text) {
+            // 創建一個隱藏的 textarea
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                // 嘗試執行複製指令
+                document.execCommand('copy');
+                alert("已為您複製詢價內容！\n\n即將跳轉至 LINE，請加入好友後直接「貼上」即可。");
+            } catch (err) {
+                alert("複製失敗，請跳轉後手動輸入需求。");
+            }
+            
+            // 移除 textarea
+            document.body.removeChild(textarea);
+            
+            // 跳轉至 LINE 加好友連結
+            window.location.href = 'https://line.me/ti/p/_w85tXo5KV';
+        }
+
         // --- 估價系統 (Wizard) 邏輯 ---
         
         let currentWizardStep = 1;
@@ -898,17 +919,14 @@
             if (timeSelect) timeSelect.value = timeVal;
         };
 
-        // 新增：重置估價狀態
         function resetWizard() {
             currentWizardStep = 1;
             estimateData = {
                 type: '', subtype: '', locked: false, time: 'day', floorPrice: 0, distance: 0
             };
-            // 重置 UI
             document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
             document.getElementById('step-1').classList.add('active');
             
-            // 清空輸入欄位
             const distInput = document.getElementById('distance-input');
             if(distInput) distInput.value = '';
             
@@ -984,7 +1002,6 @@
         }
 
         function prevStep(current) {
-            // 簡單的返回邏輯
             nextStep(current - 1);
         }
         
@@ -1005,9 +1022,14 @@
             
             const msg = `你好，我在官網做了開鎖估價：\n類型：${typeText} - ${subtypeText}\n狀態：${lockedText}\n地址：${address}\n距離：${distance}公里\n樓層：${floorText}\n時段：${timeText}\n系統預估費用：${price}\n請師傅確認，謝謝！`;
             
+            // 更新按鈕觸發複製行為
             const btn = document.getElementById('btn-wizard-line');
             if(btn) {
-                btn.href = `https://line.me/R/msg/text/?${encodeURIComponent(msg)}`;
+                // 使用 onclick 觸發複製並跳轉
+                btn.removeAttribute('href'); // 移除 href 防止直接跳轉
+                btn.onclick = function() {
+                    copyAndGoLine(msg);
+                };
             }
         }
 
@@ -1029,7 +1051,6 @@
                 return;
             }
             
-            // UI feedback
             const originalPlaceholder = addrInput.placeholder;
             addrInput.placeholder = "正在取得位置...";
             addrInput.value = "";
