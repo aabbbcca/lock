@@ -86,14 +86,14 @@
         
         /* --- Hero 區塊 --- */
         .hero {
-            /* 背景圖片設定：建議使用 16:9 或寬版照片 */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://raw.githubusercontent.com/aabbbcca/lock/main/2.png');
+            /* 背景圖片設定 */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x600?text=請放您的形象照');
             background-size: cover; 
-            background-position: center top; /* 重點通常在上面 (臉部)，避免被切頭 */
+            background-position: center top;
             background-color: #333;
             color: white;
             padding: 100px 20px 60px;
-            text-align: center; /* 改為置中看起來更平衡 */
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -118,13 +118,22 @@
         }
         .hero-btn:hover { transform: scale(1.05); }
 
-        /* 向下箭頭動畫 */
-        .scroll-down-arrow {
-            color: white;
-            font-size: 2em;
-            animation: bounce 2s infinite;
+        /* 向下箭頭與文字 */
+        .scroll-down-container {
             cursor: pointer;
+            animation: bounce 2s infinite;
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        .scroll-text {
+            display: block;
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .scroll-down-arrow {
+            color: var(--primary-yellow);
+            font-size: 2em;
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
@@ -158,12 +167,11 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         
-        /* 修改這裡：使用 contain 讓照片完整顯示 */
         .real-img {
             width: 100%;
             height: 250px; 
-            object-fit: contain; /* 確保整張照片都看得到，不會被裁切 */
-            background-color: #f8f8f8; /* 照片旁邊的留白補上淺灰色，比較好看 */
+            object-fit: contain; 
+            background-color: #f8f8f8;
             display: block;
         }
         
@@ -182,7 +190,7 @@
 
         /* --- 頁面切換設定 --- */
         .sub-page {
-            display: none;
+            display: none; /* 預設隱藏 */
             padding-top: 20px;
             animation: fadeIn 0.5s;
         }
@@ -440,13 +448,14 @@
             <div class="hero-content">
                 <h1>台北新北首選！<br><span>24小時</span> 開鎖、換鎖、電子鎖</h1>
                 <p class="hero-sub">服務範圍：永和、中和、新店、文山、板橋及雙北全區<br>價格透明 | 完整售後 | 快速到府 | 專業技術</p>
-                <!-- 更新按鈕文字為 取得報價 -->
-                <a href="tel:0903109970" class="hero-btn"><i class="fas fa-phone-alt"></i> 點擊撥打 (取得報價)</a>
+                <!-- 更新按鈕文字為 點擊撥打 -->
+                <a href="tel:0903109970" class="hero-btn"><i class="fas fa-phone-alt"></i> 點擊撥打 0903-109-970</a>
                 <p style="margin-top:10px; font-size:0.9em; color:#f0f0f0;">解決您的 換鎖、開鎖、門鎖 問題</p>
             </div>
-            <!-- 向下箭頭 -->
-            <div class="scroll-down-arrow" onclick="showHomeScroll('services')">
-                <i class="fas fa-chevron-down"></i>
+            <!-- 向下箭頭與取得報價文字 -->
+            <div class="scroll-down-container" onclick="showHomeScroll('services')">
+                <span class="scroll-text">取得報價</span>
+                <i class="fas fa-chevron-down scroll-down-arrow"></i>
             </div>
         </section>
 
@@ -835,4 +844,163 @@
             const hour = new Date().getHours();
             let timeVal = 'day';
             if (hour >= 21 && hour < 23) timeVal = 'evening';
-            else if (hour >= 2
+            else if (hour >= 23) timeVal = 'late';
+            else if (hour < 8) timeVal = 'midnight';
+            
+            const timeSelect = document.getElementById('time-select');
+            if (timeSelect) timeSelect.value = timeVal;
+        };
+
+        function selectType(type) {
+            estimateData.type = type;
+            estimateData.subtype = ''; 
+            estimateData.locked = false; 
+            generateStep2Options(type);
+            nextStep(2);
+        }
+
+        function generateStep2Options(type) {
+            const container = document.getElementById('dynamic-options');
+            const lockToggle = document.getElementById('lock-status-toggle');
+            container.innerHTML = '';
+            lockToggle.style.display = 'none';
+
+            let options = [];
+            
+            if (type === 'electronic') {
+                options = ['加安 (FAULTLESS)', '維夫拉克 (WAFERLOCK)', '三星 (SAMSUNG)', '東隆 (EZSET)', '耶魯 (YALE)'];
+            } else if (type === 'traditional') {
+                options = ['三段鎖', '四段鎖', '葉片五段鎖', '輔助鎖', '喇叭鎖', '水平鎖'];
+                lockToggle.style.display = 'block'; 
+                setLockStatus('closed');
+            } else if (type === 'scooter') {
+                options = ['山葉 YAMAHA', '三陽 SYM', '光陽 KYMCO', '睿能 gogoro'];
+            } else if (type === 'other') {
+                options = ['汽車開鎖', '保險箱', '信箱/抽屜', '其他疑問'];
+            }
+
+            options.forEach(opt => {
+                let div = document.createElement('div');
+                div.className = 'option-btn';
+                div.innerText = opt;
+                div.onclick = function() {
+                    Array.from(container.children).forEach(c => c.classList.remove('selected'));
+                    div.classList.add('selected');
+                    estimateData.subtype = opt;
+                    setTimeout(() => nextStep(3), 300);
+                };
+                container.appendChild(div);
+            });
+        }
+
+        function setLockStatus(status) {
+            estimateData.locked = (status === 'locked');
+            document.getElementById('status-closed').className = status === 'closed' ? 'toggle-btn active' : 'toggle-btn';
+            document.getElementById('status-locked').className = status === 'locked' ? 'toggle-btn active' : 'toggle-btn';
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            currentWizardStep = step;
+            if (step === 3) calculatePrice();
+        }
+
+        function prevStep(current) {
+            // 簡單的返回邏輯
+            nextStep(current - 1);
+        }
+        
+        function finishWizard() {
+            nextStep(4);
+            document.getElementById('result-price-display').innerText = document.getElementById('final-price-display').innerText;
+        }
+
+        function openGoogleMaps() {
+            const address = document.getElementById('address-input').value;
+            // 如果有輸入地址，直接導航到該地址；沒有則只搜尋商家
+            let url = 'https://www.google.com/maps/dir/?api=1&origin=小李開鎖';
+            if (address) {
+                url += '&destination=' + encodeURIComponent(address);
+            } else {
+                url += '&destination=小李開鎖'; // Fallback
+            }
+            window.open(url, '_blank');
+        }
+
+        function calculatePrice() {
+            // 1. 取得輸入值
+            const timeVal = document.getElementById('time-select').value;
+            const floorCost = parseInt(document.getElementById('floor-select').value) || 0;
+            const dist = parseFloat(document.getElementById('distance-input').value) || 0;
+
+            // 判斷是否為夜間 (晚間、深夜、大夜都算)
+            const isNight = (timeVal === 'evening' || timeVal === 'late' || timeVal === 'midnight');
+
+            // 2. 基礎費用與鎖種加成
+            let basePrice = 300; // 預設出勤費
+            if (timeVal === 'evening') basePrice = 500;
+            else if (timeVal === 'late') basePrice = 700;
+            else if (timeVal === 'midnight') basePrice = 1000;
+
+            let typeCost = 0;
+            let conditionCost = 0;
+
+            if (estimateData.type === 'electronic') {
+                // 特殊電子鎖邏輯 (直接覆蓋基費 + 鎖費)
+                if (estimateData.subtype.includes('維夫拉克')) {
+                    basePrice = 0; // 重置基費，使用特定價格
+                    typeCost = isNight ? 1500 : 1000;
+                } else if (estimateData.subtype.includes('三星')) {
+                    basePrice = 0;
+                    typeCost = isNight ? 6000 : 4000;
+                } else if (estimateData.subtype.includes('耶魯')) {
+                    basePrice = 0;
+                    typeCost = 2500; // 耶魯不分日夜? 暫定固定
+                } else {
+                    // 其他電子鎖：維持原邏輯 (基費 + 300)
+                    typeCost = 300; 
+                }
+            } else if (estimateData.type === 'traditional') {
+                if (estimateData.subtype.includes('葉片')) {
+                    typeCost = 200; // 葉片鎖加成
+                }
+                if (estimateData.locked) {
+                    // 反鎖加成
+                    conditionCost = (timeVal === 'day') ? 300 : 500;
+                }
+            } else if (estimateData.type === 'other') {
+                // 其他類型
+            }
+            
+            // 3. 距離加成
+            let distCost = 0;
+            if (dist > 3) {
+                distCost = Math.ceil(dist - 3) * 100;
+            }
+
+            // 4. 總計
+            let total = basePrice + typeCost + conditionCost + floorCost + distCost;
+
+            // 顯示
+            document.getElementById('final-price-display').innerText = "NT$ " + total;
+            
+            // 顯示明細
+            let details = [];
+            if (estimateData.subtype && (estimateData.subtype.includes('三星') || estimateData.subtype.includes('維夫拉克') || estimateData.subtype.includes('耶魯'))) {
+                details.push(estimateData.subtype + "專案價");
+            } else {
+                // 普通明細
+                if (typeCost > 0) details.push("特殊鎖種/電子鎖加成");
+            }
+            
+            if (conditionCost > 0) details.push("反鎖解鎖費");
+            if (floorCost > 0) details.push("樓層費");
+            if (distCost > 0) details.push("遠距離車馬費");
+            if (estimateData.type === 'other') details.push("現場報價");
+            
+            document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準開鎖服務費";
+        }
+    </script>
+</body>
+</html>
