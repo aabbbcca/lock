@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小李開鎖 | 雙北24小時開鎖、換鎖、電子鎖安裝服務</title>
+    <meta name="description" content="雙北最快開鎖服務推薦小李開鎖。專業提供換鎖、電子鎖安裝、24小時緊急開鎖服務。價格透明，原廠保固，現在撥打 0903-109-970。">
+    <style>
+        /* --- 基礎設定 --- */
+        :root {
+            --primary-yellow: #ffc107;
+            --primary-dark: #1a1a1a;
+            --text-grey: #666;
+            --bg-light: #f8f9fa;
+        }
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        a { text-decoration: none; color: inherit; }
+        
+        /* --- 導覽列 --- */
+        header {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-yellow);
+        }
+        .logo span { font-size: 0.6em; color: #fff; display: block; font-weight: normal; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: #fff; font-size: 0.95em; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-yellow); }
+        .cta-btn {
+            background-color: var(--primary-yellow);
+            color: black;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        /* 手機版隱藏導覽連結 */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } 
+        }
+
+        /* --- Hero 區塊 (主視覺) --- */
+        .hero {
+            background-color: #333; /* 你可以用底圖取代這裡 */
+            color: white;
+            padding: 80px 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content { max-width: 1000px; width: 100%; }
+        .hero h1 { font-size: 3em; margin-bottom: 10px; line-height: 1.2; }
+        .hero h1 span { color: var(--primary-yellow); }
+        .hero-sub { color: #ddd; margin-bottom: 30px; font-size: 1.1em; }
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary-yellow);
+            color: black;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+            transition: transform 0.2s;
+        }
+        .hero-btn:hover { transform: scale(1.05); }
+
+        /* --- 服務項目 --- */
+        .section { padding: 60px 20px; text-align: center; }
+        .bg-light { background-color: var(--bg-light); }
+        .section-title { font-size: 2em; margin-bottom: 40px; font-weight: bold; }
+        
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: left;
+            padding-bottom: 20px;
+            position: relative;
+        }
+        /* 模擬圖片區域，你可以換成真的 <img> */
+        .card-img-placeholder {
+            height: 180px;
+            background-color: #e0e0e0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 3em;
+        }
+        .card-body { padding: 20px; }
+        .card-body h3 { margin-top: 0; }
+        .emergency-card { border: 2px solid #e74c3c; }
+        .emergency-badge {
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            position: absolute;
+            top: 0; right: 0;
+            font-size: 0.8em;
+        }
+
+        /* --- 特色區塊 --- */
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .feature-item { width: 200px; }
+        .feature-icon {
+            width: 60px; height: 60px;
+            background: black;
+            color: var(--primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            margin: 0 auto 15px;
+        }
+
+        /* --- 常見問題 & 好評 --- */
+        .review-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+        
+        .faq-list { max-width: 800px; margin: 0 auto; text-align: left; }
+        .faq-item { background: white; margin-bottom: 15px; padding: 20px; border-radius: 8px; }
+        .faq-q { font-weight: bold; color: var(--primary-dark); cursor: pointer; }
+        .faq-a { color: var(--text-grey); margin-top: 10px; display: block; }
+
+        /* --- 底部 CTA --- */
+        .bottom-cta {
+            background-color: black;
+            color: white;
+            padding: 60px 20px;
+        }
+        .cta-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-line {
+            background-color: #00c300;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+        .btn-phone {
+            background-color: transparent;
+            border: 2px solid var(--primary-yellow);
+            color: var(--primary-yellow);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #111;
+            color: #666;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2em; }
+            .hero { text-align: center; }
+            .hero-btn { width: 100%; box-sizing: border-box; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            小李開鎖
+            <span>雙北 24小時 快速救援</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#services">服務項目</a>
+            <a href="#features">關於小李</a>
+            <a href="#faq">常見問題</a>
+            <a href="https://share.google/QnykUdfL2kR4e5KjI" target="_blank">Google商家</a>
+        </nav>
+        <a href="tel:0903109970" class="cta-btn">📞 立即聯繫</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>雙北最快！<br><span>24小時</span> 專業開鎖、電子鎖安裝</h1>
+            <p class="hero-sub">價格透明 | 原廠保固 | 15分鐘快速到達 | 政府立案合法鎖匠</p>
+            
+            <a href="tel:0903109970" class="hero-btn">
+                <i class="fas fa-phone-alt"></i> 點擊撥打 0903-109-970
+            </a>
+            <p style="margin-top:15px; font-size:0.9em; color:#888;">解決您的 換鎖、開鎖、門鎖 問題</p>
+        </div>
+    </section>
+
+    <section id="services" class="section bg-light">
+        <h2 class="section-title">我們的服務項目</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-img-placeholder" style="background: #eee;">🔒</div>
+                <div class="card-body">
+                    <h3>智慧電子鎖安裝</h3>
+                    <p style="color: #666; font-size: 0.9em;">指紋、密碼、人臉辨識。Philips、Samsung 各大品牌經銷，專業施工教到會。</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="card-img-placeholder" style="background: #e0e0e0;">🔑</div>
+                <div class="card-body">
+                    <h3>傳統門鎖更換</h3>
+                    <p style="color: #666; font-size: 0.9em;">三段鎖、輔助鎖、水平把手。老舊門鎖汰換，提升居家安全。</p>
+                </div>
+            </div>
+            <div class="service-card emergency-card">
+                <div class="emergency-badge">緊急</div>
+                <div class="card-img-placeholder" style="background: #ffecec; color: #e74c3c;">🚨</div>
+                <div class="card-body">
+                    <h3>24H 緊急開鎖</h3>
+                    <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、反鎖屋內。全年無休，一通電話即刻救援。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <h2 class="section-title">為什麼雙北市民都推薦小李？</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <h3>極速到達</h3>
+                <p>平均 20 分鐘內抵達現場</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-tag"></i></div>
+                <h3>價格透明</h3>
+                <p>絕地喊價，同意報價才施工</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>專業認證</h3>
+                <p>合法登記，無刑事紀錄</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-thumbs-up"></i></div>
+                <h3>原廠保固</h3>
+                <p>電子鎖皆享原廠保固服務</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section bg-light">
+        <h2 class="section-title">客戶真實好評 & 常見問題</h2>
+        
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
+            <div class="review-box">
+                "半夜兩點被反鎖在外面，還好小李師傅接電話超快，真的不到20分鐘就到了，解救了我們一家人！"
+                <div style="margin-top: 15px; font-weight: bold; text-align: right;">- 板橋 陳先生</div>
+            </div>
+            <div class="review-box">
+                "安裝指紋鎖非常細心，還教我們老人家怎麼設定，施工完地板也清得很乾淨，大推！"
+                <div style="margin-top: 15px; font-weight: bold; text-align: right;">- 中和 林小姐</div>
+            </div>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q">Q: 請問開鎖或換鎖大概多少錢？</div>
+                <div class="faq-a">我們會依據鎖的種類（一般鎖、輔助鎖、電子鎖）與施工難易度報價。請放心，我們堅持「現場確認後先報價，您同意才動工」，絕不事後加價。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: 請問半夜有服務嗎？</div>
+                <div class="faq-a">有的！我們提供 24 小時緊急救援服務，雙北地區隨時待命。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-cta section">
+        <h2>還在猶豫門鎖問題？現在就諮詢！</h2>
+        <div class="cta-buttons">
+            <a href="#" class="btn-line"><i class="fab fa-line"></i> 加 LINE 線上報價</a>
+            <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 直接電話聯絡</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 小李開鎖服務. All rights reserved. | <a href="https://share.google/QnykUdfL2kR4e5KjI" target="_blank">Google 商家檔案</a></p>
+    </footer>
+
+</body>
+</html>
