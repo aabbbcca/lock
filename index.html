@@ -86,11 +86,17 @@
         
         /* --- Hero 區塊 --- */
         .hero {
-            /* 背景圖片設定：更新圖片網址並優化對齊 */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/aabbbcca/lock/main/2.png');
-            background-size: cover; 
-            background-position: top center; /* 關鍵：確保人像頭部不被切掉 */
-            background-color: #333;
+            /* 背景設定：兩層 */
+            /* 第一層：漸層遮罩 (cover)，確保文字清晰 */
+            /* 第二層：人物照片 (contain)，確保上下完整顯示，左右留黑 */
+            background-color: #000; /* 背景底色全黑 */
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
+                url('https://raw.githubusercontent.com/aabbbcca/lock/main/images/2.png');
+            background-size: cover, contain; /* 漸層填滿，照片完整顯示 */
+            background-repeat: no-repeat, no-repeat;
+            background-position: center, center; /* 兩者都置中 */
+            
             color: white;
             padding: 120px 20px 80px;
             text-align: center;
@@ -99,7 +105,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            min-height: 400px; /* 確保電腦版有足夠高度 */
+            min-height: 500px; /* 增加最小高度，讓直式照片在電腦版能顯示大一點 */
         }
         .hero-content { max-width: 1000px; width: 100%; margin-bottom: 30px; z-index: 2; }
         .hero h1 { font-size: 3em; margin-bottom: 10px; line-height: 1.2; text-shadow: 2px 2px 8px rgba(0,0,0,0.9); }
@@ -480,8 +486,8 @@
             <div class="services-grid">
                 
                 <div class="service-card" onclick="showPage('electronic-page')">
-                    <!-- 圖片改為 contain 完整顯示 -->
-                    <img src="https://placehold.co/400x300?text=電子鎖安裝" class="real-img" alt="電子鎖安裝">
+                    <!-- 圖片更新：Yale Luna Pro+ -->
+                    <img src="https://raw.githubusercontent.com/aabbbcca/lock/main/images/yale-luna-pro-plus-front-body-1.webp" class="real-img" alt="電子鎖安裝">
                     <div class="card-body">
                         <h3>智慧電子鎖安裝</h3>
                         <p style="color: #666; font-size: 0.9em;">卡片、密碼、指紋、人臉辨識、藍芽、遠端、掌靜脈、機械鑰匙。<br>philips、YALE各大品牌型號與價格。</p>
@@ -967,6 +973,7 @@
         }
 
         function prevStep(current) {
+            // 簡單的返回邏輯
             nextStep(current - 1);
         }
         
