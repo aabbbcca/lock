@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小李開鎖 | 新北24小時開鎖、換鎖、電子鎖安裝 | 永和/中和/新店/板橋/文山/台北</title>
-    <meta name="description" content="小李開鎖專營台北、新北、永和、中和、新店、文山、板橋等區。提供24小時開鎖、換鎖、電子鎖安裝服務。價格透明，迅速到府，現在撥打 0903-109-970。">
+    <title>小李開鎖 | 台北新北開鎖、換鎖、電子鎖安裝 | 永和/中和/新店/板橋/文山</title>
+    <meta name="description" content="小李開鎖專營台北、新北、永和、中和、新店、文山、板橋等區。提供24小時開鎖、換鎖、電子鎖安裝服務。價格透明，原廠保固，現在撥打 0903-109-970。">
     
     <!-- Google 網站驗證 -->
     <meta name="google-site-verification" content="9q6AYknkUhZOnPP84_aqinRnMxtvXWW6cR5i8ZD5w54" />
@@ -475,6 +475,49 @@
         }
         .google-review-btn:hover { background-color: #357ae8; transform: translateY(-2px); }
 
+        /* --- 特色區塊樣式 (更新為橫向彩色版) --- */
+        .features-grid {
+            display: flex;
+            justify-content: center; /* 讓內容置中 */
+            gap: 20px; /* 卡片間距 */
+            flex-wrap: wrap; /* 允許換行 */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            flex: 1 1 200px; /* 彈性寬度，最小 200px */
+            max-width: 250px; /* 限制最大寬度 */
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .feature-icon {
+            width: 70px; 
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin: 0 auto 15px;
+            color: white;
+            transition: transform 0.3s;
+        }
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* 個別顏色設定 */
+        .icon-speed { background-color: #ffc107; /* 黃 */ box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4); }
+        .icon-price { background-color: #2ecc71; /* 綠 */ box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4); }
+        .icon-cert { background-color: #3498db; /* 藍 */ box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4); }
+        .icon-warranty { background-color: #e74c3c; /* 紅 */ box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); }
+
+        .feature-item h3 { margin-bottom: 10px; font-size: 1.2em; }
+        .feature-item p { color: #666; font-size: 0.95em; line-height: 1.5; }
+
         @media (max-width: 600px) {
             .hero h1 { font-size: 2em; }
             .hero { text-align: center; padding-top: 120px; }
@@ -482,6 +525,8 @@
             .option-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .detail-header { flex-direction: column; gap: 20px; }
+            /* 手機版讓特色區塊改為雙欄顯示，比較不擁擠 */
+            .feature-item { flex: 1 1 40%; }
         }
     </style>
     <!-- 引入 Font Awesome 圖示 -->
@@ -542,7 +587,7 @@
                 </div>
                 <!-- 2. 傳統鎖 -->
                 <div class="service-card" onclick="window.location.hash = 'traditional-page'">
-                    <img src="https://placehold.co/400x300?text=傳統鎖更換" class="real-img" alt="傳統鎖更換">
+                    <img src="https://raw.githubusercontent.com/aabbbcca/lock/main/images/安住五段.PNG" class="real-img" alt="傳統鎖更換">
                     <div class="card-body">
                         <h3>傳統門鎖更換</h3>
                         <p style="color: #666; font-size: 0.9em;">三段鎖、輔助鎖、水平把手。點擊查看傳統機械鎖款式與價格。</p>
@@ -565,10 +610,26 @@
         <section id="features" class="section">
             <h2 class="section-title">為什麼雙北市民都推薦小李？</h2>
             <div class="features-grid">
-                <div class="feature-item"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>極速到達</h3><p>平均 20 分鐘內抵達現場</p></div>
-                <div class="feature-item"><div class="feature-icon"><i class="fas fa-tag"></i></div><h3>價格透明</h3><p>絕不喊價，同意報價才施工</p></div>
-                <div class="feature-item"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>專業認證</h3><p>合法登記，無刑事紀錄</p></div>
-                <div class="feature-item"><div class="feature-icon"><i class="fas fa-thumbs-up"></i></div><h3>原廠保固</h3><p>電子鎖皆享原廠保固服務</p></div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-speed"><i class="fas fa-clock"></i></div>
+                    <h3>極速到達</h3>
+                    <p>平均 20 分鐘內抵達現場</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-price"><i class="fas fa-tag"></i></div>
+                    <h3>價格透明</h3>
+                    <p>絕不喊價，同意報價才施工</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-cert"><i class="fas fa-shield-alt"></i></div>
+                    <h3>專業認證</h3>
+                    <p>政府立案，實體店面保障</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-warranty"><i class="fas fa-thumbs-up"></i></div>
+                    <h3>原廠保固</h3>
+                    <p>售後服務完善，維修找得到人</p>
+                </div>
             </div>
         </section>
 
@@ -883,7 +944,7 @@
                 id: 'trad-5-blade',
                 brand: 'trad-main',
                 title: '葉片五段鎖 (防盜升級)',
-                img: 'https://placehold.co/400x300?text=葉片五段鎖',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/安住五段.PNG',
                 tag: '防盜首選',
                 offerPrice: '3800起',
                 desc: '葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。',
