@@ -13,6 +13,9 @@
             --text-grey: #666;
             --bg-light: #f8f9fa;
         }
+        html {
+            scroll-behavior: smooth; /* 讓點擊連結時有滑動效果 */
+        }
         body {
             font-family: "Microsoft JhengHei", sans-serif;
             margin: 0;
@@ -33,6 +36,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .logo {
             font-size: 1.5em;
@@ -52,13 +56,13 @@
         }
         
         /* 手機版隱藏導覽連結 */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .nav-links { display: none; } 
         }
 
         /* --- Hero 區塊 (主視覺) --- */
         .hero {
-            background-color: #333; /* 你可以用底圖取代這裡 */
+            background-color: #333;
             color: white;
             padding: 80px 20px;
             text-align: left;
@@ -96,6 +100,11 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        /* 調整錨點定位，避免被導覽列擋住 */
+        .anchor-point {
+            scroll-margin-top: 120px;
+        }
+
         .service-card {
             background: white;
             border-radius: 10px;
@@ -106,7 +115,6 @@
             padding-bottom: 20px;
             position: relative;
         }
-        /* 模擬圖片區域，你可以換成真的 <img> */
         .card-img-placeholder {
             height: 180px;
             background-color: #e0e0e0; 
@@ -210,28 +218,32 @@
             .hero-btn { width: 100%; box-sizing: border-box; }
         }
     </style>
+    <!-- 引入 Font Awesome 圖示 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- 導覽列 -->
     <header>
         <div class="logo">
             小李開鎖
             <span>雙北 24小時 快速救援</span>
         </div>
+        <!-- 這裡已更新為您指定的四個項目 -->
         <nav class="nav-links">
-            <a href="#services">服務項目</a>
-            <a href="#features">關於小李</a>
+            <a href="#electronic-lock">電子鎖安裝</a>
+            <a href="#traditional-lock">傳統鎖更換</a>
+            <a href="#unlock-service">開鎖服務</a>
             <a href="#faq">常見問題</a>
-            <a href="https://share.google/QnykUdfL2kR4e5KjI" target="_blank">Google商家</a>
         </nav>
         <a href="tel:0903109970" class="cta-btn">📞 立即聯繫</a>
     </header>
 
+    <!-- 主視覺 Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>雙北最快！<br><span>24小時</span> 專業開鎖、電子鎖安裝</h1>
-            <p class="hero-sub">價格透明 | 原廠保固 | 15分鐘快速到達 | 政府立案合法鎖匠</p>
+            <p class="hero-sub">價格透明 | 完整售後 | 快速到府 | </p>
             
             <a href="tel:0903109970" class="hero-btn">
                 <i class="fas fa-phone-alt"></i> 點擊撥打 0903-109-970
@@ -240,24 +252,31 @@
         </div>
     </section>
 
+    <!-- 服務項目 -->
     <section id="services" class="section bg-light">
         <h2 class="section-title">我們的服務項目</h2>
         <div class="services-grid">
-            <div class="service-card">
+            
+            <!-- 卡片 1：對應「電子鎖安裝」連結 -->
+            <div id="electronic-lock" class="service-card anchor-point">
                 <div class="card-img-placeholder" style="background: #eee;">🔒</div>
                 <div class="card-body">
                     <h3>智慧電子鎖安裝</h3>
-                    <p style="color: #666; font-size: 0.9em;">指紋、密碼、人臉辨識。Philips、Samsung 各大品牌經銷，專業施工教到會。</p>
+                    <p style="color: #666; font-size: 0.9em;">指紋、密碼、人臉辨識。YALE、Philips 等品牌，專業施工教到會。</p>
                 </div>
             </div>
-            <div class="service-card">
+            
+            <!-- 卡片 2：對應「傳統鎖更換」連結 -->
+            <div id="traditional-lock" class="service-card anchor-point">
                 <div class="card-img-placeholder" style="background: #e0e0e0;">🔑</div>
                 <div class="card-body">
                     <h3>傳統門鎖更換</h3>
                     <p style="color: #666; font-size: 0.9em;">三段鎖、輔助鎖、水平把手。老舊門鎖汰換，提升居家安全。</p>
                 </div>
             </div>
-            <div class="service-card emergency-card">
+            
+            <!-- 卡片 3：對應「開鎖服務」連結 -->
+            <div id="unlock-service" class="service-card emergency-card anchor-point">
                 <div class="emergency-badge">緊急</div>
                 <div class="card-img-placeholder" style="background: #ffecec; color: #e74c3c;">🚨</div>
                 <div class="card-body">
@@ -268,6 +287,7 @@
         </div>
     </section>
 
+    <!-- 為什麼選擇我們 -->
     <section id="features" class="section">
         <h2 class="section-title">為什麼雙北市民都推薦小李？</h2>
         <div class="features-grid">
@@ -279,7 +299,7 @@
             <div class="feature-item">
                 <div class="feature-icon"><i class="fas fa-tag"></i></div>
                 <h3>價格透明</h3>
-                <p>絕地喊價，同意報價才施工</p>
+                <p>絕不喊價，同意報價才施工</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
@@ -294,7 +314,8 @@
         </div>
     </section>
 
-    <section id="faq" class="section bg-light">
+    <!-- 客戶好評 & FAQ -->
+    <section id="faq" class="section bg-light anchor-point">
         <h2 class="section-title">客戶真實好評 & 常見問題</h2>
         
         <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
@@ -308,6 +329,7 @@
             </div>
         </div>
 
+        <!-- 這裡對應「常見問題」連結 -->
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-q">Q: 請問開鎖或換鎖大概多少錢？</div>
@@ -320,6 +342,7 @@
         </div>
     </section>
 
+    <!-- 底部呼籲 -->
     <section class="bottom-cta section">
         <h2>還在猶豫門鎖問題？現在就諮詢！</h2>
         <div class="cta-buttons">
@@ -329,7 +352,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 小李開鎖服務. All rights reserved. | <a href="https://share.google/QnykUdfL2kR4e5KjI" target="_blank">Google 商家檔案</a></p>
+        <p>&copy; 2026 小李開鎖服務. All rights reserved. | <a href="https://share.google/QnykUdfL2kR4e5KjI" target="_blank" style="text-decoration: underline;">Google 商家檔案</a></p>
     </footer>
 
 </body>
