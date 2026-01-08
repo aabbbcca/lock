@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小李開鎖 | 台北新北開鎖、換鎖、電子鎖安裝 | 永和/中和/新店/板橋/文山</title>
-    <meta name="description" content="小李開鎖專營台北、新北、永和、中和、新店、文山、板橋等區。提供24小時開鎖、換鎖、電子鎖安裝服務。價格透明，原廠保固，現在撥打 0903-109-970。">
+    <title>小李開鎖 | 新北24小時開鎖、換鎖、電子鎖安裝 | 永和/中和/新店/板橋/文山/台北</title>
+    <meta name="description" content="小李開鎖專營台北、新北、永和、中和、新店、文山、板橋等區。提供24小時開鎖、換鎖、電子鎖安裝服務。價格透明，迅速到府，現在撥打 0903-109-970。">
     
     <!-- Google 網站驗證 -->
     <meta name="google-site-verification" content="9q6AYknkUhZOnPP84_aqinRnMxtvXWW6cR5i8ZD5w54" />
@@ -232,7 +232,7 @@
         }
         .back-btn:hover { background: #ddd; }
 
-        /* --- 產品分類標題 (New) --- */
+        /* --- 產品分類標題 --- */
         .category-header {
             max-width: 1200px;
             margin: 40px auto 20px;
@@ -244,7 +244,7 @@
             font-size: 1.8em;
             font-weight: bold;
             color: var(--primary-dark);
-            background: #f8f9fa; /* 與背景同色 */
+            background: #f8f9fa;
             display: inline-block;
             padding: 0 20px;
             position: relative;
@@ -475,48 +475,25 @@
         }
         .google-review-btn:hover { background-color: #357ae8; transform: translateY(-2px); }
 
-        /* --- 特色區塊樣式 (更新為橫向彩色版) --- */
-        .features-grid {
-            display: flex;
-            justify-content: center; /* 讓內容置中 */
-            gap: 20px; /* 卡片間距 */
-            flex-wrap: wrap; /* 允許換行 */
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .feature-item {
-            flex: 1 1 200px; /* 彈性寬度，最小 200px */
-            max-width: 250px; /* 限制最大寬度 */
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .feature-icon {
-            width: 70px; 
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            margin: 0 auto 15px;
-            color: white;
-            transition: transform 0.3s;
-        }
-        .feature-item:hover .feature-icon {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        /* 個別顏色設定 */
-        .icon-speed { background-color: #ffc107; /* 黃 */ box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4); }
-        .icon-price { background-color: #2ecc71; /* 綠 */ box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4); }
-        .icon-cert { background-color: #3498db; /* 藍 */ box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4); }
-        .icon-warranty { background-color: #e74c3c; /* 紅 */ box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); }
-
+        /* 特色區塊 */
+        .features-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        .feature-item { flex: 1 1 200px; max-width: 250px; text-align: center; padding: 20px; box-sizing: border-box; }
+        .feature-icon { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; margin: 0 auto 15px; color: white; transition: transform 0.3s; }
+        .feature-item:hover .feature-icon { transform: scale(1.1) rotate(10deg); }
+        .icon-speed { background-color: #ffc107; box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4); }
+        .icon-price { background-color: #2ecc71; box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4); }
+        .icon-cert { background-color: #3498db; box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4); }
+        .icon-warranty { background-color: #e74c3c; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); }
         .feature-item h3 { margin-bottom: 10px; font-size: 1.2em; }
         .feature-item p { color: #666; font-size: 0.95em; line-height: 1.5; }
+
+        /* Step 4 Buttons */
+        .btn-wizard-line {
+            display: block; width: 100%; padding: 15px; text-align: center; font-weight: bold; border-radius: 5px; color: white; background-color: #00c300; margin-bottom: 10px; cursor: pointer; text-decoration: none;
+        }
+        .btn-wizard-phone {
+            display: block; width: 100%; padding: 15px; text-align: center; font-weight: bold; border-radius: 5px; color: black; background-color: var(--primary-yellow); text-decoration: none;
+        }
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2em; }
@@ -525,7 +502,6 @@
             .option-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .detail-header { flex-direction: column; gap: 20px; }
-            /* 手機版讓特色區塊改為雙欄顯示，比較不擁擠 */
             .feature-item { flex: 1 1 40%; }
         }
     </style>
@@ -587,7 +563,7 @@
                 </div>
                 <!-- 2. 傳統鎖 -->
                 <div class="service-card" onclick="window.location.hash = 'traditional-page'">
-                    <img src="https://raw.githubusercontent.com/aabbbcca/lock/main/images/安住五段.PNG" class="real-img" alt="傳統鎖更換">
+                    <img src="https://raw.githubusercontent.com/aabbbcca/lock/main/images/大安住.PNG" class="real-img" alt="傳統鎖更換">
                     <div class="card-body">
                         <h3>傳統門鎖更換</h3>
                         <p style="color: #666; font-size: 0.9em;">三段鎖、輔助鎖、水平把手。點擊查看傳統機械鎖款式與價格。</p>
@@ -636,7 +612,6 @@
         <section id="faq" class="section bg-light">
             <h2 class="section-title">客戶真實好評</h2>
             
-            <!-- 改為 3 個圖片截圖區塊 -->
             <div class="review-img-container">
                 <div class="review-img-box"><img src="https://placehold.co/300x200?text=好評截圖1" alt="客戶好評"></div>
                 <div class="review-img-box"><img src="https://placehold.co/300x200?text=好評截圖2" alt="客戶好評"></div>
@@ -649,7 +624,7 @@
 
             <div class="faq-list" style="margin-top: 50px;">
                 <h3 style="text-align:center; margin-bottom:20px;">常見問題</h3>
-                <div class="faq-item"><div class="faq-q">Q: 請問開鎖或換鎖大概多少錢？</div><div class="faq-a">我們會依據鎖的種類報價。請放心，我們堅持「現場確認後先報價，您同意才動工」。</div></div>
+                <div class="faq-item"><div class="faq-q">Q: 請問開鎖或換鎖大概多少錢？</div><div class="faq-a">我們會依據鎖的種類報價，建議您使用我們的 <a href="javascript:void(0)" onclick="window.location.hash='unlock-page'" style="color:#007bff;text-decoration:underline;">線上估價系統</a> 初步試算，價格透明更安心。</div></div>
                 <div class="faq-item"><div class="faq-q">Q: 請問半夜有服務嗎？</div><div class="faq-a">有的！我們提供 24 小時緊急救援服務，雙北地區隨時待命。</div></div>
             </div>
         </section>
@@ -673,12 +648,15 @@
                     <div class="option-btn" onclick="selectType('electronic')">電子鎖</div>
                     <div class="option-btn" onclick="selectType('traditional')">傳統鎖</div>
                     <div class="option-btn" onclick="selectType('scooter')">機車</div>
+                    <div class="option-btn" onclick="selectType('access-control')">門禁系統</div>
                     <div class="option-btn" onclick="selectType('other')">其他</div>
                 </div>
             </div>
             <div id="step-2" class="step-container">
                 <div class="wizard-title">請問更詳細的資訊？</div>
                 <div id="dynamic-options" class="option-grid"></div>
+                
+                <!-- 鎖門狀態切換 (傳統鎖專用) -->
                 <div id="lock-status-toggle" style="display:none; margin-top:20px;">
                     <p style="text-align:center; font-weight:bold;">目前的鎖門狀態？</p>
                     <div class="toggle-switch">
@@ -686,6 +664,19 @@
                         <div class="toggle-btn" id="status-locked" onclick="setLockStatus('locked')">已上鎖/反鎖</div>
                     </div>
                 </div>
+                
+                <!-- 鎖段選擇 (反鎖專用) -->
+                <div id="lock-segment-selector" style="display:none; margin-top:15px; text-align:center;">
+                    <p style="font-weight:bold; font-size:0.9em; color:#666;">鎖了幾段？ (鑰匙轉了幾圈)</p>
+                    <div style="display:flex; justify-content:center; gap:10px;">
+                        <button class="toggle-btn" onclick="setSegmentCount(1)">1段</button>
+                        <button class="toggle-btn" onclick="setSegmentCount(2)">2段</button>
+                        <button class="toggle-btn" onclick="setSegmentCount(3)">3段</button>
+                        <button class="toggle-btn" onclick="setSegmentCount(4)">4段</button>
+                    </div>
+                    <p style="font-size:0.8em; color:#999; margin-top:5px;">*不確定請選 2 段</p>
+                </div>
+
                 <div class="control-btns"><button class="btn-prev" onclick="prevStep(2)">上一步</button></div>
             </div>
             <div id="step-3" class="step-container">
@@ -718,8 +709,8 @@
                     <p style="color: #666; font-size: 0.9em;">(此為系統預估價格，實際狀況以師傅回覆確認為主)</p>
                 </div>
                 <div class="cta-buttons">
-                    <a id="btn-wizard-line" class="btn-line" style="width:100%; text-align:center; margin-bottom:10px; cursor:pointer;"><i class="fab fa-line"></i> 傳送位置給師傅 (LINE)</a>
-                    <a href="tel:0903109970" class="btn-phone" style="width:100%; text-align:center; background:var(--primary-yellow); color:black;"><i class="fas fa-phone-alt"></i> 撥打電話</a>
+                    <a id="btn-wizard-line" class="btn-wizard-line"><i class="fab fa-line"></i> 傳送位置給師傅 (LINE)</a>
+                    <a href="tel:0903109970" class="btn-wizard-phone"><i class="fas fa-phone-alt"></i> 撥打電話</a>
                 </div>
                 <br>
                 <div style="text-align:center;"><button class="btn-reset" onclick="resetWizard(); nextStep(1)">🔄 重新估價</button><br><a onclick="window.location.hash=''" style="text-decoration:underline; color:#666; cursor:pointer;">回首頁</a></div>
@@ -727,17 +718,14 @@
         </div>
     </div>
 
-    <!-- ================== 電子鎖產品列表頁 (Grouped) ================== -->
+    <!-- ================== 電子鎖產品列表頁 ================== -->
     <div id="electronic-page" class="sub-page">
         <div class="page-header">
             <a class="back-btn" onclick="window.location.hash=''">🔙 返回首頁</a>
             <h2>熱門智慧電子鎖款式</h2>
             <p>嚴選國際大廠，含安裝、教學及原廠保固</p>
         </div>
-        
-        <!-- 容器：由 JS 填充 -->
         <div id="electronic-list"></div>
-        
         <div class="bottom-cta section">
             <h2>找不到喜歡的型號？</h2>
             <div class="cta-buttons">
@@ -750,12 +738,10 @@
     <!-- ================== 產品詳細頁面 ================== -->
     <div id="product-detail-page" class="sub-page"></div>
 
-    <!-- ================== 傳統鎖產品頁 (Grouped) ================== -->
+    <!-- ================== 傳統鎖產品頁 ================== -->
     <div id="traditional-page" class="sub-page">
         <div class="page-header"><a class="back-btn" onclick="window.location.hash=''">🔙 返回首頁</a><h2>精選傳統機械門鎖</h2></div>
-        <!-- 容器：由 JS 填充 -->
         <div id="traditional-list"></div>
-        
         <div class="bottom-cta section"><h2>門鎖壞了？鑰匙卡住？</h2><div class="cta-buttons"><a href="https://line.me/ti/p/_w85tXo5KV" class="btn-line"><i class="fab fa-line"></i> LINE 拍照報價</a><a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 緊急維修</a></div></div>
     </div>
 
@@ -783,292 +769,204 @@
         const products = {
             // == 電子鎖 ==
             'luna-pro': {
-                id: 'luna-pro',
-                brand: 'yale',
-                title: 'Yale Luna Pro+ 人臉辨識',
+                id: 'luna-pro', brand: 'yale', title: 'Yale Luna Pro+ 人臉辨識',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/yale-luna-pro-plus-front-body-1.webp',
-                tag: 'Yale 旗艦款',
-                listPrice: 39800,
-                offerPrice: 27999,
+                tag: 'Yale 旗艦款', listPrice: 39800, offerPrice: 27999,
                 desc: '偏心防夾手設計，霧面黑配香檳金/星空灰。極致安全與便利的頂級選擇。<br>支援 3D 人臉識別，靠近自動喚醒，完全解放雙手。',
                 features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 / App', '3D 人臉識別，靠近自動喚醒', '歐規大鎖匣，結構堅固', '防夾手把手設計']
             },
             'byyou-pro': {
-                id: 'byyou-pro',
-                brand: 'yale',
-                title: 'Yale ByYou Pro 指紋卡片',
+                id: 'byyou-pro', brand: 'yale', title: 'Yale ByYou Pro 指紋卡片',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou.PNG',
-                tag: 'Yale 時尚款',
-                listPrice: 30000,
-                offerPrice: 25399,
+                tag: 'Yale 時尚款', listPrice: 30000, offerPrice: 25399,
                 desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。支援 Apple/Samsung Wallet 解鎖。<br>時尚外型，搭配現代裝潢的最佳選擇。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', '支援手機錢包解鎖']
             },
             'ydm7116a': {
-                id: 'ydm7116a',
-                brand: 'yale',
-                title: 'Yale YDM7116A 把手式',
-                img: 'https://placehold.co/400x300?text=Yale+YDM7116A',
-                tag: 'Yale 經典款',
-                listPrice: 20000, 
-                offerPrice: '請洽詢',
+                id: 'ydm7116a', brand: 'yale', title: 'Yale YDM7116A 把手式',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7116A.PNG',
+                tag: 'Yale 經典款', listPrice: 20000, offerPrice: '請洽詢',
                 desc: '經典把手設計，長輩使用最習慣。黑色/玫瑰金可選，功能穩定耐用。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙', '語音導覽設定，操作簡單', '強制上鎖與入侵警報功能']
             },
             'ydm4109a': {
-                id: 'ydm4109a',
-                brand: 'yale',
-                title: 'Yale YDM4109A 智慧指紋鎖',
+                id: 'ydm4109a', brand: 'yale', title: 'Yale YDM4109A 智慧指紋鎖',
                 img: 'https://placehold.co/400x300?text=Yale+YDM4109A',
-                tag: 'Yale 智慧款',
-                listPrice: 18000, 
-                offerPrice: '請洽詢',
+                tag: 'Yale 智慧款', listPrice: 18000, offerPrice: '請洽詢',
                 desc: '經典熱銷款升級，金色/黑色可選。斷層式指紋掃描，安全可靠。',
                 features: ['指紋 / 密碼 / 鑰匙', '虛位密碼功能，防窺視', '可選配藍芽/遠端模組']
             },
             'ymf40a': {
-                id: 'ymf40a',
-                brand: 'yale',
-                title: 'Yale YMF40A 熱感應觸控',
+                id: 'ymf40a', brand: 'yale', title: 'Yale YMF40A 熱感應觸控',
                 img: 'https://placehold.co/400x300?text=Yale+YMF40A',
-                tag: 'Yale 推拉款',
-                listPrice: 22000,
-                offerPrice: '請洽詢',
+                tag: 'Yale 推拉款', listPrice: 22000, offerPrice: '請洽詢',
                 desc: '簡約黑色推拉式設計，美觀大方。多種開啟方式，滿足全家需求。',
                 features: ['指紋 / 密碼 / 鑰匙 / 卡片', '熱感應觸控面板，不留指紋', '入侵/破壞警報功能']
             },
+            'ydm7216a': {
+                id: 'ydm7216a', brand: 'yale', title: 'Yale YDM7216A 抗菌把手',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7216A.PNG',
+                tag: 'Yale 新款', listPrice: 21000, offerPrice: '請洽詢',
+                desc: '全新升級抗菌把手，守護家人健康。經典設計再進化。',
+                features: ['指紋 / 卡片 / 密碼 / 鑰匙', '抗菌塗層把手', '語音導覽設定']
+            },
             // --- Philips ---
             'philips-9300': {
-                id: 'philips-9300',
-                brand: 'philips',
-                title: 'Philips 9300 (平行輸入)',
+                id: 'philips-9300', brand: 'philips', title: 'Philips 9300 (平行輸入)',
                 img: 'https://placehold.co/400x300?text=Philips+9300',
-                tag: 'Philips 頂級款',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: 'Philips 頂級款', listPrice: null, offerPrice: '請洽詢',
                 desc: '全自動推拉式，支援物聯網連線。頂級工藝設計，尊榮享受。',
                 features: ['指紋 / 密碼 / 卡片 / 鑰匙 / App', '全自動鎖體', '室內感應開門']
             },
             'philips-790fvp': {
-                id: 'philips-790fvp',
-                brand: 'philips',
-                title: 'Philips 790FVP (平行輸入)',
+                id: 'philips-790fvp', brand: 'philips', title: 'Philips 790FVP (平行輸入)',
                 img: 'https://placehold.co/400x300?text=Philips+790FVP',
-                tag: 'Philips 視訊款',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: 'Philips 視訊款', listPrice: null, offerPrice: '請洽詢',
                 desc: '內建電子貓眼與視訊通話功能，隨時掌握門外動態。',
                 features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話', '大螢幕貓眼']
             },
             // --- Waferlock ---
             'wafer-l600': {
-                id: 'wafer-l600',
-                brand: 'waferlock',
-                title: '維夫拉克 Waferlock L600',
+                id: 'wafer-l600', brand: 'waferlock', title: '維夫拉克 Waferlock L600',
                 img: 'https://placehold.co/400x300?text=Waferlock+L600',
-                tag: 'Waferlock 四合一',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: 'Waferlock 四合一', listPrice: null, offerPrice: '請洽詢',
                 desc: '台灣電子鎖第一品牌，適合台灣氣候與門扇。三合一/四合一功能齊全。',
                 features: ['指紋 / 密碼 / 卡片 / 鑰匙', 'IP54 防塵防水', '中文語音提示']
             },
             'wafer-l900': {
-                id: 'wafer-l900',
-                brand: 'waferlock',
-                title: '維夫拉克 Waferlock L900',
+                id: 'wafer-l900', brand: 'waferlock', title: '維夫拉克 Waferlock L900',
                 img: 'https://placehold.co/400x300?text=Waferlock+L900',
-                tag: 'Waferlock 推拉款',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: 'Waferlock 推拉款', listPrice: null, offerPrice: '請洽詢',
                 desc: '時尚推拉設計，開門更直覺。',
                 features: ['指紋 / 密碼 / 卡片 / 鑰匙', '推拉式把手', '防高壓電擊']
             },
             'wafer-l396': {
-                id: 'wafer-l396',
-                brand: 'waferlock',
-                title: '維夫拉克 Waferlock L396',
+                id: 'wafer-l396', brand: 'waferlock', title: '維夫拉克 Waferlock L396',
                 img: 'https://placehold.co/400x300?text=Waferlock+L396',
-                tag: 'Waferlock 輔助鎖',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: 'Waferlock 輔助鎖', listPrice: null, offerPrice: '請洽詢',
                 desc: '二合一/三合一輔助鎖，輕巧便利。',
                 features: ['密碼 / 卡片 / 鑰匙 (選配)', '適合辦公室/租屋']
             },
             'wafer-l376': {
-                id: 'wafer-l376',
-                brand: 'waferlock',
-                title: '維夫拉克 Waferlock L376',
+                id: 'wafer-l376', brand: 'waferlock', title: '維夫拉克 Waferlock L376',
                 img: 'https://placehold.co/400x300?text=Waferlock+L376',
-                tag: 'Waferlock 玻璃門',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: 'Waferlock 玻璃門', listPrice: null, offerPrice: '請洽詢',
                 desc: '專為玻璃門設計，免鑽孔安裝。',
                 features: ['密碼 / 卡片 / 遙控(選配)', '玻璃門專用']
             },
             // --- CP值款 ---
             'cp-r1': {
-                id: 'cp-r1',
-                brand: 'cp',
-                title: '高CP值款 R1',
+                id: 'cp-r1', brand: 'cp', title: '高CP值款 R1',
                 img: 'https://placehold.co/400x300?text=R1+電子鎖',
-                tag: '小資首選',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: '小資首選', listPrice: null, offerPrice: '請洽詢',
                 desc: '功能實用，價格親民，房東與租屋族的最愛。',
                 features: ['指紋 / 密碼 / 鑰匙', '基本防盜功能', '高性價比']
             },
             'cp-r9': {
-                id: 'cp-r9',
-                brand: 'cp',
-                title: '高CP值款 R9 (人臉辨識)',
+                id: 'cp-r9', brand: 'cp', title: '高CP值款 R9 (人臉辨識)',
                 img: 'https://placehold.co/400x300?text=R9+人臉鎖',
-                tag: '人臉入門款',
-                listPrice: null,
-                offerPrice: '請洽詢',
+                tag: '人臉入門款', listPrice: null, offerPrice: '請洽詢',
                 desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。',
                 features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別', '大螢幕貓眼']
             },
             
             // == 傳統鎖 ==
             'trad-3-4': {
-                id: 'trad-3-4',
-                brand: 'trad-main', // 精選機械門鎖
-                title: '三段鎖 / 四段鎖',
+                id: 'trad-3-4', brand: 'trad-main', title: '三段鎖 / 四段鎖',
                 img: 'https://placehold.co/400x300?text=三段鎖',
-                tag: '最高cp值',
-                offerPrice: '2000起',
+                tag: '最高cp值', offerPrice: '2000起',
                 desc: '台灣製造，結構厚實。公寓大門最常見的選擇，CP值高。',
                 features: ['電白三段鎖：NT$ 2,000', '不鏽鋼三段鎖：NT$ 2,500~2,700', '不鏽鋼四段鎖：NT$ 3,000']
             },
             'trad-5-blade': {
-                id: 'trad-5-blade',
-                brand: 'trad-main',
-                title: '葉片五段鎖 (防盜升級)',
-                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/安住五段.PNG',
-                tag: '防盜首選',
-                offerPrice: '3800起',
+                id: 'trad-5-blade', brand: 'trad-main', title: '葉片五段鎖 (防盜升級)',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/大安住.PNG',
+                tag: '防盜首選', offerPrice: '3800起',
                 desc: '葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。',
                 features: ['小安住：NT$ 3,800', '大安住：NT$ 4,500', '結構精密，難以被技術開啟']
             },
             'trad-aux': {
-                id: 'trad-aux',
-                brand: 'trad-main',
-                title: '輔助鎖',
+                id: 'trad-aux', brand: 'trad-main', title: '輔助鎖',
                 img: 'https://placehold.co/400x300?text=輔助鎖',
-                tag: '輔助鎖',
-                offerPrice: '1000起',
+                tag: '輔助鎖', offerPrice: '1000起',
                 desc: '安裝於門手把上方，增加一道防線。體積小、價格便宜、基本防盜。',
                 features: ['價格：NT$ 1,000 ~ 1,500', '機械結構簡單耐用', '多種顏色可選']
             },
             
             // 新增分類：電鎖與特殊鎖
             'trad-gate-electric': {
-                id: 'trad-gate-electric',
-                brand: 'trad-electric',
-                title: '大門電鎖',
+                id: 'trad-gate-electric', brand: 'trad-electric', title: '大門電鎖',
                 img: 'https://placehold.co/400x300?text=大門電鎖',
-                tag: '公寓對講機',
-                offerPrice: '請洽詢',
+                tag: '公寓對講機', offerPrice: '請洽詢',
                 desc: '連接對講機系統，可遠端開門。適用於公寓大門。',
                 features: ['靜音/標準款', '可配合對講機施工']
             },
             'trad-3in1': {
-                id: 'trad-3in1',
-                brand: 'trad-electric',
-                title: '三合一通風門鎖',
+                id: 'trad-3in1', brand: 'trad-electric', title: '三合一通風門鎖',
                 img: 'https://placehold.co/400x300?text=通風門鎖',
-                tag: '後陽台專用',
-                offerPrice: '請洽詢',
+                tag: '後陽台專用', offerPrice: '請洽詢',
                 desc: '專為通風門設計，結合把手與鎖具。',
                 features: ['安裝於廚房/陽台門', '推拉順暢']
             },
             'trad-horiz-integrated': {
-                id: 'trad-horiz-integrated',
-                brand: 'trad-electric',
-                title: '水平連體鎖',
+                id: 'trad-horiz-integrated', brand: 'trad-electric', title: '水平連體鎖',
                 img: 'https://placehold.co/400x300?text=水平連體鎖',
-                tag: '大門專用',
-                offerPrice: '請洽詢',
+                tag: '大門專用', offerPrice: '請洽詢',
                 desc: '把手與鎖體一體成型，外觀氣派，結構穩固。',
                 features: ['適用於硫化銅門', '多種款式可選']
             },
             'trad-floor': {
-                id: 'trad-floor',
-                brand: 'trad-electric',
-                title: '地鎖',
+                id: 'trad-floor', brand: 'trad-electric', title: '地鎖',
                 img: 'https://placehold.co/400x300?text=地鎖',
-                tag: '玻璃門',
-                offerPrice: '請洽詢',
+                tag: '玻璃門', offerPrice: '請洽詢',
                 desc: '安裝於玻璃門底部，不破壞玻璃結構。',
                 features: ['店面玻璃門專用', '隱藏式安裝']
             },
             
             // 新增分類：日規系列
             'trad-jp-horiz': {
-                id: 'trad-jp-horiz',
-                brand: 'trad-japan',
-                title: '日規水平鎖 (MIWA/GOAL)',
+                id: 'trad-jp-horiz', brand: 'trad-japan', title: '日規水平鎖 (MIWA/GOAL)',
                 img: 'https://placehold.co/400x300?text=日規水平鎖',
-                tag: '日系工藝',
-                offerPrice: '請洽詢',
+                tag: '日系工藝', offerPrice: '請洽詢',
                 desc: '日本進口規格，工藝精細，開關門手感極佳。',
                 features: ['靜音設計', '耐用度高']
             },
             'trad-jp-aux': {
-                id: 'trad-jp-aux',
-                brand: 'trad-japan',
-                title: '日規輔助鎖',
+                id: 'trad-jp-aux', brand: 'trad-japan', title: '日規輔助鎖',
                 img: 'https://placehold.co/400x300?text=日規輔助鎖',
-                tag: '加強防盜',
-                offerPrice: '請洽詢',
+                tag: '加強防盜', offerPrice: '請洽詢',
                 desc: '搭配日規主鎖使用，增加安全性。',
                 features: ['特殊鎖芯設計', '防撬能力強']
             },
             
             // 新增分類：房門與通道
             'trad-room': {
-                id: 'trad-room',
-                brand: 'trad-room',
-                title: '房門鎖 (喇叭/水平)',
+                id: 'trad-room', brand: 'trad-room', title: '房門鎖 (喇叭/水平)',
                 img: 'https://placehold.co/400x300?text=房門鎖',
-                tag: '一般房門',
-                offerPrice: '700起',
+                tag: '一般房門', offerPrice: '700起',
                 desc: '適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。',
                 features: ['喇叭鎖：NT$ 700', '水平把手鎖：NT$ 1,000']
             },
             'trad-passage': {
-                id: 'trad-passage',
-                brand: 'trad-room',
-                title: '通道鎖 (無鎖)',
+                id: 'trad-passage', brand: 'trad-room', title: '通道鎖 (無鎖)',
                 img: 'https://placehold.co/400x300?text=通道鎖',
-                tag: '公共空間',
-                offerPrice: '請洽詢',
+                tag: '公共空間', offerPrice: '請洽詢',
                 desc: '無上鎖功能，僅供開關門使用。適用於走道、儲藏室。',
                 features: ['無鑰匙設計', '防止誤鎖']
             }
         };
 
-        // --- 分類定義 ---
         const electronicCategories = [
-            { id: 'yale', title: '耶魯 Yale' },
-            { id: 'philips', title: '飛利浦 Philips' },
-            { id: 'waferlock', title: '維夫拉克 Waferlock' },
-            { id: 'cp', title: '高CP值精選' }
+            { id: 'yale', title: '耶魯 Yale' }, { id: 'philips', title: '飛利浦 Philips' }, { id: 'waferlock', title: '維夫拉克 Waferlock' }, { id: 'cp', title: '高CP值精選' }
         ];
-
         const traditionalCategories = [
-            { id: 'trad-main', title: '精選機械門鎖' },
-            { id: 'trad-electric', title: '電鎖與特殊鎖' },
-            { id: 'trad-japan', title: '日規系列' },
-            { id: 'trad-room', title: '房門與通道' }
+            { id: 'trad-main', title: '精選機械門鎖' }, { id: 'trad-electric', title: '電鎖與特殊鎖' }, { id: 'trad-japan', title: '日規系列' }, { id: 'trad-room', title: '房門與通道' }
         ];
 
-        // --- 初始化 & 路由 ---
         window.onload = function() {
             renderElectronicList();
-            renderTraditionalList(); // 新增傳統鎖渲染
+            renderTraditionalList();
             handleHashChange();
-            
             const hour = new Date().getHours();
             let timeVal = 'day';
             if (hour >= 21 && hour < 23) timeVal = 'evening';
@@ -1089,107 +987,53 @@
                 } else {
                     showPage('electronic-page');
                 }
-            } else if (hash === '#electronic-page') {
-                showPage('electronic-page');
-            } else if (hash === '#traditional-page') {
-                showPage('traditional-page');
-            } else if (hash === '#unlock-page') {
-                showPage('unlock-page');
-            } else if (hash === '#examples-page') {
-                showPage('examples-page');
-            } else {
-                showHome();
-            }
+            } else if (hash === '#electronic-page') { showPage('electronic-page'); } 
+            else if (hash === '#traditional-page') { showPage('traditional-page'); } 
+            else if (hash === '#unlock-page') { showPage('unlock-page'); } 
+            else if (hash === '#examples-page') { showPage('examples-page'); } 
+            else { showHome(); }
         }
 
-        // --- 渲染電子鎖列表 (Grouped) ---
-        function renderElectronicList() {
-            renderCategoryList('electronic-list', electronicCategories, 'electronic-page');
-        }
+        function renderElectronicList() { renderCategoryList('electronic-list', electronicCategories, 'electronic-page'); }
+        function renderTraditionalList() { renderCategoryList('traditional-list', traditionalCategories, 'traditional-page'); }
 
-        // --- 渲染傳統鎖列表 (Grouped) ---
-        function renderTraditionalList() {
-            renderCategoryList('traditional-list', traditionalCategories, 'traditional-page'); // 使用同一個通用函數
-        }
-
-        // --- 通用分類渲染函數 ---
         function renderCategoryList(containerId, categories, returnPageId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
-            
             categories.forEach(cat => {
-                // 1. 渲染標題
                 const header = document.createElement('div');
                 header.className = 'category-header';
-                header.innerHTML = `
-                    <div class="brand-divider"></div>
-                    <div class="brand-section-title">${cat.title}</div>
-                `;
+                header.innerHTML = `<div class="brand-divider"></div><div class="brand-section-title">${cat.title}</div>`;
                 container.appendChild(header);
-
-                // 2. 渲染該分類的產品 Grid
                 const grid = document.createElement('div');
                 grid.className = 'product-grid';
-                
-                // 篩選屬於該分類的產品
                 const catProducts = Object.values(products).filter(p => p.brand === cat.id);
-                
                 if (catProducts.length === 0) {
                     grid.innerHTML = '<p style="width:100%;text-align:center;color:#999;">即將上架</p>';
                 } else {
                     catProducts.forEach(p => {
                         const card = document.createElement('div');
                         card.className = 'product-card';
+                        card.onclick = () => { window.location.hash = `product-${p.id}`; };
                         
-                        // 判斷是否為電子鎖 (有 listPrice 或 tag 包含 Yale/Philips 等)，決定點擊行為
-                        // 這裡簡單統一：所有卡片點擊都可加 LINE，但電子鎖有詳細頁
-                        const isElectronic = ['yale', 'philips', 'waferlock', 'cp'].includes(p.brand);
-                        
-                        if (isElectronic) {
-                            card.onclick = () => { window.location.hash = `product-${p.id}`; };
-                        } else {
-                            // 傳統鎖目前沒有詳細頁，點擊直接加 LINE (或者您可以選擇做詳細頁)
-                            // 為了體驗一致，這裡傳統鎖也直接加 LINE，或者不設 onclick
-                            // 根據需求 "傳統鎖那頁也比照電子鎖這邊這樣做"，假設是指排版。
-                            // 若傳統鎖不需詳細頁，則不設 onclick 跳轉，僅按鈕有效。
-                            // 但為了 UI 回饋，我們可以讓它點擊無效或彈出圖片(未來功能)。
-                            // 目前維持：按鈕觸發詢價，卡片本身無跳轉(除非您希望傳統鎖也有詳細頁)
-                        }
-
-                        // 價格顯示邏輯
                         let priceDisplay = '';
                         if (typeof p.offerPrice === 'number') {
-                            priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">優惠價 NT$ ${p.offerPrice.toLocaleString()}</div>`;
+                            // 優惠價改為 NT$ 27,XXX
+                            let priceStr = p.offerPrice.toLocaleString();
+                            // 將末三位替換為 XXX
+                            if (priceStr.length > 3) {
+                                priceStr = priceStr.slice(0, -4) + ',XXX'; 
+                            } else {
+                                priceStr = 'XXX';
+                            }
+                            priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">優惠價 NT$ ${priceStr}</div>`;
                         } else {
                             priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">${p.offerPrice}</div>`;
                         }
 
-                        // 按鈕文字
-                        const btnText = isElectronic ? '查看詳細規格與優惠' : '加LINE詢問優惠價';
-                        const btnAction = isElectronic ? '' : `onclick="event.stopPropagation(); copyAndGoLine('你好，我想詢問 ${p.title} 的價格')"` ;
-                        const btnClass = isElectronic ? 'view-more-text' : 'product-btn';
-                        
-                        // 傳統鎖的內容結構稍微不同 (直接顯示按鈕)
-                        let footerHTML = '';
-                        if (isElectronic) {
-                            footerHTML = `<div class="${btnClass}">${btnText} &rarr;</div>`;
-                        } else {
-                            footerHTML = `<div class="${btnClass}" ${btnAction} style="background-color: #00c300; color: white; margin-top:auto;">${btnText}</div>`;
-                        }
-
                         card.innerHTML = `
-                            <div class="product-img-container">
-                                <span class="brand-tag">${p.tag}</span>
-                                <img src="${p.img}" class="real-img" alt="${p.title}">
-                            </div>
-                            <div class="product-body">
-                                <div class="product-title">${p.title}</div>
-                                <ul class="product-features">
-                                    ${p.features.slice(0, 3).map(f => `<li>${f}</li>`).join('')}
-                                </ul>
-                                ${priceDisplay}
-                                ${footerHTML}
-                            </div>
+                            <div class="product-img-container"><span class="brand-tag">${p.tag}</span><img src="${p.img}" class="real-img" alt="${p.title}"></div>
+                            <div class="product-body"><div class="product-title">${p.title}</div><ul class="product-features">${p.features.slice(0, 3).map(f => `<li>${f}</li>`).join('')}</ul>${priceDisplay}<div class="view-more-text">查看詳細規格與優惠 &rarr;</div></div>
                         `;
                         grid.appendChild(card);
                     });
@@ -1206,160 +1050,70 @@
             window.scrollTo(0, 0);
             
             const listPriceHTML = p.listPrice ? `<span class="list-price">定價 NT$ ${p.listPrice.toLocaleString()}</span>` : '';
-            const offerPriceHTML = (typeof p.offerPrice === 'number') ? `NT$ ${p.offerPrice.toLocaleString()}` : p.offerPrice;
-            const currentUrl = window.location.href;
+            // 詳細頁顯示真實價格，或也用 XXX? 客戶說 "優惠價末三碼寫XXX"。所以詳細頁也用 XXX。
+            let offerPriceHTML = '';
+            if (typeof p.offerPrice === 'number') {
+                 let priceStr = p.offerPrice.toLocaleString();
+                 if (priceStr.length > 3) {
+                    priceStr = priceStr.slice(0, -4) + ',XXX'; 
+                 }
+                 offerPriceHTML = `NT$ ${priceStr}`;
+            } else {
+                offerPriceHTML = p.offerPrice;
+            }
 
-            // 判斷返回哪個列表
             const backHash = ['yale', 'philips', 'waferlock', 'cp'].includes(p.brand) ? 'electronic-page' : 'traditional-page';
 
             container.innerHTML = `
                 <div class="page-header"><a class="back-btn" onclick="window.location.hash='${backHash}'">🔙 返回列表</a></div>
                 <div class="detail-container">
                     <div class="detail-header">
-                        <div class="detail-img-box">
-                            <img src="${p.img}" alt="${p.title}">
-                        </div>
+                        <div class="detail-img-box"><img src="${p.img}" alt="${p.title}"></div>
                         <div class="detail-info">
                             <div class="detail-title">${p.title}</div>
-                            <div class="detail-price-box">
-                                ${listPriceHTML}
-                                <div class="offer-price">優惠價 ${offerPriceHTML}</div>
-                            </div>
+                            <div class="detail-price-box">${listPriceHTML}<div class="offer-price">優惠價 ${offerPriceHTML}</div></div>
                             <div class="detail-desc">${p.desc}</div>
-                            
-                            <div class="group-buy-box">
-                                <div class="group-buy-title">🔥 社區團購優惠</div>
-                                <div class="group-buy-item">滿 5 台每台再折 <span style="color:#d35400; font-weight:bold;">$$$</span> (請加LINE洽詢)</div>
-                                <div class="group-buy-item">滿 10 台每台再折 <span style="color:#d35400; font-weight:bold;">$$$</span> (請加LINE洽詢)</div>
-                            </div>
-
+                            <div class="group-buy-box"><div class="group-buy-title">🔥 社區團購優惠</div><div class="group-buy-item">滿 5 台每台再折 <span style="color:#d35400; font-weight:bold;">$$$</span> (請加LINE洽詢)</div><div class="group-buy-item">滿 10 台每台再折 <span style="color:#d35400; font-weight:bold;">$$$</span> (請加LINE洽詢)</div></div>
                             <div class="detail-actions">
-                                <a onclick="copyAndGoLine('你好，我想詢問 ${p.title} 的優惠價格與安裝細節')" class="btn-line-ask">
-                                    <i class="fab fa-line"></i> 加LINE詢問優惠價
-                                </a>
-                                <div onclick="shareToLine('${p.title}', '${currentUrl}')" class="btn-share">
-                                    <i class="fas fa-share-alt"></i> 分享給好友
-                                </div>
+                                <a onclick="copyAndGoLine('你好，我想詢問 ${p.title} 的優惠價格與安裝細節')" class="btn-line-ask"><i class="fab fa-line"></i> 加LINE詢問優惠價</a>
+                                <div onclick="shareToLine('${p.title}', '${window.location.href}')" class="btn-share"><i class="fas fa-share-alt"></i> 分享給好友</div>
                             </div>
                         </div>
                     </div>
-                    <div style="margin-top:40px;">
-                        <h3>詳細規格</h3>
-                        <ul class="product-features" style="font-size:1.1em;">
-                            ${p.features.map(f => `<li>${f}</li>`).join('')}
-                        </ul>
-                    </div>
+                    <div style="margin-top:40px;"><h3>詳細規格</h3><ul class="product-features" style="font-size:1.1em;">${p.features.map(f => `<li>${f}</li>`).join('')}</ul></div>
                 </div>
             `;
         }
 
-        // --- 頁面切換 ---
-        function showHome() {
-            hideAllPages();
-            resetWizard();
-            document.getElementById('home-view').style.display = 'block';
-            history.pushState("", document.title, window.location.pathname); // 清除 hash
-            window.scrollTo(0, 0);
-        }
+        function showHome() { hideAllPages(); resetWizard(); document.getElementById('home-view').style.display = 'block'; history.pushState("", document.title, window.location.pathname); window.scrollTo(0, 0); }
+        function showPage(pageId) { hideAllPages(); const targetPage = document.getElementById(pageId); if (targetPage) { targetPage.style.display = 'block'; if (pageId === 'unlock-page') resetWizard(); window.scrollTo(0, 0); } }
+        function hideAllPages() { const pages = ['home-view', 'electronic-page', 'traditional-page', 'unlock-page', 'examples-page', 'product-detail-page']; pages.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; }); }
+        function showHomeScroll(sectionId) { if(window.location.hash !== '') { window.location.hash = ''; setTimeout(() => { const section = document.getElementById(sectionId); if (section) section.scrollIntoView({ behavior: 'smooth' }); }, 100); } else { const section = document.getElementById(sectionId); if (section) section.scrollIntoView({ behavior: 'smooth' }); } }
+        function copyAndGoLine(text) { const textarea = document.createElement('textarea'); textarea.value = text; document.body.appendChild(textarea); textarea.select(); try { document.execCommand('copy'); alert("已為您複製詢價內容！\n\n即將跳轉至 LINE，請加入好友後直接「長按貼上」即可。"); } catch (err) { alert("複製失敗，請跳轉後手動輸入需求。"); } document.body.removeChild(textarea); window.location.href = 'https://line.me/ti/p/_w85tXo5KV'; }
+        function shareToLine(title, url) { const shareUrl = `https://line.me/R/msg/text/?${encodeURIComponent(title + " 推薦給你：\n" + url)}`; window.open(shareUrl, '_blank'); }
+        function returnToElectronicList() { window.location.hash = 'electronic-page'; }
 
-        function showPage(pageId) {
-            hideAllPages();
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.style.display = 'block';
-                if (pageId === 'unlock-page') resetWizard();
-                window.scrollTo(0, 0);
-            }
-        }
-
-        function hideAllPages() {
-            const pages = ['home-view', 'electronic-page', 'traditional-page', 'unlock-page', 'examples-page', 'product-detail-page'];
-            pages.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'none';
-            });
-        }
-
-        function showHomeScroll(sectionId) {
-            if(window.location.hash !== '') {
-                window.location.hash = '';
-                setTimeout(() => {
-                    const section = document.getElementById(sectionId);
-                    if (section) section.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            } else {
-                const section = document.getElementById(sectionId);
-                if (section) section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        function copyAndGoLine(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                alert("已為您複製詢價內容！\n\n即將跳轉至 LINE，請加入好友後直接「長按貼上」即可。");
-            } catch (err) {
-                alert("複製失敗，請跳轉後手動輸入需求。");
-            }
-            document.body.removeChild(textarea);
-            window.location.href = 'https://line.me/ti/p/_w85tXo5KV';
-        }
-
-        function shareToLine(title, url) {
-            const shareUrl = `https://line.me/R/msg/text/?${encodeURIComponent(title + " 推薦給你：\n" + url)}`;
-            window.open(shareUrl, '_blank');
-        }
-
-        function returnToElectronicList() {
-            window.location.hash = 'electronic-page';
-        }
-
-        // --- 估價系統 (Wizard) 邏輯 ---
-        
+        // --- Wizard Logic ---
         let currentWizardStep = 1;
-        let estimateData = {
-            type: '',       
-            subtype: '',    
-            locked: false,  
-            time: 'day',
-            floorPrice: 0,
-            distance: 0
-        };
+        let estimateData = { type: '', subtype: '', locked: false, segments: 0, time: 'day', floorPrice: 0, distance: 0 };
 
         function resetWizard() {
             currentWizardStep = 1;
-            estimateData = {
-                type: '', subtype: '', locked: false, time: 'day', floorPrice: 0, distance: 0
-            };
+            estimateData = { type: '', subtype: '', locked: false, segments: 0, time: 'day', floorPrice: 0, distance: 0 };
             document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
             document.getElementById('step-1').classList.add('active');
-            
-            const distInput = document.getElementById('distance-input');
-            if(distInput) distInput.value = '';
-            
-            const addrInput = document.getElementById('address-input');
-            if(addrInput) addrInput.value = '';
-            
-            const dynamicOpts = document.getElementById('dynamic-options');
-            if(dynamicOpts) dynamicOpts.innerHTML = '';
-            
-            const lockToggle = document.getElementById('lock-status-toggle');
-            if(lockToggle) lockToggle.style.display = 'none';
-            
-            const resultDisplay = document.getElementById('final-price-display');
-            if(resultDisplay) resultDisplay.innerText = 'NT$ --';
-            
-            const resultNote = document.getElementById('price-breakdown');
-            if(resultNote) resultNote.innerText = '請填寫完整資訊以計算';
+            document.getElementById('distance-input').value = '';
+            document.getElementById('address-input').value = '';
+            document.getElementById('dynamic-options').innerHTML = '';
+            document.getElementById('lock-status-toggle').style.display = 'none';
+            document.getElementById('lock-segment-selector').style.display = 'none'; // 重置時隱藏段數
+            document.getElementById('final-price-display').innerText = 'NT$ --';
+            document.getElementById('price-breakdown').innerText = '請填寫完整資訊以計算';
         }
 
         function selectType(type) {
             estimateData.type = type;
-            estimateData.subtype = ''; 
-            estimateData.locked = false; 
+            estimateData.subtype = ''; estimateData.locked = false; 
             generateStep2Options(type);
             nextStep(2);
         }
@@ -1369,20 +1123,14 @@
             const lockToggle = document.getElementById('lock-status-toggle');
             container.innerHTML = '';
             lockToggle.style.display = 'none';
+            document.getElementById('lock-segment-selector').style.display = 'none'; // 重置時隱藏段數
 
             let options = [];
-            
-            if (type === 'electronic') {
-                options = ['加安 (FAULTLESS)', '維夫拉克 (WAFERLOCK)', '三星 (SAMSUNG)', '東隆 (EZSET)', '耶魯 (YALE)'];
-            } else if (type === 'traditional') {
-                options = ['三段鎖', '四段鎖', '葉片五段鎖', '輔助鎖', '喇叭鎖', '水平鎖'];
-                lockToggle.style.display = 'block'; 
-                setLockStatus('closed');
-            } else if (type === 'scooter') {
-                options = ['山葉 YAMAHA', '三陽 SYM', '光陽 KYMCO', '睿能 gogoro'];
-            } else if (type === 'other') {
-                options = ['汽車開鎖', '保險箱', '信箱/抽屜', '其他疑問'];
-            }
+            if (type === 'electronic') { options = ['加安 (FAULTLESS)', '維夫拉克 (WAFERLOCK)', '三星 (SAMSUNG)', '東隆 (EZSET)', '耶魯 (YALE)']; } 
+            else if (type === 'traditional') { options = ['鐵門鎖 (三段/四段)', '葉片五段鎖', '輔助鎖', '喇叭鎖', '水平鎖', '一樓公寓大門電鎖']; } 
+            else if (type === 'scooter') { options = ['山葉 YAMAHA', '三陽 SYM', '光陽 KYMCO', '睿能 gogoro']; } 
+            else if (type === 'access-control') { options = ['磁扣/卡片複製', '主機安裝/維修']; }
+            else if (type === 'other') { options = ['汽車開鎖', '保險箱', '信箱/抽屜', '其他疑問']; }
 
             options.forEach(opt => {
                 let div = document.createElement('div');
@@ -1392,7 +1140,15 @@
                     Array.from(container.children).forEach(c => c.classList.remove('selected'));
                     div.classList.add('selected');
                     estimateData.subtype = opt;
-                    setTimeout(() => nextStep(3), 300);
+                    
+                    // 檢查是否顯示鎖門狀態 (鐵門鎖 或 葉片五段鎖)
+                    if (type === 'traditional' && (opt.includes('鐵門鎖') || opt.includes('葉片五段'))) {
+                        lockToggle.style.display = 'block';
+                        setLockStatus('closed'); // 預設為只是關上
+                    } else {
+                        lockToggle.style.display = 'none';
+                        setTimeout(() => nextStep(3), 300);
+                    }
                 };
                 container.appendChild(div);
             });
@@ -1402,6 +1158,30 @@
             estimateData.locked = (status === 'locked');
             document.getElementById('status-closed').className = status === 'closed' ? 'toggle-btn active' : 'toggle-btn';
             document.getElementById('status-locked').className = status === 'locked' ? 'toggle-btn active' : 'toggle-btn';
+            
+            // 如果選反鎖，顯示段數選擇
+            const segSelector = document.getElementById('lock-segment-selector');
+            if (status === 'locked') {
+                segSelector.style.display = 'block';
+                setSegmentCount(1); // 預設 1 段
+            } else {
+                segSelector.style.display = 'none';
+                estimateData.segments = 0;
+                // 如果只是關上，不需要選段數，直接延遲跳轉
+                setTimeout(() => nextStep(3), 500); 
+            }
+        }
+        
+        function setSegmentCount(count) {
+            estimateData.segments = count;
+            // 更新 UI
+            const btns = document.querySelectorAll('#lock-segment-selector .toggle-btn');
+            btns.forEach((btn, index) => {
+                if ((index + 1) === count) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+            // 選完段數後自動下一步
+            setTimeout(() => nextStep(3), 300);
         }
 
         function nextStep(step) {
@@ -1410,10 +1190,7 @@
             currentWizardStep = step;
             if (step === 3) calculatePrice();
         }
-
-        function prevStep(current) {
-            nextStep(current - 1);
-        }
+        function prevStep(current) { nextStep(current - 1); }
         
         function finishWizard() {
             nextStep(4);
@@ -1425,41 +1202,29 @@
             
             let typeText = estimateData.type === 'electronic' ? '電子鎖' : (estimateData.type === 'traditional' ? '傳統鎖' : (estimateData.type === 'scooter' ? '機車' : '其他'));
             let subtypeText = estimateData.subtype || '未選擇';
-            let lockedText = estimateData.type === 'traditional' ? (estimateData.locked ? '已反鎖' : '僅關上') : 'N/A';
+            let lockedText = estimateData.type === 'traditional' ? (estimateData.locked ? `已反鎖 (${estimateData.segments}段)` : '僅關上') : 'N/A';
             let floorText = document.getElementById('floor-select').options[document.getElementById('floor-select').selectedIndex].text;
             let timeText = document.getElementById('time-select').options[document.getElementById('time-select').selectedIndex].text;
             
             const msg = `你好，我在官網做了開鎖估價：\n類型：${typeText} - ${subtypeText}\n狀態：${lockedText}\n地址：${address}\n距離：${distance}公里\n樓層：${floorText}\n時段：${timeText}\n系統預估費用：${price}\n請師傅確認，謝謝！`;
             
             const btn = document.getElementById('btn-wizard-line');
-            if(btn) {
-                btn.onclick = function() {
-                    copyAndGoLine(msg);
-                };
-            }
+            if(btn) { btn.onclick = function() { copyAndGoLine(msg); }; }
         }
 
         function openGoogleMaps() {
             const address = document.getElementById('address-input').value;
             let url = 'https://www.google.com/maps/dir/?api=1&origin=小李開鎖';
-            if (address) {
-                url += '&destination=' + encodeURIComponent(address);
-            } else {
-                url += '&destination=小李開鎖'; 
-            }
+            if (address) { url += '&destination=' + encodeURIComponent(address); } 
+            else { url += '&destination=小李開鎖'; }
             window.open(url, '_blank');
         }
-
         function getCurrentLocation() {
             const addrInput = document.getElementById('address-input');
-            if (!navigator.geolocation) {
-                alert("您的瀏覽器不支援定位功能");
-                return;
-            }
+            if (!navigator.geolocation) { alert("您的瀏覽器不支援定位功能"); return; }
             const originalPlaceholder = addrInput.placeholder;
             addrInput.placeholder = "正在取得位置...";
             addrInput.value = "";
-
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const lat = position.coords.latitude.toFixed(6);
@@ -1467,11 +1232,7 @@
                     addrInput.value = `${lat}, ${lng}`;
                     addrInput.placeholder = originalPlaceholder;
                 },
-                (error) => {
-                    console.error(error);
-                    alert("無法取得位置，請手動輸入地址");
-                    addrInput.placeholder = originalPlaceholder;
-                }
+                (error) => { console.error(error); alert("無法取得位置，請手動輸入地址"); addrInput.placeholder = originalPlaceholder; }
             );
         }
 
@@ -1479,9 +1240,8 @@
             const timeVal = document.getElementById('time-select').value;
             const floorCost = parseInt(document.getElementById('floor-select').value) || 0;
             const dist = parseFloat(document.getElementById('distance-input').value) || 0;
-
             const isNight = (timeVal === 'evening' || timeVal === 'late' || timeVal === 'midnight');
-
+            
             let basePrice = 300; 
             if (timeVal === 'evening') basePrice = 500;
             else if (timeVal === 'late') basePrice = 700;
@@ -1491,44 +1251,31 @@
             let conditionCost = 0;
 
             if (estimateData.type === 'electronic') {
-                if (estimateData.subtype.includes('維夫拉克')) {
-                    basePrice = 0; 
-                    typeCost = isNight ? 1500 : 1000;
-                } else if (estimateData.subtype.includes('三星')) {
-                    basePrice = 0;
-                    typeCost = isNight ? 6000 : 4000;
-                } else if (estimateData.subtype.includes('耶魯')) {
-                    basePrice = 0;
-                    typeCost = 2500; 
-                } else {
-                    typeCost = 300; 
-                }
+                if (estimateData.subtype.includes('維夫拉克')) { basePrice = 0; typeCost = isNight ? 1500 : 1000; } 
+                else if (estimateData.subtype.includes('三星')) { basePrice = 0; typeCost = isNight ? 6000 : 4000; } 
+                else if (estimateData.subtype.includes('耶魯')) { basePrice = 0; typeCost = 2500; } 
+                else { typeCost = 300; }
             } else if (estimateData.type === 'traditional') {
-                if (estimateData.subtype.includes('葉片')) {
-                    typeCost = 200; 
-                }
+                if (estimateData.subtype.includes('葉片')) { typeCost = 200; }
                 if (estimateData.locked) {
-                    conditionCost = (timeVal === 'day') ? 300 : 500;
+                    // 反鎖加成：日間一段300，夜間一段500
+                    const perSegmentCost = (timeVal === 'day') ? 300 : 500;
+                    // 至少算一段，如果有選段數則乘上去
+                    const segs = estimateData.segments > 0 ? estimateData.segments : 1;
+                    conditionCost = perSegmentCost * segs;
                 }
             }
             
             let distCost = 0;
-            if (dist > 3) {
-                distCost = Math.ceil(dist - 3) * 100;
-            }
+            if (dist > 3) { distCost = Math.ceil(dist - 3) * 100; }
 
             let total = basePrice + typeCost + conditionCost + floorCost + distCost;
 
             document.getElementById('final-price-display').innerText = "NT$ " + total;
             
             let details = [];
-            if (estimateData.subtype && (estimateData.subtype.includes('三星') || estimateData.subtype.includes('維夫拉克') || estimateData.subtype.includes('耶魯'))) {
-                details.push(estimateData.subtype + "專案價");
-            } else {
-                if (typeCost > 0) details.push("特殊鎖種/電子鎖加成");
-            }
-            
-            if (conditionCost > 0) details.push("反鎖解鎖費");
+            if (typeCost > 0) details.push("特殊鎖種/電子鎖加成");
+            if (conditionCost > 0) details.push(`反鎖解鎖費(${estimateData.segments}段)`);
             if (floorCost > 0) details.push("樓層費");
             if (distCost > 0) details.push("遠距離車馬費");
             if (estimateData.type === 'other') details.push("現場報價");
