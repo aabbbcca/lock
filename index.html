@@ -14,7 +14,7 @@
             --bg-light: #f8f9fa;
         }
         html {
-            scroll-behavior: smooth; /* 讓點擊連結時有滑動效果 */
+            scroll-behavior: smooth;
         }
         body {
             font-family: "Microsoft JhengHei", sans-serif;
@@ -22,8 +22,9 @@
             padding: 0;
             line-height: 1.6;
             color: #333;
+            background-color: var(--bg-light);
         }
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; cursor: pointer; }
         
         /* --- 導覽列 --- */
         header {
@@ -42,6 +43,7 @@
             font-size: 1.5em;
             font-weight: bold;
             color: var(--primary-yellow);
+            cursor: pointer;
         }
         .logo span { font-size: 0.6em; color: #fff; display: block; font-weight: normal; }
         .nav-links { display: flex; gap: 20px; }
@@ -55,12 +57,16 @@
             font-weight: bold;
         }
         
-        /* 手機版隱藏導覽連結 */
         @media (max-width: 900px) {
             .nav-links { display: none; } 
         }
 
-        /* --- Hero 區塊 (主視覺) --- */
+        /* --- 通用區塊設定 --- */
+        .section { padding: 60px 20px; text-align: center; }
+        .bg-light { background-color: var(--bg-light); }
+        .section-title { font-size: 2em; margin-bottom: 40px; font-weight: bold; }
+        
+        /* --- Hero 區塊 --- */
         .hero {
             background-color: #333;
             color: white;
@@ -87,11 +93,7 @@
         }
         .hero-btn:hover { transform: scale(1.05); }
 
-        /* --- 服務項目 --- */
-        .section { padding: 60px 20px; text-align: center; }
-        .bg-light { background-color: var(--bg-light); }
-        .section-title { font-size: 2em; margin-bottom: 40px; font-weight: bold; }
-        
+        /* --- 首頁服務卡片 --- */
         .services-grid {
             display: flex;
             justify-content: center;
@@ -100,11 +102,6 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        /* 調整錨點定位，避免被導覽列擋住 */
-        .anchor-point {
-            scroll-margin-top: 120px;
-        }
-
         .service-card {
             background: white;
             border-radius: 10px;
@@ -114,6 +111,12 @@
             text-align: left;
             padding-bottom: 20px;
             position: relative;
+            cursor: pointer; /* 讓鼠標變成手指 */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         .card-img-placeholder {
             height: 180px;
@@ -136,7 +139,100 @@
             font-size: 0.8em;
         }
 
-        /* --- 特色區塊 --- */
+        /* --- 產品詳細頁面 (新功能) --- */
+        .sub-page {
+            display: none; /* 預設隱藏 */
+            padding-top: 20px;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-header {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 40px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 0.9em;
+            background: #eee;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        .back-btn:hover { background: #ddd; }
+
+        /* --- 產品展示卡片 (Product Card) --- */
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+        .product-img {
+            height: 250px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.2em;
+            position: relative;
+        }
+        .brand-tag {
+            position: absolute;
+            top: 10px; left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            border-radius: 4px;
+        }
+        .product-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-title { font-size: 1.3em; font-weight: bold; margin: 0 0 10px; }
+        .product-desc { color: #666; font-size: 0.9em; margin-bottom: 15px; flex-grow: 1; }
+        .product-features {
+            list-style: none; padding: 0; margin: 0 0 15px;
+            font-size: 0.9em; color: #555;
+        }
+        .product-features li { margin-bottom: 5px; }
+        .product-features li::before { content: "✔ "; color: #00c300; }
+        .product-price {
+            font-size: 1.4em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .product-btn {
+            background-color: var(--primary-dark);
+            color: var(--primary-yellow);
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: block;
+        }
+        .product-btn:hover { background-color: #333; }
+
+
+        /* --- 特色 & FAQ & Footer --- */
         .features-grid {
             display: flex;
             justify-content: center;
@@ -157,8 +253,6 @@
             font-size: 1.5em;
             margin: 0 auto 15px;
         }
-
-        /* --- 常見問題 & 好評 --- */
         .review-box {
             background: white;
             padding: 30px;
@@ -168,50 +262,17 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             font-style: italic;
         }
-        
         .faq-list { max-width: 800px; margin: 0 auto; text-align: left; }
         .faq-item { background: white; margin-bottom: 15px; padding: 20px; border-radius: 8px; }
         .faq-q { font-weight: bold; color: var(--primary-dark); cursor: pointer; }
         .faq-a { color: var(--text-grey); margin-top: 10px; display: block; }
+        
+        .bottom-cta { background-color: black; color: white; padding: 60px 20px; }
+        .cta-buttons { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn-line { background-color: #00c300; color: white; padding: 12px 30px; border-radius: 50px; font-weight: bold; }
+        .btn-phone { background-color: transparent; border: 2px solid var(--primary-yellow); color: var(--primary-yellow); padding: 12px 30px; border-radius: 50px; font-weight: bold; }
+        footer { background-color: #111; color: #666; padding: 20px; text-align: center; font-size: 0.9em; }
 
-        /* --- 底部 CTA --- */
-        .bottom-cta {
-            background-color: black;
-            color: white;
-            padding: 60px 20px;
-        }
-        .cta-buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .btn-line {
-            background-color: #00c300;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-        }
-        .btn-phone {
-            background-color: transparent;
-            border: 2px solid var(--primary-yellow);
-            color: var(--primary-yellow);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-        }
-
-        footer {
-            background-color: #111;
-            color: #666;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
-        /* 響應式調整 */
         @media (max-width: 600px) {
             .hero h1 { font-size: 2em; }
             .hero { text-align: center; }
@@ -225,135 +286,311 @@
 
     <!-- 導覽列 -->
     <header>
-        <div class="logo">
+        <div class="logo" onclick="showHome()">
             小李開鎖
             <span>雙北 24小時 快速救援</span>
         </div>
-        <!-- 這裡已更新為您指定的四個項目 -->
         <nav class="nav-links">
-            <a href="#electronic-lock">電子鎖安裝</a>
-            <a href="#traditional-lock">傳統鎖更換</a>
-            <a href="#unlock-service">開鎖服務</a>
-            <a href="#faq">常見問題</a>
+            <a onclick="showPage('electronic-page')">電子鎖安裝</a>
+            <a onclick="showPage('traditional-page')">傳統鎖更換</a>
+            <a onclick="showHomeScroll('unlock-service')">開鎖服務</a>
+            <a onclick="showHomeScroll('faq')">常見問題</a>
         </nav>
         <a href="tel:0903109970" class="cta-btn">📞 立即聯繫</a>
     </header>
 
-    <!-- 主視覺 Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>雙北最快！<br><span>24小時</span> 專業開鎖、電子鎖安裝</h1>
-            <p class="hero-sub">價格透明 | 完整售後 | 快速到府 | </p>
-            
-            <a href="tel:0903109970" class="hero-btn">
-                <i class="fas fa-phone-alt"></i> 點擊撥打 0903-109-970
-            </a>
-            <p style="margin-top:15px; font-size:0.9em; color:#888;">解決您的 換鎖、開鎖、門鎖 問題</p>
-        </div>
-    </section>
+    <!-- ================== 首頁視圖 (Home View) ================== -->
+    <main id="home-view">
+        <!-- 主視覺 Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>雙北最快！<br><span>24小時</span> 專業開鎖、電子鎖安裝</h1>
+                <p class="hero-sub">價格透明 | 原廠保固 | 15分鐘快速到達 | 政府立案合法鎖匠</p>
+                <a href="tel:0903109970" class="hero-btn"><i class="fas fa-phone-alt"></i> 點擊撥打 0903-109-970</a>
+                <p style="margin-top:15px; font-size:0.9em; color:#888;">解決您的 換鎖、開鎖、門鎖 問題</p>
+            </div>
+        </section>
 
-    <!-- 服務項目 -->
-    <section id="services" class="section bg-light">
-        <h2 class="section-title">我們的服務項目</h2>
-        <div class="services-grid">
-            
-            <!-- 卡片 1：對應「電子鎖安裝」連結 -->
-            <div id="electronic-lock" class="service-card anchor-point">
-                <div class="card-img-placeholder" style="background: #eee;">🔒</div>
-                <div class="card-body">
-                    <h3>智慧電子鎖安裝</h3>
-                    <p style="color: #666; font-size: 0.9em;">指紋、密碼、人臉辨識。YALE、Philips 等品牌，專業施工教到會。</p>
+        <!-- 服務項目 (主要入口) -->
+        <section id="services" class="section bg-light">
+            <h2 class="section-title">我們的服務項目</h2>
+            <div class="services-grid">
+                
+                <!-- 1. 電子鎖卡片 (點擊進入產品頁) -->
+                <div class="service-card" onclick="showPage('electronic-page')">
+                    <div class="card-img-placeholder" style="background: #eee;">🔒</div>
+                    <div class="card-body">
+                        <h3>智慧電子鎖安裝</h3>
+                        <p style="color: #666; font-size: 0.9em;">指紋、密碼、人臉辨識。點擊查看 Philips、Samsung 各大品牌型號與價格。</p>
+                        <span style="color: #007bff; font-size: 0.9em; font-weight: bold;">查看價目表 &rarr;</span>
+                    </div>
+                </div>
+                
+                <!-- 2. 傳統鎖卡片 (點擊進入產品頁) -->
+                <div class="service-card" onclick="showPage('traditional-page')">
+                    <div class="card-img-placeholder" style="background: #e0e0e0;">🔑</div>
+                    <div class="card-body">
+                        <h3>傳統門鎖更換</h3>
+                        <p style="color: #666; font-size: 0.9em;">三段鎖、輔助鎖、水平把手。點擊查看傳統機械鎖款式與價格。</p>
+                        <span style="color: #007bff; font-size: 0.9em; font-weight: bold;">查看款式 &rarr;</span>
+                    </div>
+                </div>
+                
+                <!-- 3. 開鎖服務 (僅展示，不跳頁) -->
+                <div id="unlock-service" class="service-card emergency-card">
+                    <div class="emergency-badge">緊急</div>
+                    <div class="card-img-placeholder" style="background: #ffecec; color: #e74c3c;">🚨</div>
+                    <div class="card-body">
+                        <h3>24H 緊急開鎖</h3>
+                        <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、反鎖屋內。全年無休，一通電話即刻救援。</p>
+                    </div>
                 </div>
             </div>
-            
-            <!-- 卡片 2：對應「傳統鎖更換」連結 -->
-            <div id="traditional-lock" class="service-card anchor-point">
-                <div class="card-img-placeholder" style="background: #e0e0e0;">🔑</div>
-                <div class="card-body">
-                    <h3>傳統門鎖更換</h3>
-                    <p style="color: #666; font-size: 0.9em;">三段鎖、輔助鎖、水平把手。老舊門鎖汰換，提升居家安全。</p>
+        </section>
+
+        <!-- 特色區塊 -->
+        <section id="features" class="section">
+            <h2 class="section-title">為什麼雙北市民都推薦小李？</h2>
+            <div class="features-grid">
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>極速到達</h3><p>平均 20 分鐘內抵達現場</p></div>
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-tag"></i></div><h3>價格透明</h3><p>絕不喊價，同意報價才施工</p></div>
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>專業認證</h3><p>合法登記，無刑事紀錄</p></div>
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-thumbs-up"></i></div><h3>原廠保固</h3><p>電子鎖皆享原廠保固服務</p></div>
+            </div>
+        </section>
+
+        <!-- 好評 & FAQ -->
+        <section id="faq" class="section bg-light">
+            <h2 class="section-title">客戶真實好評 & 常見問題</h2>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
+                <div class="review-box">"半夜兩點被反鎖在外面，還好小李師傅接電話超快，真的不到20分鐘就到了！"<div style="margin-top: 15px; font-weight: bold; text-align: right;">- 板橋 陳先生</div></div>
+                <div class="review-box">"安裝指紋鎖非常細心，還教我們老人家怎麼設定，施工完地板也清得很乾淨！"<div style="margin-top: 15px; font-weight: bold; text-align: right;">- 中和 林小姐</div></div>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q">Q: 請問開鎖或換鎖大概多少錢？</div>
+                    <div class="faq-a">我們會依據鎖的種類（一般鎖、輔助鎖、電子鎖）與施工難易度報價。請放心，我們堅持「現場確認後先報價，您同意才動工」。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Q: 請問半夜有服務嗎？</div>
+                    <div class="faq-a">有的！我們提供 24 小時緊急救援服務，雙北地區隨時待命。</div>
                 </div>
             </div>
-            
-            <!-- 卡片 3：對應「開鎖服務」連結 -->
-            <div id="unlock-service" class="service-card emergency-card anchor-point">
-                <div class="emergency-badge">緊急</div>
-                <div class="card-img-placeholder" style="background: #ffecec; color: #e74c3c;">🚨</div>
-                <div class="card-body">
-                    <h3>24H 緊急開鎖</h3>
-                    <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、反鎖屋內。全年無休，一通電話即刻救援。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- 為什麼選擇我們 -->
-    <section id="features" class="section">
-        <h2 class="section-title">為什麼雙北市民都推薦小李？</h2>
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                <h3>極速到達</h3>
-                <p>平均 20 分鐘內抵達現場</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-tag"></i></div>
-                <h3>價格透明</h3>
-                <p>絕不喊價，同意報價才施工</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>專業認證</h3>
-                <p>合法登記，無刑事紀錄</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-thumbs-up"></i></div>
-                <h3>原廠保固</h3>
-                <p>電子鎖皆享原廠保固服務</p>
-            </div>
+    <!-- ================== 電子鎖產品頁 (Electronic Lock Page) ================== -->
+    <div id="electronic-page" class="sub-page">
+        <div class="page-header">
+            <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
+            <h2>熱門智慧電子鎖款式</h2>
+            <p>嚴選國際大廠，含安裝、教學及原廠保固</p>
         </div>
-    </section>
-
-    <!-- 客戶好評 & FAQ -->
-    <section id="faq" class="section bg-light anchor-point">
-        <h2 class="section-title">客戶真實好評 & 常見問題</h2>
         
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
-            <div class="review-box">
-                "半夜兩點被反鎖在外面，還好小李師傅接電話超快，真的不到20分鐘就到了，解救了我們一家人！"
-                <div style="margin-top: 15px; font-weight: bold; text-align: right;">- 板橋 陳先生</div>
+        <div class="product-grid">
+            <!-- 產品 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="brand-tag">Philips 飛利浦</span>
+                    [飛利浦 Alpha]
+                </div>
+                <div class="product-body">
+                    <div class="product-title">Philips Alpha 推拉式電子鎖</div>
+                    <div class="product-desc">造型流線時尚，適合現代裝潢。全自動鎖體，關門即上鎖。</div>
+                    <ul class="product-features">
+                        <li>指紋 / 密碼 / 卡片 / 鑰匙 / App</li>
+                        <li>防貓眼開啟功能</li>
+                        <li>C級防盜鎖芯</li>
+                    </ul>
+                    <div class="product-price">NT$ 18,500 起</div>
+                    <a href="tel:0903109970" class="product-btn">電話詢問優惠價</a>
+                </div>
             </div>
-            <div class="review-box">
-                "安裝指紋鎖非常細心，還教我們老人家怎麼設定，施工完地板也清得很乾淨，大推！"
-                <div style="margin-top: 15px; font-weight: bold; text-align: right;">- 中和 林小姐</div>
+
+            <!-- 產品 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="brand-tag">Samsung 三星</span>
+                    [三星 SHP-DP609]
+                </div>
+                <div class="product-body">
+                    <div class="product-title">Samsung SHP-DP609</div>
+                    <div class="product-desc">內建 Wi-Fi 模組，可透過 App 遠端開門。經典推拉式設計。</div>
+                    <ul class="product-features">
+                        <li>指紋 / 密碼 / 鑰匙 / App遠端</li>
+                        <li>家人返家即時通知</li>
+                        <li>一次性密碼功能</li>
+                    </ul>
+                    <div class="product-price">NT$ 19,800 起</div>
+                    <a href="tel:0903109970" class="product-btn">電話詢問優惠價</a>
+                </div>
+            </div>
+
+            <!-- 產品 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="brand-tag">Yale 耶魯</span>
+                    [Yale YDM 7116A]
+                </div>
+                <div class="product-body">
+                    <div class="product-title">Yale YDM 7116A 把手式</div>
+                    <div class="product-desc">傳統把手造型，長輩使用最習慣。鎖體堅固，耐用度高。</div>
+                    <ul class="product-features">
+                        <li>指紋 / 密碼 / 卡片 / 鑰匙 / 藍牙</li>
+                        <li>虛位密碼防窺視</li>
+                        <li>語音導覽設定教學</li>
+                    </ul>
+                    <div class="product-price">NT$ 16,000 起</div>
+                    <a href="tel:0903109970" class="product-btn">電話詢問優惠價</a>
+                </div>
+            </div>
+            
+            <!-- 產品 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="brand-tag">超值首選</span>
+                    [高CP值電子鎖]
+                </div>
+                <div class="product-body">
+                    <div class="product-title">高 CP 值指紋密碼鎖</div>
+                    <div class="product-desc">預算有限的最佳選擇，功能齊全，適合房東或小家庭。</div>
+                    <ul class="product-features">
+                        <li>指紋 / 密碼 / 鑰匙</li>
+                        <li>半導體指紋辨識</li>
+                        <li>一年保固</li>
+                    </ul>
+                    <div class="product-price">NT$ 9,900 起</div>
+                    <a href="tel:0903109970" class="product-btn">電話詢問優惠價</a>
+                </div>
             </div>
         </div>
-
-        <!-- 這裡對應「常見問題」連結 -->
-        <div class="faq-list">
-            <div class="faq-item">
-                <div class="faq-q">Q: 請問開鎖或換鎖大概多少錢？</div>
-                <div class="faq-a">我們會依據鎖的種類（一般鎖、輔助鎖、電子鎖）與施工難易度報價。請放心，我們堅持「現場確認後先報價，您同意才動工」，絕不事後加價。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Q: 請問半夜有服務嗎？</div>
-                <div class="faq-a">有的！我們提供 24 小時緊急救援服務，雙北地區隨時待命。</div>
+        
+        <div class="bottom-cta section">
+            <h2>找不到喜歡的型號？</h2>
+            <p>我們還有更多品牌款式，歡迎直接加 Line 或來電諮詢！</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-line">加 LINE 索取型錄</a>
+                <a href="tel:0903109970" class="btn-phone">致電諮詢</a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 底部呼籲 -->
-    <section class="bottom-cta section">
-        <h2>還在猶豫門鎖問題？現在就諮詢！</h2>
-        <div class="cta-buttons">
-            <a href="#" class="btn-line"><i class="fab fa-line"></i> 加 LINE 線上報價</a>
-            <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 直接電話聯絡</a>
+    <!-- ================== 傳統鎖產品頁 (Traditional Lock Page) ================== -->
+    <div id="traditional-page" class="sub-page">
+        <div class="page-header">
+            <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
+            <h2>精選傳統機械門鎖</h2>
+            <p>堅固耐用、經濟實惠，各式房門、大門鎖具更換</p>
         </div>
-    </section>
 
+        <div class="product-grid">
+            <!-- 產品 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="brand-tag">防盜首選</span>
+                    [不鏽鋼三段鎖]
+                </div>
+                <div class="product-body">
+                    <div class="product-title">不鏽鋼三段鎖/四段鎖</div>
+                    <div class="product-desc">台灣製造，結構厚實。適用於一般公寓大門，防撬能力佳。</div>
+                    <ul class="product-features">
+                        <li>純鋼鎖舌，不易破壞</li>
+                        <li>附 3 支原廠鑰匙</li>
+                        <li>可升級防盜鎖芯</li>
+                    </ul>
+                    <div class="product-price">NT$ 3,500 起</div>
+                    <a href="tel:0903109970" class="product-btn">預約安裝</a>
+                </div>
+            </div>
+
+            <!-- 產品 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="brand-tag">輔助鎖</span>
+                    [三段輔助鎖]
+                </div>
+                <div class="product-body">
+                    <div class="product-title">三段式輔助鎖</div>
+                    <div class="product-desc">安裝於門上方，增加一道防線。體積小，不佔空間。</div>
+                    <ul class="product-features">
+                        <li>機械結構簡單耐用</li>
+                        <li>經濟實惠的防盜選擇</li>
+                        <li>多種顏色可選</li>
+                    </ul>
+                    <div class="product-price">NT$ 1,800 起</div>
+                    <a href="tel:0903109970" class="product-btn">預約安裝</a>
+                </div>
+            </div>
+
+            <!-- 產品 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="brand-tag">一般門鎖</span>
+                    [水平把手鎖]
+                </div>
+                <div class="product-body">
+                    <div class="product-title">水平把手鎖 / 喇叭鎖</div>
+                    <div class="product-desc">適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。</div>
+                    <ul class="product-features">
+                        <li>安裝快速</li>
+                        <li>多種材質款式 (黑/銀/金)</li>
+                        <li>可選購無鑰匙款式 (浴廁用)</li>
+                    </ul>
+                    <div class="product-price">NT$ 1,200 起</div>
+                    <a href="tel:0903109970" class="product-btn">預約安裝</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-cta section">
+            <h2>門鎖壞了？鑰匙卡住？</h2>
+            <p>小李開鎖提供最快速的維修與更換服務，拍照傳 LINE 立即報價！</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-line">LINE 拍照報價</a>
+                <a href="tel:0903109970" class="btn-phone">緊急維修</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
     <footer>
         <p>&copy; 2026 小李開鎖服務. All rights reserved. | <a href="https://share.google/QnykUdfL2kR4e5KjI" target="_blank" style="text-decoration: underline;">Google 商家檔案</a></p>
     </footer>
 
+    <!-- JavaScript 控制頁面切換 -->
+    <script>
+        // 顯示首頁
+        function showHome() {
+            document.getElementById('home-view').style.display = 'block';
+            document.getElementById('electronic-page').style.display = 'none';
+            document.getElementById('traditional-page').style.display = 'none';
+            window.scrollTo(0, 0); // 捲動到頂部
+        }
+
+        // 顯示特定產品頁面
+        function showPage(pageId) {
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('electronic-page').style.display = 'none';
+            document.getElementById('traditional-page').style.display = 'none';
+            
+            // 顯示目標頁面
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+                window.scrollTo(0, 0); // 捲動到頂部
+            }
+        }
+
+        // 從選單點擊首頁的區塊 (例如 FAQ)，如果當前在產品頁，要先切回首頁
+        function showHomeScroll(sectionId) {
+            showHome();
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100); // 稍微延遲讓首頁先顯示出來
+        }
+    </script>
 </body>
 </html>
