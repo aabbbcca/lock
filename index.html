@@ -25,6 +25,7 @@
             background-color: var(--bg-light);
         }
         a { text-decoration: none; color: inherit; cursor: pointer; }
+        input, select, button { font-family: inherit; }
         
         /* --- 導覽列 --- */
         header {
@@ -111,7 +112,7 @@
             text-align: left;
             padding-bottom: 20px;
             position: relative;
-            cursor: pointer; /* 讓鼠標變成手指 */
+            cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .service-card:hover {
@@ -139,9 +140,9 @@
             font-size: 0.8em;
         }
 
-        /* --- 產品詳細頁面 (新功能) --- */
+        /* --- 頁面切換設定 --- */
         .sub-page {
-            display: none; /* 預設隱藏 */
+            display: none;
             padding-top: 20px;
             animation: fadeIn 0.5s;
         }
@@ -164,10 +165,11 @@
             background: #eee;
             padding: 5px 15px;
             border-radius: 20px;
+            cursor: pointer;
         }
         .back-btn:hover { background: #ddd; }
 
-        /* --- 產品展示卡片 (Product Card) --- */
+        /* --- 產品展示卡片 --- */
         .product-grid {
             display: flex;
             justify-content: center;
@@ -232,6 +234,68 @@
         .product-btn:hover { background-color: #333; }
 
 
+        /* --- 估價系統 (Wizard) 樣式 --- */
+        .wizard-container {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .step-container { display: none; }
+        .step-container.active { display: block; animation: fadeIn 0.3s; }
+        
+        .wizard-title { font-size: 1.5em; font-weight: bold; margin-bottom: 20px; text-align: center; color: var(--primary-dark); }
+        .wizard-subtitle { text-align: center; color: #666; margin-bottom: 30px; }
+        
+        .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .option-btn {
+            padding: 15px;
+            border: 2px solid #eee;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: bold;
+            color: #555;
+        }
+        .option-btn:hover { border-color: var(--primary-yellow); background: #fffbe6; }
+        .option-btn.selected { background-color: var(--primary-yellow); color: black; border-color: var(--primary-yellow); }
+
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        .input-group select, .input-group input {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 1em;
+        }
+        .input-group .helper-text { font-size: 0.85em; color: #888; margin-top: 5px; }
+
+        .price-result {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            border: 2px solid var(--primary-yellow);
+        }
+        .final-price { font-size: 2.5em; color: #e74c3c; font-weight: bold; margin: 10px 0; }
+        .price-note { font-size: 0.9em; color: #666; }
+
+        .control-btns { display: flex; justify-content: space-between; margin-top: 30px; }
+        .btn-prev { background: #eee; color: #333; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .btn-next { background: var(--primary-dark); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        
+        .toggle-switch {
+            display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;
+        }
+        .toggle-btn {
+            padding: 10px 20px; border: 1px solid #ccc; border-radius: 20px; cursor: pointer;
+        }
+        .toggle-btn.active {
+            background: #e74c3c; color: white; border-color: #e74c3c;
+        }
+
         /* --- 特色 & FAQ & Footer --- */
         .features-grid {
             display: flex;
@@ -277,6 +341,7 @@
             .hero h1 { font-size: 2em; }
             .hero { text-align: center; }
             .hero-btn { width: 100%; box-sizing: border-box; }
+            .option-grid { grid-template-columns: 1fr; }
         }
     </style>
     <!-- 引入 Font Awesome 圖示 -->
@@ -293,7 +358,7 @@
         <nav class="nav-links">
             <a onclick="showPage('electronic-page')">電子鎖安裝</a>
             <a onclick="showPage('traditional-page')">傳統鎖更換</a>
-            <a onclick="showHomeScroll('unlock-service')">開鎖服務</a>
+            <a onclick="showPage('unlock-page')">開鎖服務</a> <!-- 這裡改為跳轉到新頁面 -->
             <a onclick="showHomeScroll('faq')">常見問題</a>
         </nav>
         <a href="tel:0903109970" class="cta-btn">📞 立即聯繫</a>
@@ -305,18 +370,18 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>雙北最快！<br><span>24小時</span> 專業開鎖、電子鎖安裝</h1>
-                <p class="hero-sub">價格透明 | 原廠保固 | 15分鐘快速到達 | 政府立案合法鎖匠</p>
+                <!-- 文字已更新 -->
+                <p class="hero-sub">價格透明 | 完整售後 | 快速到府 | 專業技術</p>
                 <a href="tel:0903109970" class="hero-btn"><i class="fas fa-phone-alt"></i> 點擊撥打 0903-109-970</a>
                 <p style="margin-top:15px; font-size:0.9em; color:#888;">解決您的 換鎖、開鎖、門鎖 問題</p>
             </div>
         </section>
 
-        <!-- 服務項目 (主要入口) -->
+        <!-- 服務項目 -->
         <section id="services" class="section bg-light">
             <h2 class="section-title">我們的服務項目</h2>
             <div class="services-grid">
                 
-                <!-- 1. 電子鎖卡片 (點擊進入產品頁) -->
                 <div class="service-card" onclick="showPage('electronic-page')">
                     <div class="card-img-placeholder" style="background: #eee;">🔒</div>
                     <div class="card-body">
@@ -326,7 +391,6 @@
                     </div>
                 </div>
                 
-                <!-- 2. 傳統鎖卡片 (點擊進入產品頁) -->
                 <div class="service-card" onclick="showPage('traditional-page')">
                     <div class="card-img-placeholder" style="background: #e0e0e0;">🔑</div>
                     <div class="card-body">
@@ -336,13 +400,14 @@
                     </div>
                 </div>
                 
-                <!-- 3. 開鎖服務 (僅展示，不跳頁) -->
-                <div id="unlock-service" class="service-card emergency-card">
+                <!-- 3. 開鎖服務 (點擊進入估價頁) -->
+                <div id="unlock-service" class="service-card emergency-card" onclick="showPage('unlock-page')">
                     <div class="emergency-badge">緊急</div>
                     <div class="card-img-placeholder" style="background: #ffecec; color: #e74c3c;">🚨</div>
                     <div class="card-body">
                         <h3>24H 緊急開鎖</h3>
-                        <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、反鎖屋內。全年無休，一通電話即刻救援。</p>
+                        <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、反鎖屋內。點擊進入 <b>線上自動估價</b>。</p>
+                        <span style="color: #e74c3c; font-size: 0.9em; font-weight: bold;">立即估價 &rarr;</span>
                     </div>
                 </div>
             </div>
@@ -377,9 +442,135 @@
                 </div>
             </div>
         </section>
+
+        <!-- 首頁底部 CTA (依照需求恢復) -->
+        <section class="bottom-cta section">
+            <h2>還在猶豫門鎖問題？現在就諮詢！</h2>
+            <div class="cta-buttons">
+                <a href="#" class="btn-line"><i class="fab fa-line"></i> 加 LINE 線上報價</a>
+                <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 直接電話聯絡</a>
+            </div>
+        </section>
     </main>
 
-    <!-- ================== 電子鎖產品頁 (Electronic Lock Page) ================== -->
+    <!-- ================== 開鎖服務估價頁 (New Unlock Wizard) ================== -->
+    <div id="unlock-page" class="sub-page">
+        <div class="page-header">
+            <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
+            <h2>線上緊急開鎖估價</h2>
+            <p>簡單 3 步驟，立即試算價格</p>
+        </div>
+
+        <div class="wizard-container">
+            <!-- 步驟 1: 選擇類型 -->
+            <div id="step-1" class="step-container active">
+                <div class="wizard-title">請問您需要開啟的是？</div>
+                <div class="option-grid">
+                    <div class="option-btn" onclick="selectType('electronic')">電子鎖</div>
+                    <div class="option-btn" onclick="selectType('traditional')">傳統鎖</div>
+                    <div class="option-btn" onclick="selectType('scooter')">機車</div>
+                </div>
+            </div>
+
+            <!-- 步驟 2: 細節 (動態) -->
+            <div id="step-2" class="step-container">
+                <div class="wizard-title">請問更詳細的資訊？</div>
+                <div id="dynamic-options" class="option-grid">
+                    <!-- JS 生成按鈕 -->
+                </div>
+                
+                <!-- 傳統鎖專用：是否有鎖段 -->
+                <div id="lock-status-toggle" style="display:none; margin-top:20px;">
+                    <p style="text-align:center; font-weight:bold;">目前的鎖門狀態？</p>
+                    <div class="toggle-switch">
+                        <div class="toggle-btn" id="status-closed" onclick="setLockStatus('closed')">只是關上(無鎖)</div>
+                        <div class="toggle-btn" id="status-locked" onclick="setLockStatus('locked')">已上鎖/反鎖</div>
+                    </div>
+                </div>
+
+                <div class="control-btns">
+                    <button class="btn-prev" onclick="prevStep(1)">上一步</button>
+                    <!-- 選擇後自動跳下一步，這裡不需要下一步按鈕 -->
+                </div>
+            </div>
+
+            <!-- 步驟 3: 環境與距離 -->
+            <div id="step-3" class="step-container">
+                <div class="wizard-title">最後，請問地點環境？</div>
+                
+                <div class="input-group">
+                    <label>現在時段 (系統自動判斷)</label>
+                    <select id="time-select" onchange="calculatePrice()">
+                        <option value="day">09:00 - 21:00 (一般時段)</option>
+                        <option value="evening">21:00 - 23:00 (晚間加成)</option>
+                        <option value="late">23:00 - 00:00 (深夜加成)</option>
+                        <option value="midnight">00:00 - 08:00 (大夜急診)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>樓層情況</label>
+                    <select id="floor-select" onchange="calculatePrice()">
+                        <option value="0">有電梯 / 1-4樓 (不加價)</option>
+                        <option value="100">公寓爬樓梯 5樓 (+$100)</option>
+                        <option value="200">公寓爬樓梯 6樓 (+$200)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>距離小李開鎖 (公里)</label>
+                    <div style="display:flex; gap:10px;">
+                        <input type="number" id="distance-input" placeholder="例如: 3.5" step="0.1" onchange="calculatePrice()">
+                        <button onclick="openGoogleMaps()" style="background:#4285F4; color:white; border:none; border-radius:5px; padding:0 15px; cursor:pointer;">
+                            <i class="fas fa-map-marker-alt"></i> 開啟地圖測距
+                        </button>
+                    </div>
+                    <div class="helper-text">3公里內不加價，超過每公里 +100元</div>
+                </div>
+
+                <div class="price-result">
+                    <div class="price-note">預估費用</div>
+                    <div class="final-price" id="final-price-display">NT$ --</div>
+                    <div class="price-note" id="price-breakdown">請填寫完整資訊以計算</div>
+                </div>
+
+                <div class="control-btns">
+                    <button class="btn-prev" onclick="prevStep(2)">上一步</button>
+                    <button class="btn-next" onclick="finishWizard()">確認呼叫</button>
+                </div>
+            </div>
+
+            <!-- 步驟 4: 結果與呼叫 -->
+            <div id="step-4" class="step-container">
+                <div class="wizard-title" style="color:#2ecc71;">估價完成！</div>
+                <div style="text-align:center; margin-bottom:20px;">
+                    <p>您的需求我們已經了解，師傅準備出發！</p>
+                    <div class="final-price" id="result-price-display">NT$ 300</div>
+                    <p style="color: #666; font-size: 0.9em;">(此為系統預估價格，實際狀況以師傅現場確認為主)</p>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#" class="btn-line" style="width:100%; text-align:center; margin-bottom:10px;"><i class="fab fa-line"></i> 傳送位置給師傅 (LINE)</a>
+                    <a href="tel:0903109970" class="btn-phone" style="width:100%; text-align:center; background:var(--primary-yellow); color:black;"><i class="fas fa-phone-alt"></i> 撥打電話叫修</a>
+                </div>
+                <br>
+                <div style="text-align:center;">
+                    <a onclick="showHome()" style="text-decoration:underline; color:#666; cursor:pointer;">回首頁</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 CTA (Restore) -->
+        <section class="bottom-cta section">
+            <h2>需要人工報價？</h2>
+            <div class="cta-buttons">
+                <a href="#" class="btn-line"><i class="fab fa-line"></i> 加 LINE 線上報價</a>
+                <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 直接電話聯絡</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================== 電子鎖產品頁 ================== -->
     <div id="electronic-page" class="sub-page">
         <div class="page-header">
             <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
@@ -467,15 +658,14 @@
         
         <div class="bottom-cta section">
             <h2>找不到喜歡的型號？</h2>
-            <p>我們還有更多品牌款式，歡迎直接加 Line 或來電諮詢！</p>
             <div class="cta-buttons">
-                <a href="#" class="btn-line">加 LINE 索取型錄</a>
-                <a href="tel:0903109970" class="btn-phone">致電諮詢</a>
+                <a href="#" class="btn-line"><i class="fab fa-line"></i> 加 LINE 索取型錄</a>
+                <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 致電諮詢</a>
             </div>
         </div>
     </div>
 
-    <!-- ================== 傳統鎖產品頁 (Traditional Lock Page) ================== -->
+    <!-- ================== 傳統鎖產品頁 ================== -->
     <div id="traditional-page" class="sub-page">
         <div class="page-header">
             <a class="back-btn" onclick="showHome()">🔙 返回首頁</a>
@@ -544,10 +734,9 @@
         
         <div class="bottom-cta section">
             <h2>門鎖壞了？鑰匙卡住？</h2>
-            <p>小李開鎖提供最快速的維修與更換服務，拍照傳 LINE 立即報價！</p>
             <div class="cta-buttons">
-                <a href="#" class="btn-line">LINE 拍照報價</a>
-                <a href="tel:0903109970" class="btn-phone">緊急維修</a>
+                <a href="#" class="btn-line"><i class="fab fa-line"></i> LINE 拍照報價</a>
+                <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 緊急維修</a>
             </div>
         </div>
     </div>
@@ -557,39 +746,193 @@
         <p>&copy; 2026 小李開鎖服務. All rights reserved. | <a href="https://share.google/QnykUdfL2kR4e5KjI" target="_blank" style="text-decoration: underline;">Google 商家檔案</a></p>
     </footer>
 
-    <!-- JavaScript 控制頁面切換 -->
+    <!-- JavaScript 控制邏輯 -->
     <script>
-        // 顯示首頁
+        // --- 頁面導航 ---
         function showHome() {
+            hideAllPages();
             document.getElementById('home-view').style.display = 'block';
-            document.getElementById('electronic-page').style.display = 'none';
-            document.getElementById('traditional-page').style.display = 'none';
-            window.scrollTo(0, 0); // 捲動到頂部
+            window.scrollTo(0, 0);
         }
 
-        // 顯示特定產品頁面
         function showPage(pageId) {
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('electronic-page').style.display = 'none';
-            document.getElementById('traditional-page').style.display = 'none';
-            
-            // 顯示目標頁面
+            hideAllPages();
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.style.display = 'block';
-                window.scrollTo(0, 0); // 捲動到頂部
+                window.scrollTo(0, 0);
             }
         }
 
-        // 從選單點擊首頁的區塊 (例如 FAQ)，如果當前在產品頁，要先切回首頁
+        function hideAllPages() {
+            const pages = ['home-view', 'electronic-page', 'traditional-page', 'unlock-page'];
+            pages.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+        }
+
         function showHomeScroll(sectionId) {
             showHome();
             setTimeout(() => {
                 const section = document.getElementById(sectionId);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
+                if (section) section.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        // --- 估價系統 (Wizard) 邏輯 ---
+        
+        let currentWizardStep = 1;
+        let estimateData = {
+            type: '',       // electronic, traditional, scooter
+            subtype: '',    // brand name or lock type
+            locked: false,  // true if deadbolt locked (traditional only)
+            time: 'day',
+            floorPrice: 0,
+            distance: 0
+        };
+
+        // 自動設定當前時段
+        window.onload = function() {
+            const hour = new Date().getHours();
+            let timeVal = 'day';
+            if (hour >= 21 && hour < 23) timeVal = 'evening';
+            else if (hour >= 23) timeVal = 'late';
+            else if (hour < 8) timeVal = 'midnight';
+            
+            const timeSelect = document.getElementById('time-select');
+            if (timeSelect) timeSelect.value = timeVal;
+        };
+
+        function selectType(type) {
+            estimateData.type = type;
+            estimateData.subtype = ''; 
+            estimateData.locked = false; // reset
+            generateStep2Options(type);
+            nextStep(2);
+        }
+
+        function generateStep2Options(type) {
+            const container = document.getElementById('dynamic-options');
+            const lockToggle = document.getElementById('lock-status-toggle');
+            container.innerHTML = '';
+            lockToggle.style.display = 'none'; // 預設隱藏
+
+            let options = [];
+            
+            if (type === 'electronic') {
+                options = ['加安 (FAULTLESS)', '維夫拉克 (WAFERLOCK)', '三星 (SAMSUNG)', '東隆 (EZSET)', '耶魯 (YALE)'];
+            } else if (type === 'traditional') {
+                options = ['三段鎖', '四段鎖', '葉片五段鎖', '輔助鎖', '喇叭鎖', '水平鎖'];
+                lockToggle.style.display = 'block'; // 傳統鎖顯示狀態切換
+                setLockStatus('closed'); // 重置為只是關上
+            } else if (type === 'scooter') {
+                options = ['山葉 YAMAHA', '三陽 SYM', '光陽 KYMCO', '睿能 gogoro'];
+            }
+
+            options.forEach(opt => {
+                let div = document.createElement('div');
+                div.className = 'option-btn';
+                div.innerText = opt;
+                div.onclick = function() {
+                    // 移除其他選中狀態
+                    Array.from(container.children).forEach(c => c.classList.remove('selected'));
+                    div.classList.add('selected');
+                    estimateData.subtype = opt;
+                    // 自動跳轉
+                    setTimeout(() => nextStep(3), 300);
+                };
+                container.appendChild(div);
+            });
+        }
+
+        function setLockStatus(status) {
+            estimateData.locked = (status === 'locked');
+            document.getElementById('status-closed').className = status === 'closed' ? 'toggle-btn active' : 'toggle-btn';
+            document.getElementById('status-locked').className = status === 'locked' ? 'toggle-btn active' : 'toggle-btn';
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            currentWizardStep = step;
+            if (step === 3) calculatePrice(); // 進入步驟3時先算一次
+        }
+
+        function prevStep(current) {
+            nextStep(current - 1);
+        }
+        
+        function finishWizard() {
+            nextStep(4);
+            document.getElementById('result-price-display').innerText = document.getElementById('final-price-display').innerText;
+        }
+
+        function openGoogleMaps() {
+            // 開啟 Google Maps 路線規劃，目的地設為一個中心點或小李開鎖 (這裡用 generic search)
+            window.open('https://www.google.com/maps/dir/?api=1&destination=小李開鎖', '_blank');
+        }
+
+        function calculatePrice() {
+            // 1. 取得輸入值
+            const timeVal = document.getElementById('time-select').value;
+            const floorCost = parseInt(document.getElementById('floor-select').value) || 0;
+            const dist = parseFloat(document.getElementById('distance-input').value) || 0;
+
+            // 2. 基礎時段費用 (出勤費)
+            let basePrice = 300; // day 09-21
+            if (timeVal === 'evening') basePrice = 500; // 21-23
+            else if (timeVal === 'late') basePrice = 700; // 23-24
+            else if (timeVal === 'midnight') basePrice = 1000; // 00-08
+
+            // 3. 鎖種與狀態加成
+            let typeCost = 0;
+            let conditionCost = 0;
+
+            if (estimateData.type === 'electronic') {
+                // 電子鎖基本時間 600 (若基礎是300，則+300)
+                // 這裡假設電子鎖"起步價"就是比傳統鎖貴
+                typeCost = 300; 
+            } else if (estimateData.type === 'traditional') {
+                // 葉片鎖特殊處理
+                if (estimateData.subtype.includes('葉片')) {
+                    // 葉片正常時間基本 500 (若基礎是300，則+200)
+                    typeCost = 200;
                 }
-            }, 100); // 稍微延遲讓首頁先顯示出來
+                
+                // 鎖段加成 (只有傳統鎖有)
+                if (estimateData.locked) {
+                    // 有鎖段
+                    if (timeVal === 'day') {
+                        conditionCost = 300; // 正常時間一段+300
+                    } else {
+                        conditionCost = 500; // 加成時間+500
+                    }
+                }
+            }
+            // 機車通常算基本價，暫無額外加成
+
+            // 4. 距離加成 (3公里內不加價，超過每一公里+100)
+            let distCost = 0;
+            if (dist > 3) {
+                distCost = Math.ceil(dist - 3) * 100;
+            }
+
+            // 5. 總計
+            let total = basePrice + typeCost + conditionCost + floorCost + distCost;
+
+            // 顯示
+            document.getElementById('final-price-display').innerText = "NT$ " + total;
+            
+            // 顯示明細 (除錯或給客戶看)
+            let details = [];
+            // details.push(`時段基費: $${basePrice}`);
+            if (typeCost > 0) details.push("特殊鎖種加成");
+            if (conditionCost > 0) details.push("反鎖解鎖費");
+            if (floorCost > 0) details.push("樓層費");
+            if (distCost > 0) details.push("遠距離車馬費");
+            
+            document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準開鎖服務費";
         }
     </script>
 </body>
