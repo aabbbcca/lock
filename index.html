@@ -484,7 +484,7 @@
         .carousel-container {
             position: relative;
             width: 100%;
-            max-width: 400px; /* Reduced max-width for better appearance */
+            max-width: 400px; 
             margin: 0 auto 30px;
             overflow: hidden;
             border-radius: 10px;
@@ -514,6 +514,36 @@
         }
         .prev-btn { left: 10px; }
         .next-btn { right: 10px; }
+        
+        /* Review Images - Smaller */
+        .review-img-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .review-img-box {
+            background: #ddd;
+            width: 200px; 
+            height: 150px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .review-img-box:hover {
+            transform: scale(1.05);
+        }
+        .review-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         /* FAQ, Footer */
         .faq-list { max-width: 800px; margin: 0 auto; text-align: left; }
@@ -770,7 +800,7 @@
                     <select id="floor-select" onchange="calculatePrice()"><option value="0">有電梯 / 無電梯1-4樓 (不加價)</option><option value="100">公寓爬樓梯 5樓以上 (+$100)</option></select>
                 </div>
                 <div class="price-result"><div class="price-note">預估費用</div><div class="final-price" id="final-price-display">NT$ --</div><div class="price-note" id="price-breakdown">請填寫完整資訊以計算</div></div>
-                <div class="control-btns"><button class="btn-prev" onclick="prevStep(3)">上一步</button><button class="btn-next" onclick="finishWizard()">立即聯繫師傅</button></div>
+                <div class="control-btns"><button class="btn-prev" onclick="prevStep(3)">上一步</button><button class="btn-next" onclick="finishWizard()">確認呼叫</button></div>
             </div>
             <div id="step-4" class="step-container">
                 <div class="wizard-title" style="color:#2ecc71;">估價完成！</div>
@@ -843,49 +873,49 @@
                 id: 'luna-pro', brand: 'yale', title: 'Yale Luna Pro+ 人臉辨識',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/yale-luna-pro-plus-front-body-1.webp',
                 tag: 'Yale 旗艦款', listPrice: 39800, offerPrice: 27999,
-                desc: '偏心防夾手設計，霧面黑配香檳金/星空灰。極致安全與便利的頂級選擇。<br>支援 3D 人臉識別，靠近自動喚醒，完全解放雙手。 (含安裝)',
+                desc: '偏心防夾手設計，霧面黑配香檳金/星空灰。極致安全與便利的頂級選擇。<br>支援 3D 人臉識別，靠近自動喚醒，完全解放雙手。',
                 features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 / App', '3D 人臉識別，靠近自動喚醒', '歐規大鎖匣，結構堅固', '防夾手把手設計']
             },
             'byyou-pro': {
                 id: 'byyou-pro', brand: 'yale', title: 'Yale ByYou Pro 指紋卡片',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou.PNG',
                 tag: 'Yale 時尚款', listPrice: 30000, offerPrice: 25399,
-                desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。支援 Apple/Samsung Wallet 解鎖。<br>時尚外型，搭配現代裝潢的最佳選擇。 (含安裝)',
+                desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。支援 Apple/Samsung Wallet 解鎖。<br>時尚外型，搭配現代裝潢的最佳選擇。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', '支援手機錢包解鎖']
             },
             'ydm7116a': {
                 id: 'ydm7116a', brand: 'yale', title: 'Yale YDM7116A 把手式',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7116A.PNG',
                 tag: 'Yale 經典款', listPrice: 30500, offerPrice: 19000,
-                desc: '經典把手設計，長輩使用最習慣。有黑色跟玫瑰金可選，功能穩定耐用。 (含安裝)',
+                desc: '經典把手設計，長輩使用最習慣。有黑色跟玫瑰金可選，功能穩定耐用。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙', '語音導覽設定，操作簡單', '強制上鎖與入侵警報功能']
             },
             'ydm4109a': {
                 id: 'ydm4109a', brand: 'yale', title: 'Yale YDM4109A 智慧指紋鎖',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM4109A.PNG',
                 tag: 'Yale 智慧款', listPrice: 24800, offerPrice: 16000,
-                desc: '三合一指紋密碼鑰匙。經典熱銷款升級，金色/黑色可選。斷層式指紋掃描，安全可靠。 (含安裝)',
+                desc: '三合一指紋密碼鑰匙。經典熱銷款升級，金色/黑色可選。斷層式指紋掃描，安全可靠。',
                 features: ['指紋 / 密碼 / 鑰匙', '虛位密碼功能，防窺視', '可選配藍芽/遠端模組']
             },
             'ymf40a': {
                 id: 'ymf40a', brand: 'yale', title: 'Yale YMF40A 熱感應觸控',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF40A.PNG',
                 tag: 'Yale 推拉款', listPrice: 25800, offerPrice: 17000,
-                desc: '三合一指紋密碼鑰匙。簡約黑色推拉式設計，美觀大方。 (含安裝)',
+                desc: '三合一指紋密碼鑰匙。簡約黑色推拉式設計，美觀大方。',
                 features: ['指紋 / 密碼 / 鑰匙', '熱感應觸控面板', '入侵/破壞警報功能']
             },
              'ymf30a': {
                 id: 'ymf30a', brand: 'yale', title: 'Yale YMF30A 卡片密碼鎖',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF30A.PNG',
                 tag: 'Yale 卡片款', listPrice: 24800, offerPrice: 16000,
-                desc: '三合一卡片密碼鑰匙。 (含安裝)',
+                desc: '三合一卡片密碼鑰匙。',
                 features: ['卡片 / 密碼 / 鑰匙', '熱感應觸控面板', '美觀耐用']
             },
             'ydm7216a': {
                 id: 'ydm7216a', brand: 'yale', title: 'Yale YDM7216A 隱藏式指紋',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7216A.PNG',
                 tag: 'Yale 升級款', listPrice: 26800, offerPrice: 18000,
-                desc: '跟7116A基本上一樣只是指紋感應的地方做成隱藏式。 (含安裝)',
+                desc: '跟7116A基本上一樣只是指紋感應的地方做成隱藏式。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙', '隱藏式指紋感應', '語音導覽設定']
             },
             // --- Philips ---
@@ -893,14 +923,14 @@
                 id: 'philips-9300', brand: 'philips', title: 'Philips 9300 (平行輸入)',
                 img: 'https://placehold.co/400x300?text=Philips+9300',
                 tag: 'Philips 頂級款', listPrice: null, offerPrice: '請洽詢',
-                desc: '全自動推拉式，支援物聯網連線。頂級工藝設計，尊榮享受。 (含安裝)',
+                desc: '全自動推拉式，支援物聯網連線。頂級工藝設計，尊榮享受。',
                 features: ['指紋 / 密碼 / 卡片 / 鑰匙 / App', '全自動鎖體', '室內感應開門']
             },
             'philips-790fvp': {
                 id: 'philips-790fvp', brand: 'philips', title: 'Philips 790FVP (平行輸入)',
                 img: 'https://placehold.co/400x300?text=Philips+790FVP',
                 tag: 'Philips 視訊款', listPrice: null, offerPrice: '請洽詢',
-                desc: '內建電子貓眼與視訊通話功能，隨時掌握門外動態。 (含安裝)',
+                desc: '內建電子貓眼與視訊通話功能，隨時掌握門外動態。',
                 features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話', '大螢幕貓眼']
             },
             // --- Waferlock ---
@@ -908,28 +938,28 @@
                 id: 'wafer-l600', brand: 'waferlock', title: '維夫拉克 Waferlock L600',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L600.PNG',
                 tag: 'Waferlock 人臉款', listPrice: null, offerPrice: '請洽詢',
-                desc: '4合一把手式 (人臉/卡片/密碼/鑰匙)，開門更快速。 (含安裝)',
+                desc: '4合一把手式 (人臉/卡片/密碼/鑰匙)，開門更快速。',
                 features: ['人臉辨識 / 卡片 / 密碼 / 鑰匙', 'IP54 防塵防水', '中文語音提示']
             },
             'wafer-l900': {
                 id: 'wafer-l900', brand: 'waferlock', title: '維夫拉克 Waferlock L900',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L900.PNG',
                 tag: 'Waferlock 推拉款', listPrice: null, offerPrice: '請洽詢',
-                desc: '4合1推拉式 (指紋/卡片/密碼/鑰匙)，時尚設計。 (含安裝)',
+                desc: '4合1推拉式 (指紋/卡片/密碼/鑰匙)，時尚設計。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙', '推拉式把手', '防高壓電擊']
             },
             'wafer-l396': {
                 id: 'wafer-l396', brand: 'waferlock', title: '維夫拉克 Waferlock L396',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L396.PNG',
                 tag: 'Waferlock 指紋款', listPrice: null, offerPrice: '請洽詢',
-                desc: '4合1把手式 (指紋/卡片/密碼/鑰匙)。 (含安裝)',
+                desc: '4合1把手式 (指紋/卡片/密碼/鑰匙)。',
                 features: ['指紋 / 卡片 / 密碼 / 鑰匙', '適合辦公室/租屋']
             },
             'wafer-l376': {
                 id: 'wafer-l376', brand: 'waferlock', title: '維夫拉克 Waferlock L376',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L376.PNG',
                 tag: 'Waferlock 基本款', listPrice: null, offerPrice: '請洽詢',
-                desc: '基本款3合1把手式 (卡片/密碼/鑰匙)。 (含安裝)',
+                desc: '基本款3合1把手式 (卡片/密碼/鑰匙)。',
                 features: ['卡片 / 密碼 / 鑰匙', '經濟實惠']
             },
             // --- CP值款 ---
@@ -937,41 +967,41 @@
                 id: 'cp-r1', brand: 'cp', title: '高CP值款 R1',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R1.jpg',
                 tag: '小資首選', listPrice: 15000, offerPrice: 12000,
-                desc: '功能實用，價格親民，房東與租屋族的最愛。 (含安裝)',
+                desc: '功能實用，價格親民，房東與租屋族的最愛。',
                 features: ['指紋 / 密碼 / 鑰匙', '基本防盜功能', '高性價比']
             },
             'cp-r9': {
                 id: 'cp-r9', brand: 'cp', title: '高CP值款 R9 (人臉辨識)',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9.jpg',
                 tag: '人臉入門款', listPrice: 20000, offerPrice: 18000,
-                desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。 (含安裝)',
+                desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。',
                 features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別', '大螢幕貓眼']
             },
             'cp-r3': {
                 id: 'cp-r3', brand: 'cp', title: '高CP值款 R3',
-                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R3.jpg',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R3.JPG',
                 tag: '小資首選', listPrice: 6500, offerPrice: 5500,
-                desc: '經濟實惠，入門首選。 (含安裝)',
+                desc: '經濟實惠，入門首選。',
                 features: ['密碼 / 卡片 / 鑰匙', '基本防盜', '高性價比']
             },
             'cp-r7': {
                 id: 'cp-r7', brand: 'cp', title: '高CP值款 R7',
-                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R7.jpg',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R7.JPG',
                 tag: '進階款', listPrice: 8000, offerPrice: 7000,
-                desc: '功能升級，更安全便利。 (含安裝)',
+                desc: '功能升級，更安全便利。',
                 features: ['指紋 / 密碼 / 卡片 / 鑰匙', '進階防盜', '高性價比']
             },
             // --- Milre (美樂) ---
-            'milre-7150': { id: 'milre-7150', brand: 'milre', title: 'Milre MDL-7150+ 推拉', img: 'https://placehold.co/400x300?text=MDL-7150+', tag: '推拉式', listPrice: null, offerPrice: 19000, desc: '推拉式便利設計。 (含安裝)', features: ['指紋 / 卡片 / 密碼 / 鑰匙'] },
-            'milre-6500f': { id: 'milre-6500f', brand: 'milre', title: 'Milre MDL-6500F', img: 'https://placehold.co/400x300?text=MDL-6500F', tag: '指紋款', listPrice: null, offerPrice: 18000, desc: '經典指紋款。 (含安裝)', features: ['指紋 / 卡片 / 密碼 / 鑰匙'] },
-            'milre-6800': { id: 'milre-6800', brand: 'milre', title: 'Milre MI-6800', img: 'https://placehold.co/400x300?text=MI-6800', tag: '高階款', listPrice: null, offerPrice: 16000, desc: '高階安全防護。 (含安裝)', features: ['指紋 / 卡片 / 密碼 / 鑰匙'] },
-            'milre-6450': { id: 'milre-6450', brand: 'milre', title: 'Milre MI-6450', img: 'https://placehold.co/400x300?text=MI-6450', tag: '輔助鎖', listPrice: null, offerPrice: 15000, desc: '輔助鎖設計。 (含安裝)', features: ['指紋 / 卡片 / 密碼'] },
-            'milre-400f': { id: 'milre-400f', brand: 'milre', title: 'Milre MDL-400F', img: 'https://placehold.co/400x300?text=MDL-400F', tag: '指紋輔助', listPrice: null, offerPrice: 11000, desc: '指紋輔助鎖。 (含安裝)', features: ['指紋 / 密碼'] },
-            'milre-510f': { id: 'milre-510f', brand: 'milre', title: 'Milre MDL-510F', img: 'https://placehold.co/400x300?text=MDL-510F', tag: '二合一', listPrice: null, offerPrice: 9500, desc: '經濟型指紋鎖。 (含安裝)', features: ['指紋 / 密碼'] },
-            'milre-510s': { id: 'milre-510s', brand: 'milre', title: 'Milre MDL-510S', img: 'https://placehold.co/400x300?text=MDL-510S', tag: '卡片款', listPrice: null, offerPrice: 7500, desc: '卡片感應鎖。 (含安裝)', features: ['卡片 / 密碼'] },
-            'milre-570f': { id: 'milre-570f', brand: 'milre', title: 'Milre MI-570F', img: 'https://placehold.co/400x300?text=MI-570F', tag: '指紋主鎖', listPrice: null, offerPrice: 11000, desc: '主鎖式指紋鎖。 (含安裝)', features: ['指紋 / 密碼 / 鑰匙'] },
-            'milre-570s': { id: 'milre-570s', brand: 'milre', title: 'Milre MI-570S', img: 'https://placehold.co/400x300?text=MI-570S', tag: '卡片主鎖', listPrice: null, offerPrice: 8500, desc: '主鎖式卡片鎖。 (含安裝)', features: ['卡片 / 密碼 / 鑰匙'] },
-            'milre-425': { id: 'milre-425', brand: 'milre', title: 'Milre MI-425', img: 'https://placehold.co/400x300?text=MI-425', tag: '基本款', listPrice: null, offerPrice: 6500, desc: '基本電子輔助鎖。 (含安裝)', features: ['密碼'] },
+            'milre-7150': { id: 'milre-7150', brand: 'milre', title: 'Milre MDL-7150+ 推拉', img: 'https://placehold.co/400x300?text=MDL-7150+', tag: '推拉式', listPrice: null, offerPrice: 19000, desc: '推拉式便利設計。', features: ['指紋 / 卡片 / 密碼 / 鑰匙'] },
+            'milre-6500f': { id: 'milre-6500f', brand: 'milre', title: 'Milre MDL-6500F', img: 'https://placehold.co/400x300?text=MDL-6500F', tag: '指紋款', listPrice: null, offerPrice: 18000, desc: '經典指紋款。', features: ['指紋 / 卡片 / 密碼 / 鑰匙'] },
+            'milre-6800': { id: 'milre-6800', brand: 'milre', title: 'Milre MI-6800', img: 'https://placehold.co/400x300?text=MI-6800', tag: '高階款', listPrice: null, offerPrice: 16000, desc: '高階安全防護。', features: ['指紋 / 卡片 / 密碼 / 鑰匙'] },
+            'milre-6450': { id: 'milre-6450', brand: 'milre', title: 'Milre MI-6450', img: 'https://placehold.co/400x300?text=MI-6450', tag: '輔助鎖', listPrice: null, offerPrice: 15000, desc: '輔助鎖設計。', features: ['指紋 / 卡片 / 密碼'] },
+            'milre-400f': { id: 'milre-400f', brand: 'milre', title: 'Milre MDL-400F', img: 'https://placehold.co/400x300?text=MDL-400F', tag: '指紋輔助', listPrice: null, offerPrice: 11000, desc: '指紋輔助鎖。', features: ['指紋 / 密碼'] },
+            'milre-510f': { id: 'milre-510f', brand: 'milre', title: 'Milre MDL-510F', img: 'https://placehold.co/400x300?text=MDL-510F', tag: '二合一', listPrice: null, offerPrice: 9500, desc: '經濟型指紋鎖。', features: ['指紋 / 密碼'] },
+            'milre-510s': { id: 'milre-510s', brand: 'milre', title: 'Milre MDL-510S', img: 'https://placehold.co/400x300?text=MDL-510S', tag: '卡片款', listPrice: null, offerPrice: 7500, desc: '卡片感應鎖。', features: ['卡片 / 密碼'] },
+            'milre-570f': { id: 'milre-570f', brand: 'milre', title: 'Milre MI-570F', img: 'https://placehold.co/400x300?text=MI-570F', tag: '指紋主鎖', listPrice: null, offerPrice: 11000, desc: '主鎖式指紋鎖。', features: ['指紋 / 密碼 / 鑰匙'] },
+            'milre-570s': { id: 'milre-570s', brand: 'milre', title: 'Milre MI-570S', img: 'https://placehold.co/400x300?text=MI-570S', tag: '卡片主鎖', listPrice: null, offerPrice: 8500, desc: '主鎖式卡片鎖。', features: ['卡片 / 密碼 / 鑰匙'] },
+            'milre-425': { id: 'milre-425', brand: 'milre', title: 'Milre MI-425', img: 'https://placehold.co/400x300?text=MI-425', tag: '基本款', listPrice: null, offerPrice: 6500, desc: '基本電子輔助鎖。', features: ['密碼'] },
             
             // == 傳統鎖 ==
             'trad-3-4': {
@@ -1025,28 +1055,28 @@
                 id: 'trad-gate-electric', brand: 'trad-electric', title: '大門電鎖',
                 img: 'https://placehold.co/400x300?text=大門電鎖',
                 tag: '公寓對講機', offerPrice: '請洽詢',
-                desc: '連接對講機系統，可遠端開門。適用於公寓大門。 (含安裝)',
+                desc: '連接對講機系統，可遠端開門。適用於公寓大門。',
                 features: ['靜音/標準款', '可配合對講機施工']
             },
             'trad-3in1': {
                 id: 'trad-3in1', brand: 'trad-electric', title: '三合一通風門鎖',
                 img: 'https://placehold.co/400x300?text=通風門鎖',
                 tag: '後陽台專用', offerPrice: '請洽詢',
-                desc: '專為通風門設計，結合把手與鎖具。 (含安裝)',
+                desc: '專為通風門設計，結合把手與鎖具。',
                 features: ['安裝於廚房/陽台門', '推拉順暢']
             },
             'trad-horiz-integrated': {
                 id: 'trad-horiz-integrated', brand: 'trad-electric', title: '水平連體鎖',
                 img: 'https://placehold.co/400x300?text=水平連體鎖',
                 tag: '大門專用', offerPrice: '請洽詢',
-                desc: '把手與鎖體一體成型，外觀氣派，結構穩固。 (含安裝)',
+                desc: '把手與鎖體一體成型，外觀氣派，結構穩固。',
                 features: ['適用於硫化銅門', '多種款式可選']
             },
             'trad-floor': {
                 id: 'trad-floor', brand: 'trad-electric', title: '地鎖',
                 img: 'https://placehold.co/400x300?text=地鎖',
                 tag: '玻璃門', offerPrice: '請洽詢',
-                desc: '安裝於玻璃門底部，不破壞玻璃結構。 (含安裝)',
+                desc: '安裝於玻璃門底部，不破壞玻璃結構。',
                 features: ['店面玻璃門專用', '隱藏式安裝']
             },
             
@@ -1055,14 +1085,14 @@
                 id: 'trad-jp-horiz', brand: 'trad-japan', title: '日規水平鎖 (MIWA/GOAL)',
                 img: 'https://placehold.co/400x300?text=日規水平鎖',
                 tag: '日系工藝', offerPrice: '請洽詢',
-                desc: '日本進口規格，工藝精細，開關門手感極佳。 (含安裝)',
+                desc: '日本進口規格，工藝精細，開關門手感極佳。',
                 features: ['靜音設計', '耐用度高']
             },
             'trad-jp-aux': {
                 id: 'trad-jp-aux', brand: 'trad-japan', title: '日規輔助鎖',
                 img: 'https://placehold.co/400x300?text=日規輔助鎖',
                 tag: '加強防盜', offerPrice: '請洽詢',
-                desc: '搭配日規主鎖使用，增加安全性。 (含安裝)',
+                desc: '搭配日規主鎖使用，增加安全性。',
                 features: ['特殊鎖芯設計', '防撬能力強']
             },
             
@@ -1071,14 +1101,14 @@
                 id: 'trad-room', brand: 'trad-room', title: '房門鎖 (喇叭/水平)',
                 img: 'https://placehold.co/400x300?text=房門鎖',
                 tag: '一般房門', offerPrice: 'NT$ 700起',
-                desc: '適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。 (含安裝)',
-                features: ['喇叭鎖：NT$ 700 (含安裝)', '水平把手鎖：NT$ 1,000 (含安裝)']
+                desc: '適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。',
+                features: ['喇叭鎖：NT$ 700', '水平把手鎖：NT$ 1,000']
             },
             'trad-passage': {
                 id: 'trad-passage', brand: 'trad-room', title: '通道鎖 (無鎖)',
                 img: 'https://placehold.co/400x300?text=通道鎖',
                 tag: '公共空間', offerPrice: '請洽詢',
-                desc: '無上鎖功能，僅供開關門使用。適用於走道、儲藏室。 (含安裝)',
+                desc: '無上鎖功能，僅供開關門使用。適用於走道、儲藏室。',
                 features: ['無鑰匙設計', '防止誤鎖']
             }
         };
@@ -1231,9 +1261,9 @@
                         <div class="detail-img-box"><img id="detail-main-img" src="${p.img}" alt="${p.title}"></div>
                         <div class="detail-info">
                             <div class="detail-title">${p.title}</div>
-                            <div class="detail-price-box">${listPriceHTML}<div class="offer-price">優惠價 ${offerPriceHTML}</div></div>
+                            <div class="detail-price-box">${listPriceHTML}<div class="offer-price">優惠價 ${offerPriceHTML} (含安裝)</div></div>
                             <div class="detail-desc">${p.desc}</div>
-                            <div class="group-buy-box"><div class="group-buy-title">🔥 社區團購優惠</div><div class="group-buy-item">滿 5 台每台折 <span style="color:#d35400; font-weight:bold;">500</span> (請加LINE洽詢)</div><div class="group-buy-item">滿 10 台每台折 <span style="color:#d35400; font-weight:bold;">1000</span> (請加LINE洽詢)</div></div>
+                            <div class="group-buy-box"><div class="group-buy-title">🔥 社區團購優惠(請先加LINE洽詢)</div><div class="group-buy-item">滿 5 台每台最多折 <span style="color:#d35400; font-weight:bold;">500</span>元</div><div class="group-buy-item">滿 10 台每台最多折 <span style="color:#d35400; font-weight:bold;">1000</span>元</div></div>
                             <div class="detail-actions">
                                 <a onclick="copyAndGoLine('你好，我想詢問 ${p.title} 的優惠價格與安裝細節')" class="btn-line-ask"><i class="fab fa-line"></i> 加LINE詢問優惠價</a>
                                 <div onclick="shareToLine('${p.title}', '${window.location.href}')" class="btn-share"><i class="fas fa-share-alt"></i> 分享給好友</div>
@@ -1241,6 +1271,7 @@
                         </div>
                     </div>
                     <div style="margin-top:40px;"><h3>詳細規格</h3><ul class="product-features" style="font-size:1.1em;">${p.features.map(f => `<li>${f}</li>`).join('')}</ul></div>
+                    <div style="text-align:center; margin-top:30px;"><a class="back-btn" onclick="window.location.hash='${backHash}'">🔙 返回列表</a></div>
                 </div>
             `;
         }
@@ -1309,7 +1340,16 @@
 
             let options = [];
             if (type === 'electronic') { options = ['加安 (FAULTLESS)', '維夫拉克 (WAFERLOCK)', '三星 (SAMSUNG)', '東隆 (EZSET)', '耶魯 (YALE)']; } 
-            else if (type === 'traditional') { options = ['鐵門鎖 (三段/四段)', '葉片五段鎖', '輔助鎖', '喇叭鎖/水平鎖', '連體鎖', '一樓公寓大門電鎖']; } 
+            else if (type === 'traditional') { 
+                options = [
+                    {name: '鐵門鎖 (三段/四段)', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG'}, 
+                    {name: '葉片五段鎖', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/小安住.PNG'}, 
+                    {name: '輔助鎖', img: 'https://placehold.co/80x80?text=輔助鎖'}, 
+                    {name: '喇叭鎖/水平鎖', img: 'https://placehold.co/80x80?text=喇叭鎖'}, 
+                    {name: '連體鎖', img: 'https://placehold.co/80x80?text=連體鎖'}, 
+                    {name: '一樓公寓大門電鎖', img: 'https://placehold.co/80x80?text=電鎖'}
+                ]; 
+            } 
             else if (type === 'scooter') { options = ['山葉 YAMAHA', '三陽 SYM', '光陽 KYMCO', '睿能 gogoro']; } 
             else if (type === 'access-control') { options = ['磁扣/卡片複製', '主機安裝/維修']; }
             else if (type === 'other') { options = ['汽車開鎖', '保險箱', '信箱/抽屜', '其他疑問']; }
@@ -1317,14 +1357,19 @@
             options.forEach(opt => {
                 let div = document.createElement('div');
                 div.className = 'option-btn';
-                div.innerText = opt;
+                if (opt.img) {
+                     div.innerHTML = `<img src="${opt.img}" alt="${opt.name}"><span>${opt.name}</span>`;
+                } else {
+                     div.innerHTML = `<span>${opt}</span>`;
+                }
+                
                 div.onclick = function() {
                     Array.from(container.children).forEach(c => c.classList.remove('selected'));
                     div.classList.add('selected');
-                    estimateData.subtype = opt;
+                    estimateData.subtype = opt.name || opt;
                     
                     // 檢查是否顯示鎖門狀態 (鐵門鎖 或 葉片五段鎖)
-                    if (type === 'traditional' && (opt.includes('鐵門鎖') || opt.includes('葉片五段'))) {
+                    if (type === 'traditional' && (estimateData.subtype.includes('鐵門鎖') || estimateData.subtype.includes('葉片五段'))) {
                         lockToggle.style.display = 'block';
                         setLockStatus('closed'); // 預設為只是關上
                     } else {
