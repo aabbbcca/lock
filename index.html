@@ -760,8 +760,8 @@
                 <div id="scooter-options-container" style="display:none; margin-top:20px; text-align:center;">
                     <p style="font-weight:bold; font-size:1.1em; color:#333; margin-bottom:15px;">請選擇服務項目：</p>
                     <div style="display:flex; justify-content:center; gap:15px; margin-bottom:20px;">
-                        <button class="toggle-btn" onclick="setScooterService('seat')">開車廂</button>
-                        <button class="toggle-btn" onclick="setScooterService('key')">鑰匙遺失配製</button>
+                        <button id="btn-scooter-seat" class="toggle-btn" onclick="setScooterService('seat')">開車廂</button>
+                        <button id="btn-scooter-key" class="toggle-btn" onclick="setScooterService('key')">鑰匙遺失配製</button>
                     </div>
                 </div>
 
@@ -818,7 +818,7 @@
                     <select id="floor-select" onchange="calculatePrice()"><option value="0">有電梯 / 無電梯1-4樓 (不加價)</option><option value="100">公寓爬樓梯 5樓以上 (+$100)</option></select>
                 </div>
                 <div class="price-result"><div class="price-note">預估費用</div><div class="final-price" id="final-price-display">NT$ --</div><div class="price-note" id="price-breakdown">請填寫完整資訊以計算</div></div>
-                <div class="control-btns"><button class="btn-prev" onclick="prevStep(3)">上一步</button><button class="btn-next" onclick="finishWizard()">下一步</button></div>
+                <div class="control-btns"><button class="btn-prev" onclick="prevStep(3)">上一步</button><button class="btn-next" onclick="finishWizard()">立即聯繫師傅</button></div>
             </div>
             <div id="step-4" class="step-container">
                 <div class="wizard-title" style="color:#2ecc71;">估價完成！</div>
@@ -1230,6 +1230,7 @@
                             } else {
                                 priceStr = 'XXX';
                             }
+                            // 列表頁統一顯示 (含安裝)
                             priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">優惠價 NT$ ${priceStr} (含安裝)</div>`;
                         } else {
                             // 傳統鎖
@@ -1472,11 +1473,12 @@
                         // Gogoro check
                         if (estimateData.subtype.toLowerCase().includes('gogoro')) {
                              setScooterService('seat'); // Only seat available
-                             document.getElementById('scooter-options-container').style.display = 'none'; // Hide choice
+                             document.getElementById('scooter-options-container').style.display = 'block';
+                             document.getElementById('btn-scooter-key').style.display = 'none';
                              document.getElementById('scooter-condition-options').style.display = 'none'; // No steering lock
-                             setTimeout(() => nextStep(3), 300);
                         } else {
                             document.getElementById('scooter-options-container').style.display = 'block';
+                            document.getElementById('btn-scooter-key').style.display = 'inline-block';
                             // Reset scooter sub-options
                             document.getElementById('scooter-key-options').style.display = 'none';
                             document.getElementById('scooter-condition-options').style.display = 'none';
@@ -1507,6 +1509,13 @@
                  if(btn.innerText.includes(service === 'seat' ? '車廂' : '配製')) btn.classList.add('active');
                  else btn.classList.remove('active');
              });
+
+            // Gogoro check inside service selection
+            if (estimateData.subtype.toLowerCase().includes('gogoro')) {
+                // Directly go to next step for Gogoro
+                setTimeout(() => nextStep(3), 300);
+                return;
+            }
 
             // After selecting Service, show Steering Lock options IF not Gogoro (already handled)
             // But here we are inside non-Gogoro flow
