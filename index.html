@@ -760,7 +760,7 @@
                 <div id="scooter-options-container" style="display:none; margin-top:20px; text-align:center;">
                     <p style="font-weight:bold; font-size:1.1em; color:#333; margin-bottom:15px;">請選擇服務項目：</p>
                     <div style="display:flex; justify-content:center; gap:15px; margin-bottom:20px;">
-                        <button class="toggle-btn" onclick="setScooterService('seat')">開坐墊</button>
+                        <button class="toggle-btn" onclick="setScooterService('seat')">開車廂</button>
                         <button class="toggle-btn" onclick="setScooterService('key')">鑰匙遺失配製</button>
                     </div>
                 </div>
@@ -791,7 +791,7 @@
                         <button class="toggle-btn active" onclick="setSegmentCount(1)">1段</button>
                         <button class="toggle-btn" onclick="setSegmentCount(2)">2段</button>
                         <button class="toggle-btn" onclick="setSegmentCount(3)">3段</button>
-                        <button class="toggle-btn" onclick="setSegmentCount(4)">4段</button>
+                        <button class="toggle-btn" id="seg-btn-4" onclick="setSegmentCount(4)">4段</button>
                     </div>
                     <p style="font-size:0.8em; color:#999; margin-top:5px;">*不確定請選 1 段</p>
                 </div>
@@ -998,7 +998,7 @@
             'cp-r3': {
                 id: 'cp-r3', brand: 'cp', title: '高CP值款 R3',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R3.JPG',
-                tag: '小資首選', listPrice: 6500, offerPrice: 5500,
+                tag: '套房族最愛', listPrice: 6500, offerPrice: 5500,
                 desc: '經濟實惠，入門首選。',
                 features: ['密碼 / 卡片 / 鑰匙', '基本防盜', '高性價比']
             },
@@ -1022,13 +1022,14 @@
             'milre-425': { id: 'milre-425', brand: 'milre', title: 'Milre MI-425', img: 'https://placehold.co/400x300?text=MI-425', tag: '基本款', listPrice: null, offerPrice: 6500, desc: '基本電子輔助鎖。', features: ['密碼'] },
             
             // == 傳統鎖 ==
+            // 修正傳統鎖結構，支援子選項
             'trad-3-4': {
                 id: 'trad-3-4', 
                 brand: 'trad-main', 
                 title: '鐵門鎖',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG',
                 tag: '最高cp值', 
-                offerPrice: 'NT$ 2000~3000',
+                offerPrice: '含安裝 NT$ 2000~3000',
                 desc: '台灣製造，結構厚實。公寓大門最常見的選擇，CP值高。',
                 features: ['堅固耐用', '防撬設計', '附 3 支原廠鑰匙'],
                 hasVariants: true,
@@ -1044,7 +1045,7 @@
                 title: '葉片五段鎖 (防盜升級)',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/大安住.PNG',
                 tag: '防盜首選', 
-                offerPrice: 'NT$ 3800~4500',
+                offerPrice: '含安裝 NT$ 3800~4500',
                 desc: '葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。',
                 features: ['結構精密', '難以被技術開啟', '附原廠伸縮鑰匙'],
                 hasVariants: true,
@@ -1055,8 +1056,8 @@
             },
             'trad-aux': {
                 id: 'trad-aux', brand: 'trad-main', title: '輔助鎖',
-                img: 'https://placehold.co/400x300?text=輔助鎖',
-                tag: '輔助鎖', offerPrice: 'NT$ 1000~1500',
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/輔助鎖.jpg',
+                tag: '輔助鎖', offerPrice: '含安裝 NT$ 1000~1500',
                 desc: '安裝於門手把上方，增加一道防線。體積小、價格便宜、基本防盜。',
                 features: ['機械結構簡單耐用', '多種顏色可選'],
                 hasVariants: true,
@@ -1224,13 +1225,11 @@
                         if (typeof p.offerPrice === 'number') {
                             // 優惠價改為 NT$ 27,XXX
                             let priceStr = p.offerPrice.toLocaleString();
-                            // 將末三位替換為 XXX
                             if (priceStr.length > 3) {
                                 priceStr = priceStr.slice(0, -4) + ',XXX'; 
                             } else {
                                 priceStr = 'XXX';
                             }
-                            // 列表頁統一顯示 (含安裝)
                             priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">優惠價 NT$ ${priceStr} (含安裝)</div>`;
                         } else {
                             // 傳統鎖
@@ -1238,7 +1237,7 @@
                             if(p.offerPrice === '請洽詢') {
                                 priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">價格請洽詢</div>`;
                             } else {
-                                priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">含安裝 ${priceStr} (含安裝)</div>`;
+                                priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">${p.offerPrice}</div>`;
                             }
                         }
 
@@ -1313,12 +1312,11 @@
                      setTimeout(() => updateVariantDisplay(productId, 0), 0);
                 } else {
                     // 一般傳統鎖
-                    let priceStr = p.offerPrice.replace('起','');
-                     if(p.offerPrice === '請洽詢') {
+                    if(p.offerPrice === '請洽詢') {
                         priceHTML = `<div class="offer-price">價格請洽詢</div>`;
                     } else {
                         // 確保格式為 含安裝 NT$ ...
-                        priceHTML = `<div class="offer-price">含安裝 ${priceStr}</div>`;
+                        priceHTML = `<div class="offer-price">${p.offerPrice}</div>`;
                     }
                 }
             }
@@ -1424,17 +1422,17 @@
                 options = [
                     {name: '鐵門鎖 (三段/四段)', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG'}, 
                     {name: '葉片五段鎖', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/小安住.PNG'}, 
-                    {name: '輔助鎖', img: 'https://placehold.co/80x80?text=輔助鎖'}, 
-                    {name: '喇叭鎖/水平鎖', img: 'https://placehold.co/80x80?text=喇叭鎖'}, 
+                    {name: '輔助鎖', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/輔助鎖.jpg'}, 
+                    {name: '喇叭鎖/水平鎖', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/水平鎖.JPG'}, 
                     {name: '連體鎖', img: 'https://placehold.co/80x80?text=連體鎖'}, 
                     {name: '一樓公寓大門電鎖', img: 'https://placehold.co/80x80?text=電鎖'}
                 ]; 
             } 
             else if (type === 'scooter') { 
                  options = [
-                    {name: '山葉 YAMAHA', img: 'https://placehold.co/80x80?text=Yamaha'}, 
-                    {name: '三陽 SYM', img: 'https://placehold.co/80x80?text=SYM'}, 
-                    {name: '光陽 KYMCO', img: 'https://placehold.co/80x80?text=Kymco'}, 
+                    {name: '山葉 YAMAHA', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YAMAHA.PNG'}, 
+                    {name: '三陽 SYM', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/SYM.PNG'}, 
+                    {name: '光陽 KYMCO', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/KYMCO.PNG'}, 
                     {name: '睿能 gogoro', img: 'https://placehold.co/80x80?text=Gogoro'}
                 ];
             } 
@@ -1471,11 +1469,19 @@
                             document.getElementById('step2-next-btn').style.display = 'inline-block';
                         }
                     } else if (type === 'scooter') {
-                        document.getElementById('scooter-options-container').style.display = 'block';
-                        // Reset scooter sub-options
-                        document.getElementById('scooter-key-options').style.display = 'none';
-                        document.getElementById('scooter-condition-options').style.display = 'none';
-                        document.getElementById('step2-next-btn').style.display = 'none'; 
+                        // Gogoro check
+                        if (estimateData.subtype.toLowerCase().includes('gogoro')) {
+                             setScooterService('seat'); // Only seat available
+                             document.getElementById('scooter-options-container').style.display = 'none'; // Hide choice
+                             document.getElementById('scooter-condition-options').style.display = 'none'; // No steering lock
+                             setTimeout(() => nextStep(3), 300);
+                        } else {
+                            document.getElementById('scooter-options-container').style.display = 'block';
+                            // Reset scooter sub-options
+                            document.getElementById('scooter-key-options').style.display = 'none';
+                            document.getElementById('scooter-condition-options').style.display = 'none';
+                            document.getElementById('step2-next-btn').style.display = 'none'; 
+                        }
                     } else if (type === 'other' || type === 'access-control') {
                         document.getElementById('step2-next-btn').style.display = 'none';
                         setTimeout(() => nextStep(3), 300);
@@ -1498,17 +1504,16 @@
             // Highlight button logic
              const buttons = document.querySelectorAll('#scooter-options-container .toggle-btn');
              buttons.forEach(btn => {
-                 if(btn.innerText.includes(service === 'seat' ? '坐墊' : '配製')) btn.classList.add('active');
+                 if(btn.innerText.includes(service === 'seat' ? '車廂' : '配製')) btn.classList.add('active');
                  else btn.classList.remove('active');
              });
 
-            // After selecting Service, show Steering Lock options
+            // After selecting Service, show Steering Lock options IF not Gogoro (already handled)
+            // But here we are inside non-Gogoro flow
             document.getElementById('scooter-condition-options').style.display = 'block';
             
             if (service === 'key') {
                 document.getElementById('scooter-key-options').style.display = 'block';
-                // Wait for magnet selection before showing Next, or show Next if magnet not needed yet?
-                // Logic: Steering Lock -> Magnet (if key) -> Next
             } else {
                 document.getElementById('scooter-key-options').style.display = 'none';
             }
@@ -1526,21 +1531,11 @@
                 else btn.classList.remove('active');
             });
             
-            // If Service is Key, check Magnet selection
-            if (estimateData.scooterService === 'key') {
-                 // Check if Magnet is selected?
-                 // Or just let user select magnet. 
-                 // Actually the prompt says: "if key lost selected, final page show both prices". 
-                 // So we DON'T need to ask for magnet.
-                 document.getElementById('scooter-key-options').style.display = 'none'; // Hide magnet options as requested
-                 document.getElementById('step2-next-btn').style.display = 'inline-block';
-            } else {
-                 document.getElementById('step2-next-btn').style.display = 'inline-block';
-            }
+            document.getElementById('step2-next-btn').style.display = 'inline-block';
+            setTimeout(() => nextStep(3), 300); // Auto jump
         }
         
         function setMagnet(hasMagnet) {
-            // Not used anymore based on prompt instructions to show both prices
             estimateData.hasMagnet = hasMagnet;
         }
 
@@ -1555,6 +1550,15 @@
             const segSelector = document.getElementById('lock-segment-selector');
             if (status === 'locked' && (estimateData.subtype.includes('鐵門鎖') || estimateData.subtype.includes('葉片五段'))) {
                 segSelector.style.display = 'block';
+                
+                // 鎖段數上限控制
+                const seg4Btn = document.getElementById('seg-btn-4');
+                if (estimateData.subtype.includes('鐵門鎖')) {
+                    seg4Btn.style.display = 'none'; // 鐵門鎖最多3段
+                } else {
+                    seg4Btn.style.display = 'inline-block'; // 葉片鎖最多4段
+                }
+
                 setSegmentCount(1);
             } else {
                 segSelector.style.display = 'none';
@@ -1598,8 +1602,13 @@
             let detailText = '';
             
             if (estimateData.type === 'scooter') {
-                if (estimateData.scooterService === 'seat') detailText = `開坐墊 (${estimateData.steeringLocked ? '有鎖龍頭' : '無鎖龍頭'})`;
-                else detailText = `配鑰匙 (${estimateData.steeringLocked ? '有鎖龍頭' : '無鎖龍頭'})`;
+                // Gogoro check
+                 if (subtypeText.toLowerCase().includes('gogoro')) {
+                     detailText = '開車廂';
+                 } else {
+                    if (estimateData.scooterService === 'seat') detailText = `開車廂 (${estimateData.steeringLocked ? '有鎖龍頭' : '無鎖龍頭'})`;
+                    else detailText = `配鑰匙 (${estimateData.steeringLocked ? '有鎖龍頭' : '無鎖龍頭'})`;
+                 }
             } else if (estimateData.type === 'access-control') {
                  detailText = 'N/A';
             } else {
@@ -1648,9 +1657,7 @@
             const floorCost = parseInt(document.getElementById('floor-select').value) || 0;
             const dist = parseFloat(document.getElementById('distance-input').value) || 0;
             
-            // Time logic
-            // Evening: 21-23. Late: 23-00. Midnight: 00-08.
-            let isNight = (timeVal === 'late' || timeVal === 'midnight' || timeVal === 'evening'); // "夜間" usually covers evening too in general context unless specified. Prompt said "夜間基本1000" for access control.
+            let isNight = (timeVal === 'late' || timeVal === 'midnight' || timeVal === 'evening'); 
             
             let basePrice = 300; 
             if (timeVal === 'morning') basePrice = 500;
@@ -1661,56 +1668,51 @@
             let typeCost = 0;
             let conditionCost = 0;
 
-            if (estimateData.type === 'access-control') {
-                // 白天 600, 夜間 1000.
-                // Assuming "Night" is 21:00 onwards based on previous logic structure where evening is start of night pricing tiers.
+            if (estimateData.type === 'other') {
+                if (estimateData.subtype === '保險箱') basePrice = 800;
+                else if (estimateData.subtype === '汽車開鎖') basePrice = 1000;
+                else basePrice = 300; 
+            } else if (estimateData.type === 'access-control') {
                 if (isNight) basePrice = 1000;
                 else basePrice = 600;
             }
             else if (estimateData.type === 'scooter') {
-                if (estimateData.scooterService === 'seat') {
-                    // Seat: Day=400, Late/Midnight(23:00-08:00)=600/1000? 
-                    // Prompt said "23-00 basic 600". "Day 400".
-                    // Let's assume:
-                    // Day (09-21): 400
-                    // Evening (21-23): 400 (assume same as day or slightly more? User didn't specify, stick to 400 base)
-                    // Late (23-00): 600
-                    // Midnight (00-08): 1000 (Based on previous logic)
-                    
-                    if (timeVal === 'late') basePrice = 600;
-                    else if (timeVal === 'midnight') basePrice = 1000;
-                    else basePrice = 400;
+                 // Gogoro check
+                 if (estimateData.subtype.toLowerCase().includes('gogoro')) {
+                     basePrice = 600; // Fixed 600 base
+                     if (isNight) basePrice = Math.max(600, basePrice);
+                 } else {
+                    if (estimateData.scooterService === 'seat') {
+                        if (timeVal === 'late') basePrice = 600;
+                        else if (timeVal === 'midnight') basePrice = 1000;
+                        else basePrice = 400;
 
-                    if (estimateData.steeringLocked) basePrice += 100;
-                } else if (estimateData.scooterService === 'key') {
-                    // Key:
-                    // Day: NoMag=1000, Mag=1200
-                    // Night (Assuming 23:00+): NoMag=1400, Mag=1600
-                    
-                    let isLateNight = (timeVal === 'late' || timeVal === 'midnight');
-                    let priceNoMag = isLateNight ? 1400 : 1000;
-                    let priceMag = isLateNight ? 1600 : 1200;
-                    
-                    if (estimateData.steeringLocked) {
-                        priceNoMag += 100;
-                        priceMag += 100;
+                        if (estimateData.steeringLocked) basePrice += 100;
+                    } else if (estimateData.scooterService === 'key') {
+                        let isLateNight = (timeVal === 'late' || timeVal === 'midnight');
+                        let priceNoMag = isLateNight ? 1400 : 1000;
+                        let priceMag = isLateNight ? 1600 : 1200;
+                        
+                        if (estimateData.steeringLocked) {
+                            priceNoMag += 100;
+                            priceMag += 100;
+                        }
+                        
+                        let distCostTmp = 0;
+                        if (dist > 4) distCostTmp = Math.ceil(dist - 4) * 100;
+                        
+                        let totalNoMag = priceNoMag + floorCost + distCostTmp;
+                        let totalMag = priceMag + floorCost + distCostTmp;
+                        
+                        document.getElementById('final-price-display').innerText = `NT$ ${totalNoMag} (無磁石) / ${totalMag} (含磁石)`;
+                         let details = [];
+                        if (estimateData.steeringLocked) details.push("鎖龍頭加成");
+                        if (floorCost > 0) details.push("樓層費");
+                        if (distCostTmp > 0) details.push("遠距離車馬費");
+                        document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準配鎖價格";
+                        return; 
                     }
-                    
-                    // Display range logic override
-                    let distCostTmp = 0;
-                    if (dist > 4) distCostTmp = Math.ceil(dist - 4) * 100;
-                    
-                    let totalNoMag = priceNoMag + floorCost + distCostTmp;
-                    let totalMag = priceMag + floorCost + distCostTmp;
-                    
-                    document.getElementById('final-price-display').innerText = `NT$ ${totalNoMag} (無磁石) / ${totalMag} (含磁石)`;
-                     let details = [];
-                    if (estimateData.steeringLocked) details.push("鎖龍頭加成");
-                    if (floorCost > 0) details.push("樓層費");
-                    if (distCostTmp > 0) details.push("遠距離車馬費");
-                    document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準配鎖服務費";
-                    return; // Special return for key logic
-                }
+                 }
             }
             else if (estimateData.type === 'electronic') {
                 if (estimateData.subtype.includes('維夫拉克')) { basePrice = 0; typeCost = (timeVal==='late'||timeVal==='midnight'||timeVal==='evening') ? 1500 : 1000; } 
@@ -1742,7 +1744,7 @@
             if (estimateData.type === 'other') details.push("現場報價");
             if (estimateData.type === 'access-control') details.push("門禁系統基本費");
             
-            document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準開鎖服務費";
+            document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準開鎖價格";
         }
     </script>
 </body>
