@@ -649,7 +649,7 @@
                  <!-- 1. 開鎖服務 (最左) -->
                  <div id="unlock-service" class="service-card emergency-card" onclick="window.location.hash = 'unlock-page'">
                     <div class="emergency-badge">快速到府</div>
-                    <img src="https://placehold.co/400x300?text=24H快速開鎖&bg=e74c3c&color=fff" class="real-img" alt="24H快速開鎖">
+                    <img src="https://raw.githubusercontent.com/aabbbcca/lock/main/images/開維夫拉克.jpg" class="real-img" alt="24H快速開鎖">
                     <div class="card-body">
                         <h3>24小時快速開鎖</h3>
                         <p style="color: #666; font-size: 0.9em;">忘帶鑰匙、門鎖故障、鑰匙斷掉、機車鑰匙遺失(放車廂)。<br>點擊進入 <b>線上自動估價</b>。<br>不會破壞鎖體</p>
@@ -756,6 +756,24 @@
                 <div class="wizard-title">請問更詳細的資訊？</div>
                 <div id="dynamic-options" class="option-grid"></div>
                 
+                <!-- 機車服務選項容器 -->
+                <div id="scooter-options-container" style="display:none; margin-top:20px; text-align:center;">
+                    <p style="font-weight:bold; font-size:1.1em; color:#333; margin-bottom:15px;">請選擇服務項目：</p>
+                    <div style="display:flex; justify-content:center; gap:15px; margin-bottom:20px;">
+                        <button class="toggle-btn" onclick="setScooterService('seat')">開坐墊</button>
+                        <button class="toggle-btn" onclick="setScooterService('key')">鑰匙遺失配製</button>
+                    </div>
+                </div>
+
+                <!-- 機車是否鎖龍頭 (通用) -->
+                <div id="scooter-condition-options" style="display:none; margin-top:15px; text-align:center;">
+                    <p style="font-weight:bold; font-size:1em; color:#666; margin-bottom:10px;">是否有鎖龍頭？</p>
+                    <div style="display:flex; justify-content:center; gap:15px;">
+                        <button class="toggle-btn" onclick="setSteeringLock(true)">有鎖龍頭 (+100)</button>
+                        <button class="toggle-btn" onclick="setSteeringLock(false)">沒鎖龍頭</button>
+                    </div>
+                </div>
+
                 <!-- 鎖門狀態切換 (傳統鎖專用) -->
                 <div id="lock-status-toggle" style="display:none; margin-top:20px;">
                     <p style="text-align:center; font-weight:bold;">目前的門鎖狀態？</p>
@@ -800,7 +818,7 @@
                     <select id="floor-select" onchange="calculatePrice()"><option value="0">有電梯 / 無電梯1-4樓 (不加價)</option><option value="100">公寓爬樓梯 5樓以上 (+$100)</option></select>
                 </div>
                 <div class="price-result"><div class="price-note">預估費用</div><div class="final-price" id="final-price-display">NT$ --</div><div class="price-note" id="price-breakdown">請填寫完整資訊以計算</div></div>
-                <div class="control-btns"><button class="btn-prev" onclick="prevStep(3)">上一步</button><button class="btn-next" onclick="finishWizard()">立即聯繫師傅</button></div>
+                <div class="control-btns"><button class="btn-prev" onclick="prevStep(3)">上一步</button><button class="btn-next" onclick="finishWizard()">下一步</button></div>
             </div>
             <div id="step-4" class="step-container">
                 <div class="wizard-title" style="color:#2ecc71;">估價完成！</div>
@@ -810,7 +828,7 @@
                     <p style="color: #666; font-size: 0.9em;">(此為系統預估價格，實際狀況以師傅回覆確認為主)</p>
                 </div>
                 <div class="cta-buttons">
-                    <a id="btn-wizard-line" class="btn-wizard-line"><i class="fab fa-line"></i> 傳送位置給師傅 (LINE)</a>
+                    <a id="btn-wizard-line" class="btn-wizard-line"><i class="fab fa-line"></i> 傳送估價結果給師傅 (LINE)</a>
                     <a href="tel:0903109970" class="btn-wizard-phone"><i class="fas fa-phone-alt"></i> 撥打電話</a>
                 </div>
                 <br>
@@ -973,9 +991,9 @@
             'cp-r9': {
                 id: 'cp-r9', brand: 'cp', title: '高CP值款 R9 (人臉辨識)',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9.jpg',
-                tag: '人臉入門款', listPrice: 20000, offerPrice: 18000,
+                tag: '最高CP值', listPrice: 20000, offerPrice: 18000,
                 desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。',
-                features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別', '大螢幕貓眼']
+                features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別 / 掌靜脈', '大螢幕貓眼']
             },
             'cp-r3': {
                 id: 'cp-r3', brand: 'cp', title: '高CP值款 R3',
@@ -1010,13 +1028,13 @@
                 title: '鐵門鎖',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG',
                 tag: '最高cp值', 
-                offerPrice: 'NT$ 2000~3000 (含安裝)',
+                offerPrice: 'NT$ 2000~3000',
                 desc: '台灣製造，結構厚實。公寓大門最常見的選擇，CP值高。',
                 features: ['堅固耐用', '防撬設計', '附 3 支原廠鑰匙'],
                 hasVariants: true,
                 variants: [
                     { name: '電白三段鎖', price: '2000', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/電白三段.JPG' },
-                    { name: '不鏽鋼三段鎖', price: '2500-2700', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG' },
+                    { name: '不鏽鋼三段鎖', price: '2700', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG' },
                     { name: '不鏽鋼四段鎖', price: '3000', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵四段.JPG' }
                 ]
             },
@@ -1026,7 +1044,7 @@
                 title: '葉片五段鎖 (防盜升級)',
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/大安住.PNG',
                 tag: '防盜首選', 
-                offerPrice: 'NT$ 3800~4500 (含安裝)',
+                offerPrice: 'NT$ 3800~4500',
                 desc: '葉片式結構，無鎖芯設計，防撬防開能力極佳，居家安全首選。',
                 features: ['結構精密', '難以被技術開啟', '附原廠伸縮鑰匙'],
                 hasVariants: true,
@@ -1038,7 +1056,7 @@
             'trad-aux': {
                 id: 'trad-aux', brand: 'trad-main', title: '輔助鎖',
                 img: 'https://placehold.co/400x300?text=輔助鎖',
-                tag: '輔助鎖', offerPrice: 'NT$ 1000~1500 (含安裝)',
+                tag: '輔助鎖', offerPrice: 'NT$ 1000~1500',
                 desc: '安裝於門手把上方，增加一道防線。體積小、價格便宜、基本防盜。',
                 features: ['機械結構簡單耐用', '多種顏色可選'],
                 hasVariants: true,
@@ -1220,12 +1238,12 @@
                             if(p.offerPrice === '請洽詢') {
                                 priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">價格請洽詢</div>`;
                             } else {
-                                priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">含安裝 ${priceStr} ${p.offerPrice.includes('~') || p.offerPrice.includes('起') ? '' : '元'}</div>`;
+                                priceDisplay = `<div style="color:#e74c3c;font-weight:bold;margin-top:10px;">含安裝 ${priceStr} (含安裝)</div>`;
                             }
                         }
 
                         // 判斷是否為電子鎖 (有 listPrice)
-                        const isElectronic = p.listPrice !== undefined && p.listPrice !== null; // Strict check for null
+                        const isElectronic = p.listPrice !== undefined && p.listPrice !== null; 
                         const btnText = isElectronic ? '查看詳細規格與優惠' : '查看規格與價格';
                         
                         card.innerHTML = `
@@ -1365,29 +1383,40 @@
             const dynamicOpts = document.getElementById('dynamic-options');
             if(dynamicOpts) dynamicOpts.innerHTML = '';
             
-            const lockToggle = document.getElementById('lock-status-toggle');
-            if(lockToggle) lockToggle.style.display = 'none';
+            document.getElementById('lock-status-toggle').style.display = 'none';
+            document.getElementById('lock-segment-selector').style.display = 'none';
+            document.getElementById('scooter-options-container').style.display = 'none';
+            document.getElementById('step2-next-btn').style.display = 'none';
             
-            const resultDisplay = document.getElementById('final-price-display');
-            if(resultDisplay) resultDisplay.innerText = 'NT$ --';
-            
-            const resultNote = document.getElementById('price-breakdown');
-            if(resultNote) resultNote.innerText = '請填寫完整資訊以計算';
+            document.getElementById('final-price-display').innerText = 'NT$ --';
+            document.getElementById('price-breakdown').innerText = '請填寫完整資訊以計算';
         }
 
         function selectType(type) {
             estimateData.type = type;
             estimateData.subtype = ''; estimateData.locked = false; 
-            generateStep2Options(type);
-            nextStep(2);
+            
+            if (type === 'access-control') {
+                estimateData.subtype = '門禁系統';
+                nextStep(3);
+            } else {
+                generateStep2Options(type);
+                nextStep(2);
+            }
         }
 
         function generateStep2Options(type) {
             const container = document.getElementById('dynamic-options');
             const lockToggle = document.getElementById('lock-status-toggle');
+            const scooterContainer = document.getElementById('scooter-options-container');
+            const steeringOptions = document.getElementById('scooter-condition-options');
+            
             container.innerHTML = '';
             lockToggle.style.display = 'none';
-            document.getElementById('lock-segment-selector').style.display = 'none'; // 重置時隱藏段數
+            document.getElementById('lock-segment-selector').style.display = 'none';
+            scooterContainer.style.display = 'none';
+            steeringOptions.style.display = 'none'; // Ensure hidden initially
+            document.getElementById('step2-next-btn').style.display = 'none';
 
             let options = [];
             if (type === 'electronic') { options = ['加安 (FAULTLESS)', '維夫拉克 (WAFERLOCK)', '三星 (SAMSUNG)', '東隆 (EZSET)', '耶魯 (YALE)']; } 
@@ -1409,7 +1438,6 @@
                     {name: '睿能 gogoro', img: 'https://placehold.co/80x80?text=Gogoro'}
                 ];
             } 
-            else if (type === 'access-control') { options = ['磁扣/卡片複製', '主機安裝/維修']; }
             else if (type === 'other') { options = ['汽車開鎖', '保險箱', '信箱/抽屜', '其他疑問']; }
 
             options.forEach(opt => {
@@ -1446,7 +1474,8 @@
                         document.getElementById('scooter-options-container').style.display = 'block';
                         // Reset scooter sub-options
                         document.getElementById('scooter-key-options').style.display = 'none';
-                        document.getElementById('step2-next-btn').style.display = 'none'; // Wait for service selection
+                        document.getElementById('scooter-condition-options').style.display = 'none';
+                        document.getElementById('step2-next-btn').style.display = 'none'; 
                     } else if (type === 'other' || type === 'access-control') {
                         document.getElementById('step2-next-btn').style.display = 'none';
                         setTimeout(() => nextStep(3), 300);
@@ -1466,31 +1495,53 @@
         
         function setScooterService(service) {
             estimateData.scooterService = service;
-            // Highlight button logic can be added here
-             const buttons = document.querySelectorAll('#scooter-options-container > div:first-of-type .toggle-btn');
+            // Highlight button logic
+             const buttons = document.querySelectorAll('#scooter-options-container .toggle-btn');
              buttons.forEach(btn => {
                  if(btn.innerText.includes(service === 'seat' ? '坐墊' : '配製')) btn.classList.add('active');
                  else btn.classList.remove('active');
              });
 
+            // After selecting Service, show Steering Lock options
+            document.getElementById('scooter-condition-options').style.display = 'block';
+            
             if (service === 'key') {
                 document.getElementById('scooter-key-options').style.display = 'block';
-                document.getElementById('step2-next-btn').style.display = 'none'; // Wait for magnet
+                // Wait for magnet selection before showing Next, or show Next if magnet not needed yet?
+                // Logic: Steering Lock -> Magnet (if key) -> Next
             } else {
                 document.getElementById('scooter-key-options').style.display = 'none';
-                document.getElementById('step2-next-btn').style.display = 'inline-block';
+            }
+            
+            // Hide next button until steering lock is selected
+            document.getElementById('step2-next-btn').style.display = 'none';
+        }
+
+        function setSteeringLock(isLocked) {
+            estimateData.steeringLocked = isLocked;
+            // Highlight button
+            const buttons = document.querySelectorAll('#scooter-condition-options .toggle-btn');
+            buttons.forEach(btn => {
+                if((isLocked && btn.innerText.includes('有鎖')) || (!isLocked && btn.innerText.includes('沒鎖'))) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+            
+            // If Service is Key, check Magnet selection
+            if (estimateData.scooterService === 'key') {
+                 // Check if Magnet is selected?
+                 // Or just let user select magnet. 
+                 // Actually the prompt says: "if key lost selected, final page show both prices". 
+                 // So we DON'T need to ask for magnet.
+                 document.getElementById('scooter-key-options').style.display = 'none'; // Hide magnet options as requested
+                 document.getElementById('step2-next-btn').style.display = 'inline-block';
+            } else {
+                 document.getElementById('step2-next-btn').style.display = 'inline-block';
             }
         }
         
         function setMagnet(hasMagnet) {
+            // Not used anymore based on prompt instructions to show both prices
             estimateData.hasMagnet = hasMagnet;
-            // Highlight button
-            const buttons = document.querySelectorAll('#scooter-key-options .toggle-btn');
-            buttons.forEach(btn => {
-                 if(btn.innerText.includes(hasMagnet ? '含磁石' : '不含')) btn.classList.add('active');
-                 else btn.classList.remove('active');
-            });
-            document.getElementById('step2-next-btn').style.display = 'inline-block';
         }
 
         function setLockStatus(status) {
@@ -1526,7 +1577,13 @@
             currentWizardStep = step;
             if (step === 3) calculatePrice();
         }
-        function prevStep(current) { nextStep(current - 1); }
+        function prevStep(current) {
+            if (current === 3 && estimateData.type === 'access-control') {
+                nextStep(1);
+            } else {
+                nextStep(current - 1);
+            }
+        }
         
         function finishWizard() {
             nextStep(4);
@@ -1536,12 +1593,15 @@
             
             document.getElementById('result-price-display').innerText = price;
             
+            let typeText = estimateData.type;
             let subtypeText = estimateData.subtype || '未選擇';
             let detailText = '';
             
             if (estimateData.type === 'scooter') {
-                if (estimateData.scooterService === 'seat') detailText = '開坐墊';
-                else detailText = `配鑰匙 (${estimateData.hasMagnet ? '含磁石' : '無磁石'})`;
+                if (estimateData.scooterService === 'seat') detailText = `開坐墊 (${estimateData.steeringLocked ? '有鎖龍頭' : '無鎖龍頭'})`;
+                else detailText = `配鑰匙 (${estimateData.steeringLocked ? '有鎖龍頭' : '無鎖龍頭'})`;
+            } else if (estimateData.type === 'access-control') {
+                 detailText = 'N/A';
             } else {
                 if (document.getElementById('status-locked').classList.contains('active')) {
                     detailText = '已上鎖';
@@ -1589,12 +1649,9 @@
             const dist = parseFloat(document.getElementById('distance-input').value) || 0;
             
             // Time logic
-            let isNight = (timeVal === 'late' || timeVal === 'midnight');
-            // User: "大夜1000" for scooter seat. "大夜" usually means late night/midnight.
-            // Let's assume standard 'night' applies for 23:00-08:00 based on previous logic.
-            // Actually, previously: morning(500), day(300), evening(500), late(700), midnight(1000).
-            // Scooter specific logic overrides basePrice.
-
+            // Evening: 21-23. Late: 23-00. Midnight: 00-08.
+            let isNight = (timeVal === 'late' || timeVal === 'midnight' || timeVal === 'evening'); // "夜間" usually covers evening too in general context unless specified. Prompt said "夜間基本1000" for access control.
+            
             let basePrice = 300; 
             if (timeVal === 'morning') basePrice = 500;
             else if (timeVal === 'evening') basePrice = 500;
@@ -1604,33 +1661,66 @@
             let typeCost = 0;
             let conditionCost = 0;
 
-            if (estimateData.type === 'scooter') {
+            if (estimateData.type === 'access-control') {
+                // 白天 600, 夜間 1000.
+                // Assuming "Night" is 21:00 onwards based on previous logic structure where evening is start of night pricing tiers.
+                if (isNight) basePrice = 1000;
+                else basePrice = 600;
+            }
+            else if (estimateData.type === 'scooter') {
                 if (estimateData.scooterService === 'seat') {
-                    // Seat: Day=500, Night=1000.
-                    // Assuming 'night' is late or midnight. Evening? Usually 23:00 is cutoff for "Big Night".
-                    // Let's treat 'late' (23-00) and 'midnight' (00-08) as Night = 1000. Others = 500.
-                    if (timeVal === 'late' || timeVal === 'midnight') basePrice = 1000;
-                    else basePrice = 500;
+                    // Seat: Day=400, Late/Midnight(23:00-08:00)=600/1000? 
+                    // Prompt said "23-00 basic 600". "Day 400".
+                    // Let's assume:
+                    // Day (09-21): 400
+                    // Evening (21-23): 400 (assume same as day or slightly more? User didn't specify, stick to 400 base)
+                    // Late (23-00): 600
+                    // Midnight (00-08): 1000 (Based on previous logic)
+                    
+                    if (timeVal === 'late') basePrice = 600;
+                    else if (timeVal === 'midnight') basePrice = 1000;
+                    else basePrice = 400;
+
+                    if (estimateData.steeringLocked) basePrice += 100;
                 } else if (estimateData.scooterService === 'key') {
                     // Key:
                     // Day: NoMag=1000, Mag=1200
-                    // Night: NoMag=1400, Mag=1600
-                    let keyBase = (timeVal === 'late' || timeVal === 'midnight') ? 1400 : 1000;
-                    if (estimateData.hasMagnet) keyBase += 200;
-                    basePrice = keyBase;
+                    // Night (Assuming 23:00+): NoMag=1400, Mag=1600
+                    
+                    let isLateNight = (timeVal === 'late' || timeVal === 'midnight');
+                    let priceNoMag = isLateNight ? 1400 : 1000;
+                    let priceMag = isLateNight ? 1600 : 1200;
+                    
+                    if (estimateData.steeringLocked) {
+                        priceNoMag += 100;
+                        priceMag += 100;
+                    }
+                    
+                    // Display range logic override
+                    let distCostTmp = 0;
+                    if (dist > 4) distCostTmp = Math.ceil(dist - 4) * 100;
+                    
+                    let totalNoMag = priceNoMag + floorCost + distCostTmp;
+                    let totalMag = priceMag + floorCost + distCostTmp;
+                    
+                    document.getElementById('final-price-display').innerText = `NT$ ${totalNoMag} (無磁石) / ${totalMag} (含磁石)`;
+                     let details = [];
+                    if (estimateData.steeringLocked) details.push("鎖龍頭加成");
+                    if (floorCost > 0) details.push("樓層費");
+                    if (distCostTmp > 0) details.push("遠距離車馬費");
+                    document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準配鎖服務費";
+                    return; // Special return for key logic
                 }
             }
             else if (estimateData.type === 'electronic') {
-                if (estimateData.subtype.includes('維夫拉克')) { basePrice = 0; typeCost = isNight ? 1500 : 1000; } 
-                else if (estimateData.subtype.includes('三星')) { basePrice = 0; typeCost = isNight ? 6000 : 4000; } 
+                if (estimateData.subtype.includes('維夫拉克')) { basePrice = 0; typeCost = (timeVal==='late'||timeVal==='midnight'||timeVal==='evening') ? 1500 : 1000; } 
+                else if (estimateData.subtype.includes('三星')) { basePrice = 0; typeCost = (timeVal==='late'||timeVal==='midnight'||timeVal==='evening') ? 6000 : 4000; } 
                 else if (estimateData.subtype.includes('耶魯')) { basePrice = 0; typeCost = 2500; } 
                 else { typeCost = 300; }
             } else if (estimateData.type === 'traditional') {
                 if (estimateData.subtype.includes('葉片')) { typeCost = 200; }
                 if (estimateData.locked) {
-                    // 反鎖加成：日間一段200，夜間一段300
                     const perSegmentCost = (timeVal === 'day' || timeVal === 'morning') ? 200 : 300;
-                    // 至少算一段，如果有選段數則乘上去
                     const segs = estimateData.segments > 0 ? estimateData.segments : 1;
                     conditionCost = perSegmentCost * segs;
                 }
@@ -1644,16 +1734,13 @@
             document.getElementById('final-price-display').innerText = "NT$ " + total;
             
             let details = [];
-            if (estimateData.type === 'scooter') {
-                 details.push(estimateData.scooterService === 'seat' ? '機車開坐墊' : '機車配鑰匙');
-            } else {
-                if (typeCost > 0) details.push("特殊鎖種/電子鎖加成");
-                if (conditionCost > 0) details.push(`反鎖解鎖費(${estimateData.segments}段)`);
-            }
-            
+            if (typeCost > 0) details.push("特殊鎖種/電子鎖加成");
+            if (conditionCost > 0) details.push(`反鎖解鎖費(${estimateData.segments}段)`);
+            if (estimateData.type === 'scooter' && estimateData.steeringLocked) details.push("鎖龍頭加成");
             if (floorCost > 0) details.push("樓層費");
             if (distCost > 0) details.push("遠距離車馬費");
             if (estimateData.type === 'other') details.push("現場報價");
+            if (estimateData.type === 'access-control') details.push("門禁系統基本費");
             
             document.getElementById('price-breakdown').innerText = details.length > 0 ? "包含: " + details.join(' + ') : "標準開鎖服務費";
         }
