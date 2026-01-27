@@ -1037,7 +1037,7 @@
                 hasVariants: true,
                 variants: [
                     { name: '電白三段鎖', price: '2000', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/電白三段.JPG' },
-                    { name: '不鏽鋼三段鎖', price: '2700', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG' },
+                    { name: '不鏽鋼三段鎖', price: '2500', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵三段.JPG' },
                     { name: '不鏽鋼四段鎖', price: '3000', img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/白鐵四段.JPG' }
                 ]
             },
@@ -1075,14 +1075,21 @@
             'trad-gate-electric': {
                 id: 'trad-gate-electric', brand: 'trad-electric', title: '大門電鎖',
                 img: 'https://placehold.co/400x300?text=大門電鎖',
-                tag: '公寓對講機', offerPrice: '請洽詢',
-                desc: '連接對講機系統，可遠端開門。適用於公寓大門。',
-                features: ['靜音/標準款', '可配合對講機施工']
+                tag: '公寓大門', offerPrice: '含安裝 NT$ 2500~3000',
+                desc: '連接對講機系統，可在家開門。適用於公寓大門。<br>可升級靜音款電控鎖，門禁刷卡進出，不再被開關門的聲音吵醒',
+                features: ['靜音/標準款', '可配合對講機施工'],
+                hasVariants: true,
+                variants: [
+                    { name: 'APD', price: '2500', img: 'https://placehold.co/400x300?text=APD' },
+                    { name: '余氏牌', price: '3000', img: 'https://placehold.co/400x300?text=余氏牌' },
+                    { name: '電控鎖', price: '請洽詢', img: 'https://placehold.co/400x300?text=電控鎖' },
+                    { name: '外掛式陽極鎖', price: '請洽詢', img: 'https://placehold.co/400x300?text=外掛式陽極鎖' },
+                ]
             },
             'trad-3in1': {
                 id: 'trad-3in1', brand: 'trad-electric', title: '三合一通風門鎖',
                 img: 'https://placehold.co/400x300?text=通風門鎖',
-                tag: '後陽台專用', offerPrice: '請洽詢',
+                tag: '後陽台專用', offerPrice: '含安裝 NT$3000',
                 desc: '專為通風門設計，結合把手與鎖具。',
                 features: ['安裝於廚房/陽台門', '推拉順暢']
             },
@@ -1120,16 +1127,23 @@
             // 新增分類：房門與通道
             'trad-room': {
                 id: 'trad-room', brand: 'trad-room', title: '房門鎖 (喇叭/水平)',
-                img: 'https://placehold.co/400x300?text=房門鎖',
-                tag: '一般房門', offerPrice: 'NT$ 700起',
-                desc: '適用於房間門、浴廁門、辦公室。外型簡約，開關門順手。',
-                features: ['喇叭鎖：NT$ 700', '水平把手鎖：NT$ 1,000']
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/水平鎖.JPG',
+                tag: '一般房門', offerPrice: '含安裝NT$ 700~1000',
+                desc: '適用於房間門、浴廁門。外型簡約，開關門順手。<br>多種把手款式歡迎加LINE詢問',
+                features: ['最基本的門鎖'],
+                hasVariants: true,
+                variants: [
+                    { name: '喇叭鎖', price: '700', img: 'https://placehold.co/400x300?text=喇叭鎖' },
+                    { name: '水平喇叭鎖', price: '1000', img: 'https://placehold.co/400x300?text=余氏牌' },
+                    { name: '重型喇叭鎖', price: '請洽詢', img: 'https://placehold.co/400x300?text=重型喇叭鎖' },
+                    { name: '造型手把', price: '請洽詢', img: 'https://placehold.co/400x300?text=造型手把' },
+                ]
             },
             'trad-passage': {
                 id: 'trad-passage', brand: 'trad-room', title: '通道鎖 (無鎖)',
                 img: 'https://placehold.co/400x300?text=通道鎖',
                 tag: '公共空間', offerPrice: '請洽詢',
-                desc: '無上鎖功能，僅供開關門使用。適用於走道、儲藏室。',
+                desc: '無上鎖功能，僅供開關門使用。適用於走道、儲藏室。<br>多種把手款式歡迎加LINE詢問',
                 features: ['無鑰匙設計', '防止誤鎖']
             }
         };
