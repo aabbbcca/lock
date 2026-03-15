@@ -1,0 +1,339 @@
+window.ELECTRONIC_BRANDS = [
+    { id: 'yale', title: '耶魯 Yale', pageTitle: 'Yale 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
+    { id: 'cp', title: '高CP值精選', pageTitle: '高CP值電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
+    { id: 'philips', title: '飛利浦 Philips', pageTitle: 'Philips 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
+    { id: 'waferlock', title: '維夫拉克', pageTitle: 'Waferlock 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
+    { id: 'milre', title: '美樂 Milre', pageTitle: 'Milre 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' }
+];
+
+window.ELECTRONIC_PRODUCTS = {
+    'luna-pro': {
+        id: 'luna-pro',
+        brand: 'yale',
+        title: 'Yale Luna Pro+ 人臉辨識',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/yale-luna-pro-plus-front-body-1.webp',
+        tag: 'Yale 旗艦款',
+        listPrice: 39800,
+        offerPrice: 27999,
+        desc: '偏心防夾手設計，霧面黑配香檳金/星空灰。極致安全與便利的頂級選擇。<br>支援 3D 人臉識別，靠近自動喚醒，完全解放雙手。',
+        features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 / App', '3D 人臉識別，靠近自動喚醒', '歐規大鎖匣，結構堅固', '防夾手把手設計']
+    },
+    'byyou-pro': {
+        id: 'byyou-pro',
+        brand: 'yale',
+        title: 'Yale ByYou Pro 指紋五合一',
+        detailTitle: 'Yale ByYou Pro 指紋五合一',
+        plainTitle: 'Yale ByYou Pro 指紋五合一',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou.PNG',
+        tag: 'Yale 時尚款',
+        listPrice: 30000,
+        offerPrice: 25399,
+        desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。<br>支援 Apple/Samsung Wallet 解鎖。<br>手機就是鑰匙，超方便!<br>時尚外型，搭配現代裝潢的最佳選擇。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', '支援手機錢包解鎖']
+    },
+    'ydm7116a': {
+        id: 'ydm7116a',
+        brand: 'yale',
+        title: 'Yale YDM7116A 把手式',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7116A.PNG',
+        tag: 'Yale 經典款',
+        listPrice: 30500,
+        offerPrice: 19000,
+        desc: '經典把手設計，長輩使用最習慣。有黑色跟玫瑰金可選，功能穩定耐用。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '語音導覽設定，操作簡單', '強制上鎖與入侵警報功能']
+    },
+    'ydm4109a': {
+        id: 'ydm4109a',
+        brand: 'yale',
+        title: 'Yale YDM4109A 智慧指紋鎖',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM4109A.PNG',
+        tag: 'Yale 智慧款',
+        listPrice: 24800,
+        offerPrice: 16000,
+        desc: '三合一指紋密碼鑰匙。經典熱銷款升級，金色/黑色可選。斷層式指紋掃描，安全可靠。',
+        features: ['指紋 / 密碼 / 鑰匙', '虛位密碼功能，防窺視', '可選配藍芽/遠端模組']
+    },
+    'ymf40a': {
+        id: 'ymf40a',
+        brand: 'yale',
+        title: 'Yale YMF40A 熱感應觸控',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF40A.PNG',
+        tag: 'Yale 推拉款',
+        listPrice: 25800,
+        offerPrice: 17000,
+        desc: '三合一指紋密碼鑰匙。簡約黑色推拉式設計，美觀大方。',
+        features: ['指紋 / 密碼 / 鑰匙', '熱感應觸控面板', '入侵/破壞警報功能']
+    },
+    'ymf30a': {
+        id: 'ymf30a',
+        brand: 'yale',
+        title: 'Yale YMF30A 卡片密碼鎖',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF30A.PNG',
+        tag: 'Yale 卡片款',
+        listPrice: 24800,
+        offerPrice: 16000,
+        desc: '三合一卡片密碼鑰匙。',
+        features: ['卡片 / 密碼 / 鑰匙', '熱感應觸控面板', '美觀耐用']
+    },
+    'ydm7216a': {
+        id: 'ydm7216a',
+        brand: 'yale',
+        title: 'Yale YDM7216A 隱藏式指紋',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7216A.PNG',
+        tag: 'Yale 升級款',
+        listPrice: 26800,
+        offerPrice: 18000,
+        desc: '隱藏式指紋感應。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '隱藏式指紋感應', '語音導覽設定']
+    },
+    'cp-r1': {
+        id: 'cp-r1',
+        brand: 'cp',
+        title: '高CP值款 SWD R1',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R1.jpg',
+        tag: '小資首選',
+        listPrice: 15000,
+        offerPrice: 12000,
+        desc: '功能實用，價格親民，房東與租屋族的最愛。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '可加購遠端解鎖功能', '高性價比把手款']
+    },
+    'cp-r9': {
+        id: 'cp-r9',
+        brand: 'cp',
+        title: '高CP值款 SWD R9 (人臉辨識)',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9.jpg',
+        tag: '最高CP值',
+        listPrice: 20000,
+        offerPrice: 16800,
+        desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。<br>3D人臉辨識 掌靜脈 指紋 密碼 卡 鑰匙 遠端解鎖<br>主動式貓眼雙向通話 逗留自動抓拍<br>開門通知 錯誤警報<br>防水 防潮 靠近即開門<br>關門自上鎖 室內反鎖<br>5000毫安大容量電池 續航4~6個月<br>緊急Type-C 室外供電 沒電通知',
+        features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別 / 掌靜脈', '大螢幕貓眼 / 遠端解鎖對講']
+    },
+    'cp-r3': {
+        id: 'cp-r3',
+        brand: 'cp',
+        title: '高CP值款 SWD R3',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R3.JPG',
+        tag: '套房族最愛',
+        listPrice: 6500,
+        offerPrice: 5500,
+        desc: '經濟實惠，入門首選。',
+        features: ['密碼 / 卡片 / 鑰匙', '基本防盜', '高性價比']
+    },
+    'cp-r7': {
+        id: 'cp-r7',
+        brand: 'cp',
+        title: '高CP值款 SWD R7',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R7.JPG',
+        tag: '進階款',
+        listPrice: 8000,
+        offerPrice: 7000,
+        desc: '功能升級，更安全便利。',
+        features: ['指紋 / 密碼 / 卡片 / 鑰匙', '進階防盜', '高性價比']
+    },
+    'philips-709-fvp': {
+        id: 'philips-709-fvp',
+        brand: 'philips',
+        title: 'Philips 709-FVP (平行輸入)',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/709fvp.webp',
+        tag: 'Philips 旗艦款',
+        listPrice: 21500,
+        offerPrice: '請洽詢',
+        desc: '內建電子貓眼，隨時掌握門外動態。',
+        features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '大螢幕貓眼']
+    },
+    'philips-709-fvp-T': {
+        id: 'philips-709-fvp-T',
+        brand: 'philips',
+        title: 'Philips 709-FVP (公司貨)',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/709fvp.webp',
+        tag: 'Philips 旗艦款',
+        listPrice: 36000,
+        offerPrice: '優惠價 NT$31000 (含基本安裝)',
+        desc: '遠端視訊解鎖，3D人臉辨識，飛利浦旗艦款。',
+        features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話', '大螢幕貓眼']
+    },
+    'philips-702E': {
+        id: 'philips-702E',
+        brand: 'philips',
+        title: 'Philips 702E (公司貨)',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/702E.jpg',
+        tag: 'Philips 指紋款',
+        listPrice: 26000,
+        offerPrice: '優惠價 NT$20000 (含基本安裝)',
+        desc: '遠端解鎖、指紋辨識。',
+        features: ['指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話', '大螢幕貓眼']
+    },
+    'wafer-l600': {
+        id: 'wafer-l600',
+        brand: 'waferlock',
+        title: '維夫拉克 Waferlock L600',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L600.PNG',
+        tag: 'Waferlock 人臉款',
+        listPrice: null,
+        offerPrice: '請洽詢',
+        desc: '4合一把手式 (人臉/卡片/密碼/鑰匙)，開門更快速。',
+        features: ['人臉辨識 / 卡片 / 密碼 / 鑰匙', 'IP54 防塵防水', '中文語音提示']
+    },
+    'wafer-l900': {
+        id: 'wafer-l900',
+        brand: 'waferlock',
+        title: '維夫拉克 Waferlock L900',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L900.PNG',
+        tag: 'Waferlock 推拉款',
+        listPrice: null,
+        offerPrice: '請洽詢',
+        desc: '4合1推拉式 (指紋/卡片/密碼/鑰匙)，時尚設計。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '推拉式把手', '防高壓電擊']
+    },
+    'wafer-l396': {
+        id: 'wafer-l396',
+        brand: 'waferlock',
+        title: '維夫拉克 Waferlock L396',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L396.PNG',
+        tag: 'Waferlock 指紋款',
+        listPrice: null,
+        offerPrice: '請洽詢',
+        desc: '4合1把手式 (指紋/卡片/密碼/鑰匙)。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '適合辦公室/租屋']
+    },
+    'wafer-l376': {
+        id: 'wafer-l376',
+        brand: 'waferlock',
+        title: '維夫拉克 Waferlock L376',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L376.PNG',
+        tag: 'Waferlock 基本款',
+        listPrice: null,
+        offerPrice: '請洽詢',
+        desc: '基本款3合1把手式 (卡片/密碼/鑰匙)。',
+        features: ['卡片 / 密碼 / 鑰匙', '經濟實惠']
+    },
+    'milre-7150': {
+        id: 'milre-7150',
+        brand: 'milre',
+        title: 'Milre MDL-7150+ 推拉',
+        img: 'https://placehold.co/400x300?text=MDL-7150+',
+        tag: '推拉式',
+        listPrice: null,
+        offerPrice: 19000,
+        desc: '推拉式便利設計。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙']
+    },
+    'milre-6500f': {
+        id: 'milre-6500f',
+        brand: 'milre',
+        title: 'Milre MDL-6500F',
+        img: 'https://placehold.co/400x300?text=MDL-6500F',
+        tag: '指紋款',
+        listPrice: null,
+        offerPrice: 18000,
+        desc: '經典指紋款。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙']
+    },
+    'milre-6800': {
+        id: 'milre-6800',
+        brand: 'milre',
+        title: 'Milre MI-6800',
+        img: 'https://placehold.co/400x300?text=MI-6800',
+        tag: '高階款',
+        listPrice: null,
+        offerPrice: 16000,
+        desc: '高階安全防護。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙']
+    },
+    'milre-6450': {
+        id: 'milre-6450',
+        brand: 'milre',
+        title: 'Milre MI-6450',
+        img: 'https://placehold.co/400x300?text=MI-6450',
+        tag: '輔助鎖',
+        listPrice: null,
+        offerPrice: 15000,
+        desc: '輔助鎖設計。',
+        features: ['指紋 / 卡片 / 密碼']
+    },
+    'milre-400f': {
+        id: 'milre-400f',
+        brand: 'milre',
+        title: 'Milre MDL-400F',
+        img: 'https://placehold.co/400x300?text=MDL-400F',
+        tag: '指紋輔助',
+        listPrice: null,
+        offerPrice: 11000,
+        desc: '指紋輔助鎖。',
+        features: ['指紋 / 密碼']
+    },
+    'milre-510f': {
+        id: 'milre-510f',
+        brand: 'milre',
+        title: 'Milre MDL-510F',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-510F.png',
+        tag: '三合一指紋款',
+        listPrice: 9500,
+        offerPrice: 9000,
+        desc: '經濟型指紋鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定',
+        features: ['指紋 / 卡片 / 密碼']
+    },
+    'milre-510s': {
+        id: 'milre-510s',
+        brand: 'milre',
+        title: 'Milre MDL-510S',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-510S.png',
+        tag: '二合一',
+        listPrice: 7500,
+        offerPrice: 7000,
+        desc: '經濟型電子鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定',
+        features: ['卡片 / 密碼']
+    },
+    'milre-570f': {
+        id: 'milre-570f',
+        brand: 'milre',
+        title: 'Milre MI-570F',
+        img: 'https://placehold.co/400x300?text=MI-570F',
+        tag: '指紋主鎖',
+        listPrice: null,
+        offerPrice: 11000,
+        desc: '主鎖式指紋鎖。',
+        features: ['指紋 / 密碼 / 鑰匙']
+    },
+    'milre-570s': {
+        id: 'milre-570s',
+        brand: 'milre',
+        title: 'Milre MI-570S',
+        img: 'https://placehold.co/400x300?text=MI-570S',
+        tag: '卡片主鎖',
+        listPrice: null,
+        offerPrice: 8500,
+        desc: '主鎖式卡片鎖。',
+        features: ['卡片 / 密碼 / 鑰匙']
+    },
+    'milre-425': {
+        id: 'milre-425',
+        brand: 'milre',
+        title: 'Milre MI-425',
+        img: 'https://placehold.co/400x300?text=MI-425',
+        tag: '基本款',
+        listPrice: null,
+        offerPrice: 6500,
+        desc: '基本電子輔助鎖。',
+        features: ['密碼']
+    }
+};
+
+window.PRODUCT_INSTALLATION_EXAMPLES = {
+    'cp-r9': [
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_1159.JPG',
+            caption: 'R9高CP值電子鎖 - 永和闕宅'
+        },
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_00000.JPG',
+            caption: 'R9高CP值電子鎖 - 大安許宅'
+        }
+    ],
+    'philips-709-fvp': [
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_1283.JPG',
+            caption: '飛利浦709-fvp旗艦電子鎖 - 八里蕭宅'
+        }
+    ]
+};

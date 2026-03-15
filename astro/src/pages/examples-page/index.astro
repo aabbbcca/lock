@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { exampleProjects } from "../../lib/examples-data.js";
+---
+
+<BaseLayout
+  title="安裝案例 | 小李開鎖"
+  description="電子鎖、傳統鎖與到府服務案例，方便快速了解現場施工成果。"
+>
+  <main class="sub-page">
+    <div class="page-header">
+      <a class="back-btn" href="/">返回首頁</a>
+      <h1>安裝案例</h1>
+      <p>整理實際施工照片與常見現場情境，讓你更快判斷適合的安裝方式。</p>
+    </div>
+
+    <section class="gallery-grid">
+      {exampleProjects.map((project) => (
+        <article class="gallery-item" id={project.id}>
+          <img src={project.image} class="real-img gallery-image" alt={`${project.title} - ${project.caption}`} loading="lazy" />
+          <div class="gallery-caption">
+            <strong>{project.title}</strong>
+            <span>{project.caption}</span>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="bottom-cta section">
+      <h2>想看接近你家門型的案例？</h2>
+      <div class="cta-buttons">
+        <a href="https://line.me/ti/p/_w85tXo5KV" class="btn-line" target="_blank" rel="noopener">
+          <i class="fab fa-line"></i> LINE 傳門照
+        </a>
+        <a href="/electronic-page/" class="btn-share">
+          <i class="fas fa-lock"></i> 查看電子鎖型號
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

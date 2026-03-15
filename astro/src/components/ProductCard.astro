@@ -1,0 +1,25 @@
+---
+import { getMaskedOfferText, stripHtml } from "../lib/product-data.js";
+
+const { product } = Astro.props;
+const displayTitle = product.listTitle || product.detailTitle || product.title;
+const plainTitle = stripHtml(product.plainTitle || displayTitle);
+const priceText = getMaskedOfferText(product);
+---
+
+<a class="product-card" href={`/product/${product.id}/`}>
+  <div class="product-img-container">
+    <span class="brand-tag">{product.tag}</span>
+    <img src={product.img} class="real-img" alt={plainTitle} loading="lazy" />
+  </div>
+  <div class="product-body">
+    <div class="product-title" set:html={displayTitle}></div>
+    <ul class="product-features">
+      {product.features.slice(0, 3).map((feature) => (
+        <li>{feature}</li>
+      ))}
+    </ul>
+    <div class="product-price">{priceText}</div>
+    <div class="view-more-text">查看詳細規格與優惠 →</div>
+  </div>
+</a>

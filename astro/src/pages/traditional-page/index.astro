@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getTraditionalProductsByCategory, traditionalCategories } from "../../lib/traditional-data.js";
+---
+
+<BaseLayout
+  title="精選傳統機械門鎖 | 小李開鎖"
+  description="常見鎖種整理，先看款式與價格範圍，再進一步查看細節。"
+>
+  <main class="sub-page traditional-listing">
+    <div class="page-header">
+      <h1>精選傳統機械門鎖</h1>
+      <p>常見鎖種整理，先看款式與價格範圍，再進一步查看細節。</p>
+    </div>
+
+    {traditionalCategories.map((category) => (
+      <section class="brand-section" id={category.id}>
+        <div class="category-header">
+          <div class="brand-divider"></div>
+          <div class="brand-section-title">{category.title}</div>
+        </div>
+
+        <div class="product-grid">
+          {getTraditionalProductsByCategory(category.id).map((product) => (
+            <article class="product-card traditional-card">
+              <a
+                class="traditional-card-cover"
+                href={`/traditional-page/${product.id}/`}
+                aria-label={`查看 ${product.title} 門鎖資訊`}
+              >
+                <div class="product-img-container">
+                  <span class="brand-tag">{product.tag}</span>
+                  <img src={product.img} class="real-img" alt={product.title} loading="lazy" />
+                </div>
+              </a>
+
+              <div class="product-body">
+                <a class="traditional-card-title-link" href={`/traditional-page/${product.id}/`}>
+                  <div class="product-title">{product.title}</div>
+                </a>
+
+                <ul class="product-features">
+                  {product.features.slice(0, 3).map((feature) => (
+                    <li>{feature}</li>
+                  ))}
+                </ul>
+
+                <div class="product-price">{product.offerText}</div>
+
+                <a href={`/traditional-page/${product.id}/`} class="view-more-text traditional-detail-link">
+                  查看規格與價格 →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</BaseLayout>

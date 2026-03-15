@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getTraditionalCategoryById,
+  traditionalProducts
+} from "../../lib/traditional-data.js";
+
+export function getStaticPaths() {
+  return traditionalProducts.map((product) => ({
+    params: { id: product.id },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+const category = getTraditionalCategoryById(product.category);
+const plainTitle = product.title;
+const description = product.desc;
+---
+
+<BaseLayout
+  title={`${plainTitle} | 小李開鎖`}
+  description={description}
+>
+  <main class="page-shell">
+    <div class="page-header">
+      <a class="back-btn" href={`/traditional-page/#${product.category}`}>返回 {category ? category.title : "傳統鎖列表"}</a>
+      <h1>傳統鎖更換</h1>
+      <p>{category ? category.title : "傳統鎖"} | 到府安裝、規格比對與 LINE 諮詢</p>
+    </div>
+
+    <section class="detail-container">
+      <div class="detail-header-grid">
+        <div class="detail-img-box">
+          <img src={product.img} alt={plainTitle} loading="eager" />
+        </div>
+
+        <div class="detail-info">
+          <div class="detail-title">{product.title}</div>
+          <div class="offer-price">{product.offerText}</div>
+          <p class="detail-desc">{product.desc}</p>
+
+          <div class="detail-feature-box">
+            <div class="section-kicker">TRADITIONAL LOCK DETAILS</div>
+            <h2>適合情境</h2>
+            <ul class="feature-highlight-list">
+              {product.features.map((feature) => (
+                <li class="feature-highlight-item">{feature}</li>
+              ))}
+            </ul>
+          </div>
+
+          {product.variants && (
+            <div class="detail-feature-box">
+              <div class="section-kicker">COMMON OPTIONS</div>
+              <h2>常見款式</h2>
+              <div class="variant-list detail-variant-list">
+                {product.variants.map((variant) => (
+                  <div class="variant-item">
+                    <span>{variant.name}</span>
+                    <strong>{variant.price}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="detail-actions">
+            <a href="https://line.me/ti/p/_w85tXo5KV" target="_blank" rel="noopener" class="btn-line-ask">
+              <i class="fab fa-line"></i> LINE 詢價
+            </a>
+            <button type="button" class="btn-share" onclick="shareTraditionalPage()">
+              <i class="fas fa-share-alt"></i> 分享給好友
+            </button>
+            <a href={`/traditional-page/#${product.category}`} class="btn-share">
+              <i class="fas fa-arrow-left"></i> 返回列表
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline define:vars={{ plainTitle }}>
+    window.shareTraditionalPage = async function shareTraditionalPage() {
+      const productUrl = window.location.href;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: plainTitle, text: plainTitle, url: productUrl });
+          return;
+        } catch (error) {
+          if (error && error.name === "AbortError") return;
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(productUrl);
+        alert("商品網址已複製，可以直接貼給好友。");
+      } catch (error) {
+        window.open(`https://line.me/R/msg/text/?${encodeURIComponent(`${plainTitle}\n${productUrl}`)}`, "_blank");
+      }
+    };
+  </script>
+</BaseLayout>

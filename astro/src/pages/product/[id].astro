@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getBrandById,
+  getInstallationExamplesByProductId,
+  getOfferText,
+  productEntries,
+  stripHtml
+} from "../../lib/product-data.js";
+
+export function getStaticPaths() {
+  return productEntries.map((product) => ({
+    params: { id: product.id },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+const brand = getBrandById(product.brand);
+const pageTitle = product.pageTitle || brand?.pageTitle || product.title;
+const detailTitle = product.detailTitle || product.title;
+const plainTitle = stripHtml(product.plainTitle || detailTitle);
+const description = stripHtml(product.desc);
+const pageTitleSize = product.pageTitleSize || brand?.pageTitleSize || "clamp(1.4rem, 2vw, 2.4rem)";
+const productExamples = getInstallationExamplesByProductId(product.id);
+---
+
+<BaseLayout
+  title={`${plainTitle} | 小李開鎖 Astro`}
+  description={description}
+>
+  <main class="page-shell">
+    <div class="page-header">
+      <a class="back-btn" href={`/electronic-page/#${product.brand}`}>返回 {brand ? brand.title : "電子鎖列表"}</a>
+      <h1 style={`font-size:${pageTitleSize}`}>{pageTitle}</h1>
+      <p>{product.tag} | 含安裝、教學與 LINE 諮詢</p>
+    </div>
+
+    <section class="detail-container">
+      <div class="detail-header-grid">
+        <div class="detail-img-box">
+          <img src={product.img} alt={plainTitle} loading="eager" />
+        </div>
+
+        <div class="detail-info">
+          <div class="detail-title" set:html={detailTitle}></div>
+          {product.listPrice && <span class="list-price">定價 NT$ {product.listPrice.toLocaleString()}</span>}
+          <div class="offer-price">{getOfferText(product)}</div>
+          <div class="detail-desc" set:html={product.desc}></div>
+
+          <div class="detail-feature-box">
+            <div class="section-kicker">PRODUCT HIGHLIGHTS</div>
+            <h2>產品重點</h2>
+            <ul class="feature-highlight-list">
+              {product.features.map((feature) => (
+                <li class="feature-highlight-item">{feature}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="detail-actions">
+            <a href="https://line.me/ti/p/_w85tXo5KV" target="_blank" rel="noopener" class="btn-line-ask">
+              <i class="fab fa-line"></i> LINE 詢價
+            </a>
+            <button type="button" class="btn-share" onclick="shareProductPage()">
+              <i class="fas fa-share-alt"></i> 分享給好友
+            </button>
+            <a href={`/electronic-page/#${product.brand}`} class="btn-share">
+              <i class="fas fa-arrow-left"></i> 返回列表
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {productExamples.length > 0 && (
+      <section class="examples-panel">
+        <div class="section-kicker">INSTALLATION CASES</div>
+        <h2>安裝實例</h2>
+        <div class="product-examples-grid">
+          {productExamples.map((example) => (
+            <article class="gallery-item">
+              <img src={example.img} alt={example.caption || plainTitle} loading="lazy" />
+              {example.caption && <div class="gallery-caption">{example.caption}</div>}
+            </article>
+          ))}
+        </div>
+        <div class="examples-actions">
+          <a class="btn-share example-link" href="/examples-page/">
+            <i class="fas fa-images"></i> 查看更多安裝實例
+          </a>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <script is:inline define:vars={{ plainTitle }}>
+    window.shareProductPage = async function shareProductPage() {
+      const productUrl = window.location.href;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: plainTitle, text: plainTitle, url: productUrl });
+          return;
+        } catch (error) {
+          if (error && error.name === "AbortError") return;
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(productUrl);
+        alert("商品網址已複製，可以直接貼給好友。");
+      } catch (error) {
+        window.open(`https://line.me/R/msg/text/?${encodeURIComponent(`${plainTitle}\n${productUrl}`)}`, "_blank");
+      }
+    };
+  </script>
+</BaseLayout>
