@@ -2,7 +2,7 @@ window.ELECTRONIC_BRANDS = [
     { id: 'yale', title: '耶魯 Yale', pageTitle: 'Yale 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
     { id: 'cp', title: '高CP值精選', pageTitle: '高CP值電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
     { id: 'philips', title: '飛利浦 Philips', pageTitle: 'Philips 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
-    { id: 'waferlock', title: '維夫拉克', pageTitle: 'Waferlock 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
+    { id: 'waferlock', title: '維夫拉克waferlock', pageTitle: 'Waferlock 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
     { id: 'milre', title: '美樂 Milre', pageTitle: 'Milre 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' }
 ];
 
