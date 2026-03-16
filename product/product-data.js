@@ -89,7 +89,7 @@ window.ELECTRONIC_PRODUCTS = {
     'cp-r1': {
         id: 'cp-r1',
         brand: 'cp',
-        title: '高CP值款 SWD R1',
+        title: 'SWD R1 指紋辨識電子鎖',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R1.jpg',
         tag: '小資首選',
         listPrice: 15000,
@@ -100,12 +100,12 @@ window.ELECTRONIC_PRODUCTS = {
     'cp-r9': {
         id: 'cp-r9',
         brand: 'cp',
-        title: '高CP值款 SWD R9 (人臉辨識)',
+        title: 'SWD R9 人臉辨識電子鎖',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9.jpg',
         tag: '最高CP值',
         listPrice: 20000,
         offerPrice: 16800,
-        desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。<br>3D人臉辨識 掌靜脈 指紋 密碼 卡 鑰匙 遠端解鎖<br>主動式貓眼雙向通話 逗留自動抓拍<br>開門通知 錯誤警報<br>防水 防潮 靠近即開門<br>關門自上鎖 室內反鎖<br>5000毫安大容量電池 續航4~6個月<br>緊急Type-C 室外供電 沒電通知',
+        desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。<br>3D人臉辨識 掌靜脈 指紋 密碼 卡片 鑰匙 遠端解鎖 七合一功能齊全<br>主動式貓眼雙向通話 逗留自動抓拍<br>開門通知 錯誤警報<br>防水 防潮 人體感應靠近即開門<br>關門自上鎖 室內反鎖<br>5000毫安大容量電池 續航4~6個月<br>緊急Type-C 室外供電 低電量通知',
         features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別 / 掌靜脈', '大螢幕貓眼 / 遠端解鎖對講']
     },
     'cp-r3': {
@@ -133,24 +133,24 @@ window.ELECTRONIC_PRODUCTS = {
     'philips-709-fvp': {
         id: 'philips-709-fvp',
         brand: 'philips',
-        title: 'Philips 709-FVP (平行輸入)',
+        title: '飛利浦 Philips 709-FVP (平行輸入)',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/709fvp.webp',
         tag: 'Philips 旗艦款',
         listPrice: 21500,
-        offerPrice: '請洽詢',
-        desc: '內建電子貓眼，隨時掌握門外動態。',
+        offerPrice: '優惠價 NT$21000 (含基本安裝)',
+        desc: '人臉、指紋、密碼、鑰匙、卡片五種開啟方式。<br>內建電子貓眼，隨時掌握門外動態。<br>3D人臉辨識系統，推拉式開門，無接觸自動解鎖。<br>外部type-c充電孔，使用行動電源即可在外面緊急供電。<br>C級隱藏式鎖芯，無法以技術開啟，附兩把鑰匙，電子鎖故障時可用機械鑰匙開門。<br>水貨保固一年，安心有保障',
         features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '大螢幕貓眼']
     },
     'philips-709-fvp-T': {
         id: 'philips-709-fvp-T',
         brand: 'philips',
-        title: 'Philips 709-FVP (公司貨)',
+        title: '飛利浦 Philips 709-FVP (公司貨)',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/709fvp.webp',
         tag: 'Philips 旗艦款',
         listPrice: 36000,
         offerPrice: '優惠價 NT$31000 (含基本安裝)',
-        desc: '遠端視訊解鎖，3D人臉辨識，飛利浦旗艦款。',
-        features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話', '大螢幕貓眼']
+        desc: '飛利浦旗艦款。<br>人臉、指紋、密碼、鑰匙、卡片、WiFi，六種開啟方式。<br>app遠端視訊/解鎖<br>3D人臉辨識系統，推拉式開門，無接觸自動解鎖。<br>外部type-c充電孔，使用行動電源即可在外面緊急供電。<br>C級隱藏式鎖芯，無法以技術開啟，附兩把鑰匙，電子鎖故障時可用機械鑰匙開門。<br>公司貨享有原廠三年保固，安心有保障',
+        features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話/解鎖', '大螢幕貓眼']
     },
     'philips-702E': {
         id: 'philips-702E',
