@@ -1387,6 +1387,15 @@ button {
     padding-bottom: 60px;
 }
 
+.unlock-page-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.unlock-intro-qa {
+    order: 1;
+}
+
 .wizard-container {
     max-width: 760px;
     margin: 0 auto 60px;
