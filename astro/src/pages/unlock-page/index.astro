@@ -35,7 +35,7 @@ const unlockConfig = {
 };
 
 const canonical = "https://xiao-li-locksmith.com/unlock-page/";
-const pageTitle = "開鎖多少錢？24小時開鎖、電子鎖開鎖、waferlock開鎖線上估價 | 小李開鎖";
+const pageTitle = "開鎖多少錢？24小時開鎖、電子鎖開鎖、夜間開鎖線上估價 | 小李開鎖";
 const pageDescription =
   "想知道開鎖多少錢，或機車鑰匙不見怎麼辦？這頁整理雙北 24 小時開鎖、夜間開鎖、半夜開鎖、電子鎖開鎖、waferlock開鎖與鎖匠到府服務的常見價格因素，包含傳統門鎖、電子鎖、機車開鎖，並提供線上估價。";
 const faqItems = [
@@ -108,28 +108,8 @@ const serviceSchema = {
     <div class="page-header">
       <a class="back-btn" href="/">返回首頁</a>
       <h1>開鎖多少錢？24小時開鎖、電子鎖開鎖、夜間開鎖都可先試算</h1>
-      <p>想找雙北鎖匠處理開鎖問題，或想知道機車鑰匙不見怎麼辦，可以先依鎖型、距離、時段與樓層試算，快速掌握白天、夜間與半夜開鎖的大致費用區間。</p>
+      <p>想找鎖匠處理開鎖問題，可以先依鎖型、距離、時段與樓層試算，快速掌握白天、夜間與半夜開鎖的大致費用區間。</p>
     </div>
-
-    <section class="section unlock-intro-qa">
-      <div class="section-inner">
-        <h2 class="section-title">開鎖多少錢？24小時開鎖、電子鎖開鎖、夜間開鎖價格會受哪些因素影響？</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-q">1. 鎖的種類不同，價格就會不同</div>
-            <div class="faq-a">傳統門鎖、電子鎖、機車開鎖、保險箱與門禁系統的處理方式都不同，所需工具與時間也不同，因此不同鎖匠案件價格自然不會一樣。</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">2. 是否反鎖、故障或夜間開鎖</div>
-            <div class="faq-a">只是關上門、反鎖多段、鎖體故障，開鎖難度差很多；夜間開鎖、半夜開鎖與凌晨到府通常也會比白天高。</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">3. 距離與樓層也會影響到府費用</div>
-            <div class="faq-a">若超過基本距離，或是高樓層且無電梯，通常會有額外加價，這也是為什麼同一種鎖每次由鎖匠到府處理時，報價可能不同。</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <div class="wizard-container" id="unlock-wizard">
       <section class="step-container active" data-step="1">
@@ -439,7 +419,7 @@ const serviceSchema = {
 
           if (state.steeringLocked) {
             basePrice += 100;
-            details.push("含龍頭鎖死");
+            details.push("含解鎖龍頭費用");
           }
         } else if (state.scooterService === "key") {
           const isLateNight = timeVal === "late" || timeVal === "midnight";
@@ -449,16 +429,16 @@ const serviceSchema = {
           if (state.steeringLocked) {
             noMagPrice += 100;
             magPrice += 100;
-            details.push("含龍頭鎖死");
+            details.push("含解鎖龍頭費用");
           }
 
           const distCost = dist > 4 ? Math.ceil(dist - 4) * 100 : 0;
           if (floorCost > 0) details.push("樓層加價");
           if (distCost > 0) details.push("超過基本距離");
 
-          displayPrice = `NT$ ${noMagPrice + floorCost + distCost}（無磁晶片） / NT$ ${magPrice + floorCost + distCost}（有磁晶片）`;
+          displayPrice = `NT$ ${noMagPrice + floorCost + distCost}（無磁石） / NT$ ${magPrice + floorCost + distCost}（有磁石）`;
           finalPriceDisplay.textContent = displayPrice;
-          priceBreakdown.textContent = details.length ? `說明：${details.join(" + ")}` : "依是否有磁晶片分為兩種估價";
+          priceBreakdown.textContent = details.length ? `說明：${details.join(" + ")}` : "依是否有磁石分為兩種報價";
           state.displayPrice = displayPrice;
           state.summary = buildSummary(displayPrice);
           return;
