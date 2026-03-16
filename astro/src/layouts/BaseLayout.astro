@@ -4,7 +4,8 @@ import { brands } from "../lib/product-data.js";
 
 const {
   title = "小李開鎖",
-  description = "雙北 24 小時開鎖、換鎖、電子鎖安裝服務。"
+  description = "雙北 24 小時開鎖、換鎖、電子鎖安裝服務。",
+  canonical = Astro.url.href
 } = Astro.props;
 ---
 
@@ -16,6 +17,12 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="zh_TW" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="shortcut icon" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
