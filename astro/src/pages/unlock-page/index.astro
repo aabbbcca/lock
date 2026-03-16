@@ -35,14 +35,14 @@ const unlockConfig = {
 };
 
 const canonical = "https://xiao-li-locksmith.com/unlock-page/";
-const pageTitle = "開鎖多少錢？24小時開鎖、夜間開鎖、半夜開鎖線上估價 | 小李開鎖";
+const pageTitle = "開鎖多少錢？24小時開鎖、電子鎖開鎖、waferlock開鎖線上估價 | 小李開鎖";
 const pageDescription =
-  "想知道開鎖多少錢，或機車鑰匙不見怎麼辦？這頁整理雙北 24 小時開鎖、夜間開鎖、半夜開鎖與鎖匠到府服務的常見價格因素，包含傳統門鎖、電子鎖、機車開鎖，並提供線上估價。";
+  "想知道開鎖多少錢，或機車鑰匙不見怎麼辦？這頁整理雙北 24 小時開鎖、夜間開鎖、半夜開鎖、電子鎖開鎖、waferlock開鎖與鎖匠到府服務的常見價格因素，包含傳統門鎖、電子鎖、機車開鎖，並提供線上估價。";
 const faqItems = [
   {
     question: "開鎖多少錢？",
     answer:
-      "一般住家或房門開鎖，常見會依鎖型、是否反鎖、服務時段、距離與樓層而不同。白天基本300元起，深夜及凌晨時段1000元起，特殊鎖、電子鎖或反鎖多段也會增加費用。"
+      "一般住家或房門開鎖，常見會依鎖型、是否反鎖、服務時段、距離與樓層而不同。白天基本300元起，深夜及凌晨時段1000元起，特殊鎖、電子鎖開鎖、waferlock開鎖或反鎖多段也會增加費用。"
   },
   {
     question: "為什麼同樣是開鎖，價格會不一樣？",
@@ -62,7 +62,7 @@ const faqItems = [
   {
     question: "機車鑰匙不見怎麼辦？",
     answer:
-      "小李師傅有現場無樣配鎖的服務。如果機車鑰匙不見，先確認是單純鎖在車廂，還是需要現場配新鑰匙。提供機車品牌、是否鎖龍頭、與所在位置，能更快評估機車開鎖或配鑰匙費用。一般機車開坐墊費用為500元，現場製作鑰匙含磁石為1200元。"
+      "小李師傅有現場無樣配鎖的服務。如果機車鑰匙不見，先確認是單純鎖在車廂，還是需要現場配新鑰匙。提供機車品牌、是否鎖龍頭、與所在位置，能更快評估機車開鎖或配鑰匙費用。一般機車開車廂費用為500元，現場製作鑰匙含磁石為1200元。"
   },
   {
     question: "線上估價和現場報價會完全一樣嗎？",
@@ -107,13 +107,13 @@ const serviceSchema = {
   <main class="sub-page unlock-page-layout">
     <div class="page-header">
       <a class="back-btn" href="/">返回首頁</a>
-      <h1>開鎖多少錢？24小時開鎖、夜間開鎖、半夜開鎖都可先試算</h1>
+      <h1>開鎖多少錢？24小時開鎖、電子鎖開鎖、夜間開鎖都可先試算</h1>
       <p>想找雙北鎖匠處理開鎖問題，或想知道機車鑰匙不見怎麼辦，可以先依鎖型、距離、時段與樓層試算，快速掌握白天、夜間與半夜開鎖的大致費用區間。</p>
     </div>
 
     <section class="section unlock-intro-qa">
       <div class="section-inner">
-        <h2 class="section-title">開鎖多少錢？24小時開鎖價格會受哪些因素影響？</h2>
+        <h2 class="section-title">開鎖多少錢？24小時開鎖、電子鎖開鎖、夜間開鎖價格會受哪些因素影響？</h2>
         <div class="faq-list">
           <div class="faq-item">
             <div class="faq-q">1. 鎖的種類不同，價格就會不同</div>
@@ -121,7 +121,7 @@ const serviceSchema = {
           </div>
           <div class="faq-item">
             <div class="faq-q">2. 是否反鎖、故障或夜間開鎖</div>
-            <div class="faq-a">只是關上門、反鎖多段、鎖體故障，施工難度差很多；夜間開鎖、半夜開鎖與凌晨到府通常也會比白天高。</div>
+            <div class="faq-a">只是關上門、反鎖多段、鎖體故障，開鎖難度差很多；夜間開鎖、半夜開鎖與凌晨到府通常也會比白天高。</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">3. 距離與樓層也會影響到府費用</div>
@@ -167,13 +167,13 @@ const serviceSchema = {
           <p class="helper-label">傳統鎖目前狀況</p>
           <div class="toggle-switch">
             <button class="toggle-btn active" type="button" data-lock-status="closed">只是關上</button>
-            <button class="toggle-btn" type="button" data-lock-status="locked">反鎖卡住</button>
-            <button class="toggle-btn" type="button" data-lock-status="broken">鎖體故障</button>
+            <button class="toggle-btn" type="button" data-lock-status="locked">有反鎖</button>
+            <button class="toggle-btn" type="button" data-lock-status="broken">鎖體故障/鑰匙斷掉</button>
           </div>
         </div>
 
         <div id="lock-segment-selector" class="inline-control-group hidden-block">
-          <p class="helper-label">若為反鎖，請選擇幾段上鎖</p>
+          <p class="helper-label">若有反鎖，請選擇幾段上鎖</p>
           <div class="toggle-switch">
             <button class="toggle-btn active" type="button" data-segment="1">1 段</button>
             <button class="toggle-btn" type="button" data-segment="2">2 段</button>
@@ -275,30 +275,6 @@ const serviceSchema = {
             <li>要更換鎖芯或整組門鎖</li>
             <li>現場還有特殊門型與配件</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-light">
-      <div class="section-inner">
-        <h2 class="section-title">雙北鎖匠到府開鎖價格常見說明</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-q">傳統門鎖開鎖價格</div>
-            <div class="faq-a">常見住家、房門、鐵門鎖會依是否反鎖、幾段鎖、是否故障來估價。若只是單純忘記帶鑰匙，通常會比鎖體損壞更單純。</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">電子鎖開鎖價格</div>
-            <div class="faq-a">電子鎖會受品牌與型號影響，例如不同品牌的結構與解鎖方式不同，價格通常比一般機械鎖更看品牌與現場狀況。</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">機車開鎖價格</div>
-            <div class="faq-a">機車開鎖常分為開車廂與配鑰匙兩種情況。若你正在搜尋機車鑰匙不見怎麼辦，通常要先判斷是鑰匙鎖在車廂、整把遺失，還是需要現場重配；是否鎖龍頭、是否有磁晶片、是否為深夜時段，都會讓價格不同。</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">夜間開鎖與半夜開鎖價格</div>
-            <div class="faq-a">晚上 9 點後、深夜 11 點後與凌晨時段，因為屬於夜間或半夜開鎖到府服務，通常會比日間開鎖價格更高，建議先用本頁估價再聯繫。</div>
-          </div>
         </div>
       </div>
     </section>
