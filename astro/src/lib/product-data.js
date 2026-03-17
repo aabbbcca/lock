@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 
-const sourcePath = path.resolve(process.cwd(), "../product/product-data.js");
+const sourcePath = path.resolve(process.cwd(), "./src/lib/legacy-product-data.js");
 const source = fs.readFileSync(sourcePath, "utf8");
 const sandbox = { window: {} };
 

@@ -211,7 +211,7 @@ window.ELECTRONIC_PRODUCTS = {
         id: 'milre-7150',
         brand: 'milre',
         title: 'Milre MDL-7150+ 推拉',
-        img: 'https://placehold.co/400x300?text=MDL-7150+',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-7150+.webp',
         tag: '推拉式',
         listPrice: null,
         offerPrice: 19000,

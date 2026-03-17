@@ -18,4 +18,4 @@ npm run dev
 - `/electronic-page/`
 - `/product/[id]/`
 
-The Astro project reads product data directly from `../product/product-data.js` so the product catalog stays in one source of truth.
+The Astro project keeps its electronic product data in `src/lib/legacy-product-data.js`.
