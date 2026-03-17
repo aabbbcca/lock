@@ -149,7 +149,7 @@ window.ELECTRONIC_PRODUCTS = {
         tag: 'Philips 旗艦款',
         listPrice: 36000,
         offerPrice: '優惠價 NT$31000 (含基本安裝)',
-        desc: '飛利浦旗艦款。<br>人臉、指紋、密碼、鑰匙、卡片、WiFi，六種開啟方式。<br>app遠端視訊/解鎖<br>3D人臉辨識系統，推拉式開門，無接觸自動解鎖。<br>外部type-c充電孔，使用行動電源即可在外面緊急供電。<br>C級隱藏式鎖芯，無法以技術開啟。<br>隨機附兩把機械鑰匙，電子鎖故障時可用機械鑰匙開門。<br>公司貨享有原廠三年保固，安心有保障',
+        desc: '飛利浦旗艦款。<br>人臉、指紋、密碼、鑰匙、卡片、WiFi，六種開啟方式。<br>app遠端視訊/解鎖<br>3D人臉辨識系統，推拉式開門，無接觸自動解鎖。<br>外部type-c充電孔，使用行動電源即可在外面緊急供電。<br>C級隱藏式鎖芯，無法以技術開啟。<br>附兩把機械鑰匙，當電子鎖沒電或故障時可用機械鑰匙開門。<br>公司貨享有原廠三年保固，安心有保障',
         features: ['人臉 / 指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話/解鎖', '大螢幕貓眼']
     },
     'philips-702E': {
@@ -210,13 +210,13 @@ window.ELECTRONIC_PRODUCTS = {
     'milre-7150': {
         id: 'milre-7150',
         brand: 'milre',
-        title: 'Milre MDL-7150+ 推拉',
+        title: '美樂Milre MDL-7150+ <br>推拉式電子鎖',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-7150+.webp',
         tag: '推拉式',
-        listPrice: null,
-        offerPrice: 19000,
-        desc: '推拉式便利設計。',
-        features: ['指紋 / 卡片 / 密碼 / 鑰匙']
+        listPrice: 19000,
+        offerPrice: 16800,
+        desc: '推拉式便利設計。<br>隱藏式機械鑰匙孔，附3把機械鑰匙，當電子鎖沒電或故障時可用機械鑰匙開門。<br>台灣總代理公司貨，原廠保固3年，安心有保障。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙','關門自動上鎖','低電量提示','外部緊急充電口','三年保固']
     },
     'milre-6500f': {
         id: 'milre-6500f',
@@ -276,7 +276,7 @@ window.ELECTRONIC_PRODUCTS = {
     'milre-510s': {
         id: 'milre-510s',
         brand: 'milre',
-        title: 'Milre MDL-510S',
+        title: '美樂 Milre MDL-510S',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-510S.png',
         tag: '二合一',
         listPrice: 7500,
@@ -287,12 +287,12 @@ window.ELECTRONIC_PRODUCTS = {
     'milre-570f': {
         id: 'milre-570f',
         brand: 'milre',
-        title: 'Milre MI-570F',
+        title: '美樂 Milre MI-570F',
         img: 'https://placehold.co/400x300?text=MI-570F',
-        tag: '指紋主鎖',
+        tag: '指紋電子鎖',
         listPrice: null,
         offerPrice: 11000,
-        desc: '主鎖式指紋鎖。',
+        desc: '指紋辨識輔助型電子鎖。',
         features: ['指紋 / 密碼 / 鑰匙']
     },
     'milre-570s': {
