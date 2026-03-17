@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
   getBrandById,
+  getElectronicBrandUrl,
   getInstallationExamplesByProductId,
   getOfferText,
   productEntries,
@@ -31,9 +32,9 @@ const productExamples = getInstallationExamplesByProductId(product.id);
 >
   <main class="page-shell">
     <div class="page-header">
-      <a class="back-btn" href={`/electronic-page/#${product.brand}`}>返回 {brand ? brand.title : "電子鎖列表"}</a>
+      <a class="back-btn" href={getElectronicBrandUrl(product.brand)}>返回 {brand ? brand.title : "電子鎖列表"}</a>
       <h1 style={`font-size:${pageTitleSize}`}>{pageTitle}</h1>
-      <p>{product.tag} | 含安裝、教學與 LINE 諮詢</p>
+      <p>{product.tag} | 產品價格與安裝細節可透過 LINE 詢問</p>
     </div>
 
     <section class="detail-container">
@@ -50,7 +51,7 @@ const productExamples = getInstallationExamplesByProductId(product.id);
 
           <div class="detail-feature-box">
             <div class="section-kicker">PRODUCT HIGHLIGHTS</div>
-            <h2>產品重點</h2>
+            <h2>功能特色</h2>
             <ul class="feature-highlight-list">
               {product.features.map((feature) => (
                 <li class="feature-highlight-item">{feature}</li>
@@ -60,13 +61,13 @@ const productExamples = getInstallationExamplesByProductId(product.id);
 
           <div class="detail-actions">
             <a href="https://line.me/ti/p/_w85tXo5KV" target="_blank" rel="noopener" class="btn-line-ask">
-              <i class="fab fa-line"></i> LINE 詢價
+              <i class="fab fa-line"></i> LINE 詢問
             </a>
             <button type="button" class="btn-share" onclick="shareProductPage()">
-              <i class="fas fa-share-alt"></i> 分享給好友
+              <i class="fas fa-share-alt"></i> 分享商品頁
             </button>
-            <a href={`/electronic-page/#${product.brand}`} class="btn-share">
-              <i class="fas fa-arrow-left"></i> 返回列表
+            <a href={getElectronicBrandUrl(product.brand)} class="btn-share">
+              <i class="fas fa-arrow-left"></i> 返回品牌列表
             </a>
           </div>
         </div>
@@ -76,7 +77,7 @@ const productExamples = getInstallationExamplesByProductId(product.id);
     {productExamples.length > 0 && (
       <section class="examples-panel">
         <div class="section-kicker">INSTALLATION CASES</div>
-        <h2>安裝實例</h2>
+        <h2>安裝案例</h2>
         <div class="product-examples-grid">
           {productExamples.map((example) => (
             <article class="gallery-item">
@@ -87,7 +88,7 @@ const productExamples = getInstallationExamplesByProductId(product.id);
         </div>
         <div class="examples-actions">
           <a class="btn-share example-link" href="/examples-page/">
-            <i class="fas fa-images"></i> 查看更多安裝實例
+            <i class="fas fa-images"></i> 查看更多安裝案例
           </a>
         </div>
       </section>
@@ -109,7 +110,7 @@ const productExamples = getInstallationExamplesByProductId(product.id);
 
       try {
         await navigator.clipboard.writeText(productUrl);
-        alert("商品網址已複製，可以直接貼給好友。");
+        alert("商品頁連結已複製，現在可以直接分享給客戶。");
       } catch (error) {
         window.open(`https://line.me/R/msg/text/?${encodeURIComponent(`${plainTitle}\n${productUrl}`)}`, "_blank");
       }

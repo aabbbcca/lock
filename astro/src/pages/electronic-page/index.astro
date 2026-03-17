@@ -1,39 +1,9 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ProductCard from "../../components/ProductCard.astro";
-import { brands, getProductsByBrand } from "../../lib/product-data.js";
+import ElectronicListingPage from "../../components/ElectronicListingPage.astro";
 ---
 
-<BaseLayout
+<ElectronicListingPage
   title="熱門智慧電子鎖款式 | 小李開鎖"
   description="嚴選國際大廠電子鎖款式，含安裝、教學及原廠保固。"
->
-  <main class="sub-page electronic-listing">
-    <div class="page-header">
-      <h1>熱門智慧電子鎖款式</h1>
-      <p>嚴選國際大廠，含安裝、教學及原廠保固</p>
-    </div>
-
-    {brands.map((brand) => (
-      <section class="brand-section" id={brand.id}>
-        <div class="category-header">
-          <div class="brand-divider"></div>
-          <div class="brand-section-title">{brand.title}</div>
-        </div>
-        <div class="product-grid electronic-product-grid">
-          {getProductsByBrand(brand.id).map((product) => (
-            <ProductCard product={product} />
-          ))}
-        </div>
-      </section>
-    ))}
-
-    <section class="bottom-cta section">
-      <h2>想了解更多安裝與優惠？</h2>
-      <div class="cta-buttons">
-        <a href="https://line.me/ti/p/_w85tXo5KV" class="btn-line"><i class="fab fa-line"></i> 立即 LINE 詢問</a>
-        <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 立即聯繫</a>
-      </div>
-    </section>
-  </main>
-</BaseLayout>
+  canonical="https://xiao-li-locksmith.com/electronic-page/"
+/>

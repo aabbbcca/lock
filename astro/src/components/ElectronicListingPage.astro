@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductCard from "./ProductCard.astro";
+import { brands, getProductsByBrand } from "../lib/product-data.js";
+
+const {
+  title,
+  description,
+  canonical,
+  targetBrandId = null
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <main class="sub-page electronic-listing" data-target-brand={targetBrandId}>
+    <div class="page-header">
+      <h1>熱門智慧電子鎖款式</h1>
+      <p>嚴選國際大廠電子鎖款式，含安裝、教學及原廠保固。</p>
+    </div>
+
+    {brands.map((brand) => (
+      <section class="brand-section" id={brand.id}>
+        <div class="category-header">
+          <div class="brand-divider"></div>
+          <div class="brand-section-title">{brand.title}</div>
+        </div>
+        <div class="product-grid electronic-product-grid">
+          {getProductsByBrand(brand.id).map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="bottom-cta section">
+      <h2>想了解價格、安裝方式或推薦款式？</h2>
+      <div class="cta-buttons">
+        <a href="https://line.me/ti/p/_w85tXo5KV" class="btn-line"><i class="fab fa-line"></i> 立即加 LINE 詢問</a>
+        <a href="tel:0903109970" class="btn-phone"><i class="fas fa-phone-alt"></i> 立即來電</a>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    const listingRoot = document.querySelector(".electronic-listing");
+    const targetBrandId = listingRoot?.dataset.targetBrand;
+
+    if (targetBrandId) {
+      const scrollToBrand = () => {
+        const targetSection = document.getElementById(targetBrandId);
+        if (!targetSection) return;
+        targetSection.scrollIntoView({ behavior: "auto", block: "start" });
+      };
+
+      if (document.readyState === "complete") {
+        scrollToBrand();
+      } else {
+        window.addEventListener("load", scrollToBrand, { once: true });
+      }
+    }
+  </script>
+</BaseLayout>

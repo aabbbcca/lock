@@ -17,6 +17,10 @@ export function getBrandById(id) {
   return brands.find((brand) => brand.id === id);
 }
 
+export function getElectronicBrandUrl(id) {
+  return `/electronic-page/${id}/`;
+}
+
 export function getProductsByBrand(id) {
   return productEntries.filter((product) => product.brand === id);
 }

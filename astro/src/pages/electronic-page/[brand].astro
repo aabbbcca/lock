@@ -1,0 +1,29 @@
+---
+import ElectronicListingPage from "../../components/ElectronicListingPage.astro";
+import { brands, getBrandById } from "../../lib/product-data.js";
+
+export function getStaticPaths() {
+  return brands.map((brand) => ({
+    params: { brand: brand.id },
+    props: { brand }
+  }));
+}
+
+const { brand } = Astro.props;
+const safeBrand = getBrandById(brand.id);
+
+if (!safeBrand) {
+  throw new Error(`Unknown electronic lock brand: ${brand.id}`);
+}
+
+const title = `${safeBrand.title}電子鎖 | 小李開鎖`;
+const description = `${safeBrand.title}電子鎖款式整理，包含安裝、保固與熱門型號介紹，頁面內可直接瀏覽全品牌電子鎖並快速滑到 ${safeBrand.title} 區塊。`;
+const canonical = `https://xiao-li-locksmith.com/electronic-page/${safeBrand.id}/`;
+---
+
+<ElectronicListingPage
+  title={title}
+  description={description}
+  canonical={canonical}
+  targetBrandId={safeBrand.id}
+/>
