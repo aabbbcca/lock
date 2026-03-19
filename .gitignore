@@ -1,0 +1,4 @@
+/astro/node_modules/
+/astro/dist/
+/astro/.astro/
+*.log
