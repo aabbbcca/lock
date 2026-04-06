@@ -502,7 +502,9 @@ const serviceSchema = {
           typeCost = isNight ? 6000 : 4000;
         } else if (state.subtype === "yale") {
           basePrice = 0;
-          typeCost = 2500;
+          if (timeVal === "day") typeCost = 3000;
+          else if (timeVal === "evening") typeCost = 3500;
+          else typeCost = 4000;
         } else if (state.subtype === "other") {
           basePrice = 600;
           if (timeVal === "morning" || timeVal === "evening") basePrice = 800;
