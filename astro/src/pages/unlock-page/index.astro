@@ -363,7 +363,7 @@ const serviceSchema = {
 
       setActiveByData("[data-lock-status]", "lockStatus", state.lockStatus);
       setActiveByData("[data-segment]", "segment", state.segments);
-      lockSegmentSelector.classList.toggle("hidden-block", !state.locked);
+      lockSegmentSelector.classList.toggle("hidden-block", !state.locked || isLimitedStatusSubtype);
     }
 
     function selectType(type) {
@@ -515,11 +515,14 @@ const serviceSchema = {
         }
         if (typeCost > 0) details.push("品牌 / 型號加價");
       } else if (state.type === "traditional") {
+        const limitedStatusSubtypes = ["aux", "horizontal", "gate-electric"];
+        const isLimitedStatusSubtype = limitedStatusSubtypes.includes(state.subtype);
         if (state.subtype === "blade-5") typeCost = 200;
         if (state.locked) {
           const perSegmentCost = timeVal === "day" || timeVal === "morning" ? 200 : 300;
-          conditionCost = perSegmentCost * state.segments;
-          details.push(`${state.subtype === "blade-5" ? "上鎖" : "反鎖"} ${state.segments} 段`);
+          conditionCost = perSegmentCost * (isLimitedStatusSubtype ? 1 : state.segments);
+          if (isLimitedStatusSubtype) details.push("有上鎖");
+          else details.push(`${state.subtype === "blade-5" ? "上鎖" : "反鎖"} ${state.segments} 段`);
         }
       }
 
