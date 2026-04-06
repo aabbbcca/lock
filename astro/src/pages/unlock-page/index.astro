@@ -5,6 +5,7 @@ const unlockConfig = {
   step2: {
     electronic: [
       { id: "jiaan", label: "加安" },
+      { id: "ezset", label: "EZSET" },
       { id: "waferlock", label: "維夫拉克" },
       { id: "samsung", label: "三星" },
       { id: "yale", label: "耶魯" },
@@ -107,8 +108,8 @@ const serviceSchema = {
   <main class="sub-page unlock-page-layout">
     <div class="page-header">
       <a class="back-btn" href="/">返回首頁</a>
-      <h1>開鎖多少錢？24小時開鎖、電子鎖開鎖、夜間開鎖都可先試算</h1>
-      <p>想找鎖匠處理開鎖問題，可以先依鎖型、距離、時段與樓層試算，快速掌握白天、夜間與半夜開鎖的大致費用區間。</p>
+      <h1>開鎖多少錢？雙北24小時開鎖、電子鎖開鎖、夜間開鎖都可先試算</h1>
+      <p>雙北想找鎖匠處理開鎖問題，可以先依鎖型、距離、時段與樓層試算，快速掌握白天、夜間與半夜開鎖的大致費用區間。<br />永和、中和、文山 平均20分鐘內，火速抵達現場</p>
     </div>
 
     <div class="wizard-container" id="unlock-wizard">
@@ -195,11 +196,11 @@ const serviceSchema = {
         <div class="input-group">
           <label for="time-select">希望服務的時段</label>
           <select id="time-select">
-            <option value="morning">08:00 - 09:00（早班）</option>
+            <option value="morning">08:00 - 09:00（早上）</option>
             <option value="day">09:00 - 21:00（日間）</option>
             <option value="evening">21:00 - 23:00（夜間）</option>
-            <option value="late">23:00 - 00:00（深夜）</option>
-            <option value="midnight">00:00 - 08:00（凌晨）</option>
+            <option value="late">23:00 - 00:00（半夜）</option>
+            <option value="midnight">00:00 - 08:00（深夜）</option>
           </select>
         </div>
 
@@ -497,6 +498,9 @@ const serviceSchema = {
         if (state.subtype === "waferlock") {
           basePrice = 0;
           typeCost = isNight ? 1500 : 1000;
+        } else if (state.subtype === "ezset") {
+          basePrice = 0;
+          typeCost = 1000;
         } else if (state.subtype === "samsung") {
           basePrice = 0;
           typeCost = isNight ? 6000 : 4000;
