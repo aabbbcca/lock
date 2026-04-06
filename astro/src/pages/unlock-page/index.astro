@@ -25,9 +25,9 @@ const unlockConfig = {
       { id: "gogoro", label: "睿能 gogoro" }
     ],
     "access-control": [{ id: "access-control", label: "門禁系統" }],
+    car: [{ id: "car", label: "汽車開鎖" }],
+    safe: [{ id: "safe", label: "保險箱開鎖" }],
     other: [
-      { id: "car", label: "汽車開鎖" },
-      { id: "safe", label: "保險箱" },
       { id: "mailbox", label: "信箱 / 抽屜" },
       { id: "other-question", label: "其他疑問" }
     ]
@@ -117,9 +117,11 @@ const serviceSchema = {
         <div class="option-grid">
           <button class="option-btn" type="button" data-type="electronic">電子鎖</button>
           <button class="option-btn" type="button" data-type="traditional">傳統鎖</button>
-          <button class="option-btn" type="button" data-type="scooter">機車開鎖</button>
+          <button class="option-btn" type="button" data-type="scooter">機車開鎖/配鎖</button>
+          <button class="option-btn" type="button" data-type="car">汽車開鎖</button>
           <button class="option-btn" type="button" data-type="access-control">門禁系統</button>
-          <button class="option-btn option-btn-full" type="button" data-type="other">其他項目</button>
+          <button class="option-btn" type="button" data-type="safe">保險箱</button>
+          <button class="option-btn option-btn-full" type="button" data-type="other">其他</button>
         </div>
       </section>
 
@@ -146,19 +148,20 @@ const serviceSchema = {
         <div id="lock-status-toggle" class="inline-control-group hidden-block">
           <p class="helper-label">傳統鎖目前狀況</p>
           <div class="toggle-switch">
-            <button class="toggle-btn active" type="button" data-lock-status="closed">只是關上</button>
-            <button class="toggle-btn" type="button" data-lock-status="locked">有反鎖</button>
+            <button id="lock-status-closed" class="toggle-btn active" type="button" data-lock-status="closed">只是關上</button>
+            <button id="lock-status-locked" class="toggle-btn" type="button" data-lock-status="locked">有反鎖</button>
             <button class="toggle-btn" type="button" data-lock-status="broken">鎖體故障/鑰匙斷掉</button>
           </div>
         </div>
 
         <div id="lock-segment-selector" class="inline-control-group hidden-block">
-          <p class="helper-label">若有反鎖，請選擇幾段上鎖</p>
+          <p id="lock-segment-label" class="helper-label">若有反鎖，請選擇幾段上鎖</p>
           <div class="toggle-switch">
             <button class="toggle-btn active" type="button" data-segment="1">1 段</button>
             <button class="toggle-btn" type="button" data-segment="2">2 段</button>
             <button class="toggle-btn" type="button" data-segment="3">3 段</button>
             <button class="toggle-btn" type="button" data-segment="4">4 段</button>
+            <button class="toggle-btn hidden-block" type="button" data-segment="5">5 段</button>
           </div>
           <p class="helper-note">未確定時可先選 1 段估算。</p>
         </div>
@@ -306,10 +309,14 @@ const serviceSchema = {
     const scooterConditionOptions = document.getElementById("scooter-condition-options");
     const lockStatusToggle = document.getElementById("lock-status-toggle");
     const lockSegmentSelector = document.getElementById("lock-segment-selector");
+    const lockStatusClosedButton = document.getElementById("lock-status-closed");
+    const lockStatusLockedButton = document.getElementById("lock-status-locked");
+    const lockSegmentLabel = document.getElementById("lock-segment-label");
     const addressInput = document.getElementById("address-input");
     const distanceInput = document.getElementById("distance-input");
     const timeSelect = document.getElementById("time-select");
     const floorSelect = document.getElementById("floor-select");
+    const segmentButtons = Array.from(document.querySelectorAll("[data-segment]"));
 
     function showStep(step) {
       stepEls.forEach((el) => {
@@ -322,6 +329,41 @@ const serviceSchema = {
       scooterConditionOptions.classList.add("hidden-block");
       lockStatusToggle.classList.add("hidden-block");
       lockSegmentSelector.classList.add("hidden-block");
+    }
+
+    function updateTraditionalControls() {
+      const limitedStatusSubtypes = ["aux", "horizontal", "gate-electric"];
+      const isLimitedStatusSubtype = limitedStatusSubtypes.includes(state.subtype);
+      const isBladeFive = state.subtype === "blade-5";
+      const maxSegments = isBladeFive ? 5 : 4;
+
+      lockStatusClosedButton?.classList.toggle("hidden-block", isLimitedStatusSubtype);
+
+      if (lockStatusLockedButton) {
+        lockStatusLockedButton.textContent = isLimitedStatusSubtype ? "有上鎖" : "有反鎖";
+      }
+
+      if (lockSegmentLabel) {
+        lockSegmentLabel.textContent = isBladeFive ? "請選擇葉片五段鎖上鎖段數" : "若有反鎖，請選擇幾段上鎖";
+      }
+
+      segmentButtons.forEach((button) => {
+        const segment = Number(button.dataset.segment || 1);
+        button.classList.toggle("hidden-block", segment > maxSegments);
+      });
+
+      if (isLimitedStatusSubtype && state.lockStatus === "closed") {
+        state.lockStatus = "locked";
+        state.locked = true;
+      }
+
+      if (state.segments > maxSegments) {
+        state.segments = maxSegments;
+      }
+
+      setActiveByData("[data-lock-status]", "lockStatus", state.lockStatus);
+      setActiveByData("[data-segment]", "segment", state.segments);
+      lockSegmentSelector.classList.toggle("hidden-block", !state.locked);
     }
 
     function selectType(type) {
@@ -362,9 +404,10 @@ const serviceSchema = {
 
       if (state.type === "traditional") {
         lockStatusToggle.classList.remove("hidden-block");
+        updateTraditionalControls();
       }
 
-      if (state.type === "access-control" && options[0]) {
+      if ((state.type === "access-control" || state.type === "car" || state.type === "safe") && options[0]) {
         selectSubtype(options[0].id);
       }
     }
@@ -374,6 +417,9 @@ const serviceSchema = {
       document.querySelectorAll("[data-subtype]").forEach((button) => {
         button.classList.toggle("selected", button.dataset.subtype === subtype);
       });
+      if (state.type === "traditional") {
+        updateTraditionalControls();
+      }
       nextToStep3Button.disabled = false;
       calculatePrice();
     }
@@ -402,10 +448,14 @@ const serviceSchema = {
       const details = [];
 
       if (state.type === "other") {
-        if (state.subtype === "safe") basePrice = 800;
-        else if (state.subtype === "car") basePrice = 1000;
-        else basePrice = 300;
+        basePrice = 300;
         details.push("其他專案另行評估");
+      } else if (state.type === "car") {
+        basePrice = 1000;
+        details.push("汽車開鎖到場評估");
+      } else if (state.type === "safe") {
+        basePrice = 800;
+        details.push("保險箱開鎖到場評估");
       } else if (state.type === "access-control") {
         basePrice = isNight ? 1000 : 600;
         details.push("門禁系統到場評估");
@@ -467,7 +517,7 @@ const serviceSchema = {
         if (state.locked) {
           const perSegmentCost = timeVal === "day" || timeVal === "morning" ? 200 : 300;
           conditionCost = perSegmentCost * state.segments;
-          details.push(`反鎖 ${state.segments} 段`);
+          details.push(`${state.subtype === "blade-5" ? "上鎖" : "反鎖"} ${state.segments} 段`);
         }
       }
 
@@ -496,9 +546,11 @@ const serviceSchema = {
         const mapping = {
           electronic: "電子鎖",
           traditional: "傳統鎖",
-          scooter: "機車開鎖",
+          scooter: "機車開鎖/配鎖",
+          car: "汽車開鎖",
           "access-control": "門禁系統",
-          other: "其他項目"
+          safe: "保險箱",
+          other: "其他"
         };
         return mapping[value] || "未選擇";
       }
