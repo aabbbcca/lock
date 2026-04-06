@@ -35,6 +35,23 @@ const {
       }
       gtag("js", new Date());
       gtag("config", "AW-11203096643");
+
+      function gtagSendEvent(url) {
+        const callback = function () {
+          if (typeof url === "string") {
+            window.location = url;
+          }
+        };
+
+        gtag("event", "ads_conversion___1", {
+          event_callback: callback,
+          event_timeout: 2000
+        });
+
+        return false;
+      }
+
+      window.gtagSendEvent = gtagSendEvent;
     </script>
   </head>
   <body>
@@ -66,7 +83,7 @@ const {
         <a href="https://line.me/ti/p/_w85tXo5KV" target="_blank" rel="noopener" class="cta-btn line-btn">
           <i class="fab fa-line"></i> LINE
         </a>
-        <a href="tel:0903109970" class="cta-btn">
+        <a href="tel:0903109970" class="cta-btn" onclick="return gtagSendEvent('tel:0903109970')">
           <i class="fas fa-phone-alt"></i> 立即來電
         </a>
         <button class="hamburger-icon" type="button" onclick="toggleMobileMenu()">
