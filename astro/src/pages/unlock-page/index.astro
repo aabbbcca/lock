@@ -625,7 +625,12 @@ const serviceSchema = {
       calculatePrice();
       showStep(3);
     });
-    document.getElementById("finish-estimate")?.addEventListener("click", fillStep4);
+    document.getElementById("finish-estimate")?.addEventListener("click", () => {
+      if (typeof window.gtagReportConversion === "function") {
+        window.gtagReportConversion();
+      }
+      fillStep4();
+    });
     document.getElementById("reset-wizard")?.addEventListener("click", () => {
       state.type = "";
       state.subtype = "";

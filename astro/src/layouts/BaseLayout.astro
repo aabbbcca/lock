@@ -51,7 +51,23 @@ const {
         return false;
       }
 
+      function gtagReportConversion(url) {
+        const callback = function () {
+          if (typeof url !== "undefined") {
+            window.location = url;
+          }
+        };
+
+        gtag("event", "conversion", {
+          send_to: "AW-11203096643/zoUTCPbQrJccEMPght4p",
+          event_callback: callback
+        });
+
+        return false;
+      }
+
       window.gtagSendEvent = gtagSendEvent;
+      window.gtagReportConversion = gtagReportConversion;
     </script>
   </head>
   <body>
