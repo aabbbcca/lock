@@ -1,28 +1,54 @@
 ---
 import "../styles/global.css";
+import { SEO } from "astro-seo";
 import { brands, getElectronicBrandUrl } from "../lib/product-data.js";
 
 const {
   title = "小李開鎖",
   description = "提供 24 小時開鎖、換鎖、電子鎖安裝等到府服務。",
-  canonical = Astro.url.href
+  canonical = Astro.url.href,
+  noindex = false,
+  nofollow = false,
+  ogImage = "/logo.png"
 } = Astro.props;
+
+const seoImage = new URL(ogImage, Astro.site ?? Astro.url).href;
 ---
 
 <!DOCTYPE html>
 <html lang="zh-TW">
   <head>
-    <meta charset="UTF-8" />
+    <SEO
+      charset="UTF-8"
+      title={title}
+      description={description}
+      canonical={canonical}
+      noindex={noindex}
+      nofollow={nofollow}
+      openGraph={{
+        basic: {
+          title,
+          type: "website",
+          image: seoImage,
+          url: canonical
+        },
+        optional: {
+          description,
+          locale: "zh_TW"
+        },
+        image: {
+          url: seoImage,
+          alt: title
+        }
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title,
+        description,
+        image: seoImage
+      }}
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href={canonical} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="zh_TW" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="shortcut icon" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
