@@ -1,10 +1,34 @@
 ---
+import { Image, getImage } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import homeHeroImage from "../assets/site/home-hero.webp";
+import review1Image from "../assets/site/review-1.png";
+import review2Image from "../assets/site/review-2.png";
+import review3Image from "../assets/site/review-3.png";
+import review4Image from "../assets/site/review-4.png";
+import review5Image from "../assets/site/review-5.png";
+import review6Image from "../assets/site/review-6.png";
+import serviceUnlockImage from "../assets/site/service-unlock.jpg";
+import serviceElectronicImage from "../assets/site/service-electronic.webp";
+import serviceTraditionalImage from "../assets/site/service-traditional.png";
 
 const reviewImages = [1, 2, 3, 4, 5, 6].map((index) => ({
   src: `https://raw.githubusercontent.com/aabbbcca/lock/main/images/評論${index}.PNG`,
   alt: `客戶好評 ${index}`
 }));
+
+const heroBackground = await getImage({
+  src: homeHeroImage,
+  width: 1600,
+  format: "webp"
+});
+
+const optimizedReviewImages = [review1Image, review2Image, review3Image, review4Image, review5Image, review6Image].map((src, index) => ({
+  src,
+  alt: `摰Ｘ憟質? ${index + 1}`
+}));
+
+reviewImages.splice(0, reviewImages.length, ...optimizedReviewImages);
 
 const services = [
   {
@@ -43,6 +67,10 @@ const services = [
   }
 ];
 
+services[0].image = serviceUnlockImage;
+services[1].image = serviceElectronicImage;
+services[2].image = serviceTraditionalImage;
+
 const features = [
   { title: "極速到達", body: "平均 20 分鐘內抵達現場", icon: "fas fa-clock", iconClass: "icon-speed" },
   { title: "價格透明", body: "絕不喊價，同意報價才施工", icon: "fas fa-tag", iconClass: "icon-price" },
@@ -64,7 +92,7 @@ const faqs = [
   description="小李開鎖專營永和、中和、新店、文山、板橋及其他台北、新北地區。提供24小時開鎖、換鎖、電子鎖安裝服務。"
 >
   <main id="home-view">
-    <section class="hero home-hero">
+    <section class="hero home-hero" style={`--home-hero-image: url(${heroBackground.src})`}>
       <div class="hero-content">
         <h1>台北新北首選！<br /><span>24小時</span> 開鎖、換鎖、電子鎖</h1>
         <p class="hero-sub">服務範圍：永和、中和、新店、文山<br />及其他雙北地區<br />價格透明 | 完整售後 | 快速到府 | 專業技術</p>
@@ -84,7 +112,15 @@ const faqs = [
           {services.map((service) => (
             <a class:list={["service-card", service.accentClass]} href={service.href} target={service.external ? "_blank" : undefined} rel={service.external ? "noopener" : undefined}>
               {service.badge && <div class="emergency-badge">{service.badge}</div>}
-              <img src={service.image} class="real-img" alt={service.alt} loading="lazy" />
+              <Image
+                src={service.image}
+                class="real-img"
+                alt={service.alt}
+                widths={[320, 640, 960]}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
+                format="webp"
+              />
               <div class="card-body">
                 <h3>{service.title}</h3>
                 <p set:html={service.body}></p>
@@ -120,7 +156,14 @@ const faqs = [
           <button id="review-prev-btn" class="carousel-btn prev-btn" type="button">&#10094;</button>
           <div class="carousel-slide" id="review-carousel">
             {reviewImages.map((item) => (
-              <img src={item.src} alt={item.alt} loading="lazy" />
+              <Image
+                src={item.src}
+                alt={item.alt}
+                widths={[480, 960]}
+                sizes="(max-width: 768px) 100vw, 720px"
+                loading="lazy"
+                format="webp"
+              />
             ))}
           </div>
           <button id="review-next-btn" class="carousel-btn next-btn" type="button">&#10095;</button>

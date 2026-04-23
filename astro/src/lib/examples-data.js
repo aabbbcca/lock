@@ -1,19 +1,23 @@
+import exampleR9Yonghe from "../assets/site/example-r9-yonghe.jpg";
+import examplePhilipsBali from "../assets/site/example-philips-bali.jpg";
+import exampleR9Daan from "../assets/site/example-r9-daan.jpg";
+
 export const exampleProjects = [
   {
     id: "project-r9-yonghe",
-    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_1159.JPG",
+    image: exampleR9Yonghe,
     title: "R9 高 CP 值電子鎖",
     caption: "永和闕宅"
   },
   {
     id: "project-philips-bali",
-    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_1283.JPG",
+    image: examplePhilipsBali,
     title: "Philips 709-FVP 旗艦電子鎖",
     caption: "八里蕭宅"
   },
   {
     id: "project-r9-daan",
-    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_00000.JPG",
+    image: exampleR9Daan,
     title: "R9 高 CP 值電子鎖",
     caption: "大安許宅"
   },

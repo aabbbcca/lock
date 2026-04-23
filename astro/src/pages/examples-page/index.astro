@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { exampleProjects } from "../../lib/examples-data.js";
 ---
@@ -17,7 +18,19 @@ import { exampleProjects } from "../../lib/examples-data.js";
     <section class="gallery-grid">
       {exampleProjects.map((project) => (
         <article class="gallery-item" id={project.id}>
-          <img src={project.image} class="real-img gallery-image" alt={`${project.title} - ${project.caption}`} loading="lazy" />
+          {typeof project.image === "string" ? (
+            <img src={project.image} class="real-img gallery-image" alt={`${project.title} - ${project.caption}`} loading="lazy" />
+          ) : (
+            <Image
+              src={project.image}
+              class="real-img gallery-image"
+              alt={`${project.title} - ${project.caption}`}
+              widths={[400, 800, 1200]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading="lazy"
+              format="webp"
+            />
+          )}
           <div class="gallery-caption">
             <strong>{project.title}</strong>
             <span>{project.caption}</span>

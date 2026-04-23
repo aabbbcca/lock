@@ -275,7 +275,7 @@ button {
 
 .home-hero {
     background-color: #000;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url("https://raw.githubusercontent.com/aabbbcca/lock/main/images/2.png");
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), var(--home-hero-image);
     background-size: cover, contain;
     background-repeat: no-repeat, no-repeat;
     background-position: center, top center;
