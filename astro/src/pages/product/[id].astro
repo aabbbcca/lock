@@ -24,6 +24,9 @@ const plainTitle = stripHtml(product.plainTitle || detailTitle);
 const description = stripHtml(product.desc);
 const pageTitleSize = product.pageTitleSize || brand?.pageTitleSize || "clamp(1.4rem, 2vw, 2.4rem)";
 const productExamples = getInstallationExamplesByProductId(product.id);
+const productDetailImages = product.detailImages ?? [];
+const productDetailImagesTitle = product.detailImagesTitle || "產品介紹";
+const productDetailImagesKicker = product.detailImagesKicker || "PRODUCT INFO";
 ---
 
 <BaseLayout
@@ -73,6 +76,21 @@ const productExamples = getInstallationExamplesByProductId(product.id);
         </div>
       </div>
     </section>
+
+    {productDetailImages.length > 0 && (
+      <section class="product-media-panel examples-panel">
+        <div class="section-kicker">{productDetailImagesKicker}</div>
+        <h2>{productDetailImagesTitle}</h2>
+        <div class="product-media-grid">
+          {productDetailImages.map((image) => (
+            <article class="gallery-item product-media-item">
+              <img class="product-media-image" src={image.img} alt={image.caption || plainTitle} loading="lazy" />
+              {image.caption && <div class="gallery-caption">{image.caption}</div>}
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
 
     {productExamples.length > 0 && (
       <section class="examples-panel">
