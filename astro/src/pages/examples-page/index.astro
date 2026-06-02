@@ -19,11 +19,16 @@ import { exampleProjects } from "../../lib/examples-data.js";
       {exampleProjects.map((project) => (
         <article class="gallery-item" id={project.id}>
           {typeof project.image === "string" ? (
-            <img src={project.image} class="real-img gallery-image" alt={`${project.title} - ${project.caption}`} loading="lazy" />
+            <img
+              src={project.image}
+              class={`real-img gallery-image ${project.fit === "contain" ? "gallery-image-contain" : ""}`}
+              alt={`${project.title} - ${project.caption}`}
+              loading="lazy"
+            />
           ) : (
             <Image
               src={project.image}
-              class="real-img gallery-image"
+              class={`real-img gallery-image ${project.fit === "contain" ? "gallery-image-contain" : ""}`}
               alt={`${project.title} - ${project.caption}`}
               widths={[400, 800, 1200]}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

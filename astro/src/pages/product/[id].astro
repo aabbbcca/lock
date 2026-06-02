@@ -99,7 +99,12 @@ const productDetailImagesKicker = product.detailImagesKicker || "PRODUCT INFO";
         <div class="product-examples-grid">
           {productExamples.map((example) => (
             <article class="gallery-item">
-              <img src={example.img} alt={example.caption || plainTitle} loading="lazy" />
+              <img
+                class={example.fit === "contain" ? "gallery-image-contain" : ""}
+                src={example.img}
+                alt={example.caption || plainTitle}
+                loading="lazy"
+              />
               {example.caption && <div class="gallery-caption">{example.caption}</div>}
             </article>
           ))}

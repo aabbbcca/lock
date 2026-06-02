@@ -22,6 +22,13 @@ export const exampleProjects = [
     caption: "大安許宅"
   },
   {
+    id: "project-p3-xinzhuang",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_3231.PNG",
+    title: "房門電子鎖 P3",
+    caption: "新莊洪宅",
+    fit: "contain"
+  },
+  {
     id: "project-traditional",
     image: "/S__26214418.jpg",
     title: "傳統鎖維修與換新",

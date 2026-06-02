@@ -1306,6 +1306,16 @@ button {
     background: #ececec;
 }
 
+.gallery-image-contain {
+    object-fit: contain;
+    background: #f3f3f3;
+}
+
+.examples-panel .gallery-item img.gallery-image-contain {
+    object-fit: contain;
+    background: #f3f3f3;
+}
+
 .gallery-caption {
     display: grid;
     gap: 4px;
