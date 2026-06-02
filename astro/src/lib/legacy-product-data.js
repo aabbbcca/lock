@@ -361,8 +361,14 @@ window.PRODUCT_INSTALLATION_EXAMPLES = {
     ],
     'cp-p3': [
         {
-            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_3231.PNG',
-            caption: '房門電子鎖 P3 - 新莊洪宅',
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_3231.jpg',
+            caption: '房門電子鎖 P3 - 新莊洪宅'
+        }
+    ],
+    'milre-510s': [
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_2895.JPG',
+            caption: '美樂 Milre MDL-510S - 大同林宅',
             fit: 'contain'
         }
     ],

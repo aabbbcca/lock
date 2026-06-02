@@ -23,9 +23,15 @@ export const exampleProjects = [
   },
   {
     id: "project-p3-xinzhuang",
-    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_3231.PNG",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_3231.jpg",
     title: "房門電子鎖 P3",
-    caption: "新莊洪宅",
+    caption: "新莊洪宅"
+  },
+  {
+    id: "project-mdl-510s-datong",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_2895.JPG",
+    title: "美樂 Milre MDL-510S",
+    caption: "大同林宅",
     fit: "contain"
   },
   {
