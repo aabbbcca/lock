@@ -12,11 +12,12 @@ const unlockConfig = {
       { id: "other", label: "其他電子鎖" }
     ],
     traditional: [
-      { id: "iron-3-4", label: "鐵門鎖（三段 / 四段）" },
+      { id: "iron-3-4", label: "鐵門鎖" },
       { id: "blade-5", label: "葉片五段鎖" },
       { id: "aux", label: "輔助鎖" },
       { id: "horizontal", label: "喇叭鎖 / 水平鎖" },
-      { id: "integrated", label: "連體鎖" },
+      { id: "integrated", label: "一般連體鎖" },
+      { id: "blade-integrated", label: "葉片連體鎖" },
       { id: "gate-electric", label: "一樓公寓大門電鎖" }
     ],
     scooter: [
@@ -43,7 +44,7 @@ const faqItems = [
   {
     question: "開鎖多少錢？",
     answer:
-      "一般住家或房門開鎖，常見會依鎖型、是否反鎖、服務時段、距離與樓層而不同。白天基本300元起，深夜及凌晨時段1000元起，特殊鎖、電子鎖開鎖、waferlock開鎖或反鎖多段也會增加費用。"
+      "一般住家或房門開鎖，常見會依鎖型、是否反鎖、服務時段、距離與樓層而不同。六日日間基本 500 元起，半夜與深夜多為 1000 元起，特殊鎖、電子鎖開鎖、waferlock開鎖或反鎖多段也會增加費用。"
   },
   {
     question: "為什麼同樣是開鎖，價格會不一樣？",
@@ -151,18 +152,18 @@ const serviceSchema = {
           <div class="toggle-switch">
             <button id="lock-status-closed" class="toggle-btn active" type="button" data-lock-status="closed">只是關上</button>
             <button id="lock-status-locked" class="toggle-btn" type="button" data-lock-status="locked">有反鎖</button>
-            <button class="toggle-btn" type="button" data-lock-status="broken">鎖體故障/鑰匙斷掉</button>
+            <button id="lock-status-broken" class="toggle-btn" type="button" data-lock-status="broken">鎖體故障（破壞）</button>
+            <button id="lock-status-key-broken" class="toggle-btn" type="button" data-lock-status="keyBroken">鑰匙斷掉</button>
           </div>
         </div>
 
         <div id="lock-segment-selector" class="inline-control-group hidden-block">
-          <p id="lock-segment-label" class="helper-label">若有反鎖，請選擇幾段上鎖</p>
+          <p id="lock-segment-label" class="helper-label">若有反鎖，請選擇反鎖段數</p>
           <div class="toggle-switch">
             <button class="toggle-btn active" type="button" data-segment="1">1 段</button>
             <button class="toggle-btn" type="button" data-segment="2">2 段</button>
             <button class="toggle-btn" type="button" data-segment="3">3 段</button>
             <button class="toggle-btn" type="button" data-segment="4">4 段</button>
-            <button class="toggle-btn hidden-block" type="button" data-segment="5">5 段</button>
           </div>
           <p class="helper-note">未確定時可先選 1 段估算。</p>
         </div>
@@ -196,12 +197,13 @@ const serviceSchema = {
         <div class="input-group">
           <label for="time-select">希望服務的時段</label>
           <select id="time-select">
-            <option value="morning">08:00 - 09:00（早上）</option>
-            <option value="day">09:00 - 21:00（日間）</option>
-            <option value="evening">21:00 - 23:00（夜間）</option>
-            <option value="late">23:00 - 00:00（半夜）</option>
-            <option value="midnight">00:00 - 08:00（深夜）</option>
+            <option value="morning">08:00 - 09:00（六日早上，價格同半夜）</option>
+            <option value="day">10:00 - 21:00（六日日間）</option>
+            <option value="evening">21:00 - 23:00（六日夜間）</option>
+            <option value="late">23:00 - 00:00（六日半夜）</option>
+            <option value="midnight">00:00 - 08:00（六日深夜）</option>
           </select>
+          <div class="helper-note">此頁目前顯示六日估價時段。</div>
         </div>
 
         <div class="input-group">
@@ -285,6 +287,102 @@ const serviceSchema = {
     const configNode = document.getElementById("unlock-config");
     const config = configNode ? JSON.parse(configNode.textContent || "{}") : { step2: {} };
     const lineBaseUrl = "https://line.me/ti/p/_w85tXo5KV";
+    const traditionalLockConfigs = {
+      "iron-3-4": {
+        closedLabel: "只有關上",
+        lockedLabel: "有反鎖",
+        segmentLabel: "若有反鎖，請選擇反鎖段數",
+        maxSegments: 3,
+        allowedStatuses: ["closed", "locked", "broken", "keyBroken"],
+        prices: {
+          morning: { closed: 1000, lockedBase: 1000, lockedPerSegment: 400, broken: 2000, keyBroken: 1000 },
+          day: { closed: 500, lockedBase: 500, lockedPerSegment: 300, broken: 1500, keyBroken: 500 },
+          evening: { closed: 600, lockedBase: 600, lockedPerSegment: 300, broken: 1500, keyBroken: 600 },
+          late: { closed: 1000, lockedBase: 1000, lockedPerSegment: 400, broken: 2000, keyBroken: 800 },
+          midnight: { closed: 1000, lockedBase: 1000, lockedPerSegment: 400, broken: 2000, keyBroken: 1000 }
+        }
+      },
+      "blade-5": {
+        closedLabel: "只有關上",
+        lockedLabel: "有反鎖",
+        segmentLabel: "若有反鎖，請選擇反鎖段數",
+        maxSegments: 4,
+        allowedStatuses: ["closed", "locked", "broken", "keyBroken"],
+        prices: {
+          morning: { closed: 1000, lockedBase: 1000, lockedPerSegment: 600, broken: 2000, keyBroken: 1000 },
+          day: { closed: 600, lockedBase: 600, lockedPerSegment: 600, broken: 2000, keyBroken: 800 },
+          evening: { closed: 700, lockedBase: 700, lockedPerSegment: 600, broken: 2000, keyBroken: 800 },
+          late: { closed: 1000, lockedBase: 1000, lockedPerSegment: 600, broken: 2000, keyBroken: 1000 },
+          midnight: { closed: 1000, lockedBase: 1000, lockedPerSegment: 600, broken: 2500, keyBroken: 1000 }
+        }
+      },
+      aux: {
+        closedLabel: "有上鎖",
+        lockedLabel: "有上鎖",
+        maxSegments: 0,
+        allowedStatuses: ["locked", "broken", "keyBroken"],
+        prices: {
+          morning: { locked: 1200, broken: 1000, keyBroken: 1000 },
+          day: { locked: 600, broken: 1000, keyBroken: 600 },
+          evening: { locked: 700, broken: 1000, keyBroken: 700 },
+          late: { locked: 1000, broken: 1500, keyBroken: 1000 },
+          midnight: { locked: 1200, broken: 1000, keyBroken: 1000 }
+        }
+      },
+      horizontal: {
+        closedLabel: "有上鎖",
+        lockedLabel: "有上鎖",
+        maxSegments: 0,
+        allowedStatuses: ["locked", "broken", "keyBroken"],
+        prices: {
+          morning: { locked: 1000, broken: 1500, keyBroken: 1000 },
+          day: { locked: 500, broken: 1000, keyBroken: 500 },
+          evening: { locked: 600, broken: 1000, keyBroken: 600 },
+          late: { locked: 800, broken: 1200, keyBroken: 800 },
+          midnight: { locked: 1000, broken: 1500, keyBroken: 1000 }
+        }
+      },
+      integrated: {
+        closedLabel: "只是關上",
+        lockedLabel: "有反鎖",
+        segmentLabel: "若有反鎖，請選擇反鎖段數",
+        maxSegments: 2,
+        allowedStatuses: ["closed", "locked", "broken", "keyBroken"],
+        prices: {
+          morning: { closed: 1000, lockedBase: 1000, lockedPerSegment: 400, broken: 2000, keyBroken: 600 },
+          day: { closed: 500, lockedBase: 500, lockedPerSegment: 300, broken: 2000, keyBroken: 500 },
+          evening: { closed: 600, lockedBase: 600, lockedPerSegment: 300, broken: 2000, keyBroken: 600 },
+          late: { closed: 1000, lockedBase: 1000, lockedPerSegment: 400, broken: 2000, keyBroken: 800 },
+          midnight: { closed: 1000, lockedBase: 1000, lockedPerSegment: 400, broken: 2000, keyBroken: 600 }
+        }
+      },
+      "blade-integrated": {
+        closedLabel: "只是關上",
+        lockedLabel: "有反鎖",
+        segmentLabel: "若有反鎖，請選擇反鎖段數",
+        maxSegments: 4,
+        allowedStatuses: ["closed", "locked", "broken", "keyBroken"],
+        prices: {
+          morning: { closed: 1000, lockedBase: 1000, lockedPerSegment: 600, broken: 2000, keyBroken: 1000 },
+          day: { closed: 600, lockedBase: 600, lockedPerSegment: 600, broken: 2000, keyBroken: 800 },
+          evening: { closed: 700, lockedBase: 700, lockedPerSegment: 600, broken: 2000, keyBroken: 800 },
+          late: { closed: 1000, lockedBase: 1000, lockedPerSegment: 600, broken: 2000, keyBroken: 1000 },
+          midnight: { closed: 1000, lockedBase: 1000, lockedPerSegment: 600, broken: 2500, keyBroken: 1000 }
+        }
+      },
+      "gate-electric": {
+        closedLabel: "只是關上",
+        maxSegments: 0,
+        allowedStatuses: ["closed", "broken", "keyBroken"],
+        prices: {
+          morning: { closed: 800, broken: 1500, keyBroken: 800 },
+          day: { closed: 500, broken: 1500, keyBroken: 500 },
+          evening: { closed: 600, broken: 1500, keyBroken: 600 },
+          late: { closed: 800, broken: 1500, keyBroken: 800 },
+          midnight: { closed: 1000, broken: 2500, keyBroken: 1000 }
+        }
+      }
+    };
 
     const state = {
       type: "",
@@ -312,6 +410,8 @@ const serviceSchema = {
     const lockSegmentSelector = document.getElementById("lock-segment-selector");
     const lockStatusClosedButton = document.getElementById("lock-status-closed");
     const lockStatusLockedButton = document.getElementById("lock-status-locked");
+    const lockStatusBrokenButton = document.getElementById("lock-status-broken");
+    const lockStatusKeyBrokenButton = document.getElementById("lock-status-key-broken");
     const lockSegmentLabel = document.getElementById("lock-segment-label");
     const addressInput = document.getElementById("address-input");
     const distanceInput = document.getElementById("distance-input");
@@ -332,39 +432,55 @@ const serviceSchema = {
       lockSegmentSelector.classList.add("hidden-block");
     }
 
+    function getTraditionalLockConfig() {
+      return traditionalLockConfigs[state.subtype] || null;
+    }
+
     function updateTraditionalControls() {
-      const limitedStatusSubtypes = ["aux", "horizontal", "gate-electric"];
-      const isLimitedStatusSubtype = limitedStatusSubtypes.includes(state.subtype);
-      const isBladeFive = state.subtype === "blade-5";
-      const maxSegments = isBladeFive ? 5 : 4;
+      const traditionalConfig = getTraditionalLockConfig();
+      if (!traditionalConfig) return;
 
-      lockStatusClosedButton?.classList.toggle("hidden-block", isLimitedStatusSubtype);
+      const allowedStatuses = traditionalConfig.allowedStatuses || ["closed", "locked", "broken", "keyBroken"];
+      const maxSegments = traditionalConfig.maxSegments || 0;
+      const supportsSegments = allowedStatuses.includes("locked") && maxSegments > 0;
 
-      if (lockStatusLockedButton) {
-        lockStatusLockedButton.textContent = isLimitedStatusSubtype ? "有上鎖" : "有反鎖";
+      if (!allowedStatuses.includes(state.lockStatus)) {
+        state.lockStatus = allowedStatuses[0] || "closed";
       }
 
+      state.locked = state.lockStatus === "locked";
+
+      if (lockStatusClosedButton) {
+        lockStatusClosedButton.textContent = traditionalConfig.closedLabel || "只是關上";
+        lockStatusClosedButton.classList.toggle("hidden-block", !allowedStatuses.includes("closed"));
+      }
+
+      if (lockStatusLockedButton) {
+        lockStatusLockedButton.textContent = traditionalConfig.lockedLabel || "有反鎖";
+        lockStatusLockedButton.classList.toggle("hidden-block", !allowedStatuses.includes("locked"));
+      }
+
+      lockStatusBrokenButton?.classList.toggle("hidden-block", !allowedStatuses.includes("broken"));
+      lockStatusKeyBrokenButton?.classList.toggle("hidden-block", !allowedStatuses.includes("keyBroken"));
+
       if (lockSegmentLabel) {
-        lockSegmentLabel.textContent = isBladeFive ? "請選擇葉片五段鎖上鎖段數" : "若有反鎖，請選擇幾段上鎖";
+        lockSegmentLabel.textContent = traditionalConfig.segmentLabel || "若有反鎖，請選擇反鎖段數";
       }
 
       segmentButtons.forEach((button) => {
         const segment = Number(button.dataset.segment || 1);
-        button.classList.toggle("hidden-block", segment > maxSegments);
+        button.classList.toggle("hidden-block", !supportsSegments || segment > maxSegments);
       });
 
-      if (isLimitedStatusSubtype && state.lockStatus === "closed") {
-        state.lockStatus = "locked";
-        state.locked = true;
-      }
-
-      if (state.segments > maxSegments) {
+      if (!supportsSegments) {
+        state.segments = 1;
+      } else if (state.segments > maxSegments) {
         state.segments = maxSegments;
       }
 
       setActiveByData("[data-lock-status]", "lockStatus", state.lockStatus);
       setActiveByData("[data-segment]", "segment", state.segments);
-      lockSegmentSelector.classList.toggle("hidden-block", !state.locked || isLimitedStatusSubtype);
+      lockSegmentSelector.classList.toggle("hidden-block", !(state.lockStatus === "locked" && supportsSegments));
     }
 
     function selectType(type) {
@@ -419,6 +535,10 @@ const serviceSchema = {
         button.classList.toggle("selected", button.dataset.subtype === subtype);
       });
       if (state.type === "traditional") {
+        const traditionalConfig = traditionalLockConfigs[subtype];
+        state.segments = 1;
+        state.lockStatus = traditionalConfig?.allowedStatuses?.[0] || "closed";
+        state.locked = state.lockStatus === "locked";
         updateTraditionalControls();
       }
       nextToStep3Button.disabled = false;
@@ -429,6 +549,35 @@ const serviceSchema = {
       document.querySelectorAll(selector).forEach((button) => {
         button.classList.toggle("active", button.dataset[key] === String(value));
       });
+    }
+
+    function getTraditionalStatusText(traditionalConfig) {
+      if (!traditionalConfig) return "";
+      if (state.lockStatus === "closed") return traditionalConfig.closedLabel || "只是關上";
+      if (state.lockStatus === "locked") {
+        if ((traditionalConfig.maxSegments || 0) > 0) {
+          return `${traditionalConfig.lockedLabel || "有反鎖"} ${state.segments} 段`;
+        }
+        return traditionalConfig.lockedLabel || "有上鎖";
+      }
+      if (state.lockStatus === "broken") return "鎖體故障（破壞）";
+      if (state.lockStatus === "keyBroken") return "鑰匙斷掉";
+      return "";
+    }
+
+    function calculateTraditionalPrice(timeVal, details) {
+      const traditionalConfig = getTraditionalLockConfig();
+      const timePricing = traditionalConfig?.prices?.[timeVal];
+      if (!traditionalConfig || !timePricing) return 0;
+
+      if (state.lockStatus === "locked") {
+        const segments = Math.min(state.segments, traditionalConfig.maxSegments || 1);
+        details.push(getTraditionalStatusText(traditionalConfig));
+        return (timePricing.lockedBase || 0) + (timePricing.lockedPerSegment || 0) * segments;
+      }
+
+      details.push(getTraditionalStatusText(traditionalConfig));
+      return timePricing[state.lockStatus] || 0;
     }
 
     function calculatePrice() {
@@ -497,10 +646,10 @@ const serviceSchema = {
       } else if (state.type === "electronic") {
         if (state.subtype === "waferlock") {
           basePrice = 0;
-          typeCost = isNight ? 1500 : 1000;
+          typeCost = isNight ? 1800 : 1200;
         } else if (state.subtype === "ezset") {
           basePrice = 0;
-          typeCost = 1000;
+          typeCost = isNight ? 2500 : 1500;
         } else if (state.subtype === "samsung") {
           basePrice = 0;
           typeCost = isNight ? 6000 : 4000;
@@ -519,15 +668,8 @@ const serviceSchema = {
         }
         if (typeCost > 0) details.push("品牌 / 型號加價");
       } else if (state.type === "traditional") {
-        const limitedStatusSubtypes = ["aux", "horizontal", "gate-electric"];
-        const isLimitedStatusSubtype = limitedStatusSubtypes.includes(state.subtype);
-        if (state.subtype === "blade-5") typeCost = 200;
-        if (state.locked) {
-          const perSegmentCost = timeVal === "day" || timeVal === "morning" ? 200 : 300;
-          conditionCost = perSegmentCost * (isLimitedStatusSubtype ? 1 : state.segments);
-          if (isLimitedStatusSubtype) details.push("有上鎖");
-          else details.push(`${state.subtype === "blade-5" ? "上鎖" : "反鎖"} ${state.segments} 段`);
-        }
+        basePrice = 0;
+        conditionCost = calculateTraditionalPrice(timeVal, details);
       }
 
       const distCost = dist > 4 ? Math.ceil(dist - 4) * 100 : 0;
@@ -547,7 +689,16 @@ const serviceSchema = {
       const subtypeText = getLabelByValue("subtype", state.subtype);
       const distanceText = distanceInput.value ? `${distanceInput.value} 公里` : "未填距離";
       const timeText = timeSelect.options[timeSelect.selectedIndex]?.text || "";
-      return `${typeText} / ${subtypeText} / ${distanceText} / ${timeText} / 預估 ${displayPrice}`;
+      const summaryParts = [typeText, subtypeText];
+
+      if (state.type === "traditional") {
+        const traditionalConfig = getTraditionalLockConfig();
+        const statusText = getTraditionalStatusText(traditionalConfig);
+        if (statusText) summaryParts.push(statusText);
+      }
+
+      summaryParts.push(distanceText, timeText, `預估 ${displayPrice}`);
+      return summaryParts.join(" / ");
     }
 
     function getLabelByValue(kind, value) {
@@ -601,7 +752,11 @@ const serviceSchema = {
         state.lockStatus = button.dataset.lockStatus;
         state.locked = state.lockStatus === "locked";
         setActiveByData("[data-lock-status]", "lockStatus", state.lockStatus);
-        lockSegmentSelector.classList.toggle("hidden-block", !state.locked);
+        if (state.type === "traditional") {
+          updateTraditionalControls();
+        } else {
+          lockSegmentSelector.classList.toggle("hidden-block", !state.locked);
+        }
         calculatePrice();
       });
     });
@@ -672,6 +827,7 @@ const serviceSchema = {
 
     const currentHour = new Date().getHours();
     if (currentHour >= 8 && currentHour < 9) timeSelect.value = "morning";
+    else if (currentHour >= 10 && currentHour < 21) timeSelect.value = "day";
     else if (currentHour >= 21 && currentHour < 23) timeSelect.value = "evening";
     else if (currentHour >= 23) timeSelect.value = "late";
     else if (currentHour < 8) timeSelect.value = "midnight";
