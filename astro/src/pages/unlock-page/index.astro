@@ -586,9 +586,14 @@ const serviceSchema = {
       if (!traditionalConfig || !timePricing) return 0;
 
       if (state.lockStatus === "locked") {
-        const segments = Math.min(state.segments, traditionalConfig.maxSegments || 1);
         details.push(getTraditionalStatusText(traditionalConfig));
-        return (timePricing.lockedBase || 0) + (timePricing.lockedPerSegment || 0) * segments;
+
+        if ((traditionalConfig.maxSegments || 0) > 0) {
+          const segments = Math.min(state.segments, traditionalConfig.maxSegments);
+          return (timePricing.lockedBase || 0) + (timePricing.lockedPerSegment || 0) * segments;
+        }
+
+        return timePricing.locked || 0;
       }
 
       details.push(getTraditionalStatusText(traditionalConfig));
