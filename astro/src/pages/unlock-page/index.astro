@@ -12,10 +12,11 @@ const unlockConfig = {
       { id: "other", label: "其他電子鎖" }
     ],
     traditional: [
-      { id: "iron-3-4", label: "鐵門鎖" },
+      { id: "iron-3-4", label: "鐵門鎖(三段/四段鎖)" },
       { id: "blade-5", label: "葉片五段鎖" },
       { id: "aux", label: "輔助鎖" },
       { id: "horizontal", label: "喇叭鎖 / 水平鎖" },
+      { id: "fire-door", label: "防火門鎖" },
       { id: "integrated", label: "一般連體鎖" },
       { id: "blade-integrated", label: "葉片連體鎖" },
       { id: "gate-electric", label: "一樓公寓大門電鎖" }
@@ -24,6 +25,7 @@ const unlockConfig = {
       { id: "yamaha", label: "山葉 YAMAHA" },
       { id: "sym", label: "三陽 SYM" },
       { id: "kymco", label: "光陽 KYMCO" },
+      { id: "PGO", label: "摩特動力 PGO" },
       { id: "gogoro", label: "睿能 gogoro" }
     ],
     "access-control": [{ id: "access-control", label: "門禁系統" }],
@@ -340,6 +342,19 @@ const serviceSchema = {
           evening: { locked: 600, broken: 1000, keyBroken: 600 },
           late: { locked: 800, broken: 1200, keyBroken: 800 },
           midnight: { locked: 1000, broken: 1500, keyBroken: 1000 }
+        }
+      },
+      "fire-door": {
+        closedLabel: "有上鎖",
+        lockedLabel: "有上鎖",
+        maxSegments: 0,
+        allowedStatuses: ["locked"],
+        prices: {
+          morning: { locked: 1200 },
+          day: { locked: 800 },
+          evening: { locked: 1000 },
+          late: { locked: 1200 },
+          midnight: { locked: 1200 }
         }
       },
       integrated: {
