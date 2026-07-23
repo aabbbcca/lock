@@ -105,8 +105,39 @@ window.ELECTRONIC_PRODUCTS = {
         tag: '超高CP值',
         listPrice: 20000,
         offerPrice: 19800,
-        desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。<br>3D人臉辨識 掌靜脈 指紋 密碼 卡片 鑰匙 遠端解鎖 七合一功能齊全<br>主動式貓眼雙向通話 逗留自動抓拍<br>開門通知 錯誤警報<br>防水 防潮 人體感應靠近即開門<br>關門自上鎖 室內反鎖<br>5000毫安大容量電池 續航4~6個月<br>緊急Type-C 室外供電 低電量通知',
-        features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別 / 掌靜脈', '大螢幕貓眼 / 遠端解鎖對講']
+        desc: '最平價的人臉辨識電子鎖，輕鬆升級智慧生活。<br>3D人臉辨識 掌靜脈 指紋 密碼 卡片 鑰匙 遠端解鎖 七合一功能齊全<br>主動式貓眼雙向通話 逗留自動抓拍<br>開門通知 錯誤警報<br>防水 防潮 人體感應靠近即開門<br>關門自動上鎖 室內反鎖<br>5000毫安大容量電池 續航4~6個月<br>緊急Type-C 室外供電 低電量通知',
+        features: ['人臉 / 指紋 / 密碼 / 鑰匙', '3D 人臉識別 / 掌靜脈', '大螢幕貓眼 / 遠端解鎖對講'],
+        detailImagesTitle: 'R9 產品 DM',
+        detailImages: [
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_DM/S__189833230_0.jpg',
+                caption: 'R9 八合一電子鎖'
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_DM/S__189833227_0.jpg',
+                caption: 'R9 刷臉解鎖'
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_DM/S__189833228_0.jpg',
+                caption: 'R9 多種解鎖方式'
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_DM/S__189833229_0.jpg',
+                caption: 'R9 多元指紋識別'
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_DM/S__189833231_0.jpg',
+                caption: 'R9 24 小時主動監控'
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_DM/S__189833232_0.jpg',
+                caption: 'R9 防水防潮設計'
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_DM/S__189833233_0.jpg',
+                caption: 'R9 5000mAh 大容量電池'
+            }
+        ]
     },
     'cp-p3': {
         id: 'cp-p3',
