@@ -237,7 +237,7 @@ const serviceSchema = {
         </div>
         <div class="cta-buttons cta-buttons-column">
           <a id="btn-wizard-line" class="btn-line">LINE 傳送估價內容</a>
-          <a href="tel:0903109970" class="btn-phone">直接電話聯絡</a>
+          <a href="tel:0903109970" class="btn-phone" data-ga-location="estimate_result">直接電話聯絡</a>
         </div>
         <div class="wizard-reset-actions">
           <button id="reset-wizard" class="btn-reset" type="button">重新估價</button>
@@ -801,6 +801,13 @@ const serviceSchema = {
       showStep(3);
     });
     document.getElementById("finish-estimate")?.addEventListener("click", () => {
+      if (typeof window.gtagSendGa4Event === "function") {
+        window.gtagSendGa4Event("estimate_complete", {
+          service_type: state.type || "unknown",
+          service_subtype: state.subtype || "unknown",
+          time_slot: timeSelect.value || "unknown"
+        });
+      }
       if (typeof window.gtagReportConversion === "function") {
         window.gtagReportConversion();
       }
