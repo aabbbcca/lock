@@ -1,9 +1,9 @@
 window.ELECTRONIC_BRANDS = [
     { id: 'yale', title: '耶魯 Yale', pageTitle: 'Yale 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
     { id: 'cp', title: '高CP值精選', pageTitle: '高CP值電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
+    { id: 'milre', title: '美樂 Milre', pageTitle: 'Milre 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
     { id: 'philips', title: '飛利浦 Philips', pageTitle: 'Philips 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
-    { id: 'waferlock', title: '維夫拉克waferlock', pageTitle: 'Waferlock 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' },
-    { id: 'milre', title: '美樂 Milre', pageTitle: 'Milre 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' }
+    { id: 'waferlock', title: '維夫拉克waferlock', pageTitle: 'Waferlock 電子鎖', pageTitleSize: 'clamp(1rem, 1vw, 2rem)' }
 ];
 
 window.ELECTRONIC_PRODUCTS = {
@@ -39,7 +39,17 @@ window.ELECTRONIC_PRODUCTS = {
         listPrice: 30000,
         offerPrice: 25500,
         desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。<br>支援 Apple/Samsung Wallet 解鎖。<br>手機就是鑰匙，超方便!<br>時尚外型，搭配現代裝潢的最佳選擇。',
-        features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', '支援手機錢包解鎖']
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', '支援手機錢包解鎖'],
+
+        detailImagesTitle: 'YALE ByYou Pro DM',
+        detailImages: [
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou_DM/1.png',
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou_DM/2.png',
+            }
+        ]
     },
     'ydm7116a': {
         id: 'ydm7116a',
@@ -369,7 +379,6 @@ window.ELECTRONIC_PRODUCTS = {
         detailImages: [
             {
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/570DM.jpg',
-                caption: '美樂570系列電子鎖'
             }
         ]
     },
@@ -388,13 +397,24 @@ window.ELECTRONIC_PRODUCTS = {
         detailImages: [
             {
                 img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/570DM.jpg',
-                caption: '美樂570系列電子鎖'
             }
         ]
     }
 };
 
 window.PRODUCT_INSTALLATION_EXAMPLES = {
+    'byyou-pro': [
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou_安裝照.jpg',
+            caption: 'YALE byyou pro'
+        }
+    ],
+    'ymf30a': [
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF30A_ken.jpg',
+            caption: 'YALE YMF30A'
+        }
+    ],
     'cp-r9': [
         {
             img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_1159.JPG',
@@ -403,6 +423,10 @@ window.PRODUCT_INSTALLATION_EXAMPLES = {
         {
             img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_00000.JPG',
             caption: 'R9高CP值電子鎖 - 大安許宅'
+        },
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_安裝照.jpg',
+            caption: 'R9高CP值電子鎖'
         }
     ],
     'cp-p3': [
@@ -416,6 +440,12 @@ window.PRODUCT_INSTALLATION_EXAMPLES = {
             img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/IMG_2895.JPG',
             caption: '美樂 Milre MDL-510S - 大同林宅',
             fit: 'contain'
+        }
+    ],
+    'milre-570s': [
+        {
+            img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/570s_amy.jpg',
+            caption: '美樂 Milre MDL-570S',
         }
     ],
     'philips-709-fvp': [
