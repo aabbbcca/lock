@@ -35,21 +35,34 @@ export const exampleProjects = [
     fit: "contain"
   },
   {
-    id: "project-traditional",
-    image: "/S__26214418.jpg",
-    title: "傳統鎖維修與換新",
-    caption: "住宅大門與房門案件"
+    id: "project-byyou-pro",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou_安裝照.jpg",
+    title: "YALE byyou pro",
+    fit: "contain"
   },
   {
-    id: "project-access",
-    image: "/S__26214418.jpg",
-    title: "門禁與大門電鎖",
-    caption: "社區與商空常見施工"
+    id: "project-ymf30a",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF30A_ken.jpg",
+    title: "YALE YMF30A",
   },
   {
-    id: "project-unlock",
-    image: "/S__26214418.jpg",
-    title: "緊急開鎖服務",
-    caption: "24 小時到府支援"
+    id: "project-r9",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_安裝照.jpg",
+    title: "R9 高 CP 值電子鎖",
+  },
+  {
+    id: "project-r9_2",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/R9_安裝照2.jpg",
+    title: "R9 高 CP 值電子鎖",
+  },
+  {
+    id: "project-510S",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/510S_安裝照.jpg",
+    title: "美樂 Milre MDL-510S",
+  },
+  {
+    id: "project-570S",
+    image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/570s_amy.jpg",
+    title: "美樂 Milre MDL-570S",
   }
 ];
