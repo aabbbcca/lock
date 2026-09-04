@@ -14,9 +14,19 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/yale-luna-pro-plus-front-body-1.webp',
         tag: 'Yale 旗艦款',
         listPrice: 39800,
-        offerPrice: 27999,
+        offerPrice: 28800,
         desc: '偏心防夾手設計，霧面黑配香檳金/星空灰。極致安全與便利的頂級選擇。<br>支援 3D 人臉識別，靠近自動喚醒，完全解放雙手。',
-        features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 / App', '3D 人臉識別，靠近自動喚醒', '歐規大鎖匣，結構堅固', '防夾手把手設計']
+        features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 / App', '3D 人臉識別，靠近自動喚醒', '歐規大鎖匣，結構堅固', '防夾手把手設計'],
+
+        detailImagesTitle: 'YALE Luna Pro+ DM',
+        detailImages: [
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/luna_DM/1.png',
+            },
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/luna_DM/2.png',
+            }
+        ]
     },
     'byyou-pro': {
         id: 'byyou-pro',
@@ -27,7 +37,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou.PNG',
         tag: 'Yale 時尚款',
         listPrice: 30000,
-        offerPrice: 25399,
+        offerPrice: 25500,
         desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。<br>支援 Apple/Samsung Wallet 解鎖。<br>手機就是鑰匙，超方便!<br>時尚外型，搭配現代裝潢的最佳選擇。',
         features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', '支援手機錢包解鎖']
     },
