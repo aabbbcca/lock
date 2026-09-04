@@ -348,34 +348,39 @@ window.ELECTRONIC_PRODUCTS = {
         id: 'milre-570f',
         brand: 'milre',
         title: '美樂 Milre MI-570F',
-        img: 'https://placehold.co/400x300?text=MI-570F',
-        tag: '指紋電子鎖',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MI-570F.jpg',
+        tag: '四合一指紋鑰匙款',
         listPrice: null,
-        offerPrice: 11000,
-        desc: '指紋辨識輔助型電子鎖。',
-        features: ['指紋 / 密碼 / 鑰匙']
+        offerPrice: 'NT$ 11,000（含安裝）',
+        desc: '指紋辨識、卡片、密碼、鑰匙的輔助型電子鎖。<br>加購遠端APP橋接器，即可透過手機APP控制',
+        features: ['指紋 / 密碼 / 卡片 / 鑰匙'],
+
+        detailImagesTitle: 'MI-570F DM',
+        detailImages: [
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/570DM.jpg',
+                caption: '美樂570系列電子鎖'
+            }
+        ]
     },
     'milre-570s': {
         id: 'milre-570s',
         brand: 'milre',
         title: 'Milre MI-570S',
-        img: 'https://placehold.co/400x300?text=MI-570S',
-        tag: '卡片主鎖',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MI-570S.jpg',
+        tag: '三合一鑰匙款',
         listPrice: null,
-        offerPrice: 8500,
-        desc: '主鎖式卡片鎖。',
-        features: ['卡片 / 密碼 / 鑰匙']
-    },
-    'milre-425': {
-        id: 'milre-425',
-        brand: 'milre',
-        title: 'Milre MI-425',
-        img: 'https://placehold.co/400x300?text=MI-425',
-        tag: '基本款',
-        listPrice: null,
-        offerPrice: 6500,
-        desc: '基本電子輔助鎖。',
-        features: ['密碼']
+        offerPrice: 'NT$ 8,500（含安裝）',
+        desc: '卡片、密碼、鑰匙的外掛式輔助型電子鎖。<br>加購遠端APP橋接器，即可透過手機APP控制',
+        features: ['卡片 / 密碼 / 鑰匙'],
+
+        detailImagesTitle: 'MI-570S DM',
+        detailImages: [
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/570DM.jpg',
+                caption: '美樂570系列電子鎖'
+            }
+        ]
     }
 };
 
