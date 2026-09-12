@@ -199,13 +199,13 @@ const serviceSchema = {
         <div class="input-group">
           <label for="time-select">希望服務的時段</label>
           <select id="time-select">
-            <option value="morning">08:00 - 09:00（六日早上，價格同半夜）</option>
-            <option value="day">10:00 - 21:00（六日日間）</option>
-            <option value="evening">21:00 - 23:00（六日夜間）</option>
-            <option value="late">23:00 - 00:00（六日半夜）</option>
-            <option value="midnight">00:00 - 08:00（六日深夜）</option>
+            <option value="morning">08:00 - 09:00（早上，價格同半夜）</option>
+            <option value="day">10:00 - 21:00（日間）</option>
+            <option value="evening">21:00 - 23:00（夜間）</option>
+            <option value="late">23:00 - 00:00（半夜）</option>
+            <option value="midnight">00:00 - 08:00（深夜）</option>
           </select>
-          <div class="helper-note">此頁目前顯示六日估價時段。</div>
+          <div class="helper-note">依選擇的時段估價。</div>
         </div>
 
         <div class="input-group">
@@ -841,8 +841,17 @@ const serviceSchema = {
     });
 
     document.getElementById("maps-btn")?.addEventListener("click", () => {
-      const query = addressInput.value || "新北市永和區";
-      window.open(`https://www.google.com/maps/search/${encodeURIComponent(query)}`, "_blank", "noopener");
+      const origin = addressInput.value.trim();
+      const directionsUrl = new URL("https://www.google.com/maps/dir/");
+      directionsUrl.searchParams.set("api", "1");
+      directionsUrl.searchParams.set("destination", "24.9974023,121.520868");
+      directionsUrl.searchParams.set("travelmode", "driving");
+
+      if (origin) {
+        directionsUrl.searchParams.set("origin", origin);
+      }
+
+      window.open(directionsUrl.toString(), "_blank", "noopener");
     });
 
     document.getElementById("geo-btn")?.addEventListener("click", () => {
