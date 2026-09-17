@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://lockkeyguy.com"
+  site: "https://xiao-li-locksmith.com"
 });
