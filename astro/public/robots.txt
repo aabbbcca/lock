@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xiao-li-locksmith.com/sitemap.xml
+Sitemap: https://lockkeyguy.com/sitemap.xml
