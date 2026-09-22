@@ -32,9 +32,11 @@ export const traditionalProducts = [
     desc: "公寓與透天常見的鐵門鎖型，依段數、門厚與把手形式選配，維修與更換都很常見。",
     features: ["常見規格好維修", "適合舊門換新", "可依門厚與段數挑款"],
     variants: [
-      { name: "單舌三段鎖", price: "NT$ 2,000" },
-      { name: "三段式鐵門鎖", price: "NT$ 2,500" },
-      { name: "四段式鐵門鎖", price: "NT$ 3,000" }
+      { name: "電白三段鎖 (卡巴鑰匙)", price: "NT$ 2,000" },
+      { name: "電白三段鎖 (特殊鑰匙)", price: "NT$ 2,300" },
+      { name: "不鏽鋼三段鎖 (卡巴鑰匙)", price: "NT$ 2,500" },
+      { name: "不鏽鋼三段鎖 (特殊鑰匙)", price: "NT$ 2,700" },
+      { name: "不鏽鋼四段鎖 (特殊鑰匙)", price: "NT$ 3,000" }
     ]
   },
   {
@@ -47,8 +49,9 @@ export const traditionalProducts = [
     desc: "適合重視防撬與鑰匙安全性的住家，常見於需要升級門鎖防護等級的老屋大門。",
     features: ["葉片結構防拷貝", "常見於住家大門", "可搭配高安全鑰匙"],
     variants: [
-      { name: "988 五段鎖", price: "NT$ 3,800" },
-      { name: "9512 五段鎖", price: "NT$ 4,500" }
+      { name: "優美佳內轉式", price: "NT$ 3,500" },
+      { name: "安住 988 ", price: "NT$ 3,800" },
+      { name: "安住 9512", price: "NT$ 4,500" }
     ]
   },
   {
@@ -145,17 +148,17 @@ export const traditionalProducts = [
     variants: [
       { name: "喇叭鎖", price: "NT$ 700" },
       { name: "水平鎖", price: "NT$ 1,000" },
-      { name: "房門浴廁鎖", price: "價格洽詢" },
-      { name: "其他特殊房門鎖", price: "價格洽詢" }
+      { name: "黑色水平鎖", price: "1500" },
+      { name: "防火級喇叭鎖", price: "價格洽詢" }
     ]
   },
   {
     id: "trad-passage",
     category: "trad-room",
-    title: "通道鎖（不反鎖）",
+    title: "通道鎖（無鎖）",
     img: "/S__26214418.jpg",
     tag: "辦公室常見",
-    offerText: "價格洽詢",
+    offerText: "含安裝 NT$ 1,000",
     desc: "適合辦公室、走道門與不需反鎖的室內門，注重通行便利與耐用度。",
     features: ["適合高頻率通行", "維護簡單", "可搭配常見門型"]
   }
