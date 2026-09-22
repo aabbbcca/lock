@@ -348,8 +348,8 @@ window.ELECTRONIC_PRODUCTS = {
         title: 'Milre MDL-510F',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-510F.png',
         tag: '三合一指紋款',
-        listPrice: 9500,
-        offerPrice: 9000,
+        listPrice: null,
+        offerPrice: 'NT$ 9,500（含安裝）',
         desc: '經濟型指紋鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定',
         features: ['指紋 / 卡片 / 密碼']
     },
@@ -359,8 +359,8 @@ window.ELECTRONIC_PRODUCTS = {
         title: '美樂 Milre MDL-510S',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-510S.png',
         tag: '二合一',
-        listPrice: 7500,
-        offerPrice: 7000,
+        listPrice: null,
+        offerPrice: 'NT$ 7,500（含安裝）',
         desc: '經濟型電子鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定',
         features: ['卡片 / 密碼']
     },
