@@ -168,7 +168,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/P3.jpg',
         tag: '高CP值房門款',
         listPrice: null,
-        offerPrice: '一般款 NT$3,000 (含安裝)',
+        offerPrice: '一般款 NT$3,500 (含安裝)',
         desc: '使用喇叭鎖孔安裝，無須額外開孔。<br>適合租屋族、房東、辦公室及其他一般房間門。<br>一般款：指紋、卡片、密碼、鑰匙解鎖。<br>遠端款：包含一般款全部功能，另有 APP 遠端設定、遠端解鎖、<br>APP 解鎖通知、解鎖失敗通知、操作紀錄、低電量提醒、臨時密碼。<br>沒電時可使用機械鑰匙開鎖，也可使用 USB 應急供電後解鎖。<br>無須額外開孔，方便退租時復原，出門不怕忘記帶鑰匙。<br>提升安全性，方便租客管理，提升租屋品質。<br>保固一年。',
         features: [
             '使用喇叭鎖孔，無須額外開孔',
@@ -177,7 +177,7 @@ window.ELECTRONIC_PRODUCTS = {
             '解鎖失敗通知 / 操作紀錄 / 低電量提醒 / 臨時密碼',
             '沒電可用應急鑰匙或 USB 應急供電進入',
             '適合租屋族 / 房東 / 一般房間門',
-            '一般款 NT$3,000；遠端款 NT$4,000 以上皆為完工價',
+            '一般款 NT$3,500；遠端款 NT$4,500 以上皆為完工價',
             '保固一年'
         ],
         detailImagesTitle: 'P3 產品 DM',
@@ -197,7 +197,7 @@ window.ELECTRONIC_PRODUCTS = {
         listPrice: 6500,
         offerPrice: 5500,
         desc: '經濟實惠，入門首選。',
-        features: ['密碼 / 卡片 / 鑰匙', '基本防盜', '高性價比']
+        features: ['密碼 / 卡片 / 鑰匙']
     },
     'cp-r7': {
         id: 'cp-r7',
@@ -241,7 +241,7 @@ window.ELECTRONIC_PRODUCTS = {
         listPrice: 26000,
         offerPrice: '優惠價 NT$20000 (含基本安裝)',
         desc: '遠端解鎖、指紋辨識。',
-        features: ['指紋 / 密碼 / 卡片 / 鑰匙', '遠端視訊通話', '大螢幕貓眼']
+        features: ['指紋 / 密碼 / 卡片 / 鑰匙']
     },
     'wafer-l600': {
         id: 'wafer-l600',
@@ -252,7 +252,7 @@ window.ELECTRONIC_PRODUCTS = {
         listPrice: null,
         offerPrice: '請洽詢',
         desc: '4合一把手式 (人臉/卡片/密碼/鑰匙)，開門更快速。',
-        features: ['人臉辨識 / 卡片 / 密碼 / 鑰匙', 'IP54 防塵防水', '中文語音提示']
+        features: ['人臉辨識 / 卡片 / 密碼 / 鑰匙']
     },
     'wafer-l900': {
         id: 'wafer-l900',
@@ -263,7 +263,7 @@ window.ELECTRONIC_PRODUCTS = {
         listPrice: null,
         offerPrice: '請洽詢',
         desc: '4合1推拉式 (指紋/卡片/密碼/鑰匙)，時尚設計。',
-        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '推拉式把手', '防高壓電擊']
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙']
     },
     'wafer-l396': {
         id: 'wafer-l396',
@@ -274,7 +274,7 @@ window.ELECTRONIC_PRODUCTS = {
         listPrice: null,
         offerPrice: '請洽詢',
         desc: '4合1把手式 (指紋/卡片/密碼/鑰匙)。',
-        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '適合辦公室/租屋']
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙']
     },
     'wafer-l376': {
         id: 'wafer-l376',
@@ -285,7 +285,7 @@ window.ELECTRONIC_PRODUCTS = {
         listPrice: null,
         offerPrice: '請洽詢',
         desc: '基本款3合1把手式 (卡片/密碼/鑰匙)。',
-        features: ['卡片 / 密碼 / 鑰匙', '經濟實惠']
+        features: ['卡片 / 密碼 / 鑰匙']
     },
     'milre-7150': {
         id: 'milre-7150',
@@ -293,8 +293,8 @@ window.ELECTRONIC_PRODUCTS = {
         title: '美樂Milre MDL-7150+ <br>推拉式電子鎖',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MDL-7150+.webp',
         tag: '推拉式',
-        listPrice: 19000,
-        offerPrice: 16800,
+        listPrice: null,
+        offerPrice: 'NT$ 19,000（含安裝）',
         desc: '推拉式便利設計。<br>隱藏式機械鑰匙孔，附3把機械鑰匙，當電子鎖沒電或故障時可用機械鑰匙開門。<br>台灣總代理公司貨，原廠保固3年，安心有保障。',
         features: ['指紋 / 卡片 / 密碼 / 鑰匙','關門自動上鎖','低電量提示','外部緊急充電口','三年保固']
     },
@@ -305,7 +305,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://placehold.co/400x300?text=MDL-6500F',
         tag: '指紋款',
         listPrice: null,
-        offerPrice: 18000,
+        offerPrice: 'NT$ 18,000（含安裝）',
         desc: '經典指紋款。',
         features: ['指紋 / 卡片 / 密碼 / 鑰匙']
     },
@@ -316,7 +316,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://placehold.co/400x300?text=MI-6800',
         tag: '高階款',
         listPrice: null,
-        offerPrice: 16000,
+        offerPrice: 'NT$ 16,000（含安裝）',
         desc: '高階安全防護。',
         features: ['指紋 / 卡片 / 密碼 / 鑰匙']
     },
@@ -369,11 +369,11 @@ window.ELECTRONIC_PRODUCTS = {
         brand: 'milre',
         title: '美樂 Milre MI-570F',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MI-570F.jpg',
-        tag: '四合一指紋鑰匙款',
+        tag: '五合一指紋鑰匙款',
         listPrice: null,
         offerPrice: 'NT$ 11,000（含安裝）',
-        desc: '指紋辨識、卡片、密碼、鑰匙的輔助型電子鎖。<br>加購遠端APP橋接器，即可透過手機APP控制',
-        features: ['指紋 / 密碼 / 卡片 / 鑰匙'],
+        desc: '指紋辨識、卡片、密碼、鑰匙的輔助型電子鎖。<br>內建藍芽模組，可透過手機APP控制<br>另可加購遠端橋接器，透過手機 APP 進行遠端控制。',
+        features: ['藍芽 / 指紋 / 密碼 / 卡片 / 鑰匙 / 遠端（選購）'],
 
         detailImagesTitle: 'MI-570F DM',
         detailImages: [
@@ -387,11 +387,11 @@ window.ELECTRONIC_PRODUCTS = {
         brand: 'milre',
         title: 'Milre MI-570S',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MI-570S.jpg',
-        tag: '三合一鑰匙款',
+        tag: '四合一鑰匙款',
         listPrice: null,
         offerPrice: 'NT$ 8,500（含安裝）',
-        desc: '卡片、密碼、鑰匙的外掛式輔助型電子鎖。<br>加購遠端APP橋接器，即可透過手機APP控制',
-        features: ['卡片 / 密碼 / 鑰匙'],
+        desc: '卡片、密碼、鑰匙的外掛式輔助型電子鎖。<br>內建藍芽模組，可透過手機APP控制<br>另可加購遠端橋接器，透過手機 APP 進行遠端控制。',
+        features: ['藍芽 / 卡片 / 密碼 / 鑰匙 / 遠端（選購）'],
 
         detailImagesTitle: 'MI-570S DM',
         detailImages: [
