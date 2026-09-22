@@ -14,9 +14,9 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/yale-luna-pro-plus-front-body-1.webp',
         tag: 'Yale 旗艦款',
         listPrice: 39800,
-        offerPrice: 28800,
+        offerPrice: 29800,
         desc: '偏心防夾手設計，霧面黑配香檳金/星空灰。極致安全與便利的頂級選擇。<br>支援 3D 人臉識別，靠近自動喚醒，完全解放雙手。',
-        features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 / App', '3D 人臉識別，靠近自動喚醒', '歐規大鎖匣，結構堅固', '防夾手把手設計'],
+        features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 ', '可另選購藍芽及遠端模組', '3D 人臉識別，靠近自動喚醒', '歐規鎖匣，結構堅固', '防夾手把手設計'],
 
         detailImagesTitle: 'YALE Luna Pro+ DM',
         detailImages: [
@@ -113,7 +113,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R1.jpg',
         tag: '小資首選',
         listPrice: 15000,
-        offerPrice: 12000,
+        offerPrice: 13000,
         desc: '功能實用，價格親民，房東與租屋族的最愛。',
         features: ['指紋 / 卡片 / 密碼 / 鑰匙', '可加購遠端解鎖功能', '高性價比把手款']
     },
@@ -193,11 +193,11 @@ window.ELECTRONIC_PRODUCTS = {
         brand: 'cp',
         title: '高CP值款 SWD R3',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R3.JPG',
-        tag: '套房族最愛',
-        listPrice: 6500,
-        offerPrice: 5500,
+        tag: null,
+        listPrice: null,
+        offerPrice: 'NT$6,500 (含安裝)',
         desc: '經濟實惠，入門首選。',
-        features: ['密碼 / 卡片 / 鑰匙']
+        features: ['指紋 / 密碼 / 卡片 / 鑰匙']
     },
     'cp-r7': {
         id: 'cp-r7',
