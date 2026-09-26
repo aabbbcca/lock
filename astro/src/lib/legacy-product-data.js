@@ -324,12 +324,18 @@ window.ELECTRONIC_PRODUCTS = {
         id: 'milre-6450',
         brand: 'milre',
         title: 'Milre MI-6450',
-        img: 'https://placehold.co/400x300?text=MI-6450',
-        tag: '輔助鎖',
+        img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/MI-6450.jpg',
+        tag: '三合一',
         listPrice: null,
         offerPrice: 15000,
-        desc: '輔助鎖設計。',
-        features: ['指紋 / 卡片 / 密碼']
+        desc: '三合一電子鎖。<br>隱藏式鑰匙插口。<br>外部緊急供電口（使用9V電池）<br>總代理保固3年。',
+        features: ['卡片 / 密碼 / 鑰匙'],
+        detailImagesTitle: 'MI-6450 DM',
+        detailImages: [
+            {
+                img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/6450DM.jpg',
+            }
+        ]
     },
     'milre-400f': {
         id: 'milre-400f',
@@ -339,7 +345,7 @@ window.ELECTRONIC_PRODUCTS = {
         tag: '指紋輔助',
         listPrice: null,
         offerPrice: 11000,
-        desc: '指紋輔助鎖。',
+        desc: '指紋輔助鎖。<br>外部緊急供電口（使用9V電池）<br>總代理保固3年。',
         features: ['指紋 / 密碼']
     },
     'milre-510f': {
@@ -350,7 +356,7 @@ window.ELECTRONIC_PRODUCTS = {
         tag: '三合一指紋款',
         listPrice: null,
         offerPrice: 'NT$ 9,500（含安裝）',
-        desc: '經濟型指紋鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定',
+        desc: '經濟型指紋鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定<br>外部緊急供電口（使用9V電池）<br>總代理保固3年。',
         features: ['指紋 / 卡片 / 密碼']
     },
     'milre-510s': {
@@ -361,7 +367,7 @@ window.ELECTRONIC_PRODUCTS = {
         tag: '二合一',
         listPrice: null,
         offerPrice: 'NT$ 7,500（含安裝）',
-        desc: '經濟型電子鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定',
+        desc: '經濟型電子鎖。出租套房首選。<br>可完全控管，無管理員密碼無法變更設定<br>外部緊急供電口（使用9V電池）<br>總代理保固3年。',
         features: ['卡片 / 密碼']
     },
     'milre-570f': {
@@ -372,7 +378,7 @@ window.ELECTRONIC_PRODUCTS = {
         tag: '五合一指紋鑰匙款',
         listPrice: null,
         offerPrice: 'NT$ 11,000（含安裝）',
-        desc: '指紋辨識、卡片、密碼、鑰匙的輔助型電子鎖。<br>內建藍芽模組，可透過手機APP控制<br>另可加購遠端橋接器，透過手機 APP 進行遠端控制。',
+        desc: '指紋辨識、卡片、密碼、鑰匙的輔助型電子鎖。<br>內建藍芽模組，可透過手機APP控制<br>另可加購遠端橋接器，透過手機 APP 進行遠端控制。<br>外部緊急供電口（使用9V電池）<br>總代理保固3年。',
         features: ['藍芽 / 指紋 / 密碼 / 卡片 / 鑰匙 / 遠端（選購）'],
 
         detailImagesTitle: 'MI-570F DM',
@@ -390,7 +396,7 @@ window.ELECTRONIC_PRODUCTS = {
         tag: '四合一鑰匙款',
         listPrice: null,
         offerPrice: 'NT$ 8,500（含安裝）',
-        desc: '卡片、密碼、鑰匙的外掛式輔助型電子鎖。<br>內建藍芽模組，可透過手機APP控制<br>另可加購遠端橋接器，透過手機 APP 進行遠端控制。',
+        desc: '卡片、密碼、鑰匙的外掛式輔助型電子鎖。<br>內建藍芽模組，可透過手機APP控制<br>另可加購遠端橋接器，透過手機 APP 進行遠端控制。<br>外部緊急供電口（使用9V電池）<br>總代理保固3年。',
         features: ['藍芽 / 卡片 / 密碼 / 鑰匙 / 遠端（選購）'],
 
         detailImagesTitle: 'MI-570S DM',
