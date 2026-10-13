@@ -205,8 +205,8 @@ window.ELECTRONIC_PRODUCTS = {
         title: '高CP值款 SWD R7',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/R7.JPG',
         tag: '進階款',
-        listPrice: 8000,
-        offerPrice: 7000,
+        listPrice: null,
+        offerPrice: 'NT$9,500 (含安裝)',
         desc: '功能升級，更安全便利。',
         features: ['指紋 / 密碼 / 卡片 / 鑰匙', '進階防盜', '高性價比']
     },

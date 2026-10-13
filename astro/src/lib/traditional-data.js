@@ -27,10 +27,10 @@ export const traditionalProducts = [
     category: "trad-main",
     title: "鐵門鎖（三段 / 四段）",
     img: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/%E7%99%BD%E9%90%B5%E4%B8%89%E6%AE%B5.JPG",
-    tag: "高 CP 值",
+    tag: "大門鎖基本款",
     offerText: "含安裝 NT$ 2,000~3,000",
-    desc: "公寓與透天常見的鐵門鎖型，依段數、門厚與把手形式選配，維修與更換都很常見。",
-    features: ["常見規格好維修", "適合舊門換新", "可依門厚與段數挑款"],
+    desc: "公寓與透天常見的鐵門鎖型，依段數、材質與鑰匙形式選擇，維修與更換都很常見。",
+    features: ["常見規格好維修", "外掛式設計安裝快速", "可依材質與段數挑選款式"],
     variants: [
       { name: "電白三段鎖 (卡巴鑰匙)", price: "NT$ 2,000" },
       { name: "電白三段鎖 (特殊鑰匙)", price: "NT$ 2,300" },
@@ -44,10 +44,10 @@ export const traditionalProducts = [
     category: "trad-main",
     title: "葉片五段鎖",
     img: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/%E5%A4%A7%E5%AE%89%E4%BD%8F.PNG",
-    tag: "大門升級",
-    offerText: "含安裝 NT$ 3,800~4,500",
+    tag: "大門門鎖升級",
+    offerText: "含安裝 NT$ 3,500~4,500",
     desc: "適合重視防撬與鑰匙安全性的住家，常見於需要升級門鎖防護等級的老屋大門。",
-    features: ["葉片結構防拷貝", "常見於住家大門", "可搭配高安全鑰匙"],
+    features: ["葉片結構開鎖難度高", "常見於住家大門", "搭配高安全鑰匙"],
     variants: [
       { name: "優美佳內轉式", price: "NT$ 3,500" },
       { name: "安住 988 ", price: "NT$ 3,800" },
@@ -81,7 +81,7 @@ export const traditionalProducts = [
     features: ["可搭配門禁系統", "常見公寓大門使用", "依現場結構評估配件"],
     variants: [
       { name: "APD 電鎖", price: "NT$ 2,500" },
-      { name: "電鎖頭", price: "NT$ 3,000" },
+      { name: "余氏牌電鎖", price: "NT$ 3,000" },
       { name: "磁力鎖", price: "價格洽詢" },
       { name: "玻璃門專用", price: "價格洽詢" }
     ]
