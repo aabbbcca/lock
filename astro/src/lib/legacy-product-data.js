@@ -407,6 +407,18 @@ window.ELECTRONIC_PRODUCTS = {
 };
 
 window.PRODUCT_INSTALLATION_EXAMPLES = {
+    'ydm7116a': [
+        {
+            img: '/images/7116_1.JPG',
+            caption: 'YALE YDM7116A',
+            fit: 'contain'
+        },
+        {
+            img: '/images/7116_3.JPG',
+            caption: 'YALE YDM7116A',
+            fit: 'contain'
+        }
+    ],
     'byyou-pro': [
         {
             img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou_安裝照.jpg',

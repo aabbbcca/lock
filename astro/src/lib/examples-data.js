@@ -1,21 +1,19 @@
 import exampleR9Yonghe from "../assets/site/example-r9-yonghe.jpg";
 import examplePhilipsBali from "../assets/site/example-philips-bali.jpg";
 import exampleR9Daan from "../assets/site/example-r9-daan.jpg";
-import image7116 from "../assets/site/7116_1.JPG";
-import image7116_2 from "../assets/site/7116_3.JPG";
 import imagebyyou_2 from "../assets/site/byyou.jpg";
 import imageluna from "../assets/site/luna.PNG";
 
 export const exampleProjects = [
   {
     id: "project-7116",
-    image: image7116,
+    image: "/images/7116_1.JPG",
     title: "YALE YDM7116A",
     fit: "contain"
   },
   {
     id: "project-7116_2",
-    image: image7116_2,
+    image: "/images/7116_3.JPG",
     title: "YALE YDM7116A",
     fit: "contain"
   },
