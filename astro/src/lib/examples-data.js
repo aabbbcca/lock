@@ -4,6 +4,26 @@ import exampleR9Daan from "../assets/site/example-r9-daan.jpg";
 
 export const exampleProjects = [
   {
+    id: "project-7116",
+    image: "../assets/site/7116_1.jpg",
+    title: "YALE YDM7116A",
+  },
+  {
+    id: "project-7116_2",
+    image: "../assets/site/7116_3.jpg",
+    title: "YALE YDM7116A",
+  },
+  {
+    id: "project-byyou-pro_2",
+    image: "../assets/site/byyou.HEIC",
+    title: "YALE Byyou Pro",
+  },
+  {
+    id: "project-luna-pro",
+    image: "../assets/site/luna.PNG",
+    title: "YALE Luna Pro",
+  },
+  {
     id: "project-r9-yonghe",
     image: exampleR9Yonghe,
     title: "R9 高 CP 值電子鎖",
@@ -37,7 +57,7 @@ export const exampleProjects = [
   {
     id: "project-byyou-pro",
     image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou_安裝照.jpg",
-    title: "YALE byyou pro",
+    title: "YALE Byyou Pro",
     fit: "contain"
   },
   {
@@ -64,16 +84,6 @@ export const exampleProjects = [
     id: "project-570S",
     image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/570s_amy.jpg",
     title: "美樂 Milre MDL-570S",
-  },
-  {
-    id: "project-7116",
-    image: "../assets/site/7116_1.jpg",
-    title: "YALE YDM7116A",
-  },
-  {
-    id: "project-7116_2",
-    image: "../assets/site/7116_3.jpg",
-    title: "YALE YDM7116A",
-  }
+  } 
 
 ];
