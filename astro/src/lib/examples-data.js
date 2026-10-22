@@ -1,8 +1,7 @@
 import exampleR9Yonghe from "../assets/site/example-r9-yonghe.jpg";
 import examplePhilipsBali from "../assets/site/example-philips-bali.jpg";
 import exampleR9Daan from "../assets/site/example-r9-daan.jpg";
-import imagebyyou_2 from "../assets/site/byyou.jpg";
-import imageluna from "../assets/site/luna.PNG";
+
 
 export const exampleProjects = [
   {
@@ -19,13 +18,13 @@ export const exampleProjects = [
   },
   {
     id: "project-byyou-pro_2",
-    image: imagebyyou_2,
+    image: "/images/byyou.jpg",
     title: "YALE Byyou Pro",
     fit: "contain"
   },
   {
     id: "project-luna-pro",
-    image: imageluna,
+    image: "/images/luna.PNG",
     title: "YALE Luna Pro",
     fit: "contain"
   },
