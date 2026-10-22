@@ -1,26 +1,30 @@
 import exampleR9Yonghe from "../assets/site/example-r9-yonghe.jpg";
 import examplePhilipsBali from "../assets/site/example-philips-bali.jpg";
 import exampleR9Daan from "../assets/site/example-r9-daan.jpg";
+import image7116 from "../assets/site/7116_1.jpg";
+import image7116_2 from "../assets/site/7116_3.jpg";
+import imagebyyou_2 from "../assets/site/7116_3.jpg";
+import imageluna from "../assets/site/7116_3.jpg";
 
 export const exampleProjects = [
   {
     id: "project-7116",
-    image: "../assets/site/7116_1.jpg",
+    image: image7116,
     title: "YALE YDM7116A",
   },
   {
     id: "project-7116_2",
-    image: "../assets/site/7116_3.jpg",
+    image: image7116_2,
     title: "YALE YDM7116A",
   },
   {
     id: "project-byyou-pro_2",
-    image: "../assets/site/byyou.HEIC",
+    image: imagebyyou_2,
     title: "YALE Byyou Pro",
   },
   {
     id: "project-luna-pro",
-    image: "../assets/site/luna.PNG",
+    image: imageluna,
     title: "YALE Luna Pro",
   },
   {
