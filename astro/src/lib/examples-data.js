@@ -3,7 +3,7 @@ import examplePhilipsBali from "../assets/site/example-philips-bali.jpg";
 import exampleR9Daan from "../assets/site/example-r9-daan.jpg";
 import image7116 from "../assets/site/7116_1.JPG";
 import image7116_2 from "../assets/site/7116_3.JPG";
-import imagebyyou_2 from "../assets/site/byyou.HEIC";
+import imagebyyou_2 from "../assets/site/byyou.jpg";
 import imageluna from "../assets/site/luna.PNG";
 
 export const exampleProjects = [
