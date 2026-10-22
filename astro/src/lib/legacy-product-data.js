@@ -407,28 +407,35 @@ window.ELECTRONIC_PRODUCTS = {
 };
 
 window.PRODUCT_INSTALLATION_EXAMPLES = {
+    'luna-pro':[
+    {
+        img: '/images/luna.PNG',
+        fit: "contain"
+    }
+    ],
     'ydm7116a': [
         {
             img: '/images/7116_1.JPG',
-            caption: 'YALE YDM7116A',
             fit: 'contain'
         },
         {
             img: '/images/7116_3.JPG',
-            caption: 'YALE YDM7116A',
             fit: 'contain'
         }
     ],
     'byyou-pro': [
         {
             img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou_安裝照.jpg',
-            caption: 'YALE byyou pro'
+            fit: 'contain'
+        },
+        {
+            img: "/images/byyou.jpg",
+            fit: "contain"
         }
     ],
     'ymf30a': [
         {
             img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF30A_ken.jpg',
-            caption: 'YALE YMF30A'
         }
     ],
     'cp-r9': [

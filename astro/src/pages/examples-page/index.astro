@@ -17,7 +17,7 @@ import { exampleProjects } from "../../lib/examples-data.js";
 
     <section class="gallery-grid">
       {exampleProjects.map((project) => (
-        <article class="gallery-item" id={project.id}>
+        <a class="gallery-item example-card-link" id={project.id} href={`/product/${project.productId}/`}>
           {typeof project.image === "string" ? (
             <img
               src={project.image}
@@ -40,7 +40,7 @@ import { exampleProjects } from "../../lib/examples-data.js";
             <strong>{project.title}</strong>
             <span>{project.caption}</span>
           </div>
-        </article>
+        </a>
       ))}
     </section>
 
