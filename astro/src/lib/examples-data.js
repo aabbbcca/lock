@@ -11,21 +11,25 @@ export const exampleProjects = [
     id: "project-7116",
     image: image7116,
     title: "YALE YDM7116A",
+    fit: "contain"
   },
   {
     id: "project-7116_2",
     image: image7116_2,
     title: "YALE YDM7116A",
+    fit: "contain"
   },
   {
     id: "project-byyou-pro_2",
     image: imagebyyou_2,
     title: "YALE Byyou Pro",
+    fit: "contain"
   },
   {
     id: "project-luna-pro",
     image: imageluna,
     title: "YALE Luna Pro",
+    fit: "contain"
   },
   {
     id: "project-r9-yonghe",
