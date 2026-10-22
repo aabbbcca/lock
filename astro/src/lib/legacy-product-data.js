@@ -14,7 +14,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/yale-luna-pro-plus-front-body-1.webp',
         tag: 'Yale 旗艦款',
         listPrice: 39800,
-        offerPrice: 29800,
+        offerPrice: 'NT$29,800 (含安裝)',
         desc: '偏心防夾手設計，霧面黑配香檳金/星空灰。極致安全與便利的頂級選擇。<br>支援 3D 人臉識別，靠近自動喚醒，完全解放雙手。',
         features: ['人臉辨識 / 指紋 / 卡片 / 密碼 / 鑰匙 ', '可另選購藍芽及遠端模組', '3D 人臉識別，靠近自動喚醒', '歐規鎖匣，結構堅固', '防夾手把手設計'],
 
@@ -31,15 +31,13 @@ window.ELECTRONIC_PRODUCTS = {
     'byyou-pro': {
         id: 'byyou-pro',
         brand: 'yale',
-        title: 'Yale ByYou Pro 指紋五合一',
-        detailTitle: 'Yale ByYou Pro 指紋五合一',
-        plainTitle: 'Yale ByYou Pro 指紋五合一',
+        title: 'Yale ByYou Pro HomeKit五合一',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/byyou.PNG',
-        tag: 'Yale 時尚款',
+        tag: 'HomeKit',
         listPrice: 30000,
-        offerPrice: 25500,
-        desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。<br>支援 Apple/Samsung Wallet 解鎖。<br>手機就是鑰匙，超方便!<br>時尚外型，搭配現代裝潢的最佳選擇。',
-        features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', '支援手機錢包解鎖'],
+        offerPrice: 'NT$25,500 (含安裝)',
+        desc: '多色把手自由選 (午夜黑/香檳金/冰晶銀)。<br>支援 Apple/Samsung Wallet 解鎖、Apple HomeKit。<br>手機就是鑰匙，超方便!<br>時尚外型，搭配現代裝潢的最佳選擇。',
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙 / 藍芽', '內建藍芽模組，手機就是鑰匙', '時尚外型，搭配現代裝潢', 'Apple HomeKit、蘋果手機直接感應解鎖'],
 
         detailImagesTitle: 'YALE ByYou Pro DM',
         detailImages: [
@@ -58,9 +56,9 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7116A.PNG',
         tag: 'Yale 經典款',
         listPrice: 30500,
-        offerPrice: '優惠價 NT$20,000 (含安裝)',
+        offerPrice: 'NT$20,000 (含安裝)',
         desc: '經典把手設計，長輩使用最習慣。<br>黑色跟玫瑰金可選，功能穩定耐用。<br><strong>嶄新指紋掃描器</strong><br>僅需要一個動作便可輕鬆完成讀取指紋，電容按壓式指紋模組，快速辨識，減少殘留指紋，大大降低指紋被複製的可能性安全可靠<br><strong>熱感應輕觸式數位鍵盤</strong><br>熱感輕觸式操作，以手掌觸碰開啟，有效避免指紋與密碼外泄<br><strong>虛位密碼</strong><br>在正確密碼的之前或之後輸入其他數字，防止被人窺竊密碼<br><strong>隱藏式機械鎖匙孔</strong><br>緊急情況下, 可以使用備用機械鎖匙<br><strong>藍芽模組 (加購)</strong><br>創新藍芽開鎖設計，輕鬆與你的手機連動<br><strong>語音提示</strong><br>獨具語音提示功能，無需說明書也可輕鬆完成設定<br><strong>安全把手</strong><br>門內把手上特有安全安鈕，安全隨心掌控<br<strong>>入侵/ 破壞警報功能</strong><br>當有人試圖破壞門鎖或強行開門時，門鎖自動發出警報聲響<br><strong>高安全性能</strong><br>抗電擊衝擊功能，採用高保安鎖芯<br><strong>緊急電源開啟</strong><br>當電池耗盡時，可於外部連接9V電池，作為緊急電源開鎖<br><strong>低電量顯示</strong><br>熱感輕觸式數位鍵盤能顯示操作狀態，如遇低電量等情況螢幕上均有提示',
-        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '語音導覽設定，操作簡單', '強制上鎖與入侵警報功能','藍芽模組 (加購)']
+        features: ['指紋 / 卡片 / 密碼 / 鑰匙', '語音導覽設定，操作簡單', '強制上鎖與入侵警報功能','藍芽、遠端模組 (加購)']
     },
     'ydm4109a': {
         id: 'ydm4109a',
@@ -69,29 +67,29 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM4109A.PNG',
         tag: 'Yale 智慧款',
         listPrice: 24800,
-        offerPrice: 16000,
+        offerPrice: 'NT$17,000 (含安裝)',
         desc: '三合一指紋密碼鑰匙。經典熱銷款升級，金色/黑色可選。斷層式指紋掃描，安全可靠。',
         features: ['指紋 / 密碼 / 鑰匙', '虛位密碼功能，防窺視', '可選配藍芽/遠端模組']
     },
     'ymf40a': {
         id: 'ymf40a',
         brand: 'yale',
-        title: 'Yale YMF40A 熱感應觸控',
+        title: 'Yale YMF40A 三合一電子鎖',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF40A.PNG',
-        tag: 'Yale 推拉款',
+        tag: 'Yale 基本指紋款',
         listPrice: 25800,
-        offerPrice: 17000,
+        offerPrice: 'NT$18,000 (含安裝)',
         desc: '三合一指紋密碼鑰匙。簡約黑色推拉式設計，美觀大方。',
         features: ['指紋 / 密碼 / 鑰匙', '熱感應觸控面板', '入侵/破壞警報功能']
     },
     'ymf30a': {
         id: 'ymf30a',
         brand: 'yale',
-        title: 'Yale YMF30A 卡片密碼鎖',
+        title: 'Yale YMF30A 三合一電子鎖',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YMF30A.PNG',
-        tag: 'Yale 卡片款',
+        tag: 'Yale 基本款',
         listPrice: 24800,
-        offerPrice: 16000,
+        offerPrice: 'NT$17,000 (含安裝)',
         desc: '三合一卡片密碼鑰匙。',
         features: ['卡片 / 密碼 / 鑰匙', '熱感應觸控面板', '美觀耐用']
     },
@@ -100,10 +98,10 @@ window.ELECTRONIC_PRODUCTS = {
         brand: 'yale',
         title: 'Yale YDM7216A 隱藏式指紋',
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/YDM7216A.PNG',
-        tag: 'Yale 升級款',
+        tag: 'Yale 指紋款',
         listPrice: 26800,
-        offerPrice: 18000,
-        desc: '隱藏式指紋感應。',
+        offerPrice: 'NT$19,000 (含安裝)',
+        desc: '隱藏式指紋感應。<br>黑色跟玫瑰金可選，功能穩定耐用。<br><strong>嶄新指紋掃描器</strong><br>僅需要一個動作便可輕鬆完成讀取指紋，電容按壓式指紋模組，快速辨識，減少殘留指紋，大大降低指紋被複製的可能性安全可靠<br><strong>熱感應輕觸式數位鍵盤</strong><br>熱感輕觸式操作，以手掌觸碰開啟，有效避免指紋與密碼外泄<br><strong>虛位密碼</strong><br>在正確密碼的之前或之後輸入其他數字，防止被人窺竊密碼<br><strong>隱藏式機械鎖匙孔</strong><br>緊急情況下, 可以使用備用機械鎖匙<br><strong>藍芽模組 (加購)</strong><br>創新藍芽開鎖設計，輕鬆與你的手機連動<br><strong>語音提示</strong><br>獨具語音提示功能，無需說明書也可輕鬆完成設定<br><strong>安全把手</strong><br>門內把手上特有安全安鈕，安全隨心掌控<br<strong>>入侵/ 破壞警報功能</strong><br>當有人試圖破壞門鎖或強行開門時，門鎖自動發出警報聲響<br><strong>高安全性能</strong><br>抗電擊衝擊功能，採用高保安鎖芯<br><strong>緊急電源開啟</strong><br>當電池耗盡時，可於外部連接9V電池，作為緊急電源開鎖<br><strong>低電量顯示</strong><br>熱感輕觸式數位鍵盤能顯示操作狀態，如遇低電量等情況螢幕上均有提示',
         features: ['指紋 / 卡片 / 密碼 / 鑰匙', '隱藏式指紋感應', '語音導覽設定']
     },
     'cp-r1': {
@@ -272,7 +270,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L396.PNG',
         tag: 'Waferlock 指紋款',
         listPrice: null,
-        offerPrice: '請洽詢',
+        offerPrice: 'NT$20,000 (含基本安裝)',
         desc: '4合1把手式 (指紋/卡片/密碼/鑰匙)。',
         features: ['指紋 / 卡片 / 密碼 / 鑰匙']
     },
@@ -283,7 +281,7 @@ window.ELECTRONIC_PRODUCTS = {
         img: 'https://raw.githubusercontent.com/aabbbcca/lock/main/images/L376.PNG',
         tag: 'Waferlock 基本款',
         listPrice: null,
-        offerPrice: '請洽詢',
+        offerPrice: 'NT$17,000 (含基本安裝)',
         desc: '基本款3合1把手式 (卡片/密碼/鑰匙)。',
         features: ['卡片 / 密碼 / 鑰匙']
     },

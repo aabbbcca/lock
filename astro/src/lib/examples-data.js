@@ -64,5 +64,16 @@ export const exampleProjects = [
     id: "project-570S",
     image: "https://raw.githubusercontent.com/aabbbcca/lock/main/images/570s_amy.jpg",
     title: "美樂 Milre MDL-570S",
+  },
+  {
+    id: "project-7116",
+    image: "../assets/site/7116_1.jpg",
+    title: "YALE YDM7116A",
+  },
+  {
+    id: "project-7116_2",
+    image: "../assets/site/7116_3.jpg",
+    title: "YALE YDM7116A",
   }
+
 ];
